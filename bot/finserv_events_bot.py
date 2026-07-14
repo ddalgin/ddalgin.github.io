@@ -141,6 +141,7 @@ NEGATIVE_WEIGHTS = {
     "tax prep": -4,
     "mlm": -6,
     "network marketing": -6,
+    "quantum": -3,  # counteract the 'quant' substring match
     "grant writing": -4,
     "notary": -6,
 }
