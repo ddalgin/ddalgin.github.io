@@ -151,6 +151,81 @@ class GarysGuideTest(unittest.TestCase):
         self.assertEqual(panel.price_min, 40.0)
 
 
+LUMA_FIXTURE = json.dumps({
+    "slug": "nyc",
+    "scope": "place",
+    "has_more": False,
+    "next_cursor": None,
+    "events": [
+        {
+            "api_id": "evt-1",
+            "name": "NYC Fintech & Payments Founders Mixer",
+            "url": "https://lu.ma/fintech-mixer",
+            "start_at": f"{FUTURE}T22:00:00.000Z",
+            "location_type": "offline",
+            "city": "New York, NY",
+            "ticket_info": {"is_free": True},
+        },
+        {
+            "api_id": "evt-2",
+            "name": "Online AI Webinar",
+            "url": "https://lu.ma/webinar",
+            "start_at": f"{FUTURE}T22:00:00.000Z",
+            "location_type": "online",
+        },
+        {
+            "event": {
+                "api_id": "evt-3",
+                "name": "Banking Infrastructure Happy Hour",
+                "url": "bank-hh",
+                "start_at": f"{FUTURE}T21:00:00.000Z",
+                "location_type": "offline",
+                "ticket_info": {"is_free": False, "price": {"cents": 1500}},
+            }
+        },
+    ],
+})
+
+
+class LumaTest(unittest.TestCase):
+    def test_parses_events_skips_online(self):
+        orig = bot.fetch
+        bot.fetch = lambda url, timeout=25: LUMA_FIXTURE
+        try:
+            events, statuses = bot.source_luma(
+                "New York City", {"luma_slugs": ["nyc"]}, 75)
+        finally:
+            bot.fetch = orig
+        self.assertEqual(len(events), 2)  # online event skipped
+        mixer = next(e for e in events if "Mixer" in e.title)
+        self.assertTrue(mixer.is_free)
+        self.assertEqual(mixer.start, FUTURE)
+        hh = next(e for e in events if "Happy Hour" in e.title)
+        self.assertEqual(hh.price_min, 15.0)
+        self.assertEqual(hh.url, "https://lu.ma/bank-hh")
+        self.assertTrue(all(s.ok for s in statuses))
+
+    def test_bad_slug_falls_through(self):
+        calls = []
+
+        def fake_fetch(url, timeout=25):
+            calls.append(url)
+            if "slug=bad" in url:
+                raise ValueError("HTTP 404")
+            return LUMA_FIXTURE
+
+        orig = bot.fetch
+        bot.fetch = fake_fetch
+        try:
+            events, statuses = bot.source_luma(
+                "Washington DC", {"luma_slugs": ["bad", "dc"]}, 75)
+        finally:
+            bot.fetch = orig
+        self.assertEqual(len(events), 2)
+        self.assertEqual(len(statuses), 2)  # one failure, one success
+        self.assertTrue(statuses[1].ok)
+
+
 class ScoringFilterTest(unittest.TestCase):
     def test_finserv_event_scores_high(self):
         score, matched = bot.score_event(

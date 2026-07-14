@@ -14,6 +14,10 @@ on:
         description: "Look-ahead window (days)"
         required: false
         default: "75"
+      debug:
+        description: "Upload fetched page bodies as an artifact"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -38,6 +42,15 @@ jobs:
           --out-dir events
           --max-price ${{ github.event.inputs.max_price || '150' }}
           --days ${{ github.event.inputs.days || '75' }}
+          ${{ github.event.inputs.debug == 'true' && '--debug-dump debug-pages' || '' }}
+
+      - name: Upload debug page dumps
+        if: github.event.inputs.debug == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-pages
+          path: debug-pages/
+          if-no-files-found: warn
 
       - name: Commit and push results
         run: |

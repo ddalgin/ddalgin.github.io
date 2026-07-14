@@ -40,19 +40,23 @@ CITIES = {
     "Washington DC": {
         "eventbrite_slug": "dc--washington",
         "tentimes_slug": "washington-us",
+        "luma_slugs": ["dc", "washington-dc"],
     },
     "New York City": {
         "eventbrite_slug": "ny--new-york",
         "tentimes_slug": "newyork-us",
+        "luma_slugs": ["nyc", "new-york"],
         "garysguide": True,  # Gary's Guide covers NYC only
     },
     "Philadelphia": {
         "eventbrite_slug": "pa--philadelphia",
         "tentimes_slug": "philadelphia-us",
+        "luma_slugs": ["philadelphia", "philly"],
     },
     "Boston": {
         "eventbrite_slug": "ma--boston",
         "tentimes_slug": "boston-us",
+        "luma_slugs": ["boston"],
     },
 }
 
@@ -165,6 +169,11 @@ class SourceStatus:
     found: int = 0
 
 
+# When set (via --debug-dump), every fetched body is saved here so a CI run
+# can expose real page markup as a workflow artifact.
+DEBUG_DUMP_DIR: Path | None = None
+
+
 def fetch(url: str, timeout: int = 25) -> str:
     """GET a URL with browser-ish headers; returns decoded body text."""
     req = urllib.request.Request(
@@ -181,7 +190,12 @@ def fetch(url: str, timeout: int = 25) -> str:
         if resp.headers.get("Content-Encoding") == "gzip" or raw[:2] == b"\x1f\x8b":
             raw = gzip.GzipFile(fileobj=io.BytesIO(raw)).read()
         charset = resp.headers.get_content_charset() or "utf-8"
-        return raw.decode(charset, errors="replace")
+        body = raw.decode(charset, errors="replace")
+    if DEBUG_DUMP_DIR is not None:
+        DEBUG_DUMP_DIR.mkdir(parents=True, exist_ok=True)
+        name = re.sub(r"[^A-Za-z0-9._-]+", "_", url)[:150]
+        (DEBUG_DUMP_DIR / f"{name}.txt").write_text(body, "utf-8")
+    return body
 
 
 def clean_text(s: str) -> str:
@@ -338,7 +352,7 @@ def source_tentimes(city: str, cfg: dict, days: int) -> tuple[list[Event], list[
     slug = cfg.get("tentimes_slug")
     if not slug:
         return events, statuses
-    url = f"https://10times.com/{slug}/banking-finance"
+    url = f"https://10times.com/{slug}/finance"
     try:
         nodes = extract_jsonld_events(fetch(url))
         for node in nodes:
@@ -424,7 +438,74 @@ def source_garysguide(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
     return events, statuses
 
 
-SOURCES = (source_eventbrite, source_tentimes, source_garysguide)
+def source_luma(city: str, cfg: dict, days: int) -> tuple[list[Event], list[SourceStatus]]:
+    """Luma (lu.ma) city discover feed - public JSON API, no key needed.
+
+    GET api.lu.ma/discover/get-paginated-events?slug={city}&pagination_limit=50
+    returns {events: [...], has_more, next_cursor}; follow the cursor for a
+    few pages. Fintech/VC meetups are heavily hosted on Luma.
+    """
+    events, statuses = [], []
+    slugs = cfg.get("luma_slugs") or []
+    if not slugs:
+        return events, statuses
+    for slug in slugs:
+        found_here = 0
+        try:
+            cursor = None
+            for _page in range(5):
+                params = {"slug": slug, "pagination_limit": "50"}
+                if cursor:
+                    params["cursor"] = cursor
+                url = ("https://api.lu.ma/discover/get-paginated-events?"
+                       + urllib.parse.urlencode(params))
+                data = json.loads(fetch(url))
+                page_events = data.get("events") or data.get("entries") or []
+                for node in page_events:
+                    ev = node.get("event", node) if isinstance(node, dict) else {}
+                    if ev.get("location_type") not in (None, "offline"):
+                        continue  # skip online-only
+                    ticket = ev.get("ticket_info") or {}
+                    price = None
+                    is_free = ticket.get("is_free")
+                    price_obj = ticket.get("price")
+                    if isinstance(price_obj, dict) and "cents" in price_obj:
+                        price = price_obj["cents"] / 100.0
+                    elif is_free:
+                        price = 0.0
+                    ev_url = ev.get("url", "")
+                    if ev_url and not ev_url.startswith("http"):
+                        ev_url = f"https://lu.ma/{ev_url}"
+                    events.append(
+                        Event(
+                            title=clean_text(ev.get("name", "")),
+                            url=ev_url,
+                            start=parse_date_any(str(ev.get("start_at", ""))),
+                            city=city,
+                            source="luma",
+                            venue=clean_text(str(ev.get("city", "") or "")),
+                            description=clean_text(str(
+                                ev.get("description_short", "")
+                                or ev.get("description", "") or "")),
+                            price_min=price,
+                            is_free=is_free,
+                        )
+                    )
+                    found_here += 1
+                cursor = data.get("next_cursor")
+                if not data.get("has_more") or not cursor:
+                    break
+            statuses.append(SourceStatus("luma", city, True,
+                                         f"slug '{slug}'", found_here))
+            break  # first slug that works wins
+        except Exception as exc:  # noqa: BLE001
+            statuses.append(SourceStatus("luma", city, False,
+                                         f"slug '{slug}': {type(exc).__name__}: {exc}"))
+            continue  # try the next slug
+    return events, statuses
+
+
+SOURCES = (source_eventbrite, source_tentimes, source_garysguide, source_luma)
 
 # -------------------------------------------------------------- pipeline ---
 
@@ -637,7 +718,14 @@ def main(argv: list[str] | None = None) -> int:
                     help="relevance score threshold (default 2)")
     ap.add_argument("--out-dir", default="events",
                     help="output directory (default ./events)")
+    ap.add_argument("--debug-dump", default="",
+                    help="directory to dump every fetched page body into "
+                         "(for diagnosing parsers against live markup)")
     args = ap.parse_args(argv)
+
+    if args.debug_dump:
+        global DEBUG_DUMP_DIR
+        DEBUG_DUMP_DIR = Path(args.debug_dump)
 
     raw, statuses = collect(args.days)
     events = filter_events(raw, args.max_price, args.days, args.min_score)
