@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T18:45:19+00:00",
+  "generated_at": "2026-07-14T18:50:50+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -37,9 +37,16 @@
     {
       "source": "10times",
       "city": "Washington DC",
-      "ok": false,
-      "detail": "HTTPError: HTTP Error 404: Not Found",
-      "found": 0
+      "ok": true,
+      "detail": "",
+      "found": 10
+    },
+    {
+      "source": "luma",
+      "city": "Washington DC",
+      "ok": true,
+      "detail": "slug 'dc'",
+      "found": 29
     },
     {
       "source": "eventbrite",
@@ -72,9 +79,9 @@
     {
       "source": "10times",
       "city": "New York City",
-      "ok": false,
-      "detail": "HTTPError: HTTP Error 404: Not Found",
-      "found": 0
+      "ok": true,
+      "detail": "",
+      "found": 10
     },
     {
       "source": "garysguide",
@@ -84,6 +91,13 @@
       "found": 0
     },
     {
+      "source": "luma",
+      "city": "New York City",
+      "ok": true,
+      "detail": "slug 'nyc'",
+      "found": 250
+    },
+    {
       "source": "eventbrite",
       "city": "Philadelphia",
       "ok": false,
@@ -114,9 +128,16 @@
     {
       "source": "10times",
       "city": "Philadelphia",
-      "ok": false,
-      "detail": "HTTPError: HTTP Error 404: Not Found",
-      "found": 0
+      "ok": true,
+      "detail": "",
+      "found": 10
+    },
+    {
+      "source": "luma",
+      "city": "Philadelphia",
+      "ok": true,
+      "detail": "slug 'philadelphia'",
+      "found": 23
     },
     {
       "source": "eventbrite",
@@ -149,10 +170,93 @@
     {
       "source": "10times",
       "city": "Boston",
-      "ok": false,
-      "detail": "HTTPError: HTTP Error 404: Not Found",
-      "found": 0
+      "ok": true,
+      "detail": "",
+      "found": 10
+    },
+    {
+      "source": "luma",
+      "city": "Boston",
+      "ok": true,
+      "detail": "slug 'boston'",
+      "found": 34
     }
   ],
-  "events": []
+  "events": [
+    {
+      "title": "Portfolio Risk Management",
+      "url": "https://10times.com/e1ds-x0fz-9k5k-4",
+      "start": "2026-07-15",
+      "city": "New York City",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "risk management"
+      ]
+    },
+    {
+      "title": "The New Institutional Standard for Onchain Finance",
+      "url": "https://10times.com/e1gd-523s-d8ph-p-new-institutional-standard-onchain-finance",
+      "start": "2026-07-16",
+      "city": "Washington DC",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Annual Municipal Finance Conference",
+      "url": "https://10times.com/e1zp-44zp-24zr",
+      "start": "2026-07-21",
+      "city": "Washington DC",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "The Capital Markets Summit",
+      "url": "https://10times.com/e1g5-759d-kshf-h-capital-markets-summit",
+      "start": "2026-08-04",
+      "city": "New York City",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 5,
+      "matched": [
+        "capital markets"
+      ]
+    },
+    {
+      "title": "Finance and Electric Committee",
+      "url": "https://10times.com/e1gd-hx17-xh35-r-finance-electric-committee",
+      "start": "2026-08-13",
+      "city": "Philadelphia",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "finance"
+      ]
+    }
+  ]
 }
