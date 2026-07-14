@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T19:04:21+00:00",
+  "generated_at": "2026-07-14T19:06:30+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -211,36 +211,6 @@
       "score": 2,
       "matched": [
         "risk management"
-      ]
-    },
-    {
-      "title": "Quantum Frontiers & Responsible AI - Global Dialogue On Emerging Tech",
-      "url": "https://www.garysguide.com/events/0xlig44/Quantum-Frontiers-Responsible-AI-Global-Dialogue-On-Emerging-Tech",
-      "start": "2026-07-15",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 2,
-      "matched": [
-        "quant"
-      ]
-    },
-    {
-      "title": "Quantum Computing Meetup",
-      "url": "https://www.garysguide.com/events/6a2atst/Quantum-Computing-Meetup",
-      "start": "2026-07-15",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 2,
-      "matched": [
-        "quant"
       ]
     },
     {
