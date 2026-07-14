@@ -104,6 +104,14 @@ KEYWORD_WEIGHTS = {
     "blockchain": 1,
     "crypto": 1,
     "digital assets": 2,
+    "stablecoin": 3,
+    "onchain": 2,
+    "defi": 2,
+    "money20/20": 4,
+    "money 20/20": 4,
+    " vc ": 2,
+    "angel investor": 2,
+    "financial technology": 4,
     "networking": 1,
     "summit": 1,
     "conference": 1,
@@ -459,6 +467,8 @@ def source_luma(city: str, cfg: dict, days: int) -> tuple[list[Event], list[Sour
             for _page in range(5):
                 params = {"slug": slug, "pagination_limit": "50"}
                 if cursor:
+                    # the web app sends pagination_cursor; keep cursor too
+                    params["pagination_cursor"] = cursor
                     params["cursor"] = cursor
                 url = ("https://api.lu.ma/discover/get-paginated-events?"
                        + urllib.parse.urlencode(params))

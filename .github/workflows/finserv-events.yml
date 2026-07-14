@@ -71,6 +71,19 @@ jobs:
                                 json.dumps(evs[0], indent=1)[:2500])
                   except Exception as e:
                       print("json parse failed:", e)
+              elif "garysguide" in p.name:
+                  hits = [m for m in re.finditer(
+                      r'href="[^"]*/events/[a-z0-9]{4,}/[^"]+"', body)
+                      if "newsletter" not in m.group(0)][:3]
+                  if not hits:
+                      hits = list(re.finditer(r"ftitle", body))[:3]
+                  if not hits:
+                      print("no event-anchor or ftitle matches; head:")
+                      print(body[:1500])
+                  for m in hits:
+                      s = max(0, m.start() - 600)
+                      print(f"--- window @ {m.start()} ---")
+                      print(body[s:m.start() + 900])
               else:
                   m = re.search(r"/events?/", body)
                   if m:
