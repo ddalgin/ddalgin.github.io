@@ -1,0 +1,52 @@
+name: FinServ Events Bot
+
+on:
+  schedule:
+    # Mondays and Thursdays at 12:00 UTC (~7/8am ET)
+    - cron: "0 12 * * 1,4"
+  workflow_dispatch:
+    inputs:
+      max_price:
+        description: "Max minimum-ticket price (USD)"
+        required: false
+        default: "150"
+      days:
+        description: "Look-ahead window (days)"
+        required: false
+        default: "75"
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run parser tests
+        run: python test_parsers.py
+        working-directory: bot
+
+      - name: Scan for events
+        run: >
+          python bot/finserv_events_bot.py
+          --out-dir events
+          --max-price ${{ github.event.inputs.max_price || '150' }}
+          --days ${{ github.event.inputs.days || '75' }}
+
+      - name: Commit and push results
+        run: |
+          git config user.name "finserv-events-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add events/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update FinServ events digest ($(date -u +%Y-%m-%d))"
+            git push
+          fi
