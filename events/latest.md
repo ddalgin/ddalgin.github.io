@@ -1,15 +1,17 @@
 # FinServ Events Digest
 
-_Generated 2026-07-14 18:56 UTC · window: next 75 days · max ticket $150_
+_Generated 2026-07-14 19:00 UTC · window: next 75 days · max ticket $150_
 
 ## Washington DC (2)
 
 - **2026-07-16** · [The New Institutional Standard for Onchain Finance](https://10times.com/e1gd-523s-d8ph-p-new-institutional-standard-onchain-finance) — price unlisted _(10times)_
 - **2026-07-21** · [Annual Municipal Finance Conference](https://10times.com/e1zp-44zp-24zr) — price unlisted _(10times)_
 
-## New York City (2)
+## New York City (4)
 
+- **2026-07-15** · [Money20/20 Summer Rooftop Happy Hour](https://lu.ma/nnsc7ueg) — price unlisted _(luma)_
 - **2026-07-15** · [Portfolio Risk Management](https://10times.com/e1ds-x0fz-9k5k-4) — price unlisted _(10times)_
+- **2026-07-28** · [Fintech Run Club ft. Rain and Monk + Coffee on JP Morgan](https://lu.ma/003139e8) — price unlisted _(luma)_
 - **2026-08-04** · [The Capital Markets Summit](https://10times.com/e1g5-759d-kshf-h-capital-markets-summit) — price unlisted _(10times)_
 
 ## Philadelphia (1)

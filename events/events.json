@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T18:56:40+00:00",
+  "generated_at": "2026-07-14T19:00:42+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -95,7 +95,7 @@
       "city": "New York City",
       "ok": true,
       "detail": "slug 'nyc'",
-      "found": 250
+      "found": 73
     },
     {
       "source": "eventbrite",
@@ -184,6 +184,21 @@
   ],
   "events": [
     {
+      "title": "Money20/20 Summer Rooftop Happy Hour",
+      "url": "https://lu.ma/nnsc7ueg",
+      "start": "2026-07-15",
+      "city": "New York City",
+      "source": "luma",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 5,
+      "matched": [
+        "money20/20"
+      ]
+    },
+    {
       "title": "Portfolio Risk Management",
       "url": "https://10times.com/e1ds-x0fz-9k5k-4",
       "start": "2026-07-15",
@@ -208,9 +223,10 @@
       "description": "",
       "price_min": null,
       "is_free": null,
-      "score": 2,
+      "score": 4,
       "matched": [
-        "finance"
+        "finance",
+        "onchain"
       ]
     },
     {
@@ -226,6 +242,21 @@
       "score": 3,
       "matched": [
         "finance"
+      ]
+    },
+    {
+      "title": "Fintech Run Club ft. Rain and Monk + Coffee on JP Morgan",
+      "url": "https://lu.ma/003139e8",
+      "start": "2026-07-28",
+      "city": "New York City",
+      "source": "luma",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 4,
+      "matched": [
+        "fintech"
       ]
     },
     {
