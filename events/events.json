@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T19:00:42+00:00",
+  "generated_at": "2026-07-14T19:04:21+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -88,14 +88,14 @@
       "city": "New York City",
       "ok": true,
       "detail": "",
-      "found": 0
+      "found": 108
     },
     {
       "source": "luma",
       "city": "New York City",
       "ok": true,
       "detail": "slug 'nyc'",
-      "found": 73
+      "found": 81
     },
     {
       "source": "eventbrite",
@@ -214,6 +214,36 @@
       ]
     },
     {
+      "title": "Quantum Frontiers & Responsible AI - Global Dialogue On Emerging Tech",
+      "url": "https://www.garysguide.com/events/0xlig44/Quantum-Frontiers-Responsible-AI-Global-Dialogue-On-Emerging-Tech",
+      "start": "2026-07-15",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 2,
+      "matched": [
+        "quant"
+      ]
+    },
+    {
+      "title": "Quantum Computing Meetup",
+      "url": "https://www.garysguide.com/events/6a2atst/Quantum-Computing-Meetup",
+      "start": "2026-07-15",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 2,
+      "matched": [
+        "quant"
+      ]
+    },
+    {
       "title": "The New Institutional Standard for Onchain Finance",
       "url": "https://10times.com/e1gd-523s-d8ph-p-new-institutional-standard-onchain-finance",
       "start": "2026-07-16",
@@ -245,6 +275,64 @@
       ]
     },
     {
+      "title": "AI-Native FinTech Happy Hour",
+      "url": "https://www.garysguide.com/events/w1e4tl7/AI-Native-FinTech-Happy-Hour",
+      "start": "2026-07-22",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 5,
+      "matched": [
+        "fintech"
+      ]
+    },
+    {
+      "title": "Startup Founders, Investors & Talent Mixer",
+      "url": "https://www.garysguide.com/events/8vrefsf/Startup-Founders-Investors-Talent-Mixer",
+      "start": "2026-07-22",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Setting The Standard - How AI Redefining Excellence Across Industries",
+      "url": "https://www.garysguide.com/events/r8tumxg/Setting-The-Standard-How-AI-Redefining-Excellence-Across-Industries",
+      "start": "2026-07-23",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 15.0,
+      "is_free": false,
+      "score": 2,
+      "matched": [
+        "defi"
+      ]
+    },
+    {
+      "title": "Fintech Run Club",
+      "url": "https://www.garysguide.com/events/wnubfa0/Fintech-Run-Club",
+      "start": "2026-07-28",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 4,
+      "matched": [
+        "fintech"
+      ]
+    },
+    {
       "title": "Fintech Run Club ft. Rain and Monk + Coffee on JP Morgan",
       "url": "https://lu.ma/003139e8",
       "start": "2026-07-28",
@@ -260,6 +348,51 @@
       ]
     },
     {
+      "title": "NYC FDE x Private Equity Summer Soir\u00e9e",
+      "url": "https://lu.ma/ol4eu13j",
+      "start": "2026-07-28",
+      "city": "New York City",
+      "source": "luma",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "private equity"
+      ]
+    },
+    {
+      "title": "Leaders In Product - Fintech Insights",
+      "url": "https://www.garysguide.com/events/4apadtj/Leaders-In-Product-Fintech-Insights",
+      "start": "2026-07-29",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 45.0,
+      "is_free": false,
+      "score": 4,
+      "matched": [
+        "fintech"
+      ]
+    },
+    {
+      "title": "Alternative Investments Summer On The Hudson",
+      "url": "https://www.garysguide.com/events/oteemln/Alternative-Investments-Summer-On-The-Hudson",
+      "start": "2026-07-29",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 2,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
       "title": "The Capital Markets Summit",
       "url": "https://10times.com/e1g5-759d-kshf-h-capital-markets-summit",
       "start": "2026-08-04",
@@ -272,6 +405,21 @@
       "score": 5,
       "matched": [
         "capital markets"
+      ]
+    },
+    {
+      "title": "The Dollar Just Got An API - Stablecoin Use Cases For Business",
+      "url": "https://www.garysguide.com/events/5sv38nb/The-Dollar-Just-Got-An-API-Stablecoin-Use-Cases-For-Business",
+      "start": "2026-08-13",
+      "city": "New York City",
+      "source": "garysguide",
+      "venue": "",
+      "description": "",
+      "price_min": 0.0,
+      "is_free": true,
+      "score": 3,
+      "matched": [
+        "stablecoin"
       ]
     },
     {
