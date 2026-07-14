@@ -1,0 +1,158 @@
+{
+  "generated_at": "2026-07-14T16:51:17+00:00",
+  "meta": {
+    "max_price": 150.0,
+    "days": 75,
+    "min_score": 2
+  },
+  "sources": [
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "10times",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 404: Not Found",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "10times",
+      "city": "New York City",
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 404: Not Found",
+      "found": 0
+    },
+    {
+      "source": "garysguide",
+      "city": "New York City",
+      "ok": true,
+      "detail": "",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "10times",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 404: Not Found",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "10times",
+      "city": "Boston",
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 404: Not Found",
+      "found": 0
+    }
+  ],
+  "events": []
+}

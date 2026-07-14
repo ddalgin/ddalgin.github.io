@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FinServ Events — DC · NYC · Philly · Boston</title>
+<style>
+  :root { --bg:#f7f7fb; --card:#fff; --ink:#1c1e26; --muted:#6b7280;
+           --accent:#4f46e5; --free:#047857; --line:#e5e7eb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#121319; --card:#1c1e28; --ink:#e7e8ee; --muted:#9aa0ae;
+             --accent:#8b85f4; --free:#34d399; --line:#2a2d3a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;
+         background:var(--bg); color:var(--ink); padding:2rem 1rem 4rem; }
+  main { max-width:860px; margin:0 auto; }
+  h1 { font-size:1.6rem; margin:0 0 .25rem; }
+  .sub { color:var(--muted); font-size:.9rem; margin-bottom:2rem; }
+  section { background:var(--card); border:1px solid var(--line);
+            border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.5rem; }
+  h2 { font-size:1.1rem; margin:.25rem 0 .75rem; }
+  .count { color:var(--muted); font-weight:normal; font-size:.9rem; }
+  ul { list-style:none; margin:0; padding:0; }
+  .event { display:flex; gap:1rem; padding:.6rem 0; border-top:1px solid var(--line);
+           align-items:baseline; }
+  .when { flex:0 0 6.2rem; font-variant-numeric:tabular-nums; color:var(--muted);
+          font-size:.9rem; }
+  .what { flex:1; min-width:0; }
+  .what a { color:var(--accent); text-decoration:none; font-weight:600; }
+  .what a:hover { text-decoration:underline; }
+  .meta { color:var(--muted); font-size:.82rem; margin-top:.15rem; }
+  .src { margin-left:.5rem; font-style:italic; }
+  .tag { display:inline-block; margin-left:.4rem; padding:0 .4rem;
+         border:1px solid var(--line); border-radius:999px; font-size:.72rem; }
+  .price { flex:0 0 auto; font-size:.82rem; font-weight:700; }
+  .price.free { color:var(--free); }
+  .price.unknown { color:var(--muted); font-weight:400; }
+  .empty { color:var(--muted); padding:.5rem 0; }
+  .issues { color:var(--muted); font-size:.85rem; }
+  footer { color:var(--muted); font-size:.8rem; margin-top:2rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Financial Services Events</h1>
+  <div class="sub">DC · NYC · Philly · Boston — next 75 days,
+    tickets up to $150. Updated 2026-07-14 16:51 UTC.
+    <a href="events.json">JSON</a> · <a href="latest.md">Markdown</a></div>
+
+    <section>
+      <h2>Washington DC <span class="count">0</span></h2>
+      <ul><li class='empty'>No qualifying events found this run.</li></ul>
+    </section>
+    <section>
+      <h2>New York City <span class="count">0</span></h2>
+      <ul><li class='empty'>No qualifying events found this run.</li></ul>
+    </section>
+    <section>
+      <h2>Philadelphia <span class="count">0</span></h2>
+      <ul><li class='empty'>No qualifying events found this run.</li></ul>
+    </section>
+    <section>
+      <h2>Boston <span class="count">0</span></h2>
+      <ul><li class='empty'>No qualifying events found this run.</li></ul>
+    </section>
+
+    <details class="issues"><summary>20 source fetch issue(s) this run</summary>
+      <ul><li><code>eventbrite</code> / Washington DC: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Washington DC: HTTPError: HTTP Error 404: Not Found</li><li><code>eventbrite</code> / New York City: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / New York City: HTTPError: HTTP Error 404: Not Found</li><li><code>eventbrite</code> / Philadelphia: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Philadelphia: HTTPError: HTTP Error 404: Not Found</li><li><code>eventbrite</code> / Boston: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Boston: HTTPError: HTTP Error 404: Not Found</li></ul>
+    </details>
+  <footer>Auto-generated by finserv_events_bot.py. Listings come from public
+  sources (Eventbrite, 10times, Gary's Guide); always confirm details on the
+  event page.</footer>
+</main>
+</body>
+</html>
