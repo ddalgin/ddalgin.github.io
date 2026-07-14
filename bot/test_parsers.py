@@ -68,7 +68,7 @@ GARYSGUIDE_FIXTURE = f"""
 <html><body><table>
 <tr><td><b>Mon, {(date.today() + timedelta(days=14)).strftime('%b %d').replace(' 0', ' ')}</b></td></tr>
 <tr><td>
- <a href="https://www.garysguide.com/events/abc123/Fintech-Founders-Happy-Hour" class="ftitle">Fintech Founders Happy Hour</a>
+ <a href="/events/abc123/Fintech-Founders-Happy-Hour" class="ftitle">Fintech Founders Happy Hour</a>
  <span>FREE</span>
 </td></tr>
 <tr><td>

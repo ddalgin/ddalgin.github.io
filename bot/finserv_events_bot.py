@@ -394,8 +394,11 @@ def source_garysguide(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
         # Anchors to individual event pages carry the title; a date header
         # like "Mon, Jul 14" precedes each day's block; FREE/$NN appears in
         # the same row chunk as the anchor.
+        # hrefs are relative (/events/{id}/{slug}); skip utility links like
+        # /events/newsletter/...
         anchor_re = re.compile(
-            r'<a[^>]+href="(https?://(?:www\.)?garysguide\.com/events/[^"]+)"[^>]*>(.*?)</a>',
+            r'<a[^>]+href="(?:https?://(?:www\.)?garysguide\.com)?'
+            r'(/events/[a-z0-9]+/[^"]+)"[^>]*>(.*?)</a>',
             re.IGNORECASE | re.DOTALL,
         )
         date_re = re.compile(r"[A-Z][a-z]{2},\s+([A-Z][a-z]{2}\s+\d{1,2})")
@@ -423,7 +426,7 @@ def source_garysguide(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
             events.append(
                 Event(
                     title=title,
-                    url=m.group(1),
+                    url=urllib.parse.urljoin("https://www.garysguide.com/", m.group(1)),
                     start=start,
                     city=city,
                     source="garysguide",
@@ -728,6 +731,14 @@ def main(argv: list[str] | None = None) -> int:
         DEBUG_DUMP_DIR = Path(args.debug_dump)
 
     raw, statuses = collect(args.days)
+
+    if DEBUG_DUMP_DIR is not None:
+        print(f"--- raw events before filtering ({len(raw)}) ---")
+        for ev in raw[:400]:
+            sc, _ = score_event(ev.title, ev.description)
+            print(f"  {ev.city[:12]:<12} {ev.source:<10} {ev.start or '????-??-??'} "
+                  f"score={sc:<3} price={ev.price_min} | {ev.title[:70]}")
+
     events = filter_events(raw, args.max_price, args.days, args.min_score)
 
     out = Path(args.out_dir)

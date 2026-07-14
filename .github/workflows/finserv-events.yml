@@ -64,7 +64,7 @@ jobs:
               if body.lstrip().startswith("{"):
                   try:
                       data = json.loads(body)
-                      evs = data.get("events") or []
+                      evs = data.get("events") or data.get("entries") or []
                       print("top-level keys:", sorted(data.keys()))
                       if evs:
                           print("first entry:",
