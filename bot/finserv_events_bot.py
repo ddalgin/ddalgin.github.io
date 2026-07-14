@@ -399,35 +399,34 @@ def source_garysguide(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
     url = "https://www.garysguide.com/events"
     try:
         body = fetch(url)
-        # Anchors to individual event pages carry the title; a date header
-        # like "Mon, Jul 14" precedes each day's block; FREE/$NN appears in
-        # the same row chunk as the anchor.
-        # hrefs are relative (/events/{id}/{slug}); skip utility links like
-        # /events/newsletter/...
+        # Rows look like (attributes are single-quoted):
+        #   <td ...><b>Jul 13</b><br/>5:00pm</td> ... <td ...>Free<br/></td>
+        #   ... <font class='ftitle'><a alt='...' href='https://www.garys
+        #   guide.com/events/058i8k1/Slug'><b>Title</b></a>
         anchor_re = re.compile(
-            r'<a[^>]+href="(?:https?://(?:www\.)?garysguide\.com)?'
-            r'(/events/[a-z0-9]+/[^"]+)"[^>]*>(.*?)</a>',
+            r"""<a[^>]+href=['"](?:https?://(?:www\.)?garysguide\.com)?"""
+            r"""(/events/[a-z0-9]{4,}/[^'"]+)['"][^>]*>(.*?)</a>""",
             re.IGNORECASE | re.DOTALL,
         )
-        date_re = re.compile(r"[A-Z][a-z]{2},\s+([A-Z][a-z]{2}\s+\d{1,2})")
-        matches = list(anchor_re.finditer(body))
-        for i, m in enumerate(matches):
+        # per-row date cell, e.g. <b>Jul 13</b><br/>5:00pm
+        date_re = re.compile(r"<b>([A-Z][a-z]{2}\s+\d{1,2})</b>")
+        for m in anchor_re.finditer(body):
             title = clean_text(re.sub(r"<[^>]+>", " ", m.group(2)))
             if not title or len(title) < 4:
                 continue
             preceding = body[: m.start()]
             dm = None
             for dm in date_re.finditer(preceding):
-                pass  # keep last date header before this anchor
+                pass  # keep the last date cell before this anchor
             start = parse_date_any(dm.group(1)) if dm else ""
-            chunk_end = matches[i + 1].start() if i + 1 < len(matches) else m.end() + 600
-            chunk = body[m.start(): chunk_end]
+            # the price cell sits between that date cell and the title anchor
+            row = preceding[dm.end():] if dm else preceding[-400:]
             price = None
             is_free = None
-            if re.search(r"\bFREE\b", chunk):
+            if re.search(r">\s*Free\s*<", row, re.IGNORECASE):
                 price, is_free = 0.0, True
             else:
-                pm = re.search(r"\$\s*(\d[\d,]*)", chunk)
+                pm = re.search(r"\$\s*(\d[\d,]*)", row)
                 if pm:
                     price = parse_price(pm.group(1))
                     is_free = price == 0

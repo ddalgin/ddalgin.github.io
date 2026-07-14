@@ -64,17 +64,16 @@ JSONLD_FIXTURE = f"""
 </head><body></body></html>
 """
 
+_GG_DATE = (date.today() + timedelta(days=14)).strftime('%b %d').replace(' 0', ' ')
 GARYSGUIDE_FIXTURE = f"""
 <html><body><table>
-<tr><td><b>Mon, {(date.today() + timedelta(days=14)).strftime('%b %d').replace(' 0', ' ')}</b></td></tr>
-<tr><td>
- <a href="/events/abc123/Fintech-Founders-Happy-Hour" class="ftitle">Fintech Founders Happy Hour</a>
- <span>FREE</span>
-</td></tr>
-<tr><td>
- <a href="https://www.garysguide.com/events/def456/Capital-Markets-Panel" class="ftitle">Capital Markets Panel</a>
- <span>$40</span>
-</td></tr>
+<tr><td align='center' valign='top' width='48'><b>{_GG_DATE}</b><br/>5:00pm</td>
+<td align='center' width='37' valign='top'>Free<br/></td>
+<td><font class='ftitle'><a alt='Fintech Founders Happy Hour' href='https://www.garysguide.com/events/058i8k1/Fintech-Founders-Happy-Hour'><b>Fintech Founders Happy Hour</b></a>&nbsp;</font>
+<font class='fdescription'><br/><b>Rise by Barclays</b>, 43 W 23rd St</font></td></tr>
+<tr><td align='center' valign='top' width='48'><b>{_GG_DATE}</b><br/>6:30pm</td>
+<td align='center' width='37' valign='top'>$40<br/></td>
+<td><font class='ftitle'><a alt='Capital Markets Panel' href='https://www.garysguide.com/events/ib39exb/Capital-Markets-Panel'><b>Capital Markets Panel</b></a></font></td></tr>
 </table></body></html>
 """
 
