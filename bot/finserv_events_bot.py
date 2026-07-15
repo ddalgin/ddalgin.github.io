@@ -112,6 +112,15 @@ KEYWORD_WEIGHTS = {
     " vc ": 2,
     "angel investor": 2,
     "financial technology": 4,
+    # DC-flavored: finserv there is policy/regulator-heavy
+    "regulat": 2,       # regulation / regulatory / regulator
+    "cfpb": 3,
+    "fincen": 3,
+    "bank policy": 3,
+    "monetary policy": 2,
+    "financial policy": 3,
+    "housing finance": 2,
+    "fintech week": 4,
     "networking": 1,
     "summit": 1,
     "conference": 1,
