@@ -40,19 +40,23 @@ CITIES = {
     "Washington DC": {
         "eventbrite_slug": "dc--washington",
         "tentimes_slug": "washington-us",
+        "luma_slugs": ["dc", "washington-dc"],
     },
     "New York City": {
         "eventbrite_slug": "ny--new-york",
         "tentimes_slug": "newyork-us",
+        "luma_slugs": ["nyc", "new-york"],
         "garysguide": True,  # Gary's Guide covers NYC only
     },
     "Philadelphia": {
         "eventbrite_slug": "pa--philadelphia",
         "tentimes_slug": "philadelphia-us",
+        "luma_slugs": ["philadelphia", "philly"],
     },
     "Boston": {
         "eventbrite_slug": "ma--boston",
         "tentimes_slug": "boston-us",
+        "luma_slugs": ["boston"],
     },
 }
 
@@ -100,6 +104,23 @@ KEYWORD_WEIGHTS = {
     "blockchain": 1,
     "crypto": 1,
     "digital assets": 2,
+    "stablecoin": 3,
+    "onchain": 2,
+    "defi": 2,
+    "money20/20": 4,
+    "money 20/20": 4,
+    " vc ": 2,
+    "angel investor": 2,
+    "financial technology": 4,
+    # DC-flavored: finserv there is policy/regulator-heavy
+    "regulat": 2,       # regulation / regulatory / regulator
+    "cfpb": 3,
+    "fincen": 3,
+    "bank policy": 3,
+    "monetary policy": 2,
+    "financial policy": 3,
+    "housing finance": 2,
+    "fintech week": 4,
     "networking": 1,
     "summit": 1,
     "conference": 1,
@@ -129,6 +150,7 @@ NEGATIVE_WEIGHTS = {
     "tax prep": -4,
     "mlm": -6,
     "network marketing": -6,
+    "quantum": -3,  # counteract the 'quant' substring match
     "grant writing": -4,
     "notary": -6,
 }
@@ -165,6 +187,11 @@ class SourceStatus:
     found: int = 0
 
 
+# When set (via --debug-dump), every fetched body is saved here so a CI run
+# can expose real page markup as a workflow artifact.
+DEBUG_DUMP_DIR: Path | None = None
+
+
 def fetch(url: str, timeout: int = 25) -> str:
     """GET a URL with browser-ish headers; returns decoded body text."""
     req = urllib.request.Request(
@@ -181,7 +208,12 @@ def fetch(url: str, timeout: int = 25) -> str:
         if resp.headers.get("Content-Encoding") == "gzip" or raw[:2] == b"\x1f\x8b":
             raw = gzip.GzipFile(fileobj=io.BytesIO(raw)).read()
         charset = resp.headers.get_content_charset() or "utf-8"
-        return raw.decode(charset, errors="replace")
+        body = raw.decode(charset, errors="replace")
+    if DEBUG_DUMP_DIR is not None:
+        DEBUG_DUMP_DIR.mkdir(parents=True, exist_ok=True)
+        name = re.sub(r"[^A-Za-z0-9._-]+", "_", url)[:150]
+        (DEBUG_DUMP_DIR / f"{name}.txt").write_text(body, "utf-8")
+    return body
 
 
 def clean_text(s: str) -> str:
@@ -338,9 +370,16 @@ def source_tentimes(city: str, cfg: dict, days: int) -> tuple[list[Event], list[
     slug = cfg.get("tentimes_slug")
     if not slug:
         return events, statuses
-    url = f"https://10times.com/{slug}/banking-finance"
     try:
-        nodes = extract_jsonld_events(fetch(url))
+        nodes = []
+        for page in (1, 2, 3):
+            url = f"https://10times.com/{slug}/finance"
+            if page > 1:
+                url += f"?page={page}"
+            page_nodes = extract_jsonld_events(fetch(url))
+            if not page_nodes:
+                break
+            nodes.extend(page_nodes)
         for node in nodes:
             offers = node.get("offers") or {}
             if isinstance(offers, list):
@@ -377,39 +416,41 @@ def source_garysguide(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
     url = "https://www.garysguide.com/events"
     try:
         body = fetch(url)
-        # Anchors to individual event pages carry the title; a date header
-        # like "Mon, Jul 14" precedes each day's block; FREE/$NN appears in
-        # the same row chunk as the anchor.
+        # Rows look like (attributes are single-quoted):
+        #   <td ...><b>Jul 13</b><br/>5:00pm</td> ... <td ...>Free<br/></td>
+        #   ... <font class='ftitle'><a alt='...' href='https://www.garys
+        #   guide.com/events/058i8k1/Slug'><b>Title</b></a>
         anchor_re = re.compile(
-            r'<a[^>]+href="(https?://(?:www\.)?garysguide\.com/events/[^"]+)"[^>]*>(.*?)</a>',
+            r"""<a[^>]+href=['"](?:https?://(?:www\.)?garysguide\.com)?"""
+            r"""(/events/[a-z0-9]{4,}/[^'"]+)['"][^>]*>(.*?)</a>""",
             re.IGNORECASE | re.DOTALL,
         )
-        date_re = re.compile(r"[A-Z][a-z]{2},\s+([A-Z][a-z]{2}\s+\d{1,2})")
-        matches = list(anchor_re.finditer(body))
-        for i, m in enumerate(matches):
+        # per-row date cell, e.g. <b>Jul 13</b><br/>5:00pm
+        date_re = re.compile(r"<b>([A-Z][a-z]{2}\s+\d{1,2})</b>")
+        for m in anchor_re.finditer(body):
             title = clean_text(re.sub(r"<[^>]+>", " ", m.group(2)))
             if not title or len(title) < 4:
                 continue
             preceding = body[: m.start()]
             dm = None
             for dm in date_re.finditer(preceding):
-                pass  # keep last date header before this anchor
+                pass  # keep the last date cell before this anchor
             start = parse_date_any(dm.group(1)) if dm else ""
-            chunk_end = matches[i + 1].start() if i + 1 < len(matches) else m.end() + 600
-            chunk = body[m.start(): chunk_end]
+            # the price cell sits between that date cell and the title anchor
+            row = preceding[dm.end():] if dm else preceding[-400:]
             price = None
             is_free = None
-            if re.search(r"\bFREE\b", chunk):
+            if re.search(r">\s*Free\s*<", row, re.IGNORECASE):
                 price, is_free = 0.0, True
             else:
-                pm = re.search(r"\$\s*(\d[\d,]*)", chunk)
+                pm = re.search(r"\$\s*(\d[\d,]*)", row)
                 if pm:
                     price = parse_price(pm.group(1))
                     is_free = price == 0
             events.append(
                 Event(
                     title=title,
-                    url=m.group(1),
+                    url=urllib.parse.urljoin("https://www.garysguide.com/", m.group(1)),
                     start=start,
                     city=city,
                     source="garysguide",
@@ -424,7 +465,76 @@ def source_garysguide(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
     return events, statuses
 
 
-SOURCES = (source_eventbrite, source_tentimes, source_garysguide)
+def source_luma(city: str, cfg: dict, days: int) -> tuple[list[Event], list[SourceStatus]]:
+    """Luma (lu.ma) city discover feed - public JSON API, no key needed.
+
+    GET api.lu.ma/discover/get-paginated-events?slug={city}&pagination_limit=50
+    returns {events: [...], has_more, next_cursor}; follow the cursor for a
+    few pages. Fintech/VC meetups are heavily hosted on Luma.
+    """
+    events, statuses = [], []
+    slugs = cfg.get("luma_slugs") or []
+    if not slugs:
+        return events, statuses
+    for slug in slugs:
+        found_here = 0
+        try:
+            cursor = None
+            for _page in range(5):
+                params = {"slug": slug, "pagination_limit": "50"}
+                if cursor:
+                    # the web app sends pagination_cursor; keep cursor too
+                    params["pagination_cursor"] = cursor
+                    params["cursor"] = cursor
+                url = ("https://api.lu.ma/discover/get-paginated-events?"
+                       + urllib.parse.urlencode(params))
+                data = json.loads(fetch(url))
+                page_events = data.get("events") or data.get("entries") or []
+                for node in page_events:
+                    ev = node.get("event", node) if isinstance(node, dict) else {}
+                    if ev.get("location_type") not in (None, "offline"):
+                        continue  # skip online-only
+                    ticket = ev.get("ticket_info") or {}
+                    price = None
+                    is_free = ticket.get("is_free")
+                    price_obj = ticket.get("price")
+                    if isinstance(price_obj, dict) and "cents" in price_obj:
+                        price = price_obj["cents"] / 100.0
+                    elif is_free:
+                        price = 0.0
+                    ev_url = ev.get("url", "")
+                    if ev_url and not ev_url.startswith("http"):
+                        ev_url = f"https://lu.ma/{ev_url}"
+                    events.append(
+                        Event(
+                            title=clean_text(ev.get("name", "")),
+                            url=ev_url,
+                            start=parse_date_any(str(ev.get("start_at", ""))),
+                            city=city,
+                            source="luma",
+                            venue=clean_text(str(ev.get("city", "") or "")),
+                            description=clean_text(str(
+                                ev.get("description_short", "")
+                                or ev.get("description", "") or "")),
+                            price_min=price,
+                            is_free=is_free,
+                        )
+                    )
+                    found_here += 1
+                cursor = data.get("next_cursor")
+                if not data.get("has_more") or not cursor:
+                    break
+            statuses.append(SourceStatus("luma", city, True,
+                                         f"slug '{slug}'", found_here))
+            break  # first slug that works wins
+        except Exception as exc:  # noqa: BLE001
+            statuses.append(SourceStatus("luma", city, False,
+                                         f"slug '{slug}': {type(exc).__name__}: {exc}"))
+            continue  # try the next slug
+    return events, statuses
+
+
+SOURCES = (source_eventbrite, source_tentimes, source_garysguide, source_luma)
 
 # -------------------------------------------------------------- pipeline ---
 
@@ -637,9 +747,24 @@ def main(argv: list[str] | None = None) -> int:
                     help="relevance score threshold (default 2)")
     ap.add_argument("--out-dir", default="events",
                     help="output directory (default ./events)")
+    ap.add_argument("--debug-dump", default="",
+                    help="directory to dump every fetched page body into "
+                         "(for diagnosing parsers against live markup)")
     args = ap.parse_args(argv)
 
+    if args.debug_dump:
+        global DEBUG_DUMP_DIR
+        DEBUG_DUMP_DIR = Path(args.debug_dump)
+
     raw, statuses = collect(args.days)
+
+    if DEBUG_DUMP_DIR is not None:
+        print(f"--- raw events before filtering ({len(raw)}) ---")
+        for ev in raw[:400]:
+            sc, _ = score_event(ev.title, ev.description)
+            print(f"  {ev.city[:12]:<12} {ev.source:<10} {ev.start or '????-??-??'} "
+                  f"score={sc:<3} price={ev.price_min} | {ev.title[:70]}")
+
     events = filter_events(raw, args.max_price, args.days, args.min_score)
 
     out = Path(args.out_dir)

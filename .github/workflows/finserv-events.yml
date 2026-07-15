@@ -14,6 +14,10 @@ on:
         description: "Look-ahead window (days)"
         required: false
         default: "75"
+      debug:
+        description: "Upload fetched page bodies as an artifact"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -38,6 +42,56 @@ jobs:
           --out-dir events
           --max-price ${{ github.event.inputs.max_price || '150' }}
           --days ${{ github.event.inputs.days || '75' }}
+          ${{ github.event.inputs.debug == 'true' && '--debug-dump debug-pages' || '' }}
+
+      - name: Upload debug page dumps
+        if: github.event.inputs.debug == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-pages
+          path: debug-pages/
+          if-no-files-found: warn
+
+      - name: Print debug excerpts to log
+        if: github.event.inputs.debug == 'true'
+        run: |
+          python - <<'EOF'
+          import json, re
+          from pathlib import Path
+          for p in sorted(Path("debug-pages").glob("*.txt")):
+              body = p.read_text("utf-8", errors="replace")
+              print(f"\n===== {p.name} ({len(body)} chars) =====")
+              if body.lstrip().startswith("{"):
+                  try:
+                      data = json.loads(body)
+                      evs = data.get("events") or data.get("entries") or []
+                      print("top-level keys:", sorted(data.keys()))
+                      if evs:
+                          print("first entry:",
+                                json.dumps(evs[0], indent=1)[:2500])
+                  except Exception as e:
+                      print("json parse failed:", e)
+              elif "garysguide" in p.name:
+                  hits = [m for m in re.finditer(
+                      r'href="[^"]*/events/[a-z0-9]{4,}/[^"]+"', body)
+                      if "newsletter" not in m.group(0)][:3]
+                  if not hits:
+                      hits = list(re.finditer(r"ftitle", body))[:3]
+                  if not hits:
+                      print("no event-anchor or ftitle matches; head:")
+                      print(body[:1500])
+                  for m in hits:
+                      s = max(0, m.start() - 600)
+                      print(f"--- window @ {m.start()} ---")
+                      print(body[s:m.start() + 900])
+              else:
+                  m = re.search(r"/events?/", body)
+                  if m:
+                      s = max(0, m.start() - 400)
+                      print(body[s:m.start() + 1600])
+                  else:
+                      print(body[:1200])
+          EOF
 
       - name: Commit and push results
         run: |

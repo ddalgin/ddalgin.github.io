@@ -64,17 +64,16 @@ JSONLD_FIXTURE = f"""
 </head><body></body></html>
 """
 
+_GG_DATE = (date.today() + timedelta(days=14)).strftime('%b %d').replace(' 0', ' ')
 GARYSGUIDE_FIXTURE = f"""
 <html><body><table>
-<tr><td><b>Mon, {(date.today() + timedelta(days=14)).strftime('%b %d').replace(' 0', ' ')}</b></td></tr>
-<tr><td>
- <a href="https://www.garysguide.com/events/abc123/Fintech-Founders-Happy-Hour" class="ftitle">Fintech Founders Happy Hour</a>
- <span>FREE</span>
-</td></tr>
-<tr><td>
- <a href="https://www.garysguide.com/events/def456/Capital-Markets-Panel" class="ftitle">Capital Markets Panel</a>
- <span>$40</span>
-</td></tr>
+<tr><td align='center' valign='top' width='48'><b>{_GG_DATE}</b><br/>5:00pm</td>
+<td align='center' width='37' valign='top'>Free<br/></td>
+<td><font class='ftitle'><a alt='Fintech Founders Happy Hour' href='https://www.garysguide.com/events/058i8k1/Fintech-Founders-Happy-Hour'><b>Fintech Founders Happy Hour</b></a>&nbsp;</font>
+<font class='fdescription'><br/><b>Rise by Barclays</b>, 43 W 23rd St</font></td></tr>
+<tr><td align='center' valign='top' width='48'><b>{_GG_DATE}</b><br/>6:30pm</td>
+<td align='center' width='37' valign='top'>$40<br/></td>
+<td><font class='ftitle'><a alt='Capital Markets Panel' href='https://www.garysguide.com/events/ib39exb/Capital-Markets-Panel'><b>Capital Markets Panel</b></a></font></td></tr>
 </table></body></html>
 """
 
@@ -119,7 +118,9 @@ class JsonLdTest(unittest.TestCase):
 
     def test_tentimes_source(self):
         orig = bot.fetch
-        bot.fetch = lambda url, timeout=25: JSONLD_FIXTURE
+        # page 1 has events; later pages are empty so pagination stops
+        bot.fetch = lambda url, timeout=25: (
+            "<html></html>" if "page=" in url else JSONLD_FIXTURE)
         try:
             events, statuses = bot.source_tentimes(
                 "Boston", {"tentimes_slug": "boston-us"}, 75)
@@ -149,6 +150,81 @@ class GarysGuideTest(unittest.TestCase):
         self.assertEqual(hh.start, FUTURE)
         panel = next(e for e in events if "Panel" in e.title)
         self.assertEqual(panel.price_min, 40.0)
+
+
+LUMA_FIXTURE = json.dumps({
+    "slug": "nyc",
+    "scope": "place",
+    "has_more": False,
+    "next_cursor": None,
+    "events": [
+        {
+            "api_id": "evt-1",
+            "name": "NYC Fintech & Payments Founders Mixer",
+            "url": "https://lu.ma/fintech-mixer",
+            "start_at": f"{FUTURE}T22:00:00.000Z",
+            "location_type": "offline",
+            "city": "New York, NY",
+            "ticket_info": {"is_free": True},
+        },
+        {
+            "api_id": "evt-2",
+            "name": "Online AI Webinar",
+            "url": "https://lu.ma/webinar",
+            "start_at": f"{FUTURE}T22:00:00.000Z",
+            "location_type": "online",
+        },
+        {
+            "event": {
+                "api_id": "evt-3",
+                "name": "Banking Infrastructure Happy Hour",
+                "url": "bank-hh",
+                "start_at": f"{FUTURE}T21:00:00.000Z",
+                "location_type": "offline",
+                "ticket_info": {"is_free": False, "price": {"cents": 1500}},
+            }
+        },
+    ],
+})
+
+
+class LumaTest(unittest.TestCase):
+    def test_parses_events_skips_online(self):
+        orig = bot.fetch
+        bot.fetch = lambda url, timeout=25: LUMA_FIXTURE
+        try:
+            events, statuses = bot.source_luma(
+                "New York City", {"luma_slugs": ["nyc"]}, 75)
+        finally:
+            bot.fetch = orig
+        self.assertEqual(len(events), 2)  # online event skipped
+        mixer = next(e for e in events if "Mixer" in e.title)
+        self.assertTrue(mixer.is_free)
+        self.assertEqual(mixer.start, FUTURE)
+        hh = next(e for e in events if "Happy Hour" in e.title)
+        self.assertEqual(hh.price_min, 15.0)
+        self.assertEqual(hh.url, "https://lu.ma/bank-hh")
+        self.assertTrue(all(s.ok for s in statuses))
+
+    def test_bad_slug_falls_through(self):
+        calls = []
+
+        def fake_fetch(url, timeout=25):
+            calls.append(url)
+            if "slug=bad" in url:
+                raise ValueError("HTTP 404")
+            return LUMA_FIXTURE
+
+        orig = bot.fetch
+        bot.fetch = fake_fetch
+        try:
+            events, statuses = bot.source_luma(
+                "Washington DC", {"luma_slugs": ["bad", "dc"]}, 75)
+        finally:
+            bot.fetch = orig
+        self.assertEqual(len(events), 2)
+        self.assertEqual(len(statuses), 2)  # one failure, one success
+        self.assertTrue(statuses[1].ok)
 
 
 class ScoringFilterTest(unittest.TestCase):
