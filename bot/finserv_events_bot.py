@@ -370,9 +370,16 @@ def source_tentimes(city: str, cfg: dict, days: int) -> tuple[list[Event], list[
     slug = cfg.get("tentimes_slug")
     if not slug:
         return events, statuses
-    url = f"https://10times.com/{slug}/finance"
     try:
-        nodes = extract_jsonld_events(fetch(url))
+        nodes = []
+        for page in (1, 2, 3):
+            url = f"https://10times.com/{slug}/finance"
+            if page > 1:
+                url += f"?page={page}"
+            page_nodes = extract_jsonld_events(fetch(url))
+            if not page_nodes:
+                break
+            nodes.extend(page_nodes)
         for node in nodes:
             offers = node.get("offers") or {}
             if isinstance(offers, list):
