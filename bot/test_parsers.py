@@ -118,7 +118,9 @@ class JsonLdTest(unittest.TestCase):
 
     def test_tentimes_source(self):
         orig = bot.fetch
-        bot.fetch = lambda url, timeout=25: JSONLD_FIXTURE
+        # page 1 has events; later pages are empty so pagination stops
+        bot.fetch = lambda url, timeout=25: (
+            "<html></html>" if "page=" in url else JSONLD_FIXTURE)
         try:
             events, statuses = bot.source_tentimes(
                 "Boston", {"tentimes_slug": "boston-us"}, 75)
