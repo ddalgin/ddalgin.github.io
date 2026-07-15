@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-14T19:06:30+00:00",
+  "generated_at": "2026-07-15T20:18:15+00:00",
   "meta": {
     "max_price": 150.0,
-    "days": 75,
+    "days": 120,
     "min_score": 2
   },
   "sources": [
@@ -46,7 +46,7 @@
       "city": "Washington DC",
       "ok": true,
       "detail": "slug 'dc'",
-      "found": 29
+      "found": 28
     },
     {
       "source": "eventbrite",
@@ -88,14 +88,14 @@
       "city": "New York City",
       "ok": true,
       "detail": "",
-      "found": 108
+      "found": 106
     },
     {
       "source": "luma",
       "city": "New York City",
       "ok": true,
       "detail": "slug 'nyc'",
-      "found": 81
+      "found": 77
     },
     {
       "source": "eventbrite",
@@ -179,7 +179,7 @@
       "city": "Boston",
       "ok": true,
       "detail": "slug 'boston'",
-      "found": 34
+      "found": 33
     }
   ],
   "events": [
@@ -196,21 +196,6 @@
       "score": 5,
       "matched": [
         "money20/20"
-      ]
-    },
-    {
-      "title": "Portfolio Risk Management",
-      "url": "https://10times.com/e1ds-x0fz-9k5k-4",
-      "start": "2026-07-15",
-      "city": "New York City",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 2,
-      "matched": [
-        "risk management"
       ]
     },
     {
@@ -271,6 +256,21 @@
       "is_free": true,
       "score": 2,
       "matched": []
+    },
+    {
+      "title": "Finance, Economics, International Management, IT, Marketing, MIS, and Healthcare Management Research Conference",
+      "url": "https://10times.com/healthcare-management-research-conference",
+      "start": "2026-07-23",
+      "city": "Washington DC",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
     },
     {
       "title": "Setting The Standard - How AI Redefining Excellence Across Industries",
@@ -405,6 +405,21 @@
       "score": 2,
       "matched": [
         "finance"
+      ]
+    },
+    {
+      "title": "Insurance Conference",
+      "url": "https://10times.com/annual-insurance-conference",
+      "start": "2026-09-09",
+      "city": "New York City",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "insurance"
       ]
     }
   ]
