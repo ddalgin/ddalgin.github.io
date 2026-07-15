@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T20:18:15+00:00",
+  "generated_at": "2026-07-15T20:21:29+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 120,
@@ -39,7 +39,7 @@
       "city": "Washington DC",
       "ok": true,
       "detail": "",
-      "found": 10
+      "found": 30
     },
     {
       "source": "luma",
@@ -81,7 +81,7 @@
       "city": "New York City",
       "ok": true,
       "detail": "",
-      "found": 10
+      "found": 30
     },
     {
       "source": "garysguide",
@@ -130,7 +130,7 @@
       "city": "Philadelphia",
       "ok": true,
       "detail": "",
-      "found": 10
+      "found": 30
     },
     {
       "source": "luma",
@@ -172,7 +172,7 @@
       "city": "Boston",
       "ok": true,
       "detail": "",
-      "found": 10
+      "found": 30
     },
     {
       "source": "luma",
@@ -375,6 +375,21 @@
       "score": 5,
       "matched": [
         "capital markets"
+      ]
+    },
+    {
+      "title": "Aicpa & Cima Future of Finance Summit",
+      "url": "https://10times.com/e13g-dpzp-x9d3-1-aicpa-cima-future-finance-summit",
+      "start": "2026-08-05",
+      "city": "Washington DC",
+      "source": "10times",
+      "venue": "",
+      "description": "",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
       ]
     },
     {

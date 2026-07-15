@@ -1,12 +1,13 @@
 # FinServ Events Digest
 
-_Generated 2026-07-15 20:18 UTC · window: next 120 days · max ticket $150_
+_Generated 2026-07-15 20:21 UTC · window: next 120 days · max ticket $150_
 
-## Washington DC (3)
+## Washington DC (4)
 
 - **2026-07-16** · [The New Institutional Standard for Onchain Finance](https://10times.com/e1gd-523s-d8ph-p-new-institutional-standard-onchain-finance) — price unlisted _(10times)_
 - **2026-07-21** · [Annual Municipal Finance Conference](https://10times.com/e1zp-44zp-24zr) — price unlisted _(10times)_
 - **2026-07-23** · [Finance, Economics, International Management, IT, Marketing, MIS, and Healthcare Management Research Conference](https://10times.com/healthcare-management-research-conference) — price unlisted _(10times)_
+- **2026-08-05** · [Aicpa & Cima Future of Finance Summit](https://10times.com/e13g-dpzp-x9d3-1-aicpa-cima-future-finance-summit) — price unlisted _(10times)_
 
 ## New York City (12)
 
