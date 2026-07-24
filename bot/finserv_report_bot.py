@@ -307,24 +307,26 @@ def compute(data: dict) -> dict:
 # ----------------------------------------------------------------- render ---
 
 STYLE = """
+  /* TransPerfect Financial palette: navy + light blue + white. */
   :root {
-    --brand:#22402e; --brand-2:#2f5741; --ink:#1c1e26; --muted:#5f6b63;
-    --bg:#f4f6f4; --card:#ffffff; --line:#e2e7e2; --band:#eef2ee;
-    --up:#1a7f4b; --down:#c0392b; --accent:#2f5741;
+    --brand:#17306b; --brand-2:#0b82c4; --ink:#14213d; --muted:#5b6b85;
+    --bg:#f3f6fb; --card:#ffffff; --line:#dde5f0; --band:#eef3fa;
+    --up:#1a7f4b; --down:#c0392b; --accent:#0b6fab;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --brand:#12241a; --brand-2:#1e3a2b; --ink:#e8ece8; --muted:#9aa79f;
-      --bg:#0f1512; --card:#17201b; --line:#26332b; --band:#131c17;
-      --up:#3fce86; --down:#f06a5c; --accent:#8fd4ac; }
+    :root { --brand:#0e1f45; --brand-2:#33a7e6; --ink:#e6ecf5; --muted:#93a2bb;
+      --bg:#0b1220; --card:#121c30; --line:#22304a; --band:#0f1829;
+      --up:#3fce86; --down:#f06a5c; --accent:#4db6e8; }
   }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
     font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
   main { max-width:960px; margin:0 auto; padding:0 1rem 4rem; }
   .masthead { background:var(--brand); color:#fff; padding:2rem 1.5rem;
-    border-radius:0 0 14px 14px; margin-bottom:1.75rem; }
+    border-radius:0 0 14px 14px; margin-bottom:1.75rem;
+    border-bottom:4px solid #29abe2; }
   .masthead .eyebrow { text-transform:uppercase; letter-spacing:.14em;
-    font-size:.72rem; opacity:.8; margin:0 0 .35rem; }
+    font-size:.72rem; color:#5cc4ee; margin:0 0 .35rem; }
   .masthead h1 { margin:0; font-size:2rem; line-height:1.1; letter-spacing:-.01em; }
   .masthead .sub { margin:.5rem 0 0; opacity:.85; font-size:.9rem; }
   section { background:var(--card); border:1px solid var(--line);
