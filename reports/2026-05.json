@@ -1,0 +1,437 @@
+{
+  "generated_at": "2026-07-24T16:28:45+00:00",
+  "period": {
+    "month": 5,
+    "year": 2026,
+    "label": "May 2026"
+  },
+  "analysis": [
+    "Revenue is trailing last year: ~$19.49M YTD vs ~$20.41M in 2025 (~-$915,404, ~-4.5%). 1 of 5 months are up YoY.",
+    "May landed ~-$470,000 (~-11.6%) vs the prior year.",
+    "Discovery calls are at 204 of 750 (27% to goal) \u2014 behind the 42% straight-line pace for this point in the year. May 2026 added 41 calls.",
+    "Furthest from goal: Tech/Consulting (7%), TPC/BPO (17%), GlobalLink (20%).",
+    "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
+    "4 new wins closed totaling $212,000. Marquee logos continue to land even as unit volume softens.",
+    "5 deals advanced in the pipeline this cycle.",
+    "Newsletter open rate hit 36.87%, ~1.6x the ~20\u201325% benchmark, up 29.3 pts from 7.5%; 4,494 total clicks is a record. Brand programming is compounding."
+  ],
+  "revenue": {
+    "source": "internal revenue dashboard, Finance vertical",
+    "note": "Figures rounded to nearest dollar; Jan\u2013Apr reconciles to $15,903,261.28 YTD. May 2026 and May 2025 both reported as rounded figures this cycle (~$3.59M and ~$4.06M respectively) rather than to-the-cent; May 2025 restates the prior dashboard-sourced $4,006,578.",
+    "months": [
+      {
+        "month": "Jan",
+        "actual_2025": 3749229,
+        "actual_2026": 4159799,
+        "estimate": false,
+        "yoy_dollar": 410570,
+        "yoy_pct": 10.950784814691234,
+        "ytd_2025": 3749229.0,
+        "ytd_2026": 4159799.0,
+        "ytd_estimate": false
+      },
+      {
+        "month": "Feb",
+        "actual_2025": 3894494,
+        "actual_2026": 3681822,
+        "estimate": false,
+        "yoy_dollar": -212672,
+        "yoy_pct": -5.460837787912884,
+        "ytd_2025": 7643723.0,
+        "ytd_2026": 7841621.0,
+        "ytd_estimate": false
+      },
+      {
+        "month": "Mar",
+        "actual_2025": 4712825,
+        "actual_2026": 4147255,
+        "estimate": false,
+        "yoy_dollar": -565570,
+        "yoy_pct": -12.000657779569579,
+        "ytd_2025": 12356548.0,
+        "ytd_2026": 11988876.0,
+        "ytd_estimate": false
+      },
+      {
+        "month": "Apr",
+        "actual_2025": 3992118,
+        "actual_2026": 3914386,
+        "estimate": false,
+        "yoy_dollar": -77732,
+        "yoy_pct": -1.9471368331296819,
+        "ytd_2025": 16348666.0,
+        "ytd_2026": 15903262.0,
+        "ytd_estimate": false
+      },
+      {
+        "month": "May",
+        "actual_2025": 4060000,
+        "actual_2026": 3590000,
+        "estimate": true,
+        "note_2025": "~6.45x markup",
+        "note_2026": "~10x markup",
+        "yoy_dollar": -470000,
+        "yoy_pct": -11.576354679802956,
+        "ytd_2025": 20408666.0,
+        "ytd_2026": 19493262.0,
+        "ytd_estimate": true
+      }
+    ],
+    "ytd_2025": 20408666.0,
+    "ytd_2026": 19493262.0,
+    "ytd_estimate": true,
+    "total_yoy_dollar": -915404.0,
+    "total_yoy_pct": -4.485369107417408,
+    "months_up": 1,
+    "months_down": 4
+  },
+  "discovery": {
+    "goal_scope": "2026",
+    "prior_label": "Apr '26 YTD",
+    "current_label": "May '26",
+    "ytd_label": "26 YTD",
+    "note": "Discovery YTD = prior-period reporting + May rep submissions; reconciles across categories and months (204). Newsletter/Content May figure combines Content Sent (9) and LinkedIn Content (7). Team also logged 10 in-person meetings and 10 events attended in May (including AI Expo and Hispanic Biz Expo), tracked outside this table.",
+    "per_rep_monthly_floor": 3,
+    "categories": [
+      {
+        "name": "Disco - General",
+        "goal": 200,
+        "prior_ytd": 82,
+        "current": 26,
+        "ytd": 108,
+        "pct_to_goal": 54.0
+      },
+      {
+        "name": "Disco - Digital",
+        "goal": 150,
+        "prior_ytd": 31,
+        "current": 3,
+        "ytd": 34,
+        "pct_to_goal": 22.666666666666664
+      },
+      {
+        "name": "Disco - Tech/Consulting",
+        "goal": 100,
+        "prior_ytd": 6,
+        "current": 1,
+        "ytd": 7,
+        "pct_to_goal": 7.000000000000001
+      },
+      {
+        "name": "Disco - TPC/BPO",
+        "goal": 150,
+        "prior_ytd": 24,
+        "current": 1,
+        "ytd": 25,
+        "pct_to_goal": 16.666666666666664
+      },
+      {
+        "name": "Disco - GlobalLink",
+        "goal": 150,
+        "prior_ytd": 20,
+        "current": 10,
+        "ytd": 30,
+        "pct_to_goal": 20.0
+      }
+    ],
+    "activities": [
+      {
+        "name": "Events Hosted",
+        "goal": 3,
+        "prior_ytd": 3,
+        "current": 0,
+        "ytd": 3,
+        "pct_to_goal": 100.0
+      },
+      {
+        "name": "Newsletter/Content",
+        "goal": 12,
+        "prior_ytd": 13,
+        "current": 16,
+        "ytd": 29,
+        "pct_to_goal": 241.66666666666666
+      }
+    ],
+    "total": {
+      "name": "Total Discovery Calls",
+      "goal": 750,
+      "prior_ytd": 163,
+      "current": 41,
+      "ytd": 204,
+      "pct_to_goal": 27.200000000000003
+    },
+    "pace_pct": 41.66666666666667,
+    "leader": {
+      "name": "Disco - General",
+      "goal": 200,
+      "prior_ytd": 82,
+      "current": 26,
+      "ytd": 108,
+      "pct_to_goal": 54.0
+    },
+    "laggards": [
+      {
+        "name": "Disco - Tech/Consulting",
+        "goal": 100,
+        "prior_ytd": 6,
+        "current": 1,
+        "ytd": 7,
+        "pct_to_goal": 7.000000000000001
+      },
+      {
+        "name": "Disco - TPC/BPO",
+        "goal": 150,
+        "prior_ytd": 24,
+        "current": 1,
+        "ytd": 25,
+        "pct_to_goal": 16.666666666666664
+      },
+      {
+        "name": "Disco - GlobalLink",
+        "goal": 150,
+        "prior_ytd": 20,
+        "current": 10,
+        "ytd": 30,
+        "pct_to_goal": 20.0
+      }
+    ]
+  },
+  "wins": {
+    "items": [
+      {
+        "name": "Vanguard - GL SOW",
+        "amount": 115000
+      },
+      {
+        "name": "CI Financial - GL Live SOW",
+        "amount": 72000
+      },
+      {
+        "name": "New American Finance - GLweb",
+        "amount": 20000
+      },
+      {
+        "name": "Broadridge - AI Pilot",
+        "amount": 5000
+      }
+    ],
+    "count": 4,
+    "total": 212000,
+    "all_numeric": true
+  },
+  "newsletter": {
+    "send_date": "May 13",
+    "sent": 5376,
+    "delivered": 5341,
+    "opens": 1969,
+    "open_rate": 36.87,
+    "open_rate_benchmark_low": 20,
+    "open_rate_benchmark_high": 25,
+    "prior_open_rate": 7.53,
+    "clicks_total": 4494,
+    "prior_clicks_total": 12,
+    "click_rate": 84.14,
+    "ctor_unique": 34,
+    "opt_outs": 18,
+    "list_size": 2488,
+    "list_goal": 3000,
+    "note": "Click rate reflects total click events (multi-link engagement); CTOR reflects unique openers who clicked. 4,494 clicks is the highest click count to date, up from 12 in April. April baseline: 4,315 recipients, 7.53% open, list at 2,488 toward a 3,000 goal.",
+    "delivery_rate": 99.34895833333334,
+    "open_vs_benchmark_x": 1.6386666666666665,
+    "open_delta_pts": 29.339999999999996,
+    "list_pct": 82.93333333333334
+  },
+  "source_data": {
+    "period": {
+      "month": 5,
+      "year": 2026,
+      "label": "May 2026"
+    },
+    "team": "Financial Services",
+    "org": "TransPerfect",
+    "vertical": "Global Finance",
+    "prepared_by": "Global Finance Sales Reporting",
+    "next_report_note": "June will be sent late this month once billing is final.",
+    "precision_note": "All May-inclusive totals carry TIER 2 precision pending exact-cent reconciliation.",
+    "leadership_note": {
+      "intro": "Please find below report for MAY. Before reading, please know the following priorities don't change, and are obligations of each AM/AE/DBD on our team.",
+      "standing_obligations": [
+        "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
+        "We MUST close deals. With the best people to do so."
+      ],
+      "the_bad": {
+        "headline": "Our revenue is trailing. Unit translation continues to decrease and total projects as well.",
+        "detail": "Contact Center / Contracting / Digital / Consulting are the opportunities that will push us ahead. This continues to be the space we want to play in and emphasize."
+      },
+      "the_good": {
+        "headline": "We continue with marquee deal closes.",
+        "detail": "Our brand is growing \u2014 more content and programming each quarter, which means more legitimacy."
+      },
+      "focus": [
+        "More discovery calls. Each of you should have 3 legit disco calls on your worst month.",
+        "Drive people to our upcoming 4 events \u2014 strategically situated in different locales and time frames to account for diverse audiences.",
+        "Share your wins and failures so we can learn."
+      ]
+    },
+    "revenue": {
+      "source": "internal revenue dashboard, Finance vertical",
+      "note": "Figures rounded to nearest dollar; Jan\u2013Apr reconciles to $15,903,261.28 YTD. May 2026 and May 2025 both reported as rounded figures this cycle (~$3.59M and ~$4.06M respectively) rather than to-the-cent; May 2025 restates the prior dashboard-sourced $4,006,578.",
+      "months": [
+        {
+          "month": "Jan",
+          "actual_2025": 3749229,
+          "actual_2026": 4159799,
+          "estimate": false
+        },
+        {
+          "month": "Feb",
+          "actual_2025": 3894494,
+          "actual_2026": 3681822,
+          "estimate": false
+        },
+        {
+          "month": "Mar",
+          "actual_2025": 4712825,
+          "actual_2026": 4147255,
+          "estimate": false
+        },
+        {
+          "month": "Apr",
+          "actual_2025": 3992118,
+          "actual_2026": 3914386,
+          "estimate": false
+        },
+        {
+          "month": "May",
+          "actual_2025": 4060000,
+          "actual_2026": 3590000,
+          "estimate": true,
+          "note_2025": "~6.45x markup",
+          "note_2026": "~10x markup"
+        }
+      ]
+    },
+    "discovery": {
+      "goal_scope": "2026",
+      "prior_label": "Apr '26 YTD",
+      "current_label": "May '26",
+      "ytd_label": "26 YTD",
+      "note": "Discovery YTD = prior-period reporting + May rep submissions; reconciles across categories and months (204). Newsletter/Content May figure combines Content Sent (9) and LinkedIn Content (7). Team also logged 10 in-person meetings and 10 events attended in May (including AI Expo and Hispanic Biz Expo), tracked outside this table.",
+      "per_rep_monthly_floor": 3,
+      "categories": [
+        {
+          "name": "Disco - General",
+          "goal": 200,
+          "prior_ytd": 82,
+          "current": 26
+        },
+        {
+          "name": "Disco - Digital",
+          "goal": 150,
+          "prior_ytd": 31,
+          "current": 3
+        },
+        {
+          "name": "Disco - Tech/Consulting",
+          "goal": 100,
+          "prior_ytd": 6,
+          "current": 1
+        },
+        {
+          "name": "Disco - TPC/BPO",
+          "goal": 150,
+          "prior_ytd": 24,
+          "current": 1
+        },
+        {
+          "name": "Disco - GlobalLink",
+          "goal": 150,
+          "prior_ytd": 20,
+          "current": 10
+        }
+      ],
+      "activities": [
+        {
+          "name": "Events Hosted",
+          "goal": 3,
+          "prior_ytd": 3,
+          "current": 0
+        },
+        {
+          "name": "Newsletter/Content",
+          "goal": 12,
+          "prior_ytd": 13,
+          "current": 16
+        }
+      ]
+    },
+    "wins": [
+      {
+        "name": "Vanguard - GL SOW",
+        "amount": 115000
+      },
+      {
+        "name": "CI Financial - GL Live SOW",
+        "amount": 72000
+      },
+      {
+        "name": "New American Finance - GLweb",
+        "amount": 20000
+      },
+      {
+        "name": "Broadridge - AI Pilot",
+        "amount": 5000
+      }
+    ],
+    "deals": [
+      {
+        "name": "EY - software translation op",
+        "amount": "$200,000+"
+      },
+      {
+        "name": "RBC - Managed Global Quality Program",
+        "amount": "~$100,000/yr"
+      },
+      {
+        "name": "Broadridge - Live GLTMS op",
+        "amount": "$100,000"
+      },
+      {
+        "name": "PwC - software translation op",
+        "amount": "$50,000+"
+      },
+      {
+        "name": "PGIM - AI translation/automation op",
+        "amount": "$20,000"
+      }
+    ],
+    "newsletter": {
+      "send_date": "May 13",
+      "sent": 5376,
+      "delivered": 5341,
+      "opens": 1969,
+      "open_rate": 36.87,
+      "open_rate_benchmark_low": 20,
+      "open_rate_benchmark_high": 25,
+      "prior_open_rate": 7.53,
+      "clicks_total": 4494,
+      "prior_clicks_total": 12,
+      "click_rate": 84.14,
+      "ctor_unique": 34,
+      "opt_outs": 18,
+      "list_size": 2488,
+      "list_goal": 3000,
+      "note": "Click rate reflects total click events (multi-link engagement); CTOR reflects unique openers who clicked. 4,494 clicks is the highest click count to date, up from 12 in April. April baseline: 4,315 recipients, 7.53% open, list at 2,488 toward a 3,000 goal."
+    },
+    "events_upcoming": {
+      "series": "FinanceNext Series",
+      "url": "https://experiences.transperfect.com/financenextseries/",
+      "cities": [
+        "New York",
+        "Toronto",
+        "London",
+        "SF"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+name: FinServ Monthly Report
+
+on:
+  # Rebuild on the 1st of each month at 13:00 UTC, and whenever a month's
+  # data file changes on the default branch.
+  schedule:
+    - cron: "0 13 1 * *"
+  push:
+    branches: [main]
+    paths:
+      - "bot/data/*.json"
+      - "bot/finserv_report_bot.py"
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Path to a specific month data JSON (blank = newest)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run analysis tests
+        run: python test_report.py
+        working-directory: bot
+
+      - name: Assemble report
+        run: >
+          python bot/finserv_report_bot.py
+          --out-dir reports
+          ${{ github.event.inputs.data && format('--data {0}', github.event.inputs.data) || '' }}
+
+      - name: Commit and push results
+        run: |
+          git config user.name "finserv-report-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update FinServ monthly report ($(date -u +%Y-%m-%d))"
+            git push
+          fi
