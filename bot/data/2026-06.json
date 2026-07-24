@@ -1,0 +1,60 @@
+{
+  "period": { "month": 6, "year": 2026, "label": "June 2026" },
+  "status": "DRAFT",
+  "team": "Financial Services",
+  "org": "TransPerfect",
+  "vertical": "Global Finance",
+  "prepared_by": "Global Finance Sales Reporting",
+  "next_report_note": "Draft — figures firm up as June billing reconciles and rep submissions land.",
+  "precision_note": "DRAFT: June 2026 revenue reflects billed finance-vertical total ($4,001,039.89). June 2025 comparison, discovery, wins/deals, and newsletter are pending.",
+
+  "leadership_note": {
+    "intro": "June report (draft). The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
+    "standing_obligations": [
+      "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
+      "We MUST close deals. With the best people to do so."
+    ],
+    "the_bad": { "headline": "", "detail": "" },
+    "the_good": { "headline": "", "detail": "" },
+    "focus": [
+      "More discovery calls. Each of you should have 3 legit disco calls on your worst month.",
+      "Drive people to our upcoming 4 events — strategically situated in different locales and time frames to account for diverse audiences.",
+      "Share your wins and failures so we can learn."
+    ]
+  },
+
+  "revenue": {
+    "source": "internal revenue dashboard, Finance vertical",
+    "note": "Jan–Apr reconciles to $15,903,261.28 YTD. May figures reported rounded (~$3.59M 2026 / ~$4.06M 2025). June 2026 = $4,001,039.89 billed (10.03x markup); June 2025 actual pending for YoY.",
+    "markup": {
+      "value_2026": 10.0327,
+      "value_2025": null,
+      "note": "Overall markup, Finance vertical. June 2026 = 10.03x. June 2025 markup pending for the year-over-year comparison."
+    },
+    "months": [
+      { "month": "Jan", "actual_2025": 3749229, "actual_2026": 4159799, "estimate": false },
+      { "month": "Feb", "actual_2025": 3894494, "actual_2026": 3681822, "estimate": false },
+      { "month": "Mar", "actual_2025": 4712825, "actual_2026": 4147255, "estimate": false },
+      { "month": "Apr", "actual_2025": 3992118, "actual_2026": 3914386, "estimate": false },
+      { "month": "May", "actual_2025": 4060000, "actual_2026": 3590000, "estimate": true, "note_2025": "~6.45x markup", "note_2026": "~10x markup" },
+      { "month": "Jun", "actual_2025": null, "actual_2026": 4001039.89, "estimate": false, "note_2026": "10.03x markup" }
+    ]
+  },
+
+  "discovery": {
+    "per_rep_monthly_floor": 3,
+    "note": "Per-AE breakdown for June — every AE named with their disco-call count against the 3-call floor. Counts pending; category rollup (General / Digital / Tech-Consulting / TPC-BPO / GlobalLink) will accompany the AE submissions.",
+    "reps": [],
+    "categories": []
+  },
+
+  "wins": [],
+  "deals": [],
+  "newsletter": {},
+
+  "events_upcoming": {
+    "series": "FinanceNext Series",
+    "url": "https://experiences.transperfect.com/financenextseries/",
+    "cities": ["New York", "Toronto", "London", "SF"]
+  }
+}

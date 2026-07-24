@@ -14,6 +14,7 @@ from pathlib import Path
 import finserv_report_bot as bot
 
 DATA = Path(__file__).parent / "data" / "2026-05.json"
+JUNE = Path(__file__).parent / "data" / "2026-06.json"
 
 
 class RevenueMathTest(unittest.TestCase):
@@ -138,6 +139,68 @@ class EndToEndTest(unittest.TestCase):
 
     def test_month_key(self):
         self.assertEqual(bot.month_key(self.data), "2026-05")
+
+
+class JuneDraftTest(unittest.TestCase):
+    """The June draft exercises markup, per-AE, partial-year, and DRAFT paths."""
+
+    def setUp(self):
+        self.data = json.loads(JUNE.read_text())
+        self.c = bot.compute(self.data)
+
+    def test_june_revenue_partial_year(self):
+        rev = self.c["revenue"]
+        jun = rev["months"][-1]
+        self.assertEqual(jun["actual_2026"], 4001039.89)
+        self.assertIsNone(jun["actual_2025"])
+        self.assertIsNone(jun["yoy_dollar"])           # no 2025 to compare
+        self.assertFalse(jun["reported"])
+        self.assertFalse(rev["ytd_25_complete"])       # June 2025 missing
+        self.assertTrue(rev["ytd_26_complete"])
+        self.assertIsNone(rev["total_yoy_dollar"])     # YoY suppressed, not zero
+        # 2026 YTD through June sums all six months.
+        self.assertAlmostEqual(rev["ytd_2026"], 19493262 + 4001039.89, places=2)
+
+    def test_markup_comparison(self):
+        mk = self.c["revenue"]["markup"]
+        self.assertAlmostEqual(mk["value_2026"], 10.0327, places=4)
+        self.assertIsNone(mk["value_2025"])
+        self.assertIsNone(mk["delta"])                 # can't diff against pending
+
+    def test_per_ae_stub(self):
+        disc = self.c["discovery"]
+        self.assertEqual(disc["reps"], [])             # present but empty -> table shows
+        self.assertIsNone(disc.get("categories") or None)
+
+    def test_draft_renders_and_pending(self):
+        html = bot.render_html(self.data, self.c)
+        self.assertIn("draft-pill", html)              # DRAFT badge
+        self.assertIn("Overall Markup", html)          # markup band
+        self.assertIn("Discovery Calls by AE", html)   # per-AE table present
+        self.assertIn("Awaiting per-AE submissions", html)
+        self.assertIn("Pending", html)                 # empty wins/deals/newsletter
+        self.assertNotIn("The bad.", html)             # empty leadership hidden
+
+    def test_markup_formatting(self):
+        self.assertEqual(bot.markup_x(10.0327), "10.03x")
+        self.assertEqual(bot.markup_x(None), "TBD")
+
+
+class PerAEComputeTest(unittest.TestCase):
+    def test_floor_flagging(self):
+        disc = bot.compute_discovery({
+            "per_rep_monthly_floor": 3,
+            "reps": [
+                {"name": "A", "calls": 5},
+                {"name": "B", "calls": 1},
+                {"name": "C", "calls": 3},
+                {"name": "D", "calls": None},
+            ],
+        }, month_number=6)
+        self.assertEqual(disc["team_calls"], 9)        # 5+1+3 (None skipped)
+        self.assertEqual(disc["reps_reported"], 3)
+        below = [r["name"] for r in disc["reps_below_floor"]]
+        self.assertEqual(below, ["B"])                 # only B under 3
 
 
 if __name__ == "__main__":

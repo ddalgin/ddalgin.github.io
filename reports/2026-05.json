@@ -1,10 +1,11 @@
 {
-  "generated_at": "2026-07-24T16:34:26+00:00",
+  "generated_at": "2026-07-24T16:45:00+00:00",
   "period": {
     "month": 5,
     "year": 2026,
     "label": "May 2026"
   },
+  "status": "",
   "analysis": [
     "Revenue is trailing last year: ~$19.49M YTD vs ~$20.41M in 2025 (~-$915,404, ~-4.5%). 1 of 5 months are up YoY.",
     "May landed ~-$470,000 (~-11.6%) vs the prior year.",
@@ -24,10 +25,13 @@
         "actual_2025": 3749229,
         "actual_2026": 4159799,
         "estimate": false,
+        "reported": true,
         "yoy_dollar": 410570,
         "yoy_pct": 10.950784814691234,
         "ytd_2025": 3749229.0,
         "ytd_2026": 4159799.0,
+        "ytd_25_complete": true,
+        "ytd_26_complete": true,
         "ytd_estimate": false
       },
       {
@@ -35,10 +39,13 @@
         "actual_2025": 3894494,
         "actual_2026": 3681822,
         "estimate": false,
+        "reported": true,
         "yoy_dollar": -212672,
         "yoy_pct": -5.460837787912884,
         "ytd_2025": 7643723.0,
         "ytd_2026": 7841621.0,
+        "ytd_25_complete": true,
+        "ytd_26_complete": true,
         "ytd_estimate": false
       },
       {
@@ -46,10 +53,13 @@
         "actual_2025": 4712825,
         "actual_2026": 4147255,
         "estimate": false,
+        "reported": true,
         "yoy_dollar": -565570,
         "yoy_pct": -12.000657779569579,
         "ytd_2025": 12356548.0,
         "ytd_2026": 11988876.0,
+        "ytd_25_complete": true,
+        "ytd_26_complete": true,
         "ytd_estimate": false
       },
       {
@@ -57,10 +67,13 @@
         "actual_2025": 3992118,
         "actual_2026": 3914386,
         "estimate": false,
+        "reported": true,
         "yoy_dollar": -77732,
         "yoy_pct": -1.9471368331296819,
         "ytd_2025": 16348666.0,
         "ytd_2026": 15903262.0,
+        "ytd_25_complete": true,
+        "ytd_26_complete": true,
         "ytd_estimate": false
       },
       {
@@ -70,18 +83,25 @@
         "estimate": true,
         "note_2025": "~6.45x markup",
         "note_2026": "~10x markup",
+        "reported": true,
         "yoy_dollar": -470000,
         "yoy_pct": -11.576354679802956,
         "ytd_2025": 20408666.0,
         "ytd_2026": 19493262.0,
+        "ytd_25_complete": true,
+        "ytd_26_complete": true,
         "ytd_estimate": true
       }
     ],
     "ytd_2025": 20408666.0,
     "ytd_2026": 19493262.0,
+    "ytd_25_complete": true,
+    "ytd_26_complete": true,
     "ytd_estimate": true,
     "total_yoy_dollar": -915404.0,
     "total_yoy_pct": -4.485369107417408,
+    "markup": null,
+    "months_reported": 5,
     "months_up": 1,
     "months_down": 4
   },
@@ -194,7 +214,11 @@
         "ytd": 30,
         "pct_to_goal": 20.0
       }
-    ]
+    ],
+    "reps": null,
+    "team_calls": null,
+    "reps_reported": null,
+    "reps_below_floor": null
   },
   "wins": {
     "items": [

@@ -78,6 +78,13 @@ def pct(value: float | None, digits: int = 1, signed: bool = False,
     return f"{prefix}{sign}{value:.{digits}f}%"
 
 
+def markup_x(value: float | None) -> str:
+    """10.0327 -> '10.03x'."""
+    if value is None:
+        return "TBD"
+    return f"{value:.2f}x"
+
+
 def direction(value: float | None) -> str:
     """'up' / 'down' / 'flat' — drives the YoY color class."""
     if value is None:
@@ -97,10 +104,16 @@ def direction(value: float | None) -> str:
 
 
 def compute_revenue(rev: dict) -> dict:
-    """Add YoY and running-YTD fields to each month, plus period totals."""
+    """Add YoY and running-YTD fields to each month, plus period totals.
+
+    Handles partial months: a month with only one year's actual (e.g. June
+    2026 billed but June 2025 not yet supplied) still renders — YoY and the
+    incomplete side's YTD fall back to '—' rather than silently reading zero.
+    """
     months = []
     ytd_2025 = ytd_2026 = 0.0
     ytd_is_estimate = False
+    complete_25 = complete_26 = True
     for m in rev.get("months", []):
         a25 = m.get("actual_2025")
         a26 = m.get("actual_2026")
@@ -110,27 +123,50 @@ def compute_revenue(rev: dict) -> dict:
         yoy_pct = (yoy_dollar / a25 * 100) if (yoy_dollar is not None and a25) else None
         if a25 is not None:
             ytd_2025 += a25
+        else:
+            complete_25 = False
         if a26 is not None:
             ytd_2026 += a26
+        else:
+            complete_26 = False
         months.append({
             **m,
             "estimate": est,
+            "reported": a25 is not None and a26 is not None,
             "yoy_dollar": yoy_dollar,
             "yoy_pct": yoy_pct,
             "ytd_2025": ytd_2025,
             "ytd_2026": ytd_2026,
+            "ytd_25_complete": complete_25,
+            "ytd_26_complete": complete_26,
             "ytd_estimate": ytd_is_estimate,
         })
-    total_yoy_dollar = ytd_2026 - ytd_2025 if months else None
-    total_yoy_pct = (total_yoy_dollar / ytd_2025 * 100) if ytd_2025 else None
+    both_complete = complete_25 and complete_26
+    total_yoy_dollar = (ytd_2026 - ytd_2025) if (months and both_complete) else None
+    total_yoy_pct = (total_yoy_dollar / ytd_2025 * 100) if (total_yoy_dollar is not None and ytd_2025) else None
+
+    # Overall markup vs the same month last year (revenue / cost multiple).
+    mk = rev.get("markup") or {}
+    v26, v25 = mk.get("value_2026"), mk.get("value_2025")
+    markup = {
+        **mk,
+        "value_2026": v26,
+        "value_2025": v25,
+        "delta": (v26 - v25) if (v26 is not None and v25 is not None) else None,
+    } if mk else None
+
     return {
         **rev,
         "months": months,
         "ytd_2025": ytd_2025,
         "ytd_2026": ytd_2026,
+        "ytd_25_complete": complete_25,
+        "ytd_26_complete": complete_26,
         "ytd_estimate": ytd_is_estimate,
         "total_yoy_dollar": total_yoy_dollar,
         "total_yoy_pct": total_yoy_pct,
+        "markup": markup,
+        "months_reported": sum(1 for m in months if m["reported"]),
         "months_up": sum(1 for m in months if (m["yoy_dollar"] or 0) > 0),
         "months_down": sum(1 for m in months if (m["yoy_dollar"] or 0) < 0),
     }
@@ -154,9 +190,9 @@ def compute_discovery(disc: dict, month_number: int) -> dict:
 
     total = {
         "name": "Total Discovery Calls",
-        "goal": sum(c.get("goal", 0) for c in cats),
-        "prior_ytd": sum(c.get("prior_ytd", 0) for c in cats),
-        "current": sum(c.get("current", 0) for c in cats),
+        "goal": sum(c.get("goal") or 0 for c in cats),
+        "prior_ytd": sum(c.get("prior_ytd") or 0 for c in cats),
+        "current": sum(c.get("current") or 0 for c in cats),
     }
     total = _score_row(total)
 
@@ -166,6 +202,24 @@ def compute_discovery(disc: dict, month_number: int) -> dict:
         (c for c in cats if c["pct_to_goal"] is not None),
         key=lambda c: c["pct_to_goal"],
     )
+
+    # Per-AE breakdown: every rep named with their disco-call count, flagged
+    # against the monthly floor. The 'reps' key being present (even empty)
+    # switches the per-AE table on.
+    reps = None
+    team_calls = below = reps_reported = None
+    if "reps" in disc:
+        floor = disc.get("per_rep_monthly_floor")
+        reps = []
+        for r in disc.get("reps", []):
+            calls = r.get("calls")
+            meets = (calls >= floor) if (calls is not None and floor is not None) else None
+            reps.append({**r, "calls": calls, "meets_floor": meets})
+        reported = [r for r in reps if isinstance(r.get("calls"), (int, float))]
+        team_calls = sum(r["calls"] for r in reported)
+        reps_reported = len(reported)
+        below = [r for r in reps if r["meets_floor"] is False]
+
     return {
         **disc,
         "categories": cats,
@@ -174,6 +228,10 @@ def compute_discovery(disc: dict, month_number: int) -> dict:
         "pace_pct": pace_pct,
         "leader": laggards[-1] if laggards else None,
         "laggards": laggards[:3],
+        "reps": reps,
+        "team_calls": team_calls,
+        "reps_reported": reps_reported,
+        "reps_below_floor": below,
     }
 
 
@@ -212,45 +270,90 @@ def build_analysis(data: dict, rev: dict, disc: dict,
 
     # --- Revenue -----------------------------------------------------------
     approx = rev["ytd_estimate"]
-    trailing = (rev["total_yoy_dollar"] or 0) < 0
-    lines.append(
-        f"Revenue is {'trailing' if trailing else 'ahead of'} last year: "
-        f"{money(rev['ytd_2026'], approx)} YTD vs "
-        f"{money(rev['ytd_2025'], approx)} in 2025 "
-        f"({signed_money(rev['total_yoy_dollar'], approx)}, "
-        f"{pct(rev['total_yoy_pct'], signed=True, approx=approx)}). "
-        f"{rev['months_up']} of {len(rev['months'])} months are up YoY."
-    )
-    last = rev["months"][-1] if rev["months"] else None
-    if last and last["yoy_pct"] is not None:
+    last_26 = next((m for m in reversed(rev["months"]) if m.get("actual_2026") is not None), None)
+    last_both = next((m for m in reversed(rev["months"]) if m["reported"]), None)
+    if rev["total_yoy_dollar"] is not None:
+        trailing = rev["total_yoy_dollar"] < 0
         lines.append(
-            f"{last['month']} landed {signed_money(last['yoy_dollar'], last['estimate'])} "
-            f"({pct(last['yoy_pct'], signed=True, approx=last['estimate'])}) vs the prior year."
+            f"Revenue is {'trailing' if trailing else 'ahead of'} last year: "
+            f"{money(rev['ytd_2026'], approx)} YTD vs "
+            f"{money(rev['ytd_2025'], approx)} in 2025 "
+            f"({signed_money(rev['total_yoy_dollar'], approx)}, "
+            f"{pct(rev['total_yoy_pct'], signed=True, approx=approx)}). "
+            f"{rev['months_up']} of {rev['months_reported']} months are up YoY."
+        )
+    else:
+        through = f" through {last_26['month']}" if last_26 else ""
+        lines.append(
+            f"Revenue billed {money(rev['ytd_2026'])}{through} 2026; full YoY "
+            f"comparison pending the matching 2025 actuals."
+        )
+    if last_26 and not last_26["reported"] and last_26.get("actual_2026") is not None:
+        mk_note = f" ({last_26['note_2026']})" if last_26.get("note_2026") else ""
+        lines.append(f"{last_26['month']} billed {money(last_26['actual_2026'])}{mk_note}.")
+    elif last_both and last_both["yoy_pct"] is not None:
+        lines.append(
+            f"{last_both['month']} landed {signed_money(last_both['yoy_dollar'], last_both['estimate'])} "
+            f"({pct(last_both['yoy_pct'], signed=True, approx=last_both['estimate'])}) vs the prior year."
         )
 
-    # --- Discovery ---------------------------------------------------------
-    tot = disc["total"]
-    pace = disc.get("pace_pct")
-    behind = pace is not None and tot["pct_to_goal"] is not None and tot["pct_to_goal"] < pace
-    pace_clause = ""
-    if pace is not None:
-        pace_clause = (f" — {'behind' if behind else 'ahead of'} the "
-                       f"{pct(pace, 0)} straight-line pace for this point in the year")
-    lines.append(
-        f"Discovery calls are at {tot['ytd']} of {tot['goal']} "
-        f"({pct(tot['pct_to_goal'], 0)} to goal){pace_clause}. "
-        f"{label} added {tot['current']} calls."
-    )
-    if disc.get("laggards"):
-        weak = ", ".join(f"{c['name'].replace('Disco - ', '')} ({pct(c['pct_to_goal'], 0)})"
-                         for c in disc["laggards"])
-        lines.append(f"Furthest from goal: {weak}.")
+    # --- Overall markup ----------------------------------------------------
+    mk = rev.get("markup")
+    if mk and mk.get("value_2026") is not None:
+        if mk.get("value_2025") is not None:
+            d = mk["delta"]
+            lines.append(
+                f"Overall markup is {markup_x(mk['value_2026'])} vs "
+                f"{markup_x(mk['value_2025'])} last June "
+                f"({'+' if d >= 0 else ''}{d:.2f}x)."
+            )
+        else:
+            lines.append(
+                f"Overall markup is {markup_x(mk['value_2026'])}; the June 2025 "
+                f"markup for the year-over-year comparison is pending."
+            )
+
+    # --- Discovery (by category) -------------------------------------------
     floor = disc.get("per_rep_monthly_floor")
-    if floor:
+    if disc.get("categories"):
+        tot = disc["total"]
+        pace = disc.get("pace_pct")
+        behind = pace is not None and tot["pct_to_goal"] is not None and tot["pct_to_goal"] < pace
+        pace_clause = ""
+        if pace is not None:
+            pace_clause = (f" — {'behind' if behind else 'ahead of'} the "
+                           f"{pct(pace, 0)} straight-line pace for this point in the year")
+        added = f" {label} added {tot['current']} calls." if tot["current"] else ""
         lines.append(
-            f"Standing floor is {floor} legit discovery calls per rep on their worst month — "
-            f"the categories above are the team's obligation, not a stretch target."
+            f"Discovery calls are at {tot['ytd']} of {tot['goal']} "
+            f"({pct(tot['pct_to_goal'], 0)} to goal){pace_clause}.{added}"
         )
+        if disc.get("laggards"):
+            weak = ", ".join(f"{c['name'].replace('Disco - ', '')} ({pct(c['pct_to_goal'], 0)})"
+                             for c in disc["laggards"])
+            lines.append(f"Furthest from goal: {weak}.")
+        if floor:
+            lines.append(
+                f"Standing floor is {floor} legit discovery calls per rep on their worst month — "
+                f"the categories above are the team's obligation, not a stretch target."
+            )
+
+    # --- Discovery (by AE) -------------------------------------------------
+    if disc.get("reps") is not None:
+        if disc.get("reps_reported"):
+            below = disc["reps_below_floor"]
+            names = ", ".join(r["name"] for r in below)
+            floor_clause = (f" {len(below)} below the {floor}-call floor: {names}."
+                            if below else f" Every AE cleared the {floor}-call floor.")
+            lines.append(
+                f"By AE: {disc['reps_reported']} reps logged {disc['team_calls']} "
+                f"discovery calls in {label}.{floor_clause}"
+            )
+        else:
+            lines.append(
+                f"Per-AE discovery is set up — awaiting each AE named with their "
+                f"disco-call count against the {floor}-call floor."
+            )
 
     # --- Wins & pipeline ---------------------------------------------------
     if wins["count"]:
@@ -377,6 +480,11 @@ STYLE = """
   .callout.good { border-color:var(--up); }
   .callout .h { font-weight:700; }
   .note { color:var(--muted); font-size:.82rem; margin-top:1rem; }
+  .empty { color:var(--muted); padding:.7rem 0; font-style:italic; }
+  td.empty { text-align:center; }
+  .draft-pill { display:inline-block; vertical-align:middle; font-size:.68rem;
+    letter-spacing:.14em; background:#f5c518; color:#3a2d00; padding:.22rem .6rem;
+    border-radius:6px; margin-left:.6rem; font-weight:800; }
   footer { color:var(--muted); font-size:.8rem; margin-top:2rem; text-align:center; }
   a { color:var(--accent); }
 """
@@ -389,7 +497,24 @@ def _meter(pct_value: float | None) -> str:
     return f'<div class="meter"><span style="width:{w:.0f}%"></span></div>'
 
 
-def render_revenue_table(rev: dict) -> str:
+def render_markup(rev: dict, month_abbr: str) -> str:
+    """The 'overall markup vs last year' comparison band."""
+    mk = rev.get("markup")
+    if not mk or (mk.get("value_2026") is None and mk.get("value_2025") is None):
+        return ""
+    d = mk.get("delta")
+    dcell = f"{'+' if d >= 0 else ''}{d:.2f}x" if d is not None else "TBD"
+    dcls = direction(d)
+    note = f'<p class="note">{esc(mk["note"])}</p>' if mk.get("note") else ""
+    return f"""
+      <div class="cards" style="margin-bottom:1.1rem;">
+        <div class="card"><div class="k">Overall Markup · {esc(month_abbr)} '26</div><div class="v">{markup_x(mk.get('value_2026'))}</div></div>
+        <div class="card"><div class="k">{esc(month_abbr)} '25</div><div class="v">{markup_x(mk.get('value_2025'))}</div></div>
+        <div class="card"><div class="k">YoY</div><div class="v {dcls}">{dcell}</div></div>
+      </div>{note}"""
+
+
+def render_revenue_table(rev: dict, month_abbr: str = "") -> str:
     rows = []
     for m in rev["months"]:
         est = m["estimate"]
@@ -397,6 +522,8 @@ def render_revenue_table(rev: dict) -> str:
         note25 = f' <span class="annot">{esc(m["note_2025"])}</span>' if m.get("note_2025") else ""
         note26 = f' <span class="annot">{esc(m["note_2026"])}</span>' if m.get("note_2026") else ""
         star = "*" if est else ""
+        ytd26 = money(m['ytd_2026'], m['ytd_estimate']) if m['ytd_26_complete'] else "—"
+        ytd25 = money(m['ytd_2025'], m['ytd_estimate']) if m['ytd_25_complete'] else "—"
         rows.append(f"""
       <tr>
         <td>{esc(m['month'])}{star}</td>
@@ -404,25 +531,28 @@ def render_revenue_table(rev: dict) -> str:
         <td>{money(m['actual_2026'], est)}{note26}</td>
         <td class="{d}">{signed_money(m['yoy_dollar'], est)}</td>
         <td class="{d}">{pct(m['yoy_pct'], signed=True, approx=est)}</td>
-        <td>{money(m['ytd_2026'], m['ytd_estimate'])}</td>
-        <td>{money(m['ytd_2025'], m['ytd_estimate'])}</td>
+        <td>{ytd26}</td>
+        <td>{ytd25}</td>
       </tr>""")
     d = direction(rev["total_yoy_dollar"])
     approx = rev["ytd_estimate"]
+    t26 = money(rev['ytd_2026'], approx) if rev['ytd_26_complete'] else "—"
+    t25 = money(rev['ytd_2025'], approx) if rev['ytd_25_complete'] else "—"
     rows.append(f"""
       <tr class="total">
         <td>YTD</td>
-        <td>{money(rev['ytd_2025'], approx)}</td>
-        <td>{money(rev['ytd_2026'], approx)}</td>
+        <td>{t25}</td>
+        <td>{t26}</td>
         <td class="{d}">{signed_money(rev['total_yoy_dollar'], approx)}</td>
         <td class="{d}">{pct(rev['total_yoy_pct'], signed=True, approx=approx)}</td>
-        <td>{money(rev['ytd_2026'], approx)}</td>
-        <td>{money(rev['ytd_2025'], approx)}</td>
+        <td>{t26}</td>
+        <td>{t25}</td>
       </tr>""")
     note = f'<p class="note">{esc(rev["note"])}</p>' if rev.get("note") else ""
     return f"""
     <section>
       <h2>Revenue Summary · 2026 Actuals vs 2025</h2>
+      {render_markup(rev, month_abbr)}
       <table>
         <thead><tr>
           <th>Month</th><th>2025 Actual</th><th>2026 Actual</th>
@@ -434,6 +564,10 @@ def render_revenue_table(rev: dict) -> str:
     </section>"""
 
 
+def _cell(v, tbd: str = "TBD"):
+    return tbd if v is None else v
+
+
 def _disc_rows(rows: list[dict], disc: dict, total_row: bool = False) -> str:
     out = []
     for r in rows:
@@ -441,16 +575,57 @@ def _disc_rows(rows: list[dict], disc: dict, total_row: bool = False) -> str:
         out.append(f"""
       <tr{cls}>
         <td>{esc(r['name'])}</td>
-        <td>{r['goal']}</td>
-        <td>{r.get('prior_ytd', 0)}</td>
-        <td>{r.get('current', 0)}</td>
-        <td>{r['ytd']}</td>
+        <td>{_cell(r.get('goal'), '—')}</td>
+        <td>{_cell(r.get('prior_ytd'), '—')}</td>
+        <td>{_cell(r.get('current'))}</td>
+        <td>{_cell(r['ytd'], '—')}</td>
         <td>{pct(r['pct_to_goal'], 0)}{_meter(r['pct_to_goal'])}</td>
       </tr>""")
     return "".join(out)
 
 
+def render_discovery_reps(disc: dict) -> str:
+    """Per-AE table: every rep named, disco calls counted, floor flagged."""
+    if disc.get("reps") is None:
+        return ""
+    floor = disc.get("per_rep_monthly_floor")
+    rows = []
+    for r in disc["reps"]:
+        calls = r.get("calls")
+        if calls is None:
+            calls_s, status, cls = "—", "pending", "flat"
+        elif r.get("meets_floor"):
+            calls_s, status, cls = f"{calls}", "✓ meets floor", "up"
+        else:
+            calls_s, status, cls = f"{calls}", f"below {floor}", "down"
+        rows.append(f"""
+      <tr><td>{esc(r['name'])}</td><td>{calls_s}</td>
+        <td class="{cls}">{status}</td></tr>""")
+    if not rows:
+        rows = [f'<tr><td class="empty" colspan="3">Awaiting per-AE submissions — '
+                f'every AE named with their disco-call count for the month '
+                f'(floor: {floor} per AE).</td></tr>']
+    if disc.get("reps_reported"):
+        n_below = len(disc["reps_below_floor"])
+        summ = (f'<p class="note">Team: {disc["team_calls"]} discovery calls across '
+                f'{disc["reps_reported"]} AEs · floor {floor}/AE · '
+                f'{n_below} below floor.</p>')
+    else:
+        summ = f'<p class="note">Monthly floor: {floor} legit discovery calls per AE.</p>'
+    return f"""
+    <section>
+      <h2>Discovery Calls by AE</h2>
+      <table>
+        <thead><tr><th>AE</th><th>Disco Calls</th><th>vs Floor</th></tr></thead>
+        <tbody>{''.join(rows)}</tbody>
+      </table>
+      {summ}
+    </section>"""
+
+
 def render_discovery_table(disc: dict) -> str:
+    if not disc.get("categories"):
+        return ""
     prior = esc(disc.get("prior_label", "Prior YTD"))
     curr = esc(disc.get("current_label", "This month"))
     ytdl = esc(disc.get("ytd_label", "YTD"))
@@ -483,14 +658,14 @@ def render_pipeline(data: dict, wins: dict, nl: dict) -> str:
         f'<li><span>{esc(w["name"])}</span>'
         f'<span class="amt">{money(w["amount"]) if isinstance(w.get("amount"), (int, float)) else esc(w.get("amount", ""))}</span></li>'
         for w in wins["items"]
-    )
+    ) or '<li class="empty">Pending — to be updated.</li>'
     total_line = (f'<li class="total"><span><strong>New wins booked</strong></span>'
                   f'<span class="amt">{money(wins["total"])}</span></li>'
                   if wins["total"] else "")
     deal_items = "".join(
         f'<li><span>{esc(d["name"])}</span><span class="amt">{esc(d.get("amount", ""))}</span></li>'
         for d in data.get("deals", [])
-    )
+    ) or '<li class="empty">Pending — to be updated.</li>'
     return f"""
     <section>
       <h2>Wins &amp; Pipeline</h2>
@@ -508,6 +683,13 @@ def render_pipeline(data: dict, wins: dict, nl: dict) -> str:
 
 
 def render_newsletter(nl: dict) -> str:
+    if not (nl.get("sent") or nl.get("open_rate") or nl.get("send_date")):
+        return """
+    <section>
+      <h2>Newsletter Performance</h2>
+      <p class="empty">Pending — campaign platform export to be added.</p>
+    </section>"""
+
     def card(k, v, n=""):
         n = f'<div class="n">{esc(n)}</div>' if n else ""
         return f'<div class="card"><div class="k">{esc(k)}</div><div class="v">{esc(v)}</div>{n}</div>'
@@ -549,16 +731,21 @@ def render_leadership(data: dict) -> str:
     if ev.get("cities"):
         link = f' — <a href="{esc(ev["url"])}">{esc(ev.get("series", "event series"))}</a>' if ev.get("url") else ""
         ev_block = f'<p style="margin:.8rem 0 .2rem;"><strong>Upcoming events{link}:</strong></p><div>{ev_pills}</div>'
+    bad_block = good_block = ""
+    if bad.get("headline"):
+        bad_block = (f'<div class="callout bad"><span class="h">The bad.</span> {esc(bad["headline"])}'
+                     f'<div class="annot" style="font-style:normal;color:var(--ink);opacity:.85;">{esc(bad.get("detail", ""))}</div></div>')
+    if good.get("headline"):
+        good_block = (f'<div class="callout good"><span class="h">The good.</span> {esc(good["headline"])}'
+                      f'<div class="annot" style="font-style:normal;color:var(--ink);opacity:.85;">{esc(good.get("detail", ""))}</div></div>')
     return f"""
     <section>
       <h2>From Leadership</h2>
       <p class="lede">{esc(note.get('intro', ''))}</p>
       <p style="margin:.9rem 0 .2rem;"><strong>Standing obligations</strong></p>
       <ul class="lede">{obligations}</ul>
-      <div class="callout bad"><span class="h">The bad.</span> {esc(bad.get('headline', ''))}
-        <div class="annot" style="font-style:normal;color:var(--ink);opacity:.85;">{esc(bad.get('detail', ''))}</div></div>
-      <div class="callout good"><span class="h">The good.</span> {esc(good.get('headline', ''))}
-        <div class="annot" style="font-style:normal;color:var(--ink);opacity:.85;">{esc(good.get('detail', ''))}</div></div>
+      {bad_block}
+      {good_block}
       <p style="margin:.9rem 0 .2rem;"><strong>Our focus right now</strong></p>
       <ul class="lede">{focus}</ul>
       {ev_block}
@@ -574,6 +761,10 @@ def render_analysis(analysis: list[str]) -> str:
     </section>"""
 
 
+ABBR = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
 def render_html(data: dict, c: dict) -> str:
     period = data.get("period", {})
     label = period.get("label", "Monthly Report")
@@ -584,6 +775,10 @@ def render_html(data: dict, c: dict) -> str:
     prepared = data.get("prepared_by", "")
     precision = data.get("precision_note", "")
     nextnote = data.get("next_report_note", "")
+    mnum = c.get("month_number") or 0
+    month_abbr = ABBR[mnum] if 0 < mnum < len(ABBR) else ""
+    is_draft = str(data.get("status", "")).upper() == "DRAFT"
+    draft_badge = '<span class="draft-pill">DRAFT</span>' if is_draft else ""
 
     return f"""<!doctype html>
 <html lang="en">
@@ -597,12 +792,13 @@ def render_html(data: dict, c: dict) -> str:
 <main>
   <header class="masthead">
     <p class="eyebrow">{esc(org)} · {esc(vertical)} · Monthly Report</p>
-    <h1>{esc(team)} — {esc(label)}</h1>
+    <h1>{esc(team)} — {esc(label)}{draft_badge}</h1>
     <p class="sub">{esc(nextnote)}</p>
   </header>
 {render_analysis(c['analysis'])}
 {render_leadership(data)}
-{render_revenue_table(c['revenue'])}
+{render_revenue_table(c['revenue'], month_abbr)}
+{render_discovery_reps(c['discovery'])}
 {render_discovery_table(c['discovery'])}
 {render_pipeline(data, c['wins'], c['newsletter'])}
 {render_newsletter(c['newsletter'])}
@@ -615,13 +811,20 @@ def render_html(data: dict, c: dict) -> str:
 """
 
 
+def _md_cell(v, tbd="TBD"):
+    return tbd if v is None else v
+
+
 def render_markdown(data: dict, c: dict) -> str:
     period = data.get("period", {})
     label = period.get("label", "Monthly Report")
     rev = c["revenue"]
     disc = c["discovery"]
+    mnum = c.get("month_number") or 0
+    month_abbr = ABBR[mnum] if 0 < mnum < len(ABBR) else ""
+    draft = " [DRAFT]" if str(data.get("status", "")).upper() == "DRAFT" else ""
     L = [
-        f"# {data.get('team', '')} — {label}",
+        f"# {data.get('team', '')} — {label}{draft}",
         "",
         f"_{data.get('org', '')} · {data.get('vertical', '')} · auto-assembled "
         f"{datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}_",
@@ -630,49 +833,84 @@ def render_markdown(data: dict, c: dict) -> str:
         "",
     ]
     L += [f"- {line}" for line in c["analysis"]]
-    L += ["", "## Revenue summary", "",
-          "| Month | 2025 | 2026 | YoY $ | YoY % | 2026 YTD | 2025 YTD |",
+
+    L += ["", "## Revenue summary", ""]
+    mk = rev.get("markup")
+    if mk and mk.get("value_2026") is not None:
+        L.append(f"**Overall markup — {month_abbr} '26:** {markup_x(mk.get('value_2026'))} "
+                 f"vs {markup_x(mk.get('value_2025'))} last year"
+                 + (f" ({'+' if mk['delta'] >= 0 else ''}{mk['delta']:.2f}x)." if mk.get("delta") is not None else "."))
+        L.append("")
+    L += ["| Month | 2025 | 2026 | YoY $ | YoY % | 2026 YTD | 2025 YTD |",
           "|---|--:|--:|--:|--:|--:|--:|"]
     for m in rev["months"]:
         est = m["estimate"]
+        ytd26 = money(m['ytd_2026'], m['ytd_estimate']) if m['ytd_26_complete'] else "—"
+        ytd25 = money(m['ytd_2025'], m['ytd_estimate']) if m['ytd_25_complete'] else "—"
         L.append(f"| {m['month']}{'*' if est else ''} | {money(m['actual_2025'], est)} | "
                  f"{money(m['actual_2026'], est)} | {signed_money(m['yoy_dollar'], est)} | "
-                 f"{pct(m['yoy_pct'], signed=True, approx=est)} | "
-                 f"{money(m['ytd_2026'], m['ytd_estimate'])} | {money(m['ytd_2025'], m['ytd_estimate'])} |")
+                 f"{pct(m['yoy_pct'], signed=True, approx=est)} | {ytd26} | {ytd25} |")
     ap = rev["ytd_estimate"]
-    L.append(f"| **YTD** | **{money(rev['ytd_2025'], ap)}** | **{money(rev['ytd_2026'], ap)}** | "
+    t26 = money(rev['ytd_2026'], ap) if rev['ytd_26_complete'] else "—"
+    t25 = money(rev['ytd_2025'], ap) if rev['ytd_25_complete'] else "—"
+    L.append(f"| **YTD** | **{t25}** | **{t26}** | "
              f"**{signed_money(rev['total_yoy_dollar'], ap)}** | "
              f"**{pct(rev['total_yoy_pct'], signed=True, approx=ap)}** | | |")
 
-    L += ["", "## Discovery calls & activities", "",
-          f"| Category | Goal | {disc.get('prior_label', 'Prior')} | "
-          f"{disc.get('current_label', 'Month')} | YTD | % to goal |",
-          "|---|--:|--:|--:|--:|--:|"]
-    for r in disc["categories"] + [disc["total"]]:
-        bold = "**" if r is disc["total"] else ""
-        L.append(f"| {bold}{r['name']}{bold} | {r['goal']} | {r.get('prior_ytd', 0)} | "
-                 f"{r.get('current', 0)} | {r['ytd']} | {pct(r['pct_to_goal'], 0)} |")
-    for r in disc.get("activities", []):
-        L.append(f"| {r['name']} | {r['goal']} | {r.get('prior_ytd', 0)} | "
-                 f"{r.get('current', 0)} | {r['ytd']} | {pct(r['pct_to_goal'], 0)} |")
+    if disc.get("reps") is not None:
+        L += ["", "## Discovery calls by AE", "",
+              "| AE | Disco Calls | vs Floor |", "|---|--:|:--|"]
+        floor = disc.get("per_rep_monthly_floor")
+        if disc["reps"]:
+            for r in disc["reps"]:
+                calls = r.get("calls")
+                status = ("pending" if calls is None
+                          else ("✓ meets floor" if r.get("meets_floor") else f"below {floor}"))
+                L.append(f"| {r['name']} | {_md_cell(calls, '—')} | {status} |")
+        else:
+            L.append(f"| _Awaiting per-AE submissions (floor {floor}/AE)_ | — | — |")
+
+    if disc.get("categories"):
+        L += ["", "## Discovery calls & activities", "",
+              f"| Category | Goal | {disc.get('prior_label', 'Prior')} | "
+              f"{disc.get('current_label', 'Month')} | YTD | % to goal |",
+              "|---|--:|--:|--:|--:|--:|"]
+        for r in disc["categories"] + [disc["total"]]:
+            bold = "**" if r is disc["total"] else ""
+            L.append(f"| {bold}{r['name']}{bold} | {_md_cell(r.get('goal'), '—')} | "
+                     f"{_md_cell(r.get('prior_ytd'), '—')} | {_md_cell(r.get('current'))} | "
+                     f"{_md_cell(r['ytd'], '—')} | {pct(r['pct_to_goal'], 0)} |")
+        for r in disc.get("activities", []):
+            L.append(f"| {r['name']} | {_md_cell(r.get('goal'), '—')} | "
+                     f"{_md_cell(r.get('prior_ytd'), '—')} | {_md_cell(r.get('current'))} | "
+                     f"{_md_cell(r['ytd'], '—')} | {pct(r['pct_to_goal'], 0)} |")
 
     L += ["", "## New wins", ""]
-    for w in data.get("wins", []):
-        amt = money(w["amount"]) if isinstance(w.get("amount"), (int, float)) else w.get("amount", "")
-        L.append(f"- **{w['name']}** — {amt}")
-    if c["wins"]["total"]:
-        L.append(f"- _Total booked: {money(c['wins']['total'])}_")
+    if data.get("wins"):
+        for w in data["wins"]:
+            amt = money(w["amount"]) if isinstance(w.get("amount"), (int, float)) else w.get("amount", "")
+            L.append(f"- **{w['name']}** — {amt}")
+        if c["wins"]["total"]:
+            L.append(f"- _Total booked: {money(c['wins']['total'])}_")
+    else:
+        L.append("_Pending — to be updated._")
 
     L += ["", "## Deals advanced", ""]
-    for d in data.get("deals", []):
-        L.append(f"- {d['name']} — {d.get('amount', '')}")
+    if data.get("deals"):
+        for d in data["deals"]:
+            L.append(f"- {d['name']} — {d.get('amount', '')}")
+    else:
+        L.append("_Pending — to be updated._")
 
     nl = c["newsletter"]
-    L += ["", "## Newsletter performance", "",
-          f"- Sent **{nl.get('send_date', '')}** · {nl.get('sent', 0):,} sent / {nl.get('delivered', 0):,} delivered",
-          f"- Open rate **{pct(nl.get('open_rate'), 2)}** · {nl.get('opens', 0):,} opens",
-          f"- Clicks **{nl.get('clicks_total', 0):,}** (record) · click rate {pct(nl.get('click_rate'), 2)} · CTOR {pct(nl.get('ctor_unique'), 0)}",
-          f"- Opt-outs {nl.get('opt_outs', 0)}"]
+    L += ["", "## Newsletter performance", ""]
+    if nl.get("sent") or nl.get("open_rate") or nl.get("send_date"):
+        L += [f"- Sent **{nl.get('send_date', '')}** · {nl.get('sent', 0):,} sent / {nl.get('delivered', 0):,} delivered",
+              f"- Open rate **{pct(nl.get('open_rate'), 2)}** · {nl.get('opens', 0):,} opens",
+              f"- Clicks **{nl.get('clicks_total', 0):,}** · click rate {pct(nl.get('click_rate'), 2)} · CTOR {pct(nl.get('ctor_unique'), 0)}",
+              f"- Opt-outs {nl.get('opt_outs', 0)}"]
+    else:
+        L.append("_Pending — campaign platform export to be added._")
     if data.get("precision_note"):
         L += ["", f"> {data['precision_note']}"]
     return "\n".join(L) + "\n"
@@ -737,8 +975,10 @@ def build_index(out: Path, org: str, team: str) -> None:
         html_name = f"{key}.html"
         if not (out / html_name).exists():
             continue
+        is_draft = str(payload.get("status", "")).upper() == "DRAFT"
+        label = payload.get("period", {}).get("label", key)
         reports.append({
-            "label": payload.get("period", {}).get("label", key),
+            "label": f"{label} · DRAFT" if is_draft else label,
             "html": html_name,
             "headline": (payload.get("analysis") or [""])[0],
         })
@@ -775,6 +1015,7 @@ def main(argv: list[str] | None = None) -> int:
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "period": data.get("period", {}),
+        "status": data.get("status", ""),
         "analysis": c["analysis"],
         "revenue": c["revenue"],
         "discovery": c["discovery"],

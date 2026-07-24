@@ -26,10 +26,12 @@ and what's winning, so the numbers and the story can't drift apart.
    calls, wins, deals, newsletter metrics, the leadership note, and upcoming
    events.
 2. **Analyzes** — recomputes YoY dollars/percent, running YTD, discovery
-   % to goal, a straight-line pace benchmark, and newsletter lift vs.
-   benchmark. It never trusts a pre-computed total in the data file; the math
-   is reproducible from the inputs. It then stitches a plain-English
-   *At a Glance* narrative from those computed numbers.
+   % to goal, a straight-line pace benchmark, newsletter lift vs. benchmark,
+   the **overall markup vs. the same month last year**, and a **per-AE
+   discovery** roll-up (each rep flagged against the monthly floor). It never
+   trusts a pre-computed total in the data file; the math is reproducible
+   from the inputs. It then stitches a plain-English *At a Glance* narrative
+   from those computed numbers.
 3. **Designs** — renders a branded, self-contained report page (dark-forest
    masthead, YoY color coding, progress meters, stat cards) matching the
    monthly deck's house look.
@@ -55,6 +57,22 @@ python bot/test_report.py                                 # offline tests
 The May file is seeded from the real May 2026 report; the `--data` file's
 `period` block sets the month, and the analysis engine reconciles the rest
 (e.g. discovery YTD rolls to 204, revenue YTD to ~$19.49M vs ~$20.41M).
+
+### Data-file options
+
+- **Draft**: set `"status": "DRAFT"` to stamp a DRAFT badge and flag the
+  month in the index. Missing sections render as clearly-marked *Pending*
+  rather than empty (see `bot/data/2026-06.json`).
+- **Overall markup**: add `revenue.markup` with `value_2026` / `value_2025`
+  (e.g. `10.0327`) to show the "this month vs. last year" markup band. A
+  `null` side renders as `TBD`.
+- **Per-AE discovery**: add `discovery.reps` — a list of
+  `{"name": ..., "calls": N}` — to render the *Discovery Calls by AE* table
+  with each AE named and flagged against `per_rep_monthly_floor`. An empty
+  list shows an "awaiting submissions" placeholder.
+- **Partial months**: a revenue month with only one year's actual (e.g. June
+  2026 billed, June 2025 pending) still renders; YoY and the missing side's
+  YTD show `—` instead of silently reading zero.
 
 ## Schedule
 
