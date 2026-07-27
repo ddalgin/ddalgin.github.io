@@ -127,7 +127,7 @@ class EndToEndTest(unittest.TestCase):
 
     def test_html_renders_key_numbers(self):
         html = bot.render_html(self.data, self.c)
-        self.assertIn("Financial Services", html)
+        self.assertIn("Global Finance Sales", html)
         self.assertIn("36.87%", html)            # newsletter open rate
         self.assertIn("$115,000", html)          # a marquee win
         self.assertIn("<!doctype html>", html)
@@ -201,11 +201,18 @@ class JuneDraftTest(unittest.TestCase):
     def test_draft_renders(self):
         html = bot.render_html(self.data, self.c)
         self.assertIn("draft-pill", html)              # DRAFT badge
-        self.assertIn("Overall Markup", html)          # markup band
-        self.assertIn("Discovery Calls by AE", html)   # per-AE table present
-        self.assertIn("Wayne Sparks", html)            # a named AE
-        self.assertIn("Pending", html)                 # empty wins/deals/newsletter
+        self.assertIn("Overall Markup", html)          # markup hero tile
+        self.assertIn("Discovery Calls · By Person", html)  # per-AE section
+        self.assertIn("Wayne Sparks", html)            # a reporting person (chip)
+        self.assertIn("Not yet reported", html)        # non-reporters listed compactly
+        self.assertIn("Pending", html)                 # collapsed wins/deals/newsletter
         self.assertNotIn("The bad.", html)             # empty leadership hidden
+
+    def test_hero_and_banner(self):
+        html = bot.render_html(self.data, self.c)
+        self.assertIn('class="hero"', html)            # KPI tiles present
+        self.assertIn("revenue up", html)              # good-news banner
+        self.assertNotIn("At a Glance", html)          # boring bullet wall gone
 
     def test_markup_formatting(self):
         self.assertEqual(bot.markup_x(10.0327), "10.03x")

@@ -486,6 +486,29 @@ STYLE = """
     border-radius:999px; overflow:hidden; min-width:70px; margin-top:.3rem; }
   .meter > span { position:absolute; inset:0 auto 0 0; background:var(--brand-2);
     border-radius:999px; }
+  .hero { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:.9rem; margin-bottom:1.4rem; }
+  .tile { background:var(--card); border:1px solid var(--line); border-top:3px solid var(--brand-2);
+    border-radius:12px; padding:1rem 1.1rem; }
+  .tile.good { border-top-color:var(--up); }
+  .tile .k { font-size:.7rem; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); }
+  .tile .v { font-size:1.75rem; font-weight:800; line-height:1.05; margin-top:.28rem; letter-spacing:-.02em; }
+  .tile .s { font-size:.8rem; margin-top:.3rem; font-weight:600; color:var(--muted); }
+  .tile .s.up { color:var(--up); } .tile .s.down { color:var(--down); }
+  .banner { display:flex; gap:.6rem; align-items:baseline; background:rgba(38,146,86,.12);
+    border:1px solid rgba(38,146,86,.4); border-radius:10px; padding:.75rem 1rem; margin-bottom:1.5rem;
+    font-size:.95rem; }
+  .banner .mark { color:var(--up); font-weight:800; }
+  .banner strong { color:var(--up); }
+  .chips2 { display:flex; flex-wrap:wrap; gap:.5rem; }
+  .ae-chip { display:flex; flex-direction:column; gap:.05rem; padding:.45rem .75rem;
+    border-radius:9px; border:1px solid var(--line); background:var(--band); min-width:116px; }
+  .ae-chip.met { background:rgba(38,146,86,.13); border-color:rgba(38,146,86,.45); }
+  .ae-chip .top { display:flex; justify-content:space-between; gap:.8rem; align-items:baseline; }
+  .ae-chip .nm { font-weight:600; font-size:.86rem; }
+  .ae-chip .ct { font-weight:800; font-variant-numeric:tabular-nums; font-size:.95rem; }
+  .ae-chip.met .ct { color:var(--up); }
+  .ae-chip .ac { color:var(--muted); font-size:.72rem; }
+  .pending-names { color:var(--muted); font-size:.86rem; margin-top:.9rem; }
   .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.9rem; }
   .card { background:var(--band); border:1px solid var(--line); border-radius:10px;
     padding:.85rem .95rem; }
@@ -579,7 +602,6 @@ def render_revenue_table(rev: dict, month_abbr: str = "") -> str:
     return f"""
     <section>
       <h2>Revenue Summary · 2026 Actuals vs 2025</h2>
-      {render_markup(rev, month_abbr)}
       <table>
         <thead><tr>
           <th>Month</th><th>2025 Actual</th><th>2026 Actual</th>
@@ -612,47 +634,39 @@ def _disc_rows(rows: list[dict], disc: dict, total_row: bool = False) -> str:
 
 
 def render_discovery_reps(disc: dict) -> str:
-    """Per-AE table: every rep named, disco calls counted, floor flagged."""
+    """Per-person discovery: reporters as compact chips (green = hit the floor),
+    non-reporters listed compactly. No red — not-green carries the message."""
     if disc.get("reps") is None:
         return ""
     floor = disc.get("per_rep_monthly_floor")
-    rows = []
-    for r in disc["reps"]:
-        calls = r.get("calls")
-        if calls is None:
-            calls_s, status, cls = "—", "pending", "flat"
-        elif r.get("meets_floor"):
-            calls_s, status, cls = f"{calls}", "✓ meets floor", "up"
-        else:
-            calls_s, status, cls = f"{calls}", f"below {floor}", "down"
-        acct = (f'<div class="annot" style="font-style:normal;">{esc(r["accounts"])}</div>'
-                if r.get("accounts") else "")
-        rows.append(f"""
-      <tr><td>{esc(r['name'])}{acct}</td><td>{calls_s}</td>
-        <td class="{cls}">{status}</td></tr>""")
-    if not rows:
-        rows = [f'<tr><td class="empty" colspan="3">Awaiting per-AE submissions — '
-                f'every AE named with their disco-call count for the month '
-                f'(floor: {floor} per AE).</td></tr>']
-    total_reps = len(disc["reps"])
-    if disc.get("reps_reported"):
-        n_below = len(disc["reps_below_floor"])
-        pending = total_reps - disc["reps_reported"]
-        summ = (f'<p class="note"><strong>Reported so far: {disc["reps_reported"]}/{total_reps} AEs</strong> · '
-                f'{disc["team_calls"]} discovery calls · floor {floor}/AE · '
-                f'{n_below} below floor · {pending} pending. Reporting still open — totals will rise.</p>')
-    else:
-        summ = f'<p class="note">Monthly floor: {floor} legit discovery calls per AE. Awaiting submissions.</p>'
-    note = f'<p class="note">{esc(disc["note"])}</p>' if disc.get("note") else ""
+    reported = [r for r in disc["reps"] if r.get("calls") is not None]
+    pending = [r for r in disc["reps"] if r.get("calls") is None]
+
+    chips = ""
+    for r in sorted(reported, key=lambda x: -x["calls"]):
+        met = "met" if r.get("meets_floor") else ""
+        acct = f'<span class="ac">{esc(r["accounts"])}</span>' if r.get("accounts") else ""
+        chips += (f'<div class="ae-chip {met}"><div class="top">'
+                  f'<span class="nm">{esc(r["name"])}</span>'
+                  f'<span class="ct">{r["calls"]}</span></div>{acct}</div>')
+    chips_block = f'<div class="chips2">{chips}</div>' if chips else ""
+
+    pend_block = ""
+    if pending:
+        names = ", ".join(esc(r["name"]) for r in pending)
+        pend_block = (f'<p class="pending-names"><strong>Not yet reported ({len(pending)}):</strong> '
+                      f'{names}</p>')
+
+    hit = sum(1 for r in reported if r.get("meets_floor"))
+    summ = (f'<p class="note"><strong>{len(reported)} of {len(disc["reps"])} reported</strong> · '
+            f'{disc.get("team_calls", 0)} calls · {hit} hit the {floor}-call floor '
+            f'(green). Reporting still open.</p>')
     return f"""
     <section>
-      <h2>Discovery Calls by AE</h2>
-      <table>
-        <thead><tr><th>AE</th><th>Disco Calls</th><th>vs Floor</th></tr></thead>
-        <tbody>{''.join(rows)}</tbody>
-      </table>
+      <h2>Discovery Calls · By Person</h2>
+      {chips_block}
       {summ}
-      {note}
+      {pend_block}
     </section>"""
 
 
@@ -789,13 +803,77 @@ def render_leadership(data: dict) -> str:
     </section>"""
 
 
-def render_analysis(analysis: list[str]) -> str:
-    items = "".join(f"<li>{esc(line)}</li>" for line in analysis)
-    return f"""
+def _tile(k: str, v: str, s: str = "", s_cls: str = "", good: bool = False) -> str:
+    s_html = f'<div class="s {s_cls}">{esc(s)}</div>' if s else ""
+    return (f'<div class="tile{" good" if good else ""}">'
+            f'<div class="k">{esc(k)}</div><div class="v">{esc(v)}</div>{s_html}</div>')
+
+
+def render_hero(data: dict, c: dict) -> str:
+    """Top-line KPI tiles — the numbers that matter, good ones flagged green."""
+    rev, disc, wins, nl = c["revenue"], c["discovery"], c["wins"], c["newsletter"]
+    tiles = []
+
+    last = next((m for m in reversed(rev["months"]) if m.get("actual_2026") is not None), None)
+    if last:
+        yoy, e = last["yoy_dollar"], (last["est_26"] or last["est_25"])
+        if yoy is not None:
+            sub = f"{signed_money(yoy, e)} · {pct(last['yoy_pct'], 1, signed=True, approx=e)} YoY"
+            tiles.append(_tile(f"{last['month']} Revenue", money(last['actual_2026'], last['est_26']),
+                               sub, direction(yoy), good=yoy > 0))
+        else:
+            tiles.append(_tile(f"{last['month']} Revenue", money(last['actual_2026'], last['est_26']),
+                               "YoY pending"))
+    if rev["ytd_26_complete"]:
+        tot = rev["total_yoy_dollar"]
+        sub = (f"{pct(rev['total_yoy_pct'], 1, signed=True, approx=rev['ytd_25_est'] or rev['ytd_26_est'])} vs '25"
+               if tot is not None else "vs '25 pending")
+        tiles.append(_tile("2026 YTD", money(rev["ytd_2026"], rev["ytd_26_est"]),
+                           sub, direction(tot)))
+    mk = rev.get("markup")
+    if mk and mk.get("value_2026") is not None:
+        sub = (f"vs {markup_x(mk['value_2025'])} last {last['month'] if last else 'year'}"
+               if mk.get("value_2025") is not None else "vs last year — pending")
+        tiles.append(_tile("Overall Markup", markup_x(mk["value_2026"]), sub, "", good=True))
+    if disc.get("total"):
+        t = disc["total"]
+        tiles.append(_tile("Discovery YTD", f"{t['ytd']} / {t['goal']}",
+                           f"{pct(t['pct_to_goal'], 0)} to goal"))
+    if wins.get("total"):
+        tiles.append(_tile("New Wins", money(wins["total"]),
+                           f"{wins['count']} closed", "up", good=True))
+    if nl.get("open_rate") is not None:
+        tiles.append(_tile("Newsletter Open", pct(nl["open_rate"], 1),
+                           "record clicks" if nl.get("clicks_total") else "", "up", good=True))
+    return f'<div class="hero">{"".join(tiles)}</div>' if tiles else ""
+
+
+def render_banner(c: dict) -> str:
+    """One punchy good-news line, when there is one."""
+    rev = c["revenue"]
+    last = next((m for m in reversed(rev["months"]) if m["reported"]), None)
+    if last and (last["yoy_dollar"] or 0) > 0:
+        prior_ups = [m for m in rev["months"][:-1] if (m["yoy_dollar"] or 0) > 0]
+        since = f"first up-month since {prior_ups[-1]['month']}" if prior_ups else "first up-month of the year"
+        return (f'<div class="banner"><span class="mark">▲</span><div>'
+                f'<strong>{last["month"]} revenue up {pct(last["yoy_pct"], 1, approx=last["est_26"])} '
+                f'YoY</strong> ({signed_money(last["yoy_dollar"], last["est_26"])}) — the {since}, '
+                f'even as unit volume stays soft.</div></div>')
+    return ""
+
+
+def render_closing(data: dict, c: dict) -> str:
+    """Wins / Deals / Newsletter. Collapses to one compact line while all pending."""
+    nl = c["newsletter"]
+    has = (bool(data.get("wins")) or bool(data.get("deals"))
+           or nl.get("sent") or nl.get("open_rate") or nl.get("send_date"))
+    if not has:
+        return """
     <section>
-      <h2>At a Glance · Auto Analysis</h2>
-      <ul class="lede">{items}</ul>
+      <h2>Wins · Deals · Newsletter</h2>
+      <p class="empty">Pending — new wins, deals advanced, and newsletter performance land with final June reporting.</p>
     </section>"""
+    return render_pipeline(data, c["wins"], nl) + render_newsletter(nl)
 
 
 ABBR = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -816,29 +894,30 @@ def render_html(data: dict, c: dict) -> str:
     month_abbr = ABBR[mnum] if 0 < mnum < len(ABBR) else ""
     is_draft = str(data.get("status", "")).upper() == "DRAFT"
     draft_badge = '<span class="draft-pill">DRAFT</span>' if is_draft else ""
+    title = data.get("report_title", team)
 
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(team)} — {esc(label)}</title>
+<title>{esc(title)} — {esc(label)}</title>
 <style>{STYLE}</style>
 </head>
 <body>
 <main>
   <header class="masthead">
     <p class="eyebrow">{esc(org)} · {esc(vertical)} · Monthly Report</p>
-    <h1>{esc(team)} — {esc(label)}{draft_badge}</h1>
+    <h1>{esc(title)} — {esc(label)}{draft_badge}</h1>
     <p class="sub">{esc(nextnote)}</p>
   </header>
-{render_analysis(c['analysis'])}
-{render_leadership(data)}
+{render_hero(data, c)}
+{render_banner(c)}
 {render_revenue_table(c['revenue'], month_abbr)}
-{render_discovery_reps(c['discovery'])}
 {render_discovery_table(c['discovery'])}
-{render_pipeline(data, c['wins'], c['newsletter'])}
-{render_newsletter(c['newsletter'])}
+{render_discovery_reps(c['discovery'])}
+{render_closing(data, c)}
+{render_leadership(data)}
   <p class="note">{esc(precision)}</p>
   <footer>Prepared by {esc(prepared)}. Auto-assembled by finserv_report_bot.py on {generated}.<br>
   Revenue: internal revenue dashboard, Finance vertical. Discovery: prior-period reporting reconciled with current-month rep submissions. Wins/Deals: rep self-report. Newsletter: campaign platform export.</footer>

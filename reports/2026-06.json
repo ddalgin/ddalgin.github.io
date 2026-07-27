@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T14:56:57+00:00",
+  "generated_at": "2026-07-27T15:08:38+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -435,6 +435,7 @@
     },
     "status": "DRAFT",
     "team": "Financial Services",
+    "report_title": "Global Finance Sales",
     "org": "TransPerfect",
     "vertical": "Global Finance",
     "prepared_by": "Global Finance Sales Reporting",

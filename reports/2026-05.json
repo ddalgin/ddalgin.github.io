@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T14:32:35+00:00",
+  "generated_at": "2026-07-27T15:08:38+00:00",
   "period": {
     "month": 5,
     "year": 2026,
@@ -200,7 +200,8 @@
       "prior_ytd": 163,
       "current": 41,
       "ytd": 204,
-      "pct_to_goal": 27.200000000000003
+      "pct_to_goal": 27.200000000000003,
+      "uncategorized": 0
     },
     "pace_pct": 41.66666666666667,
     "leader": {
@@ -294,6 +295,7 @@
       "label": "May 2026"
     },
     "team": "Financial Services",
+    "report_title": "Global Finance Sales",
     "org": "TransPerfect",
     "vertical": "Global Finance",
     "prepared_by": "Global Finance Sales Reporting",

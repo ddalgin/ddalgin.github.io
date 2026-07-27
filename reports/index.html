@@ -55,6 +55,29 @@
     border-radius:999px; overflow:hidden; min-width:70px; margin-top:.3rem; }
   .meter > span { position:absolute; inset:0 auto 0 0; background:var(--brand-2);
     border-radius:999px; }
+  .hero { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:.9rem; margin-bottom:1.4rem; }
+  .tile { background:var(--card); border:1px solid var(--line); border-top:3px solid var(--brand-2);
+    border-radius:12px; padding:1rem 1.1rem; }
+  .tile.good { border-top-color:var(--up); }
+  .tile .k { font-size:.7rem; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); }
+  .tile .v { font-size:1.75rem; font-weight:800; line-height:1.05; margin-top:.28rem; letter-spacing:-.02em; }
+  .tile .s { font-size:.8rem; margin-top:.3rem; font-weight:600; color:var(--muted); }
+  .tile .s.up { color:var(--up); } .tile .s.down { color:var(--down); }
+  .banner { display:flex; gap:.6rem; align-items:baseline; background:rgba(38,146,86,.12);
+    border:1px solid rgba(38,146,86,.4); border-radius:10px; padding:.75rem 1rem; margin-bottom:1.5rem;
+    font-size:.95rem; }
+  .banner .mark { color:var(--up); font-weight:800; }
+  .banner strong { color:var(--up); }
+  .chips2 { display:flex; flex-wrap:wrap; gap:.5rem; }
+  .ae-chip { display:flex; flex-direction:column; gap:.05rem; padding:.45rem .75rem;
+    border-radius:9px; border:1px solid var(--line); background:var(--band); min-width:116px; }
+  .ae-chip.met { background:rgba(38,146,86,.13); border-color:rgba(38,146,86,.45); }
+  .ae-chip .top { display:flex; justify-content:space-between; gap:.8rem; align-items:baseline; }
+  .ae-chip .nm { font-weight:600; font-size:.86rem; }
+  .ae-chip .ct { font-weight:800; font-variant-numeric:tabular-nums; font-size:.95rem; }
+  .ae-chip.met .ct { color:var(--up); }
+  .ae-chip .ac { color:var(--muted); font-size:.72rem; }
+  .pending-names { color:var(--muted); font-size:.86rem; margin-top:.9rem; }
   .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.9rem; }
   .card { background:var(--band); border:1px solid var(--line); border-radius:10px;
     padding:.85rem .95rem; }
@@ -89,7 +112,7 @@
   <header class="masthead">
     <p class="eyebrow">TransPerfect · Monthly Report</p>
     <h1>Financial Services — Reports</h1>
-    <p class="sub">Updated 2026-07-27 14:56 UTC</p>
+    <p class="sub">Updated 2026-07-27 15:08 UTC</p>
   </header>
   <section>
     <h2>All Reports</h2>

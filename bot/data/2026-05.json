@@ -1,6 +1,7 @@
 {
   "period": { "month": 5, "year": 2026, "label": "May 2026" },
   "team": "Financial Services",
+  "report_title": "Global Finance Sales",
   "org": "TransPerfect",
   "vertical": "Global Finance",
   "prepared_by": "Global Finance Sales Reporting",
