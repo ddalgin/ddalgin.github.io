@@ -451,17 +451,17 @@ STYLE = """
   body { margin:0; background:var(--bg); color:var(--ink);
     font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
   main { max-width:960px; margin:0 auto; padding:0 1rem 4rem; }
-  .masthead { background:var(--brand); color:#fff; padding:2rem 1.5rem;
-    border-radius:0 0 14px 14px; margin-bottom:1.75rem;
+  .masthead { background:var(--brand); color:#fff; padding:1.5rem 1.5rem;
+    border-radius:0 0 14px 14px; margin-bottom:1.1rem;
     border-bottom:4px solid #29abe2; }
   .masthead .eyebrow { text-transform:uppercase; letter-spacing:.14em;
     font-size:.72rem; color:#5cc4ee; margin:0 0 .35rem; }
   .masthead h1 { margin:0; font-size:2rem; line-height:1.1; letter-spacing:-.01em; }
   .masthead .sub { margin:.5rem 0 0; opacity:.85; font-size:.9rem; }
   section { background:var(--card); border:1px solid var(--line);
-    border-radius:12px; padding:1.25rem 1.4rem; margin-bottom:1.5rem; }
+    border-radius:12px; padding:1rem 1.25rem; margin-bottom:1rem; }
   h2 { font-size:.8rem; text-transform:uppercase; letter-spacing:.12em;
-    color:var(--brand-2); margin:0 0 1rem; padding-bottom:.6rem;
+    color:var(--brand-2); margin:0 0 .8rem; padding-bottom:.5rem;
     border-bottom:2px solid var(--band); }
   @media (prefers-color-scheme: dark) { h2 { color:var(--accent); } }
   .lede { font-size:1.02rem; margin:.2rem 0 0; }
@@ -528,7 +528,7 @@ STYLE = """
   .callout.bad { border-color:var(--down); }
   .callout.good { border-color:var(--up); }
   .callout .h { font-weight:700; }
-  .note { color:var(--muted); font-size:.82rem; margin-top:1rem; }
+  .note { color:var(--muted); font-size:.82rem; margin-top:.6rem; }
   .empty { color:var(--muted); padding:.7rem 0; font-style:italic; }
   td.empty { text-align:center; }
   .draft-pill { display:inline-block; vertical-align:middle; font-size:.68rem;
@@ -747,7 +747,8 @@ def render_newsletter(nl: dict) -> str:
 
     open_note = ""
     if nl.get("open_delta_pts"):
-        open_note = f"up {nl['open_delta_pts']:.1f} pts from {pct(nl.get('prior_open_rate'))}"
+        d = nl["open_delta_pts"]
+        open_note = f"{'up' if d >= 0 else 'down'} {abs(d):.1f} pts from {pct(nl.get('prior_open_rate'))}"
     cards = "".join([
         card("Send date", nl.get("send_date", "—")),
         card("Sent / Delivered", f"{nl.get('sent', 0):,} / {nl.get('delivered', 0):,}"),
@@ -863,17 +864,23 @@ def render_banner(c: dict) -> str:
 
 
 def render_closing(data: dict, c: dict) -> str:
-    """Wins / Deals / Newsletter. Collapses to one compact line while all pending."""
+    """Wins / Deals / Newsletter — each part shows fully when it has data and
+    collapses to a compact pending line when it doesn't, so a populated section
+    (e.g. the newsletter) never drags empty ones along as blank columns."""
     nl = c["newsletter"]
-    has = (bool(data.get("wins")) or bool(data.get("deals"))
-           or nl.get("sent") or nl.get("open_rate") or nl.get("send_date"))
-    if not has:
-        return """
+    has_wd = bool(data.get("wins")) or bool(data.get("deals"))
+    has_nl = nl.get("sent") or nl.get("open_rate") or nl.get("send_date")
+    out = ""
+    if has_wd:
+        out += render_pipeline(data, c["wins"], nl)
+    else:
+        out += """
     <section>
-      <h2>Wins · Deals · Newsletter</h2>
-      <p class="empty">Pending — new wins, deals advanced, and newsletter performance land with final June reporting.</p>
+      <h2>Wins &amp; Pipeline</h2>
+      <p class="empty">Pending — new wins and deals advanced land with final June reporting.</p>
     </section>"""
-    return render_pipeline(data, c["wins"], nl) + render_newsletter(nl)
+    out += render_newsletter(nl)  # renders its own "pending" line when empty
+    return out
 
 
 ABBR = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",

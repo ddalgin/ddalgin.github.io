@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T15:08:38+00:00",
+  "generated_at": "2026-07-27T18:27:22+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -13,7 +13,8 @@
     "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 50% straight-line pace for this point in the year. June 2026 added 36 calls.",
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
-    "By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending \u2014 team total will rise."
+    "By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending \u2014 team total will rise.",
+    "Newsletter open rate hit 25.60%, ~1.1x the ~20\u201325% benchmark, up -11.3 pts from 36.9%; 4,632 total clicks is a record. Brand programming is compounding."
   ],
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
@@ -426,7 +427,25 @@
     "total": 0,
     "all_numeric": true
   },
-  "newsletter": {},
+  "newsletter": {
+    "send_date": "June 17",
+    "sent": 5761,
+    "delivered": 5761,
+    "opens": 1464,
+    "open_rate": 25.6,
+    "open_rate_benchmark_low": 20,
+    "open_rate_benchmark_high": 25,
+    "prior_open_rate": 36.87,
+    "clicks_total": 4632,
+    "prior_clicks_total": 4494,
+    "click_rate": 80,
+    "ctor_unique": 49,
+    "opt_outs": 16,
+    "note": "Open rate 25.60% \u2014 above the ~20\u201325% benchmark, though down from May's 36.87%. 4,632 clicks is a new high (up from 4,494 in May). Click rate 80%, CTOR 49%, 16 opt-outs.",
+    "delivery_rate": 100.0,
+    "open_vs_benchmark_x": 1.1377777777777778,
+    "open_delta_pts": -11.269999999999996
+  },
   "source_data": {
     "period": {
       "month": 6,
@@ -672,7 +691,22 @@
     },
     "wins": [],
     "deals": [],
-    "newsletter": {},
+    "newsletter": {
+      "send_date": "June 17",
+      "sent": 5761,
+      "delivered": 5761,
+      "opens": 1464,
+      "open_rate": 25.6,
+      "open_rate_benchmark_low": 20,
+      "open_rate_benchmark_high": 25,
+      "prior_open_rate": 36.87,
+      "clicks_total": 4632,
+      "prior_clicks_total": 4494,
+      "click_rate": 80,
+      "ctor_unique": 49,
+      "opt_outs": 16,
+      "note": "Open rate 25.60% \u2014 above the ~20\u201325% benchmark, though down from May's 36.87%. 4,632 clicks is a new high (up from 4,494 in May). Click rate 80%, CTOR 49%, 16 opt-outs."
+    },
     "events_upcoming": {
       "series": "FinanceNext Series",
       "url": "https://experiences.transperfect.com/financenextseries/",
