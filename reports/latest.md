@@ -1,13 +1,16 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-27 14:32 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-27 14:51 UTC_
 
 ## At a glance
 
 - Revenue is trailing last year: ~$23.49M YTD vs $23,918,914 in 2025 (~-$424,612, ~-1.8%). 2 of 6 months are up YoY.
 - Jun landed +$437,370 (+12.3%) vs the prior year.
 - Overall markup is 10.03x; the June 2025 markup for the year-over-year comparison is pending.
-- By AE: 9 of 28 reps have reported 29 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 19 of 28 AEs still pending — team total will rise.
+- Discovery calls are at 215 of 750 (29% to goal) — behind the 50% straight-line pace for this point in the year. June 2026 added 37 calls.
+- Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).
+- Standing floor is 3 legit discovery calls per rep on their worst month — the categories above are the team's obligation, not a stretch target.
+- By AE: 10 of 28 reps have reported 36 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending — team total will rise.
 
 ## Revenue summary
 
@@ -32,7 +35,7 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-27 14:32 UTC_
 | Angus Ulyate | — | pending |
 | Anthony Madigan | 6 | ✓ meets floor |
 | Avery Sturtevant | — | pending |
-| Brianna Farrell | — | pending |
+| Brianna Farrell | 7 | ✓ meets floor |
 | Clayton Eysel | — | pending |
 | Dante Dalgin | 3 | ✓ meets floor |
 | Isabel Atwood | — | pending |
@@ -55,6 +58,17 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-27 14:32 UTC_
 | Thomas Emery | — | pending |
 | Michael DeFalco | — | pending |
 | Wayne Sparks | 10 | ✓ meets floor |
+
+## Discovery calls & activities
+
+| Category | Goal | May '26 YTD | Jun '26 | YTD | % to goal |
+|---|--:|--:|--:|--:|--:|
+| Disco - General | 200 | 79 | 30 | 109 | 55% |
+| Disco - Digital | 150 | 30 | 1 | 31 | 21% |
+| Disco - Consulting | 100 | 4 | 1 | 5 | 5% |
+| Disco - TPC/BPO | 150 | 23 | 3 | 26 | 17% |
+| Disco - GlobalLink | 150 | 28 | 2 | 30 | 20% |
+| **Total Discovery Calls** | 750 | 178 | 37 | 215 | 29% |
 
 ## New wins
 

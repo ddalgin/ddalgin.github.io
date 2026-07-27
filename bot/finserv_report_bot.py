@@ -204,13 +204,18 @@ def compute_discovery(disc: dict, month_number: int) -> dict:
     cats = [_score_row(c) for c in disc.get("categories", [])]
     acts = [_score_row(a) for a in disc.get("activities", [])]
 
-    total = {
-        "name": "Total Discovery Calls",
-        "goal": sum(c.get("goal") or 0 for c in cats),
-        "prior_ytd": sum(c.get("prior_ytd") or 0 for c in cats),
-        "current": sum(c.get("current") or 0 for c in cats),
-    }
-    total = _score_row(total)
+    # Total row: sum of the categories by default, but an explicit
+    # `discovery.total` override wins when the team tracks a headline total
+    # that doesn't reconcile to the (partly uncategorized) category rows.
+    cat_ytd = sum(c["ytd"] for c in cats)
+    override = disc.get("total") or {}
+    total = _score_row({
+        "name": override.get("name", "Total Discovery Calls"),
+        "goal": override.get("goal", sum(c.get("goal") or 0 for c in cats)),
+        "prior_ytd": override.get("prior_ytd", sum(c.get("prior_ytd") or 0 for c in cats)),
+        "current": override.get("current", sum(c.get("current") or 0 for c in cats)),
+    })
+    total["uncategorized"] = (total["ytd"] - cat_ytd) if override else 0
 
     # Pace: fraction of the year elapsed through this month (May -> 5/12).
     pace_pct = (month_number / 12 * 100) if month_number else None
@@ -666,6 +671,10 @@ def render_discovery_table(disc: dict) -> str:
     pace = disc.get("pace_pct")
     pace_note = (f'<p class="note">Straight-line pace at this point in the year: '
                  f'{pct(pace, 0)}.</p>') if pace is not None else ""
+    unc = disc["total"].get("uncategorized", 0)
+    if unc:
+        pace_note += (f'<p class="note">{unc} YTD discovery calls are counted in the '
+                      f'team total but not yet split into a category above.</p>')
     return f"""
     <section>
       <h2>Discovery Calls &amp; Activities</h2>
