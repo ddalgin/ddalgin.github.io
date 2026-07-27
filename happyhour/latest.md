@@ -1,6 +1,6 @@
 # DC Happy Hour — Ranked
 
-_Generated 2026-07-23 16:46 UTC · from 1001 G St NW (Metro Center) · all spots_
+_Generated 2026-07-27 15:46 UTC · from 1001 G St NW (Metro Center) · all spots_
 
 1. **[Crimson View](https://crimson-dc.com/crimson-view-rooftop)** — 7 min walk · Chinatown / Penn Quarter · ⭐4.3 · $$$
    - Happy hour: Mon–Fri 4–7pm — $2 off beers & house wine; craft cocktails and small plates
