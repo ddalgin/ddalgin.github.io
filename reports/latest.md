@@ -1,6 +1,6 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-27 18:27 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-27 18:50 UTC_
 
 ## At a glance
 

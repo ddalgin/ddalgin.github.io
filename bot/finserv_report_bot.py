@@ -836,10 +836,6 @@ def render_hero(data: dict, c: dict) -> str:
         sub = (f"vs {markup_x(mk['value_2025'])} last {last['month'] if last else 'year'}"
                if mk.get("value_2025") is not None else "vs last year — pending")
         tiles.append(_tile("Overall Markup", markup_x(mk["value_2026"]), sub, "", good=True))
-    if disc.get("total"):
-        t = disc["total"]
-        tiles.append(_tile("Discovery YTD", f"{t['ytd']} / {t['goal']}",
-                           f"{pct(t['pct_to_goal'], 0)} to goal"))
     if wins.get("total"):
         tiles.append(_tile("New Wins", money(wins["total"]),
                            f"{wins['count']} closed", "up", good=True))
