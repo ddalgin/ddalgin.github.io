@@ -113,12 +113,22 @@ def compute_revenue(rev: dict) -> dict:
     months = []
     ytd_2025 = ytd_2026 = 0.0
     ytd_is_estimate = False
+    ytd_25_est = ytd_26_est = False
     complete_25 = complete_26 = True
     for m in rev.get("months", []):
         a25 = m.get("actual_2025")
         a26 = m.get("actual_2026")
-        est = bool(m.get("estimate"))
-        ytd_is_estimate = ytd_is_estimate or est
+        # Precision can differ by year within a month (e.g. May 2025 exact but
+        # May 2026 still rounded). estimate_2025 / estimate_2026 override the
+        # row-level `estimate` when present.
+        base_est = bool(m.get("estimate"))
+        est_25 = bool(m.get("estimate_2025", base_est))
+        est_26 = bool(m.get("estimate_2026", base_est))
+        if a25 is not None and est_25:
+            ytd_25_est = True
+        if a26 is not None and est_26:
+            ytd_26_est = True
+        ytd_is_estimate = ytd_is_estimate or est_25 or est_26
         yoy_dollar = (a26 - a25) if (a25 is not None and a26 is not None) else None
         yoy_pct = (yoy_dollar / a25 * 100) if (yoy_dollar is not None and a25) else None
         if a25 is not None:
@@ -131,7 +141,9 @@ def compute_revenue(rev: dict) -> dict:
             complete_26 = False
         months.append({
             **m,
-            "estimate": est,
+            "estimate": est_25 or est_26,
+            "est_25": est_25,
+            "est_26": est_26,
             "reported": a25 is not None and a26 is not None,
             "yoy_dollar": yoy_dollar,
             "yoy_pct": yoy_pct,
@@ -139,6 +151,8 @@ def compute_revenue(rev: dict) -> dict:
             "ytd_2026": ytd_2026,
             "ytd_25_complete": complete_25,
             "ytd_26_complete": complete_26,
+            "ytd_25_est": ytd_25_est,
+            "ytd_26_est": ytd_26_est,
             "ytd_estimate": ytd_is_estimate,
         })
     both_complete = complete_25 and complete_26
@@ -162,6 +176,8 @@ def compute_revenue(rev: dict) -> dict:
         "ytd_2026": ytd_2026,
         "ytd_25_complete": complete_25,
         "ytd_26_complete": complete_26,
+        "ytd_25_est": ytd_25_est,
+        "ytd_26_est": ytd_26_est,
         "ytd_estimate": ytd_is_estimate,
         "total_yoy_dollar": total_yoy_dollar,
         "total_yoy_pct": total_yoy_pct,
@@ -269,17 +285,18 @@ def build_analysis(data: dict, rev: dict, disc: dict,
     lines: list[str] = []
 
     # --- Revenue -----------------------------------------------------------
-    approx = rev["ytd_estimate"]
+    a26, a25 = rev["ytd_26_est"], rev["ytd_25_est"]
+    yoy_ap = a25 or a26
     last_26 = next((m for m in reversed(rev["months"]) if m.get("actual_2026") is not None), None)
     last_both = next((m for m in reversed(rev["months"]) if m["reported"]), None)
     if rev["total_yoy_dollar"] is not None:
         trailing = rev["total_yoy_dollar"] < 0
         lines.append(
             f"Revenue is {'trailing' if trailing else 'ahead of'} last year: "
-            f"{money(rev['ytd_2026'], approx)} YTD vs "
-            f"{money(rev['ytd_2025'], approx)} in 2025 "
-            f"({signed_money(rev['total_yoy_dollar'], approx)}, "
-            f"{pct(rev['total_yoy_pct'], signed=True, approx=approx)}). "
+            f"{money(rev['ytd_2026'], a26)} YTD vs "
+            f"{money(rev['ytd_2025'], a25)} in 2025 "
+            f"({signed_money(rev['total_yoy_dollar'], yoy_ap)}, "
+            f"{pct(rev['total_yoy_pct'], signed=True, approx=yoy_ap)}). "
             f"{rev['months_up']} of {rev['months_reported']} months are up YoY."
         )
     else:
@@ -340,14 +357,18 @@ def build_analysis(data: dict, rev: dict, disc: dict,
 
     # --- Discovery (by AE) -------------------------------------------------
     if disc.get("reps") is not None:
+        total_reps = len(disc["reps"])
         if disc.get("reps_reported"):
             below = disc["reps_below_floor"]
             names = ", ".join(r["name"] for r in below)
             floor_clause = (f" {len(below)} below the {floor}-call floor: {names}."
-                            if below else f" Every AE cleared the {floor}-call floor.")
+                            if below else f" Every reporting AE cleared the {floor}-call floor.")
+            pending = total_reps - disc["reps_reported"]
+            pending_clause = (f" {pending} of {total_reps} AEs still pending — team total will rise."
+                              if pending else "")
             lines.append(
-                f"By AE: {disc['reps_reported']} reps logged {disc['team_calls']} "
-                f"discovery calls in {label}.{floor_clause}"
+                f"By AE: {disc['reps_reported']} of {total_reps} reps have reported "
+                f"{disc['team_calls']} discovery calls in {label} so far.{floor_clause}{pending_clause}"
             )
         else:
             lines.append(
@@ -517,27 +538,28 @@ def render_markup(rev: dict, month_abbr: str) -> str:
 def render_revenue_table(rev: dict, month_abbr: str = "") -> str:
     rows = []
     for m in rev["months"]:
-        est = m["estimate"]
+        est25, est26 = m["est_25"], m["est_26"]
+        yoy_est = est25 or est26
         d = direction(m["yoy_dollar"])
         note25 = f' <span class="annot">{esc(m["note_2025"])}</span>' if m.get("note_2025") else ""
         note26 = f' <span class="annot">{esc(m["note_2026"])}</span>' if m.get("note_2026") else ""
-        star = "*" if est else ""
-        ytd26 = money(m['ytd_2026'], m['ytd_estimate']) if m['ytd_26_complete'] else "—"
-        ytd25 = money(m['ytd_2025'], m['ytd_estimate']) if m['ytd_25_complete'] else "—"
+        star = "*" if yoy_est else ""
+        ytd26 = money(m['ytd_2026'], m['ytd_26_est']) if m['ytd_26_complete'] else "—"
+        ytd25 = money(m['ytd_2025'], m['ytd_25_est']) if m['ytd_25_complete'] else "—"
         rows.append(f"""
       <tr>
         <td>{esc(m['month'])}{star}</td>
-        <td>{money(m['actual_2025'], est)}{note25}</td>
-        <td>{money(m['actual_2026'], est)}{note26}</td>
-        <td class="{d}">{signed_money(m['yoy_dollar'], est)}</td>
-        <td class="{d}">{pct(m['yoy_pct'], signed=True, approx=est)}</td>
+        <td>{money(m['actual_2025'], est25)}{note25}</td>
+        <td>{money(m['actual_2026'], est26)}{note26}</td>
+        <td class="{d}">{signed_money(m['yoy_dollar'], yoy_est)}</td>
+        <td class="{d}">{pct(m['yoy_pct'], signed=True, approx=yoy_est)}</td>
         <td>{ytd26}</td>
         <td>{ytd25}</td>
       </tr>""")
     d = direction(rev["total_yoy_dollar"])
-    approx = rev["ytd_estimate"]
-    t26 = money(rev['ytd_2026'], approx) if rev['ytd_26_complete'] else "—"
-    t25 = money(rev['ytd_2025'], approx) if rev['ytd_25_complete'] else "—"
+    approx = rev["ytd_25_est"] or rev["ytd_26_est"]
+    t26 = money(rev['ytd_2026'], rev['ytd_26_est']) if rev['ytd_26_complete'] else "—"
+    t25 = money(rev['ytd_2025'], rev['ytd_25_est']) if rev['ytd_25_complete'] else "—"
     rows.append(f"""
       <tr class="total">
         <td>YTD</td>
@@ -598,20 +620,25 @@ def render_discovery_reps(disc: dict) -> str:
             calls_s, status, cls = f"{calls}", "✓ meets floor", "up"
         else:
             calls_s, status, cls = f"{calls}", f"below {floor}", "down"
+        acct = (f'<div class="annot" style="font-style:normal;">{esc(r["accounts"])}</div>'
+                if r.get("accounts") else "")
         rows.append(f"""
-      <tr><td>{esc(r['name'])}</td><td>{calls_s}</td>
+      <tr><td>{esc(r['name'])}{acct}</td><td>{calls_s}</td>
         <td class="{cls}">{status}</td></tr>""")
     if not rows:
         rows = [f'<tr><td class="empty" colspan="3">Awaiting per-AE submissions — '
                 f'every AE named with their disco-call count for the month '
                 f'(floor: {floor} per AE).</td></tr>']
+    total_reps = len(disc["reps"])
     if disc.get("reps_reported"):
         n_below = len(disc["reps_below_floor"])
-        summ = (f'<p class="note">Team: {disc["team_calls"]} discovery calls across '
-                f'{disc["reps_reported"]} AEs · floor {floor}/AE · '
-                f'{n_below} below floor.</p>')
+        pending = total_reps - disc["reps_reported"]
+        summ = (f'<p class="note"><strong>Reported so far: {disc["reps_reported"]}/{total_reps} AEs</strong> · '
+                f'{disc["team_calls"]} discovery calls · floor {floor}/AE · '
+                f'{n_below} below floor · {pending} pending. Reporting still open — totals will rise.</p>')
     else:
-        summ = f'<p class="note">Monthly floor: {floor} legit discovery calls per AE.</p>'
+        summ = f'<p class="note">Monthly floor: {floor} legit discovery calls per AE. Awaiting submissions.</p>'
+    note = f'<p class="note">{esc(disc["note"])}</p>' if disc.get("note") else ""
     return f"""
     <section>
       <h2>Discovery Calls by AE</h2>
@@ -620,6 +647,7 @@ def render_discovery_reps(disc: dict) -> str:
         <tbody>{''.join(rows)}</tbody>
       </table>
       {summ}
+      {note}
     </section>"""
 
 
@@ -844,15 +872,16 @@ def render_markdown(data: dict, c: dict) -> str:
     L += ["| Month | 2025 | 2026 | YoY $ | YoY % | 2026 YTD | 2025 YTD |",
           "|---|--:|--:|--:|--:|--:|--:|"]
     for m in rev["months"]:
-        est = m["estimate"]
-        ytd26 = money(m['ytd_2026'], m['ytd_estimate']) if m['ytd_26_complete'] else "—"
-        ytd25 = money(m['ytd_2025'], m['ytd_estimate']) if m['ytd_25_complete'] else "—"
-        L.append(f"| {m['month']}{'*' if est else ''} | {money(m['actual_2025'], est)} | "
-                 f"{money(m['actual_2026'], est)} | {signed_money(m['yoy_dollar'], est)} | "
-                 f"{pct(m['yoy_pct'], signed=True, approx=est)} | {ytd26} | {ytd25} |")
-    ap = rev["ytd_estimate"]
-    t26 = money(rev['ytd_2026'], ap) if rev['ytd_26_complete'] else "—"
-    t25 = money(rev['ytd_2025'], ap) if rev['ytd_25_complete'] else "—"
+        est25, est26 = m["est_25"], m["est_26"]
+        yoy_est = est25 or est26
+        ytd26 = money(m['ytd_2026'], m['ytd_26_est']) if m['ytd_26_complete'] else "—"
+        ytd25 = money(m['ytd_2025'], m['ytd_25_est']) if m['ytd_25_complete'] else "—"
+        L.append(f"| {m['month']}{'*' if yoy_est else ''} | {money(m['actual_2025'], est25)} | "
+                 f"{money(m['actual_2026'], est26)} | {signed_money(m['yoy_dollar'], yoy_est)} | "
+                 f"{pct(m['yoy_pct'], signed=True, approx=yoy_est)} | {ytd26} | {ytd25} |")
+    t26 = money(rev['ytd_2026'], rev['ytd_26_est']) if rev['ytd_26_complete'] else "—"
+    t25 = money(rev['ytd_2025'], rev['ytd_25_est']) if rev['ytd_25_complete'] else "—"
+    ap = rev["ytd_25_est"] or rev["ytd_26_est"]
     L.append(f"| **YTD** | **{t25}** | **{t26}** | "
              f"**{signed_money(rev['total_yoy_dollar'], ap)}** | "
              f"**{pct(rev['total_yoy_pct'], signed=True, approx=ap)}** | | |")

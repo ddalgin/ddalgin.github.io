@@ -5,8 +5,8 @@
   "org": "TransPerfect",
   "vertical": "Global Finance",
   "prepared_by": "Global Finance Sales Reporting",
-  "next_report_note": "Draft — figures firm up as June billing reconciles and rep submissions land.",
-  "precision_note": "DRAFT: June 2026 revenue reflects billed finance-vertical total ($4,001,039.89). June 2025 comparison, discovery, wins/deals, and newsletter are pending.",
+  "next_report_note": "Draft — discovery reporting still open and June 2025 markup pending; revenue is final.",
+  "precision_note": "DRAFT: June 2026 revenue is billed finance-vertical actual ($4,001,039.89). 2025 monthly actuals are exact (internal dashboard). May 2026 remains the only rounded figure (~$3.59M, TIER 2). Discovery reflects rep submissions received so far — reporting is still open. June 2025 markup, wins/deals, and newsletter pending.",
 
   "leadership_note": {
     "intro": "June report (draft). The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
@@ -25,26 +25,55 @@
 
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
-    "note": "Jan–Apr reconciles to $15,903,261.28 YTD. May figures reported rounded (~$3.59M 2026 / ~$4.06M 2025). June 2026 = $4,001,039.89 billed (10.03x markup); June 2025 actual pending for YoY.",
+    "note": "2025 monthly actuals exact from the internal dashboard (May 2025 = $4,006,577.90, restating the earlier ~$4.06M). June 2026 = $4,001,039.89 billed (10.03x markup), up +$437,370 (+12.3%) vs. June 2025. May 2026 remains rounded (~$3.59M) pending exact-cent reconciliation. June 2025 markup pending for the year-over-year markup comparison.",
     "markup": {
       "value_2026": 10.0327,
       "value_2025": null,
       "note": "Overall markup, Finance vertical. June 2026 = 10.03x. June 2025 markup pending for the year-over-year comparison."
     },
     "months": [
-      { "month": "Jan", "actual_2025": 3749229, "actual_2026": 4159799, "estimate": false },
-      { "month": "Feb", "actual_2025": 3894494, "actual_2026": 3681822, "estimate": false },
-      { "month": "Mar", "actual_2025": 4712825, "actual_2026": 4147255, "estimate": false },
-      { "month": "Apr", "actual_2025": 3992118, "actual_2026": 3914386, "estimate": false },
-      { "month": "May", "actual_2025": 4060000, "actual_2026": 3590000, "estimate": true, "note_2025": "~6.45x markup", "note_2026": "~10x markup" },
-      { "month": "Jun", "actual_2025": null, "actual_2026": 4001039.89, "estimate": false, "note_2026": "10.03x markup" }
+      { "month": "Jan", "actual_2025": 3749229.20, "actual_2026": 4159799 },
+      { "month": "Feb", "actual_2025": 3894493.67, "actual_2026": 3681822 },
+      { "month": "Mar", "actual_2025": 4712824.62, "actual_2026": 4147255 },
+      { "month": "Apr", "actual_2025": 3992118.26, "actual_2026": 3914386 },
+      { "month": "May", "actual_2025": 4006577.90, "actual_2026": 3590000, "estimate_2026": true, "note_2026": "~10x markup" },
+      { "month": "Jun", "actual_2025": 3563670.03, "actual_2026": 4001039.89, "note_2026": "10.03x markup" }
     ]
   },
 
   "discovery": {
     "per_rep_monthly_floor": 3,
-    "note": "Per-AE breakdown for June — every AE named with their disco-call count against the 3-call floor. Counts pending; category rollup (General / Digital / Tech-Consulting / TPC-BPO / GlobalLink) will accompany the AE submissions.",
-    "reps": [],
+    "note": "Pending reporting — discovery counts reflect rep submissions received so far (9 of 28 AEs). Each AE named with their disco-call count (calls only, not revenue). Remaining AEs marked pending; team total will rise as the rest report.",
+    "reps": [
+      { "name": "Adele Broussard", "calls": null },
+      { "name": "Andres Cui", "calls": null },
+      { "name": "Angus Ulyate", "calls": null },
+      { "name": "Anthony Madigan", "calls": 6 },
+      { "name": "Avery Sturtevant", "calls": null },
+      { "name": "Brianna Farrell", "calls": null },
+      { "name": "Clayton Eysel", "calls": null },
+      { "name": "Dante Dalgin", "calls": 3, "accounts": "WesBanco, Karadeniz Holdings, Fever" },
+      { "name": "Isabel Atwood", "calls": null },
+      { "name": "Isabel Martel", "calls": null },
+      { "name": "Jady Bailey", "calls": null },
+      { "name": "Jarel Dickey", "calls": null },
+      { "name": "Jonathan Vion", "calls": null },
+      { "name": "Joseph Meineke", "calls": null },
+      { "name": "Justin Potts", "calls": null },
+      { "name": "Mariana Ordonana", "calls": 1, "accounts": "Santander" },
+      { "name": "Matthew Spitler", "calls": null },
+      { "name": "Noelle Zimmerman", "calls": 1, "accounts": "Mauch Chunk Trust" },
+      { "name": "Pam Potts", "calls": null },
+      { "name": "Rahul Fernandes", "calls": null },
+      { "name": "Salvatore Cerasoli", "calls": null },
+      { "name": "Samantha Weinstein", "calls": 3, "accounts": "Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual" },
+      { "name": "Sardar Muhammad", "calls": 0 },
+      { "name": "Steven Davis", "calls": 3, "accounts": "Walmart, FACTS/Nelnet, PayPal" },
+      { "name": "Sue Christian", "calls": 2, "accounts": "Citizens, QRB" },
+      { "name": "Thomas Emery", "calls": null },
+      { "name": "Michael DeFalco", "calls": null },
+      { "name": "Wayne Sparks", "calls": 10, "accounts": "Sahouri Insurance, FNF-Agency, NAHREP NE CBOG" }
+    ],
     "categories": []
   },
 

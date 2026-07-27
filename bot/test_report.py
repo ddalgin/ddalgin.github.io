@@ -142,42 +142,59 @@ class EndToEndTest(unittest.TestCase):
 
 
 class JuneDraftTest(unittest.TestCase):
-    """The June draft exercises markup, per-AE, partial-year, and DRAFT paths."""
+    """The June draft exercises markup, per-AE, per-year precision, and DRAFT."""
 
     def setUp(self):
         self.data = json.loads(JUNE.read_text())
         self.c = bot.compute(self.data)
 
-    def test_june_revenue_partial_year(self):
+    def test_june_yoy_rebound(self):
         rev = self.c["revenue"]
         jun = rev["months"][-1]
         self.assertEqual(jun["actual_2026"], 4001039.89)
-        self.assertIsNone(jun["actual_2025"])
-        self.assertIsNone(jun["yoy_dollar"])           # no 2025 to compare
-        self.assertFalse(jun["reported"])
-        self.assertFalse(rev["ytd_25_complete"])       # June 2025 missing
-        self.assertTrue(rev["ytd_26_complete"])
-        self.assertIsNone(rev["total_yoy_dollar"])     # YoY suppressed, not zero
-        # 2026 YTD through June sums all six months.
-        self.assertAlmostEqual(rev["ytd_2026"], 19493262 + 4001039.89, places=2)
+        self.assertEqual(jun["actual_2025"], 3563670.03)
+        self.assertTrue(jun["reported"])
+        self.assertAlmostEqual(jun["yoy_dollar"], 437369.86, places=2)   # up YoY
+        self.assertAlmostEqual(jun["yoy_pct"], 12.27, places=1)
 
-    def test_markup_comparison(self):
+    def test_full_ytd_now_computes(self):
+        rev = self.c["revenue"]
+        self.assertTrue(rev["ytd_25_complete"] and rev["ytd_26_complete"])
+        self.assertAlmostEqual(rev["ytd_2026"], 23494301.89, places=2)
+        self.assertAlmostEqual(rev["ytd_2025"], 23918913.68, places=2)
+        self.assertAlmostEqual(rev["total_yoy_dollar"], -424611.79, places=2)  # still trailing
+        self.assertAlmostEqual(rev["total_yoy_pct"], -1.78, places=1)
+
+    def test_per_year_precision(self):
+        # May: 2025 exact, 2026 rounded. Only the 2026 side (and 2026 YTD) is approx.
+        rev = self.c["revenue"]
+        may = rev["months"][4]
+        self.assertFalse(may["est_25"])
+        self.assertTrue(may["est_26"])
+        self.assertTrue(rev["ytd_26_est"])
+        self.assertFalse(rev["ytd_25_est"])            # 2025 all exact
+
+    def test_markup_comparison_pending(self):
         mk = self.c["revenue"]["markup"]
         self.assertAlmostEqual(mk["value_2026"], 10.0327, places=4)
         self.assertIsNone(mk["value_2025"])
         self.assertIsNone(mk["delta"])                 # can't diff against pending
 
-    def test_per_ae_stub(self):
+    def test_per_ae_reported_so_far(self):
         disc = self.c["discovery"]
-        self.assertEqual(disc["reps"], [])             # present but empty -> table shows
-        self.assertIsNone(disc.get("categories") or None)
+        self.assertEqual(len(disc["reps"]), 28)        # every AE named
+        self.assertEqual(disc["reps_reported"], 9)     # submissions received so far
+        self.assertEqual(disc["team_calls"], 29)
+        below = {r["name"] for r in disc["reps_below_floor"]}
+        self.assertEqual(below, {"Mariana Ordonana", "Noelle Zimmerman",
+                                 "Sardar Muhammad", "Sue Christian"})
 
-    def test_draft_renders_and_pending(self):
+    def test_draft_renders(self):
         html = bot.render_html(self.data, self.c)
         self.assertIn("draft-pill", html)              # DRAFT badge
         self.assertIn("Overall Markup", html)          # markup band
         self.assertIn("Discovery Calls by AE", html)   # per-AE table present
-        self.assertIn("Awaiting per-AE submissions", html)
+        self.assertIn("Wayne Sparks", html)            # a named AE
         self.assertIn("Pending", html)                 # empty wins/deals/newsletter
         self.assertNotIn("The bad.", html)             # empty leadership hidden
 

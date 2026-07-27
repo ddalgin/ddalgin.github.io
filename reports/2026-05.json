@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-24T16:45:00+00:00",
+  "generated_at": "2026-07-27T14:32:35+00:00",
   "period": {
     "month": 5,
     "year": 2026,
@@ -25,6 +25,8 @@
         "actual_2025": 3749229,
         "actual_2026": 4159799,
         "estimate": false,
+        "est_25": false,
+        "est_26": false,
         "reported": true,
         "yoy_dollar": 410570,
         "yoy_pct": 10.950784814691234,
@@ -32,6 +34,8 @@
         "ytd_2026": 4159799.0,
         "ytd_25_complete": true,
         "ytd_26_complete": true,
+        "ytd_25_est": false,
+        "ytd_26_est": false,
         "ytd_estimate": false
       },
       {
@@ -39,6 +43,8 @@
         "actual_2025": 3894494,
         "actual_2026": 3681822,
         "estimate": false,
+        "est_25": false,
+        "est_26": false,
         "reported": true,
         "yoy_dollar": -212672,
         "yoy_pct": -5.460837787912884,
@@ -46,6 +52,8 @@
         "ytd_2026": 7841621.0,
         "ytd_25_complete": true,
         "ytd_26_complete": true,
+        "ytd_25_est": false,
+        "ytd_26_est": false,
         "ytd_estimate": false
       },
       {
@@ -53,6 +61,8 @@
         "actual_2025": 4712825,
         "actual_2026": 4147255,
         "estimate": false,
+        "est_25": false,
+        "est_26": false,
         "reported": true,
         "yoy_dollar": -565570,
         "yoy_pct": -12.000657779569579,
@@ -60,6 +70,8 @@
         "ytd_2026": 11988876.0,
         "ytd_25_complete": true,
         "ytd_26_complete": true,
+        "ytd_25_est": false,
+        "ytd_26_est": false,
         "ytd_estimate": false
       },
       {
@@ -67,6 +79,8 @@
         "actual_2025": 3992118,
         "actual_2026": 3914386,
         "estimate": false,
+        "est_25": false,
+        "est_26": false,
         "reported": true,
         "yoy_dollar": -77732,
         "yoy_pct": -1.9471368331296819,
@@ -74,6 +88,8 @@
         "ytd_2026": 15903262.0,
         "ytd_25_complete": true,
         "ytd_26_complete": true,
+        "ytd_25_est": false,
+        "ytd_26_est": false,
         "ytd_estimate": false
       },
       {
@@ -83,6 +99,8 @@
         "estimate": true,
         "note_2025": "~6.45x markup",
         "note_2026": "~10x markup",
+        "est_25": true,
+        "est_26": true,
         "reported": true,
         "yoy_dollar": -470000,
         "yoy_pct": -11.576354679802956,
@@ -90,6 +108,8 @@
         "ytd_2026": 19493262.0,
         "ytd_25_complete": true,
         "ytd_26_complete": true,
+        "ytd_25_est": true,
+        "ytd_26_est": true,
         "ytd_estimate": true
       }
     ],
@@ -97,6 +117,8 @@
     "ytd_2026": 19493262.0,
     "ytd_25_complete": true,
     "ytd_26_complete": true,
+    "ytd_25_est": true,
+    "ytd_26_est": true,
     "ytd_estimate": true,
     "total_yoy_dollar": -915404.0,
     "total_yoy_pct": -4.485369107417408,

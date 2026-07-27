@@ -1,13 +1,13 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-24 16:45 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-27 14:32 UTC_
 
 ## At a glance
 
-- Revenue billed $23,494,302 through Jun 2026; full YoY comparison pending the matching 2025 actuals.
-- Jun billed $4,001,040 (10.03x markup).
+- Revenue is trailing last year: ~$23.49M YTD vs $23,918,914 in 2025 (~-$424,612, ~-1.8%). 2 of 6 months are up YoY.
+- Jun landed +$437,370 (+12.3%) vs the prior year.
 - Overall markup is 10.03x; the June 2025 markup for the year-over-year comparison is pending.
-- Per-AE discovery is set up — awaiting each AE named with their disco-call count against the 3-call floor.
+- By AE: 9 of 28 reps have reported 29 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 19 of 28 AEs still pending — team total will rise.
 
 ## Revenue summary
 
@@ -17,17 +17,44 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-24 16:45 UTC_
 |---|--:|--:|--:|--:|--:|--:|
 | Jan | $3,749,229 | $4,159,799 | +$410,570 | +11.0% | $4,159,799 | $3,749,229 |
 | Feb | $3,894,494 | $3,681,822 | -$212,672 | -5.5% | $7,841,621 | $7,643,723 |
-| Mar | $4,712,825 | $4,147,255 | -$565,570 | -12.0% | $11,988,876 | $12,356,548 |
+| Mar | $4,712,825 | $4,147,255 | -$565,570 | -12.0% | $11,988,876 | $12,356,547 |
 | Apr | $3,992,118 | $3,914,386 | -$77,732 | -1.9% | $15,903,262 | $16,348,666 |
-| May* | ~$4.06M | ~$3.59M | ~-$470,000 | ~-11.6% | ~$19.49M | ~$20.41M |
-| Jun | — | $4,001,040 | — | — | ~$23.49M | — |
-| **YTD** | **—** | **~$23.49M** | **—** | **—** | | |
+| May* | $4,006,578 | ~$3.59M | ~-$416,578 | ~-10.4% | ~$19.49M | $20,355,244 |
+| Jun | $3,563,670 | $4,001,040 | +$437,370 | +12.3% | ~$23.49M | $23,918,914 |
+| **YTD** | **$23,918,914** | **~$23.49M** | **~-$424,612** | **~-1.8%** | | |
 
 ## Discovery calls by AE
 
 | AE | Disco Calls | vs Floor |
 |---|--:|:--|
-| _Awaiting per-AE submissions (floor 3/AE)_ | — | — |
+| Adele Broussard | — | pending |
+| Andres Cui | — | pending |
+| Angus Ulyate | — | pending |
+| Anthony Madigan | 6 | ✓ meets floor |
+| Avery Sturtevant | — | pending |
+| Brianna Farrell | — | pending |
+| Clayton Eysel | — | pending |
+| Dante Dalgin | 3 | ✓ meets floor |
+| Isabel Atwood | — | pending |
+| Isabel Martel | — | pending |
+| Jady Bailey | — | pending |
+| Jarel Dickey | — | pending |
+| Jonathan Vion | — | pending |
+| Joseph Meineke | — | pending |
+| Justin Potts | — | pending |
+| Mariana Ordonana | 1 | below 3 |
+| Matthew Spitler | — | pending |
+| Noelle Zimmerman | 1 | below 3 |
+| Pam Potts | — | pending |
+| Rahul Fernandes | — | pending |
+| Salvatore Cerasoli | — | pending |
+| Samantha Weinstein | 3 | ✓ meets floor |
+| Sardar Muhammad | 0 | below 3 |
+| Steven Davis | 3 | ✓ meets floor |
+| Sue Christian | 2 | below 3 |
+| Thomas Emery | — | pending |
+| Michael DeFalco | — | pending |
+| Wayne Sparks | 10 | ✓ meets floor |
 
 ## New wins
 
@@ -41,4 +68,4 @@ _Pending — to be updated._
 
 _Pending — campaign platform export to be added._
 
-> DRAFT: June 2026 revenue reflects billed finance-vertical total ($4,001,039.89). June 2025 comparison, discovery, wins/deals, and newsletter are pending.
+> DRAFT: June 2026 revenue is billed finance-vertical actual ($4,001,039.89). 2025 monthly actuals are exact (internal dashboard). May 2026 remains the only rounded figure (~$3.59M, TIER 2). Discovery reflects rep submissions received so far — reporting is still open. June 2025 markup, wins/deals, and newsletter pending.
