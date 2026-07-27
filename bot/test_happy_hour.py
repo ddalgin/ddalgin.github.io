@@ -60,11 +60,12 @@ class RankingTests(unittest.TestCase):
 
     def test_requested_feature_boosts_score(self):
         # Asking for "rooftop,view" should push a rooftop to the top.
-        spots = bot.rank(self.origin, "all", {"rooftop", "view"}, False, None, False)
+        spots = bot.rank(self.origin, "all", {"rooftop", "view"}, False, None,
+                         False, rank_by="proximity")
         self.assertIn(spots[0].category, {"rooftop"})
         self.assertTrue(spots[0].matched)
 
-    def test_closer_spot_scores_higher_all_else_equal(self):
+    def test_closer_spot_scores_higher_in_proximity_mode(self):
         # Two synthetic spots, identical except distance.
         near = bot.Spot(name="Near", lat=38.8985, lng=-77.0265,
                         neighborhood="x", category="bar", url="",
@@ -78,8 +79,59 @@ class RankingTests(unittest.TestCase):
         for s in (near, far):
             s.dist_mi = bot.haversine_mi(o_lat, o_lng, s.lat, s.lng)
             s.walk_min = bot.walking_minutes(s.dist_mi)
-            bot.score_spot(s, set(), False)
+            bot.score_spot(s, set(), rank_by="proximity")
         self.assertGreater(near.score, far.score)
+
+
+class AwardTests(unittest.TestCase):
+    def setUp(self):
+        self.origin = bot.ORIGINS["office"]
+
+    def test_award_points_winner_beats_runner_up(self):
+        winner = bot.Spot(name="w", lat=0, lng=0, neighborhood="", category="bar",
+                          url="", happy_hour="", deals="", features=[],
+                          rating=4.0, price="$$", awards=["Best Bar (winner)"])
+        runner = bot.Spot(name="r", lat=0, lng=0, neighborhood="", category="bar",
+                          url="", happy_hour="", deals="", features=[],
+                          rating=4.0, price="$$", awards=["Best Bar (runner-up)"])
+        self.assertGreater(bot.award_points(winner), bot.award_points(runner))
+
+    def test_multiple_awards_stack(self):
+        two = bot.Spot(name="t", lat=0, lng=0, neighborhood="", category="bar",
+                       url="", happy_hour="", deals="", features=[],
+                       rating=4.0, price="$$",
+                       awards=["Best Wings (winner)", "Best Sports Bar (winner)"])
+        one = bot.Spot(name="o", lat=0, lng=0, neighborhood="", category="bar",
+                       url="", happy_hour="", deals="", features=[],
+                       rating=4.0, price="$$", awards=["Best Wings (winner)"])
+        self.assertGreater(bot.award_points(two), bot.award_points(one))
+
+    def test_awards_only_filter(self):
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         awards_only=True)
+        self.assertTrue(spots)
+        self.assertTrue(all(s.awards for s in spots))
+        # A non-award spot from the original set must be excluded.
+        self.assertNotIn("Crimson View", [s.name for s in spots])
+
+    def test_quality_mode_surfaces_award_winners_citywide(self):
+        # In quality mode a multi-award winner should outrank a plain
+        # nearby spot even though it's farther from the office.
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         rank_by="quality")
+        names = [s.name for s in spots]
+        # Duke's Grocery (2 wins) and Union Pub (2 wins) should rank highly.
+        self.assertLess(names.index("Duke's Grocery"), 8)
+        self.assertLess(names.index("Union Pub"), 10)
+
+    def test_every_award_string_is_recognized(self):
+        # Guard against typos: each award must score > 0.
+        for raw in bot.SPOTS:
+            for a in raw.get("awards", []):
+                s = bot.Spot(name="x", lat=0, lng=0, neighborhood="",
+                             category="bar", url="", happy_hour="", deals="",
+                             features=[], rating=4.0, price="$$", awards=[a])
+                self.assertGreater(bot.award_points(s), 0, f"unrecognized: {a}")
 
 
 class HappyHourFlagTests(unittest.TestCase):

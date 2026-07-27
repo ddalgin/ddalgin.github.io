@@ -15,11 +15,16 @@ bots. Happy-hour times and deals are best-effort and change often — always
 confirm on the venue's page before you head out. Stdlib only, nothing to
 install.
 
+The dataset also carries @theblaguard's "Best of DC" award honors, and the
+default ranking is city-wide by rating + awards (use --rank-by proximity for
+the "closest good happy hour to the office" behavior).
+
 Usage:
-  python bot/happy_hour_bot.py                       # rank everything near the office
+  python bot/happy_hour_bot.py                       # city-wide, best by rating + awards
+  python bot/happy_hour_bot.py --awards-only         # only "Best of DC" award venues
+  python bot/happy_hour_bot.py --rank-by proximity   # closest good happy hours
   python bot/happy_hour_bot.py --category rooftop    # rooftops only
   python bot/happy_hour_bot.py --features view,outdoor --max-walk 12
-  python bot/happy_hour_bot.py --happy-hour-only --top 10
   python bot/happy_hour_bot.py --origin white_house
 """
 
@@ -270,6 +275,178 @@ SPOTS = [
         "rating": 4.5, "price": "$$$$",
         "notes": "Intimate, upscale hotel bar — top-tier cocktails for a quieter evening.",
     },
+    # --- @theblaguard "Best of DC" Food & Drink award winners & runners-up ---
+    # City-wide neighborhood picks. Coordinates are approximate street
+    # locations; happy-hour windows are "Check listing" where not verified.
+    {
+        "name": "Union Pub",
+        "lat": 38.8926, "lng": -77.0079,
+        "neighborhood": "Capitol Hill",
+        "category": "bar",
+        "url": "https://www.unionpubdc.com/",
+        "happy_hour": "Check listing",
+        "deals": "Wings, drafts, and big-screen game days",
+        "features": ["sports", "wings", "beer", "outdoor"],
+        "rating": 4.2, "price": "$$",
+        "notes": "Capitol Hill's go-to game-day bar — award-winning wings.",
+        "awards": ["Best Wings (winner)", "Best Sports Bar (winner)"],
+    },
+    {
+        "name": "Wingo's",
+        "lat": 38.9219, "lng": -77.0716,
+        "neighborhood": "Glover Park",
+        "category": "restaurant",
+        "url": "https://www.wingosdc.com/",
+        "happy_hour": "",
+        "deals": "DC-institution wings and fries",
+        "features": ["wings", "casual"],
+        "rating": 4.1, "price": "$",
+        "notes": "Beloved counter-service wing joint near Georgetown.",
+        "awards": ["Best Wings (runner-up)"],
+    },
+    {
+        "name": "Duke's Grocery",
+        "lat": 38.9106, "lng": -77.0382,
+        "neighborhood": "Dupont Circle",
+        "category": "restaurant",
+        "url": "https://www.dukesgrocery.com/",
+        "happy_hour": "Daily happy hour",
+        "deals": "The Proper Burger + daily drink & bite specials",
+        "features": ["burgers", "cocktails", "outdoor"],
+        "rating": 4.4, "price": "$$",
+        "notes": "East-London-style corner spot — won BOTH Best Burger and Best Happy Hour.",
+        "awards": ["Best Burger (winner)", "Best Happy Hour (winner)"],
+    },
+    {
+        "name": "Eebee's Corner Bar",
+        "lat": 38.9143, "lng": -77.0197,
+        "neighborhood": "Shaw",
+        "category": "bar",
+        "url": "https://eebeesbar.com/",
+        "happy_hour": "Check listing",
+        "deals": "Smash burgers and a lively neighborhood bar",
+        "features": ["burgers", "cocktails", "casual"],
+        "rating": 4.3, "price": "$$",
+        "notes": "Buzzy Shaw corner bar that DC can't stop talking about.",
+        "awards": ["Best Burger (runner-up)"],
+    },
+    {
+        "name": "Franklin Hall",
+        "lat": 38.9200, "lng": -77.0293,
+        "neighborhood": "Shaw",
+        "category": "bar",
+        "url": "https://www.franklinhalldc.com/",
+        "happy_hour": "Check listing",
+        "deals": "Huge beer hall with games, big screens, and a patio",
+        "features": ["beer", "sports", "outdoor", "casual"],
+        "rating": 4.1, "price": "$$",
+        "notes": "Cavernous Shaw beer hall — a finalist in five categories.",
+        "awards": ["Best Sports Bar (runner-up)"],
+    },
+    {
+        "name": "Trusty's Full-Serve",
+        "lat": 38.8807, "lng": -76.9857,
+        "neighborhood": "Hill East / Capitol Hill",
+        "category": "bar",
+        "url": "https://trustysdc.com/",
+        "happy_hour": "Check listing",
+        "deals": "Board games, cheap drinks, and Frito pie",
+        "features": ["dive", "games", "casual"],
+        "rating": 4.4, "price": "$",
+        "notes": "The Hill's beloved dive — board games and no pretense.",
+        "awards": ["Best Dive Bar (winner)"],
+    },
+    {
+        "name": "The Pug",
+        "lat": 38.9001, "lng": -76.9878,
+        "neighborhood": "H Street NE",
+        "category": "bar",
+        "url": "https://bardc.com/bars/the-pug/",
+        "happy_hour": "",
+        "deals": "Cash-friendly dive with strong pours",
+        "features": ["dive", "casual"],
+        "rating": 4.3, "price": "$",
+        "notes": "Tiny, iconic H Street dive — cash and character.",
+        "awards": ["Best Dive Bar (runner-up)"],
+    },
+    {
+        "name": "The Alchemist DC",
+        "lat": 38.9170, "lng": -77.0303,
+        "neighborhood": "U Street",
+        "category": "bar",
+        "url": "https://www.alchemistbardc.com/",
+        "happy_hour": "Check listing",
+        "deals": "Creative craft cocktails, speakeasy vibe",
+        "features": ["cocktails", "speakeasy"],
+        "rating": 4.4, "price": "$$$",
+        "notes": "U Street cocktail den — voted the city's Best Bar.",
+        "awards": ["Best Bar (winner)"],
+    },
+    {
+        "name": "McClellan's Retreat",
+        "lat": 38.9166, "lng": -77.0464,
+        "neighborhood": "Dupont Circle",
+        "category": "bar",
+        "url": "https://www.mcclellansretreat.com/",
+        "happy_hour": "Check listing",
+        "deals": "Civil-War-themed craft cocktail bar",
+        "features": ["cocktails"],
+        "rating": 4.3, "price": "$$$",
+        "notes": "Snug Dupont cocktail bar with a serious drinks program.",
+        "awards": ["Best Bar (runner-up)"],
+    },
+    {
+        "name": "Crush Dance Bar",
+        "lat": 38.9179, "lng": -77.0318,
+        "neighborhood": "U Street / 14th St",
+        "category": "bar",
+        "url": "https://www.crushbardc.com/",
+        "happy_hour": "Daily happy hour",
+        "deals": "Craft cocktails, drag shows, and karaoke",
+        "features": ["cocktails", "dancing", "lgbtq"],
+        "rating": 4.3, "price": "$$",
+        "notes": "LGBTQ+ dance bar on 14th St — runner-up for Best Happy Hour.",
+        "awards": ["Best Happy Hour (runner-up)"],
+    },
+    {
+        "name": "The Harp DC",
+        "lat": 38.9345, "lng": -76.9908,
+        "neighborhood": "Brookland",
+        "category": "bar",
+        "url": "https://theharp-dc.com/",
+        "happy_hour": "Check listing",
+        "deals": "Guinness, Irish whiskey, shepherd's pie & fish and chips",
+        "features": ["irishpub", "beer"],
+        "rating": 4.4, "price": "$$",
+        "notes": "Brookland's modern Irish pub — voted Best Irish Pub in DC.",
+        "awards": ["Best Irish Pub (winner)"],
+    },
+    {
+        "name": "The Blaguard",
+        "lat": 38.9185, "lng": -77.0420,
+        "neighborhood": "Adams Morgan",
+        "category": "bar",
+        "url": "https://www.theblaguard.com/",
+        "happy_hour": "Check listing",
+        "deals": "Irish pub, sports, and solid bar food",
+        "features": ["irishpub", "sports", "casual"],
+        "rating": 4.2, "price": "$$",
+        "notes": "Adams Morgan pub that hosts these very awards — runner-up twice.",
+        "awards": ["Best Irish Pub (runner-up)", "Best Bar Food (runner-up)"],
+    },
+    {
+        "name": "The Commodore DC",
+        "lat": 38.9111, "lng": -77.0382,
+        "neighborhood": "Dupont Circle",
+        "category": "bar",
+        "url": "https://www.commodoredc.com/",
+        "happy_hour": "Check listing",
+        "deals": "Dupont neighborhood pub with standout bar food",
+        "features": ["barfood", "dive", "casual"],
+        "rating": 4.2, "price": "$$",
+        "notes": "Dupont's unpretentious neighborhood pub — Best Bar Food winner.",
+        "awards": ["Best Bar Food (winner)"],
+    },
 ]
 
 # Desirability weight per feature, used to reward the things the user is
@@ -303,6 +480,7 @@ class Spot:
     rating: float
     price: str
     notes: str = ""
+    awards: list[str] = field(default_factory=list)  # e.g. "Best Wings (winner)"
     # computed
     dist_mi: float = 0.0
     walk_min: int = 0
@@ -335,8 +513,25 @@ def walking_minutes(dist_mi: float) -> int:
     return max(1, round(street_mi / 3.0 * 60))
 
 
-def score_spot(spot: Spot, wanted: set[str], happy_hour_only: bool) -> None:
-    """Fill in dist/walk and a composite score. Higher is better."""
+def award_points(spot: Spot) -> float:
+    """Reward @theblaguard 'Best of DC' honors: winner > runner-up, stacking."""
+    pts = 0.0
+    for a in spot.awards:
+        low = a.lower()
+        if "winner" in low:
+            pts += 5.0
+        elif "runner-up" in low or "runner up" in low:
+            pts += 3.0
+    return pts
+
+
+def score_spot(spot: Spot, wanted: set[str], rank_by: str = "quality") -> None:
+    """Fill in a composite score (walk_min/dist_mi are set beforehand).
+
+    rank_by="quality"   — city-wide: rating + awards + features lead, with
+                          proximity only a light tiebreak.
+    rank_by="proximity" — walk time from the origin dominates.
+    """
     # Rating contributes up to 10 points.
     rating_pts = spot.rating * 2.0
 
@@ -353,15 +548,24 @@ def score_spot(spot: Spot, wanted: set[str], happy_hour_only: bool) -> None:
     # Nudge spots that have an actual standing happy hour.
     hh_pts = 2.0 if spot.has_happy_hour else 0.0
 
+    # "Best of DC" awards.
+    award_pts = award_points(spot)
+
     spot.matched = matched
+    if rank_by == "proximity":
+        proximity_component = proximity_pts
+    else:  # quality (city-wide) — proximity is a light tiebreak only
+        proximity_component = proximity_pts * 0.25
     spot.score = round(
-        rating_pts + proximity_pts + feature_pts + request_pts + hh_pts, 2
+        rating_pts + proximity_component + feature_pts + request_pts
+        + hh_pts + award_pts, 2
     )
 
 
 def rank(origin: tuple[float, float, str], category: str, wanted: set[str],
          require_features: bool, max_walk: int | None,
-         happy_hour_only: bool) -> list[Spot]:
+         happy_hour_only: bool, rank_by: str = "quality",
+         awards_only: bool = False) -> list[Spot]:
     o_lat, o_lng, _ = origin
     spots: list[Spot] = []
     for raw in SPOTS:
@@ -375,10 +579,12 @@ def rank(origin: tuple[float, float, str], category: str, wanted: set[str],
             continue
         if happy_hour_only and not spot.has_happy_hour:
             continue
+        if awards_only and not spot.awards:
+            continue
         if require_features and wanted and not wanted.issubset(set(spot.features)):
             continue
 
-        score_spot(spot, wanted, happy_hour_only)
+        score_spot(spot, wanted, rank_by)
         spots.append(spot)
 
     spots.sort(key=lambda s: (-s.score, s.walk_min))
@@ -417,6 +623,8 @@ def write_markdown(spots: list[Spot], out: Path, meta: dict) -> None:
             f"{i}. **[{s.name}]({s.url})** — {s.walk_min} min walk · "
             f"{s.neighborhood} · ⭐{s.rating} · {s.price}"
         )
+        if s.awards:
+            lines.append(f"   - 🏆 {' · '.join(s.awards)}")
         lines.append(f"   - Happy hour: {hh_label(s)}" + (f" — {s.deals}" if s.deals else ""))
         if s.notes:
             lines.append(f"   - {s.notes}")
@@ -439,6 +647,11 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
             f"<span class='tag{' hit' if f in s.matched else ''}'>{esc(f)}</span>"
             for f in s.features
         )
+        award_html = ""
+        if s.awards:
+            badges = " ".join(f"<span class='award'>🏆 {esc(a)}</span>"
+                              for a in s.awards)
+            award_html = f'<div class="awards">{badges}</div>'
         rows.append(f"""
       <li class="spot">
         <div class="rank">{i}</div>
@@ -453,6 +666,7 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
             <span class="rating">⭐ {esc(s.rating)}</span>
             <span class="price">{esc(s.price)}</span>
           </div>
+          {award_html}
           <div class="hhline {hh_cls}">🍸 {esc(hh_label(s))}{(' — ' + esc(s.deals)) if s.deals else ''}</div>
           {f'<div class="notes">{esc(s.notes)}</div>' if s.notes else ''}
           <div class="tags">{feat_tags}</div>
@@ -497,6 +711,10 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
          border-radius:999px; padding:.05rem .45rem; vertical-align:middle; }}
   .line {{ color:var(--muted); font-size:.86rem; margin:.2rem 0; display:flex;
           flex-wrap:wrap; gap:.75rem; }}
+  .awards {{ display:flex; flex-wrap:wrap; gap:.35rem; margin:.35rem 0 .1rem; }}
+  .award {{ font-size:.72rem; font-weight:700; color:var(--hit);
+           background:color-mix(in srgb, var(--hit) 12%, transparent);
+           border:1px solid var(--hit); border-radius:999px; padding:.05rem .5rem; }}
   .hhline {{ font-size:.9rem; margin:.35rem 0 .3rem; }}
   .hhline.hh {{ color:var(--hh); font-weight:600; }}
   .hhline.nohh {{ color:var(--muted); }}
@@ -515,8 +733,9 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
 <main>
   <h1>🍸 DC Happy Hour — Ranked</h1>
   <div class="sub">From {esc(meta['origin_label'])} · {esc(meta['filter_label'])}.
-    Ranked by walk time, rooftop/view quality, ratings & deals.
-    Updated {generated}. <a href="happyhour.json">JSON</a> · <a href="latest.md">Markdown</a></div>
+    Ranked by ratings, 🏆 "Best of DC" awards (@theblaguard), rooftop/view
+    quality, deals & walk time. Updated {generated}.
+    <a href="happyhour.json">JSON</a> · <a href="latest.md">Markdown</a></div>
   <ul>{body}</ul>
   <footer>Auto-generated by happy_hour_bot.py from a curated venue list.
   Happy-hour times and deals change often — confirm on each venue's page
@@ -532,7 +751,8 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
 
 
 def build_filter_label(category: str, wanted: set[str], max_walk: int | None,
-                       happy_hour_only: bool) -> str:
+                       happy_hour_only: bool, awards_only: bool = False,
+                       rank_by: str = "quality") -> str:
     parts = []
     parts.append("all spots" if category == "all" else f"{category}s")
     if wanted:
@@ -541,6 +761,9 @@ def build_filter_label(category: str, wanted: set[str], max_walk: int | None,
         parts.append(f"≤{max_walk} min walk")
     if happy_hour_only:
         parts.append("happy hour only")
+    if awards_only:
+        parts.append("award venues only")
+    parts.append("by " + ("walk time" if rank_by == "proximity" else "quality"))
     return " · ".join(parts)
 
 
@@ -561,6 +784,12 @@ def main(argv: list[str] | None = None) -> int:
                     help="drop spots farther than N minutes on foot")
     ap.add_argument("--happy-hour-only", action="store_true",
                     help="only show spots with a standing happy hour")
+    ap.add_argument("--awards-only", action="store_true",
+                    help="only show @theblaguard 'Best of DC' award venues")
+    ap.add_argument("--rank-by", default="quality",
+                    choices=["quality", "proximity"],
+                    help="quality = city-wide by rating/awards (default); "
+                         "proximity = by walk time from origin")
     ap.add_argument("--top", type=int, default=None,
                     help="keep only the top N results")
     ap.add_argument("--out-dir", default="happyhour",
@@ -571,7 +800,8 @@ def main(argv: list[str] | None = None) -> int:
     wanted = {f.strip().lower() for f in args.features.split(",") if f.strip()}
 
     spots = rank(origin, args.category, wanted, args.require_features,
-                 args.max_walk, args.happy_hour_only)
+                 args.max_walk, args.happy_hour_only, args.rank_by,
+                 args.awards_only)
     if args.top is not None:
         spots = spots[: args.top]
 
@@ -584,8 +814,11 @@ def main(argv: list[str] | None = None) -> int:
         "features": sorted(wanted),
         "max_walk": args.max_walk,
         "happy_hour_only": args.happy_hour_only,
-        "filter_label": build_filter_label(args.category, wanted,
-                                            args.max_walk, args.happy_hour_only),
+        "awards_only": args.awards_only,
+        "rank_by": args.rank_by,
+        "filter_label": build_filter_label(args.category, wanted, args.max_walk,
+                                            args.happy_hour_only, args.awards_only,
+                                            args.rank_by),
         "count": len(spots),
     }
     write_json(spots, out, meta)

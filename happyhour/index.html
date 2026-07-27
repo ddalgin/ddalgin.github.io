@@ -31,6 +31,10 @@
          border-radius:999px; padding:.05rem .45rem; vertical-align:middle; }
   .line { color:var(--muted); font-size:.86rem; margin:.2rem 0; display:flex;
           flex-wrap:wrap; gap:.75rem; }
+  .awards { display:flex; flex-wrap:wrap; gap:.35rem; margin:.35rem 0 .1rem; }
+  .award { font-size:.72rem; font-weight:700; color:var(--hit);
+           background:color-mix(in srgb, var(--hit) 12%, transparent);
+           border:1px solid var(--hit); border-radius:999px; padding:.05rem .5rem; }
   .hhline { font-size:.9rem; margin:.35rem 0 .3rem; }
   .hhline.hh { color:var(--hh); font-weight:600; }
   .hhline.nohh { color:var(--muted); }
@@ -48,12 +52,34 @@
 <body>
 <main>
   <h1>🍸 DC Happy Hour — Ranked</h1>
-  <div class="sub">From 1001 G St NW (Metro Center) · all spots.
-    Ranked by walk time, rooftop/view quality, ratings & deals.
-    Updated 2026-07-27 15:46 UTC. <a href="happyhour.json">JSON</a> · <a href="latest.md">Markdown</a></div>
+  <div class="sub">From 1001 G St NW (Metro Center) · all spots · by quality.
+    Ranked by ratings, 🏆 "Best of DC" awards (@theblaguard), rooftop/view
+    quality, deals & walk time. Updated 2026-07-27 16:03 UTC.
+    <a href="happyhour.json">JSON</a> · <a href="latest.md">Markdown</a></div>
   <ul>
       <li class="spot">
         <div class="rank">1</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.dukesgrocery.com/" target="_blank" rel="noopener">Duke&#x27;s Grocery</a>
+            <span class="cat">restaurant</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 29 min</span>
+            <span class="hood">Dupont Circle</span>
+            <span class="rating">⭐ 4.4</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Burger (winner)</span> <span class='award'>🏆 Best Happy Hour (winner)</span></div>
+          <div class="hhline hh">🍸 Daily happy hour — The Proper Burger + daily drink &amp; bite specials</div>
+          <div class="notes">East-London-style corner spot — won BOTH Best Burger and Best Happy Hour.</div>
+          <div class="tags"><span class='tag'>burgers</span> <span class='tag'>cocktails</span> <span class='tag'>outdoor</span></div>
+        </div>
+        <div class="score" title="composite score">22.8</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">2</div>
         <div class="body">
           <div class="title">
             <a href="https://crimson-dc.com/crimson-view-rooftop" target="_blank" rel="noopener">Crimson View</a>
@@ -65,15 +91,58 @@
             <span class="rating">⭐ 4.3</span>
             <span class="price">$$$</span>
           </div>
+          
           <div class="hhline hh">🍸 Mon–Fri 4–7pm — $2 off beers &amp; house wine; craft cocktails and small plates</div>
           <div class="notes">12 stories up with Washington Monument + skyline views; closest true rooftop happy hour to the office.</div>
           <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>view</span> <span class='tag'>cocktails</span> <span class='tag'>outdoor</span></div>
         </div>
-        <div class="score" title="composite score">26.6</div>
+        <div class="score" title="composite score">20.23</div>
       </li>
 
       <li class="spot">
-        <div class="rank">2</div>
+        <div class="rank">3</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.unionpubdc.com/" target="_blank" rel="noopener">Union Pub</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 29 min</span>
+            <span class="hood">Capitol Hill</span>
+            <span class="rating">⭐ 4.2</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Wings (winner)</span> <span class='award'>🏆 Best Sports Bar (winner)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Wings, drafts, and big-screen game days</div>
+          <div class="notes">Capitol Hill&#x27;s go-to game-day bar — award-winning wings.</div>
+          <div class="tags"><span class='tag'>sports</span> <span class='tag'>wings</span> <span class='tag'>beer</span> <span class='tag'>outdoor</span></div>
+        </div>
+        <div class="score" title="composite score">19.9</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">4</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.pendry.com/washington-dc/dining/moonraker/" target="_blank" rel="noopener">Moonraker at Pendry</a>
+            <span class="cat">rooftop</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 38 min</span>
+            <span class="hood">The Wharf</span>
+            <span class="rating">⭐ 4.4</span>
+            <span class="price">$$$$</span>
+          </div>
+          
+          <div class="hhline nohh">🍸 Check listing — Japanese-inspired bites; craft cocktails</div>
+          <div class="notes">Atop the Pendry with sweeping views of the Washington Channel and Wharf — worth the trip for a sunset.</div>
+          <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>view</span> <span class='tag'>waterfront</span> <span class='tag'>cocktails</span></div>
+        </div>
+        <div class="score" title="composite score">16.3</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">5</div>
         <div class="body">
           <div class="title">
             <a href="https://www.vuerooftopdc.com/" target="_blank" rel="noopener">VUE Rooftop</a>
@@ -85,131 +154,75 @@
             <span class="rating">⭐ 4.2</span>
             <span class="price">$$$$</span>
           </div>
+          
           <div class="hhline nohh">🍸 no standing HH — No standing happy hour; à la carte cocktails, opens 4pm weekdays</div>
           <div class="notes">The iconic one — direct White House + Washington Monument views. Best for impressing someone; pricier, no HH deal.</div>
           <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>view</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">21.4</div>
-      </li>
-
-      <li class="spot">
-        <div class="rank">3</div>
-        <div class="body">
-          <div class="title">
-            <a href="https://www.densonbar.com/" target="_blank" rel="noopener">Denson Liquor Bar</a>
-            <span class="cat">bar</span>
-          </div>
-          <div class="line">
-            <span class="walk">🚶 3 min</span>
-            <span class="hood">Penn Quarter</span>
-            <span class="rating">⭐ 4.1</span>
-            <span class="price">$$</span>
-          </div>
-          <div class="hhline hh">🍸 Weekday happy hour — Cocktails &amp; bar bites; late-night kitchen</div>
-          <div class="notes">Narrow, moody cocktail bar right in the heart of Penn Quarter.</div>
-          <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>latenight</span></div>
-        </div>
-        <div class="score" title="composite score">21.2</div>
-      </li>
-
-      <li class="spot">
-        <div class="rank">4</div>
-        <div class="body">
-          <div class="title">
-            <a href="https://www.succotashrestaurant.com/penn-quarter/" target="_blank" rel="noopener">Succotash Prime</a>
-            <span class="cat">restaurant</span>
-          </div>
-          <div class="line">
-            <span class="walk">🚶 4 min</span>
-            <span class="hood">Penn Quarter</span>
-            <span class="rating">⭐ 4.2</span>
-            <span class="price">$$$</span>
-          </div>
-          <div class="hhline hh">🍸 Weekday happy hour — Southern-style bar bites and drink specials</div>
-          <div class="notes">Modern Southern kitchen; good deviled eggs / hush-puppies happy hour.</div>
-          <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>southern</span></div>
-        </div>
-        <div class="score" title="composite score">20.9</div>
-      </li>
-
-      <li class="spot">
-        <div class="rank">5</div>
-        <div class="body">
-          <div class="title">
-            <a href="https://www.dirtyhabitdc.com/" target="_blank" rel="noopener">Dirty Habit</a>
-            <span class="cat">bar</span>
-          </div>
-          <div class="line">
-            <span class="walk">🚶 7 min</span>
-            <span class="hood">Penn Quarter</span>
-            <span class="rating">⭐ 4.1</span>
-            <span class="price">$$$</span>
-          </div>
-          <div class="hhline hh">🍸 Weekday happy hour — Cocktail &amp; small-plate specials on the courtyard patio</div>
-          <div class="notes">Sceney cocktail bar with a large open-air courtyard patio.</div>
-          <div class="tags"><span class='tag'>outdoor</span> <span class='tag'>cocktails</span></div>
-        </div>
-        <div class="score" title="composite score">20.7</div>
+        <div class="score" title="composite score">16.15</div>
       </li>
 
       <li class="spot">
         <div class="rank">6</div>
         <div class="body">
           <div class="title">
-            <a href="https://www.citytap.com/location/city-tap-dc/" target="_blank" rel="noopener">City Tap House DC</a>
-            <span class="cat">bar</span>
+            <a href="https://washington.org/visit-dc/rooftop-bars-restaurants-washington-dc" target="_blank" rel="noopener">The Rooftop DC</a>
+            <span class="cat">rooftop</span>
           </div>
           <div class="line">
-            <span class="walk">🚶 6 min</span>
+            <span class="walk">🚶 16 min</span>
             <span class="hood">Mt. Vernon Triangle</span>
             <span class="rating">⭐ 4.0</span>
-            <span class="price">$$</span>
+            <span class="price">$$$</span>
           </div>
-          <div class="hhline hh">🍸 Weekday happy hour — Draft beer &amp; wood-fired pizza specials; large patio</div>
-          <div class="notes">Enormous craft-beer list and a big patio — solid for a group after work.</div>
-          <div class="tags"><span class='tag'>beer</span> <span class='tag'>outdoor</span> <span class='tag'>sports</span></div>
+          
+          <div class="hhline hh">🍸 Mon–Fri 4–6pm — Weekday happy hour; sportsbook + cocktail lounge</div>
+          <div class="notes">Rooftop mixing a sportsbook with a cocktail lounge — good group / game-day hang.</div>
+          <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>outdoor</span> <span class='tag'>sports</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">20.5</div>
+        <div class="score" title="composite score">16</div>
       </li>
 
       <li class="spot">
         <div class="rank">7</div>
         <div class="body">
           <div class="title">
-            <a href="https://www.jaleo.com/location/penn-quarter/" target="_blank" rel="noopener">Jaleo</a>
-            <span class="cat">restaurant</span>
+            <a href="https://www.whiskeycharliedc.com/" target="_blank" rel="noopener">Whiskey Charlie</a>
+            <span class="cat">rooftop</span>
           </div>
           <div class="line">
-            <span class="walk">🚶 9 min</span>
-            <span class="hood">Penn Quarter</span>
-            <span class="rating">⭐ 4.4</span>
+            <span class="walk">🚶 36 min</span>
+            <span class="hood">The Wharf</span>
+            <span class="rating">⭐ 4.2</span>
             <span class="price">$$$</span>
           </div>
-          <div class="hhline hh">🍸 Mon–Fri 3–6:30pm — $8 sangría roja, wine by the glass, discounted tapas (patatas bravas, gambas)</div>
-          <div class="notes">José Andrés tapas mainstay; one of the best-value happy hours downtown.</div>
-          <div class="tags"><span class='tag'>tapas</span> <span class='tag'>outdoor</span> <span class='tag'>wine</span> <span class='tag'>cocktails</span></div>
+          
+          <div class="hhline nohh">🍸 Check listing — Whiskey-forward cocktails; waterfront rooftop</div>
+          <div class="notes">Canopy Wharf rooftop with wide water views; more relaxed than Moonraker next door.</div>
+          <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>view</span> <span class='tag'>waterfront</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">20.3</div>
+        <div class="score" title="composite score">15.9</div>
       </li>
 
       <li class="spot">
         <div class="rank">8</div>
         <div class="body">
           <div class="title">
-            <a href="https://www.astrobeerhall.com/" target="_blank" rel="noopener">Astro Beer Hall</a>
+            <a href="https://www.alchemistbardc.com/" target="_blank" rel="noopener">The Alchemist DC</a>
             <span class="cat">bar</span>
           </div>
           <div class="line">
-            <span class="walk">🚶 5 min</span>
-            <span class="hood">Downtown</span>
-            <span class="rating">⭐ 4.0</span>
-            <span class="price">$</span>
+            <span class="walk">🚶 35 min</span>
+            <span class="hood">U Street</span>
+            <span class="rating">⭐ 4.4</span>
+            <span class="price">$$$</span>
           </div>
-          <div class="hhline hh">🍸 Weekday happy hour — Draft beer, cocktails, and their signature fried chicken &amp; donuts</div>
-          <div class="notes">Casual multi-level beer hall a block from the office — easy, cheap, fun.</div>
-          <div class="tags"><span class='tag'>beer</span> <span class='tag'>casual</span> <span class='tag'>cocktails</span></div>
+          <div class="awards"><span class='award'>🏆 Best Bar (winner)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Creative craft cocktails, speakeasy vibe</div>
+          <div class="notes">U Street cocktail den — voted the city&#x27;s Best Bar.</div>
+          <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>speakeasy</span></div>
         </div>
-        <div class="score" title="composite score">20</div>
+        <div class="score" title="composite score">14.8</div>
       </li>
 
       <li class="spot">
@@ -225,35 +238,100 @@
             <span class="rating">⭐ 4.5</span>
             <span class="price">$$$</span>
           </div>
+          
           <div class="hhline hh">🍸 Daily raw-bar specials (late afternoon &amp; late night) — Half-price oysters during oyster happy hour</div>
           <div class="notes">DC&#x27;s oldest saloon, steps from the office — the move for discounted oysters and a classic bar.</div>
           <div class="tags"><span class='tag'>oysters</span> <span class='tag'>historic</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">20</div>
+        <div class="score" title="composite score">14.75</div>
       </li>
 
       <li class="spot">
         <div class="rank">10</div>
         <div class="body">
           <div class="title">
-            <a href="https://thehamiltondc.com/" target="_blank" rel="noopener">The Hamilton</a>
-            <span class="cat">bar</span>
+            <a href="https://www.jaleo.com/location/penn-quarter/" target="_blank" rel="noopener">Jaleo</a>
+            <span class="cat">restaurant</span>
           </div>
           <div class="line">
-            <span class="walk">🚶 8 min</span>
-            <span class="hood">Downtown</span>
-            <span class="rating">⭐ 4.3</span>
-            <span class="price">$$</span>
+            <span class="walk">🚶 9 min</span>
+            <span class="hood">Penn Quarter</span>
+            <span class="rating">⭐ 4.4</span>
+            <span class="price">$$$</span>
           </div>
-          <div class="hhline hh">🍸 Mon–Fri, late afternoon — Discounted drinks &amp; bar bites; live music downstairs</div>
-          <div class="notes">Big, dependable spot two blocks away with a live-music venue in the basement.</div>
-          <div class="tags"><span class='tag'>livemusic</span> <span class='tag'>cocktails</span> <span class='tag'>beer</span></div>
+          
+          <div class="hhline hh">🍸 Mon–Fri 3–6:30pm — $8 sangría roja, wine by the glass, discounted tapas (patatas bravas, gambas)</div>
+          <div class="notes">José Andrés tapas mainstay; one of the best-value happy hours downtown.</div>
+          <div class="tags"><span class='tag'>tapas</span> <span class='tag'>outdoor</span> <span class='tag'>wine</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">19.6</div>
+        <div class="score" title="composite score">14.68</div>
       </li>
 
       <li class="spot">
         <div class="rank">11</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.theblaguard.com/" target="_blank" rel="noopener">The Blaguard</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 44 min</span>
+            <span class="hood">Adams Morgan</span>
+            <span class="rating">⭐ 4.2</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Irish Pub (runner-up)</span> <span class='award'>🏆 Best Bar Food (runner-up)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Irish pub, sports, and solid bar food</div>
+          <div class="notes">Adams Morgan pub that hosts these very awards — runner-up twice.</div>
+          <div class="tags"><span class='tag'>irishpub</span> <span class='tag'>sports</span> <span class='tag'>casual</span></div>
+        </div>
+        <div class="score" title="composite score">14.4</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">12</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.dirtyhabitdc.com/" target="_blank" rel="noopener">Dirty Habit</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 7 min</span>
+            <span class="hood">Penn Quarter</span>
+            <span class="rating">⭐ 4.1</span>
+            <span class="price">$$$</span>
+          </div>
+          
+          <div class="hhline hh">🍸 Weekday happy hour — Cocktail &amp; small-plate specials on the courtyard patio</div>
+          <div class="notes">Sceney cocktail bar with a large open-air courtyard patio.</div>
+          <div class="tags"><span class='tag'>outdoor</span> <span class='tag'>cocktails</span></div>
+        </div>
+        <div class="score" title="composite score">14.32</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">13</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.crushbardc.com/" target="_blank" rel="noopener">Crush Dance Bar</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 38 min</span>
+            <span class="hood">U Street / 14th St</span>
+            <span class="rating">⭐ 4.3</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Happy Hour (runner-up)</span></div>
+          <div class="hhline hh">🍸 Daily happy hour — Craft cocktails, drag shows, and karaoke</div>
+          <div class="notes">LGBTQ+ dance bar on 14th St — runner-up for Best Happy Hour.</div>
+          <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>dancing</span> <span class='tag'>lgbtq</span></div>
+        </div>
+        <div class="score" title="composite score">14.1</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">14</div>
         <div class="body">
           <div class="title">
             <a href="https://www.rosamexicano.com/location/penn-quarter/" target="_blank" rel="noopener">Rosa Mexicano</a>
@@ -265,35 +343,184 @@
             <span class="rating">⭐ 4.0</span>
             <span class="price">$$$</span>
           </div>
+          
           <div class="hhline hh">🍸 Weekday happy hour — Frozen pomegranate margaritas &amp; guac; discounted antojitos</div>
           <div class="notes">Reliable margarita-and-guac happy hour near Capital One Arena.</div>
           <div class="tags"><span class='tag'>margaritas</span> <span class='tag'>outdoor</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">19.5</div>
+        <div class="score" title="composite score">13.88</div>
       </li>
 
       <li class="spot">
-        <div class="rank">12</div>
+        <div class="rank">15</div>
         <div class="body">
           <div class="title">
-            <a href="https://washington.org/visit-dc/rooftop-bars-restaurants-washington-dc" target="_blank" rel="noopener">The Rooftop DC</a>
-            <span class="cat">rooftop</span>
+            <a href="https://trustysdc.com/" target="_blank" rel="noopener">Trusty&#x27;s Full-Serve</a>
+            <span class="cat">bar</span>
           </div>
           <div class="line">
-            <span class="walk">🚶 16 min</span>
-            <span class="hood">Mt. Vernon Triangle</span>
-            <span class="rating">⭐ 4.0</span>
-            <span class="price">$$$</span>
+            <span class="walk">🚶 68 min</span>
+            <span class="hood">Hill East / Capitol Hill</span>
+            <span class="rating">⭐ 4.4</span>
+            <span class="price">$</span>
           </div>
-          <div class="hhline hh">🍸 Mon–Fri 4–6pm — Weekday happy hour; sportsbook + cocktail lounge</div>
-          <div class="notes">Rooftop mixing a sportsbook with a cocktail lounge — good group / game-day hang.</div>
-          <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>outdoor</span> <span class='tag'>sports</span> <span class='tag'>cocktails</span></div>
+          <div class="awards"><span class='award'>🏆 Best Dive Bar (winner)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Board games, cheap drinks, and Frito pie</div>
+          <div class="notes">The Hill&#x27;s beloved dive — board games and no pretense.</div>
+          <div class="tags"><span class='tag'>dive</span> <span class='tag'>games</span> <span class='tag'>casual</span></div>
         </div>
-        <div class="score" title="composite score">19</div>
+        <div class="score" title="composite score">13.8</div>
       </li>
 
       <li class="spot">
-        <div class="rank">13</div>
+        <div class="rank">16</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://theharp-dc.com/" target="_blank" rel="noopener">The Harp DC</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 85 min</span>
+            <span class="hood">Brookland</span>
+            <span class="rating">⭐ 4.4</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Irish Pub (winner)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Guinness, Irish whiskey, shepherd&#x27;s pie &amp; fish and chips</div>
+          <div class="notes">Brookland&#x27;s modern Irish pub — voted Best Irish Pub in DC.</div>
+          <div class="tags"><span class='tag'>irishpub</span> <span class='tag'>beer</span></div>
+        </div>
+        <div class="score" title="composite score">13.8</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">17</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.citytap.com/location/city-tap-dc/" target="_blank" rel="noopener">City Tap House DC</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 6 min</span>
+            <span class="hood">Mt. Vernon Triangle</span>
+            <span class="rating">⭐ 4.0</span>
+            <span class="price">$$</span>
+          </div>
+          
+          <div class="hhline hh">🍸 Weekday happy hour — Draft beer &amp; wood-fired pizza specials; large patio</div>
+          <div class="notes">Enormous craft-beer list and a big patio — solid for a group after work.</div>
+          <div class="tags"><span class='tag'>beer</span> <span class='tag'>outdoor</span> <span class='tag'>sports</span></div>
+        </div>
+        <div class="score" title="composite score">13.75</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">18</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://thehamiltondc.com/" target="_blank" rel="noopener">The Hamilton</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 8 min</span>
+            <span class="hood">Downtown</span>
+            <span class="rating">⭐ 4.3</span>
+            <span class="price">$$</span>
+          </div>
+          
+          <div class="hhline hh">🍸 Mon–Fri, late afternoon — Discounted drinks &amp; bar bites; live music downstairs</div>
+          <div class="notes">Big, dependable spot two blocks away with a live-music venue in the basement.</div>
+          <div class="tags"><span class='tag'>livemusic</span> <span class='tag'>cocktails</span> <span class='tag'>beer</span></div>
+        </div>
+        <div class="score" title="composite score">13.6</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">19</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.succotashrestaurant.com/penn-quarter/" target="_blank" rel="noopener">Succotash Prime</a>
+            <span class="cat">restaurant</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 4 min</span>
+            <span class="hood">Penn Quarter</span>
+            <span class="rating">⭐ 4.2</span>
+            <span class="price">$$$</span>
+          </div>
+          
+          <div class="hhline hh">🍸 Weekday happy hour — Southern-style bar bites and drink specials</div>
+          <div class="notes">Modern Southern kitchen; good deviled eggs / hush-puppies happy hour.</div>
+          <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>southern</span></div>
+        </div>
+        <div class="score" title="composite score">13.4</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">20</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.commodoredc.com/" target="_blank" rel="noopener">The Commodore DC</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 29 min</span>
+            <span class="hood">Dupont Circle</span>
+            <span class="rating">⭐ 4.2</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Bar Food (winner)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Dupont neighborhood pub with standout bar food</div>
+          <div class="notes">Dupont&#x27;s unpretentious neighborhood pub — Best Bar Food winner.</div>
+          <div class="tags"><span class='tag'>barfood</span> <span class='tag'>dive</span> <span class='tag'>casual</span></div>
+        </div>
+        <div class="score" title="composite score">13.4</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">21</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.densonbar.com/" target="_blank" rel="noopener">Denson Liquor Bar</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 3 min</span>
+            <span class="hood">Penn Quarter</span>
+            <span class="rating">⭐ 4.1</span>
+            <span class="price">$$</span>
+          </div>
+          
+          <div class="hhline hh">🍸 Weekday happy hour — Cocktails &amp; bar bites; late-night kitchen</div>
+          <div class="notes">Narrow, moody cocktail bar right in the heart of Penn Quarter.</div>
+          <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>latenight</span></div>
+        </div>
+        <div class="score" title="composite score">13.32</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">22</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.astrobeerhall.com/" target="_blank" rel="noopener">Astro Beer Hall</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 5 min</span>
+            <span class="hood">Downtown</span>
+            <span class="rating">⭐ 4.0</span>
+            <span class="price">$</span>
+          </div>
+          
+          <div class="hhline hh">🍸 Weekday happy hour — Draft beer, cocktails, and their signature fried chicken &amp; donuts</div>
+          <div class="notes">Casual multi-level beer hall a block from the office — easy, cheap, fun.</div>
+          <div class="tags"><span class='tag'>beer</span> <span class='tag'>casual</span> <span class='tag'>cocktails</span></div>
+        </div>
+        <div class="score" title="composite score">12.88</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">23</div>
         <div class="body">
           <div class="title">
             <a href="https://www.rpmrestaurants.com/rpm-italian/dc/" target="_blank" rel="noopener">RPM Italian</a>
@@ -305,15 +532,79 @@
             <span class="rating">⭐ 4.3</span>
             <span class="price">$$$</span>
           </div>
+          
           <div class="hhline hh">🍸 Weekday bar happy hour — Aperitivo cocktails &amp; bar snacks</div>
           <div class="notes">Glam Italian with a lively bar scene; good aperitivo hour.</div>
           <div class="tags"><span class='tag'>italian</span> <span class='tag'>cocktails</span> <span class='tag'>wine</span></div>
         </div>
-        <div class="score" title="composite score">17.6</div>
+        <div class="score" title="composite score">12.72</div>
       </li>
 
       <li class="spot">
-        <div class="rank">14</div>
+        <div class="rank">24</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.franklinhalldc.com/" target="_blank" rel="noopener">Franklin Hall</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 41 min</span>
+            <span class="hood">Shaw</span>
+            <span class="rating">⭐ 4.1</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Sports Bar (runner-up)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Huge beer hall with games, big screens, and a patio</div>
+          <div class="notes">Cavernous Shaw beer hall — a finalist in five categories.</div>
+          <div class="tags"><span class='tag'>beer</span> <span class='tag'>sports</span> <span class='tag'>outdoor</span> <span class='tag'>casual</span></div>
+        </div>
+        <div class="score" title="composite score">12.7</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">25</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://eebeesbar.com/" target="_blank" rel="noopener">Eebee&#x27;s Corner Bar</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 31 min</span>
+            <span class="hood">Shaw</span>
+            <span class="rating">⭐ 4.3</span>
+            <span class="price">$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Burger (runner-up)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Smash burgers and a lively neighborhood bar</div>
+          <div class="notes">Buzzy Shaw corner bar that DC can&#x27;t stop talking about.</div>
+          <div class="tags"><span class='tag'>burgers</span> <span class='tag'>cocktails</span> <span class='tag'>casual</span></div>
+        </div>
+        <div class="score" title="composite score">12.1</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">26</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.mcclellansretreat.com/" target="_blank" rel="noopener">McClellan&#x27;s Retreat</a>
+            <span class="cat">bar</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 45 min</span>
+            <span class="hood">Dupont Circle</span>
+            <span class="rating">⭐ 4.3</span>
+            <span class="price">$$$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Bar (runner-up)</span></div>
+          <div class="hhline nohh">🍸 Check listing — Civil-War-themed craft cocktail bar</div>
+          <div class="notes">Snug Dupont cocktail bar with a serious drinks program.</div>
+          <div class="tags"><span class='tag'>cocktails</span></div>
+        </div>
+        <div class="score" title="composite score">12.1</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">27</div>
         <div class="body">
           <div class="title">
             <a href="https://washington.intercontinental.com/round-robin-bar/" target="_blank" rel="noopener">Round Robin Bar</a>
@@ -325,55 +616,37 @@
             <span class="rating">⭐ 4.4</span>
             <span class="price">$$$$</span>
           </div>
+          
           <div class="hhline nohh">🍸 no standing HH — Classic cocktails; no standing HH but a landmark bar</div>
           <div class="notes">Storied circular mahogany bar inside the Willard — a proper old-DC cocktail.</div>
           <div class="tags"><span class='tag'>historic</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">17.3</div>
+        <div class="score" title="composite score">11.68</div>
       </li>
 
       <li class="spot">
-        <div class="rank">15</div>
+        <div class="rank">28</div>
         <div class="body">
           <div class="title">
-            <a href="https://www.pendry.com/washington-dc/dining/moonraker/" target="_blank" rel="noopener">Moonraker at Pendry</a>
-            <span class="cat">rooftop</span>
+            <a href="https://bardc.com/bars/the-pug/" target="_blank" rel="noopener">The Pug</a>
+            <span class="cat">bar</span>
           </div>
           <div class="line">
-            <span class="walk">🚶 38 min</span>
-            <span class="hood">The Wharf</span>
-            <span class="rating">⭐ 4.4</span>
-            <span class="price">$$$$</span>
+            <span class="walk">🚶 56 min</span>
+            <span class="hood">H Street NE</span>
+            <span class="rating">⭐ 4.3</span>
+            <span class="price">$</span>
           </div>
-          <div class="hhline nohh">🍸 Check listing — Japanese-inspired bites; craft cocktails</div>
-          <div class="notes">Atop the Pendry with sweeping views of the Washington Channel and Wharf — worth the trip for a sunset.</div>
-          <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>view</span> <span class='tag'>waterfront</span> <span class='tag'>cocktails</span></div>
+          <div class="awards"><span class='award'>🏆 Best Dive Bar (runner-up)</span></div>
+          <div class="hhline nohh">🍸 no standing HH — Cash-friendly dive with strong pours</div>
+          <div class="notes">Tiny, iconic H Street dive — cash and character.</div>
+          <div class="tags"><span class='tag'>dive</span> <span class='tag'>casual</span></div>
         </div>
-        <div class="score" title="composite score">16.3</div>
+        <div class="score" title="composite score">11.6</div>
       </li>
 
       <li class="spot">
-        <div class="rank">16</div>
-        <div class="body">
-          <div class="title">
-            <a href="https://www.whiskeycharliedc.com/" target="_blank" rel="noopener">Whiskey Charlie</a>
-            <span class="cat">rooftop</span>
-          </div>
-          <div class="line">
-            <span class="walk">🚶 36 min</span>
-            <span class="hood">The Wharf</span>
-            <span class="rating">⭐ 4.2</span>
-            <span class="price">$$$</span>
-          </div>
-          <div class="hhline nohh">🍸 Check listing — Whiskey-forward cocktails; waterfront rooftop</div>
-          <div class="notes">Canopy Wharf rooftop with wide water views; more relaxed than Moonraker next door.</div>
-          <div class="tags"><span class='tag'>rooftop</span> <span class='tag'>view</span> <span class='tag'>waterfront</span> <span class='tag'>cocktails</span></div>
-        </div>
-        <div class="score" title="composite score">15.9</div>
-      </li>
-
-      <li class="spot">
-        <div class="rank">17</div>
+        <div class="rank">29</div>
         <div class="body">
           <div class="title">
             <a href="https://www.hayadams.com/off-the-record" target="_blank" rel="noopener">Off the Record</a>
@@ -385,15 +658,37 @@
             <span class="rating">⭐ 4.4</span>
             <span class="price">$$$$</span>
           </div>
+          
           <div class="hhline nohh">🍸 no standing HH — Power-player cocktail lounge; caricature coasters</div>
           <div class="notes">Below the Hay-Adams, across Lafayette Sq from the White House — quiet, classic, no HH.</div>
           <div class="tags"><span class='tag'>speakeasy</span> <span class='tag'>historic</span> <span class='tag'>cocktails</span></div>
         </div>
-        <div class="score" title="composite score">14.8</div>
+        <div class="score" title="composite score">11.43</div>
       </li>
 
       <li class="spot">
-        <div class="rank">18</div>
+        <div class="rank">30</div>
+        <div class="body">
+          <div class="title">
+            <a href="https://www.wingosdc.com/" target="_blank" rel="noopener">Wingo&#x27;s</a>
+            <span class="cat">restaurant</span>
+          </div>
+          <div class="line">
+            <span class="walk">🚶 79 min</span>
+            <span class="hood">Glover Park</span>
+            <span class="rating">⭐ 4.1</span>
+            <span class="price">$</span>
+          </div>
+          <div class="awards"><span class='award'>🏆 Best Wings (runner-up)</span></div>
+          <div class="hhline nohh">🍸 no standing HH — DC-institution wings and fries</div>
+          <div class="notes">Beloved counter-service wing joint near Georgetown.</div>
+          <div class="tags"><span class='tag'>wings</span> <span class='tag'>casual</span></div>
+        </div>
+        <div class="score" title="composite score">11.2</div>
+      </li>
+
+      <li class="spot">
+        <div class="rank">31</div>
         <div class="body">
           <div class="title">
             <a href="https://www.jeffersondc.com/dine/quill" target="_blank" rel="noopener">Quill</a>
@@ -405,11 +700,12 @@
             <span class="rating">⭐ 4.5</span>
             <span class="price">$$$$</span>
           </div>
+          
           <div class="hhline nohh">🍸 no standing HH — Refined seasonal cocktails; live piano</div>
           <div class="notes">Intimate, upscale hotel bar — top-tier cocktails for a quieter evening.</div>
           <div class="tags"><span class='tag'>cocktails</span> <span class='tag'>historic</span></div>
         </div>
-        <div class="score" title="composite score">12.5</div>
+        <div class="score" title="composite score">10.62</div>
       </li></ul>
   <footer>Auto-generated by happy_hour_bot.py from a curated venue list.
   Happy-hour times and deals change often — confirm on each venue's page
