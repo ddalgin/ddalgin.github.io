@@ -184,7 +184,7 @@ class JuneDraftTest(unittest.TestCase):
         disc = self.c["discovery"]
         self.assertEqual(len(disc["reps"]), 28)        # every AE named
         self.assertEqual(disc["reps_reported"], 10)    # submissions received so far
-        self.assertEqual(disc["team_calls"], 36)
+        self.assertEqual(disc["team_calls"], 35)
         below = {r["name"] for r in disc["reps_below_floor"]}
         self.assertEqual(below, {"Mariana Ordonana", "Noelle Zimmerman",
                                  "Sardar Muhammad", "Sue Christian"})
@@ -193,9 +193,9 @@ class JuneDraftTest(unittest.TestCase):
         # Tracked total (215) wins over the category sum (201); the 14-call
         # gap is surfaced as uncategorized rather than silently dropped.
         disc = self.c["discovery"]
-        self.assertEqual(disc["total"]["ytd"], 215)
-        self.assertEqual(disc["total"]["current"], 37)
-        self.assertAlmostEqual(disc["total"]["pct_to_goal"], 215 / 750 * 100, places=2)
+        self.assertEqual(disc["total"]["ytd"], 214)
+        self.assertEqual(disc["total"]["current"], 36)
+        self.assertAlmostEqual(disc["total"]["pct_to_goal"], 214 / 750 * 100, places=2)
         self.assertEqual(disc["total"]["uncategorized"], 14)
 
     def test_draft_renders(self):

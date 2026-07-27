@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T14:51:35+00:00",
+  "generated_at": "2026-07-27T14:56:57+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -10,10 +10,10 @@
     "Revenue is trailing last year: ~$23.49M YTD vs $23,918,914 in 2025 (~-$424,612, ~-1.8%). 2 of 6 months are up YoY.",
     "Jun landed +$437,370 (+12.3%) vs the prior year.",
     "Overall markup is 10.03x; the June 2025 markup for the year-over-year comparison is pending.",
-    "Discovery calls are at 215 of 750 (29% to goal) \u2014 behind the 50% straight-line pace for this point in the year. June 2026 added 37 calls.",
+    "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 50% straight-line pace for this point in the year. June 2026 added 36 calls.",
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
-    "By AE: 10 of 28 reps have reported 36 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending \u2014 team total will rise."
+    "By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending \u2014 team total will rise."
   ],
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
@@ -155,7 +155,7 @@
     "prior_label": "May '26 YTD",
     "current_label": "Jun '26",
     "ytd_label": "26 YTD",
-    "note": "Pending reporting \u2014 per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 215; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 36 vs the category rollup's 37 \u2014 a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
+    "note": "Pending reporting \u2014 per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 214; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 35 vs the category rollup's 36 \u2014 a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
     "reps": [
       {
         "name": "Adele Broussard",
@@ -184,7 +184,7 @@
       },
       {
         "name": "Brianna Farrell",
-        "calls": 7,
+        "calls": 6,
         "meets_floor": true
       },
       {
@@ -310,9 +310,9 @@
         "name": "Disco - General",
         "goal": 200,
         "prior_ytd": 79,
-        "current": 30,
-        "ytd": 109,
-        "pct_to_goal": 54.50000000000001
+        "current": 29,
+        "ytd": 108,
+        "pct_to_goal": 54.0
       },
       {
         "name": "Disco - Digital",
@@ -351,9 +351,9 @@
       "name": "Total Discovery Calls",
       "goal": 750,
       "prior_ytd": 178,
-      "current": 37,
-      "ytd": 215,
-      "pct_to_goal": 28.666666666666668,
+      "current": 36,
+      "ytd": 214,
+      "pct_to_goal": 28.53333333333333,
       "uncategorized": 14
     },
     "activities": [],
@@ -362,9 +362,9 @@
       "name": "Disco - General",
       "goal": 200,
       "prior_ytd": 79,
-      "current": 30,
-      "ytd": 109,
-      "pct_to_goal": 54.50000000000001
+      "current": 29,
+      "ytd": 108,
+      "pct_to_goal": 54.0
     },
     "laggards": [
       {
@@ -392,7 +392,7 @@
         "pct_to_goal": 20.0
       }
     ],
-    "team_calls": 36,
+    "team_calls": 35,
     "reps_reported": 10,
     "reps_below_floor": [
       {
@@ -509,7 +509,7 @@
       "prior_label": "May '26 YTD",
       "current_label": "Jun '26",
       "ytd_label": "26 YTD",
-      "note": "Pending reporting \u2014 per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 215; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 36 vs the category rollup's 37 \u2014 a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
+      "note": "Pending reporting \u2014 per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 214; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 35 vs the category rollup's 36 \u2014 a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
       "reps": [
         {
           "name": "Adele Broussard",
@@ -533,7 +533,7 @@
         },
         {
           "name": "Brianna Farrell",
-          "calls": 7
+          "calls": 6
         },
         {
           "name": "Clayton Eysel",
@@ -636,7 +636,7 @@
           "name": "Disco - General",
           "goal": 200,
           "prior_ytd": 79,
-          "current": 30
+          "current": 29
         },
         {
           "name": "Disco - Digital",
@@ -666,7 +666,7 @@
       "total": {
         "goal": 750,
         "prior_ytd": 178,
-        "current": 37
+        "current": 36
       }
     },
     "wins": [],

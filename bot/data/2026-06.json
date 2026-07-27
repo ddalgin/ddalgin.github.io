@@ -46,14 +46,14 @@
     "prior_label": "May '26 YTD",
     "current_label": "Jun '26",
     "ytd_label": "26 YTD",
-    "note": "Pending reporting — per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 215; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 36 vs the category rollup's 37 — a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
+    "note": "Pending reporting — per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 214; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 35 vs the category rollup's 36 — a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
     "reps": [
       { "name": "Adele Broussard", "calls": null },
       { "name": "Andres Cui", "calls": null },
       { "name": "Angus Ulyate", "calls": null },
       { "name": "Anthony Madigan", "calls": 6 },
       { "name": "Avery Sturtevant", "calls": null },
-      { "name": "Brianna Farrell", "calls": 7 },
+      { "name": "Brianna Farrell", "calls": 6 },
       { "name": "Clayton Eysel", "calls": null },
       { "name": "Dante Dalgin", "calls": 3, "accounts": "WesBanco, Karadeniz Holdings, Fever" },
       { "name": "Isabel Atwood", "calls": null },
@@ -78,13 +78,13 @@
       { "name": "Wayne Sparks", "calls": 10, "accounts": "Sahouri Insurance, FNF-Agency, NAHREP NE CBOG" }
     ],
     "categories": [
-      { "name": "Disco - General",         "goal": 200, "prior_ytd": 79, "current": 30 },
+      { "name": "Disco - General",         "goal": 200, "prior_ytd": 79, "current": 29 },
       { "name": "Disco - Digital",         "goal": 150, "prior_ytd": 30, "current": 1 },
       { "name": "Disco - Consulting",      "goal": 100, "prior_ytd": 4,  "current": 1 },
       { "name": "Disco - TPC/BPO",         "goal": 150, "prior_ytd": 23, "current": 3 },
       { "name": "Disco - GlobalLink",      "goal": 150, "prior_ytd": 28, "current": 2 }
     ],
-    "total": { "goal": 750, "prior_ytd": 178, "current": 37 }
+    "total": { "goal": 750, "prior_ytd": 178, "current": 36 }
   },
 
   "wins": [],
