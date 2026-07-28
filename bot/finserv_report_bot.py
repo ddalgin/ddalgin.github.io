@@ -757,7 +757,7 @@ def render_newsletter(nl: dict) -> str:
     ])
     note = f'<p class="note">{esc(nl["note"])}</p>' if nl.get("note") else ""
     return f"""
-    <section>
+    <section class="page-close">
       <h2>Newsletter Performance</h2>
       <div class="cards">{cards}</div>
       {note}
@@ -867,7 +867,7 @@ def render_banner(c: dict) -> str:
     return ""
 
 
-def _ranked_table(block: dict, cols: list[tuple[str, str]]) -> str:
+def _ranked_table(block: dict, cols: list[tuple[str, str]], extra_class: str = "") -> str:
     """Render a ranked account table. `cols` is [(header, key), ...]; the first
     non-rank column is bolded as the account, a 'value' key is emphasized."""
     rows = block.get("rows", [])
@@ -886,7 +886,8 @@ def _ranked_table(block: dict, cols: list[tuple[str, str]]) -> str:
             else:
                 cells += f"<td>{v}</td>"
         body += f"<tr>{cells}</tr>"
-    return (f'<section>\n      <h2>{esc(block.get("title", ""))}</h2>\n'
+    sc = f' class="{extra_class}"' if extra_class else ""
+    return (f'<section{sc}>\n      <h2>{esc(block.get("title", ""))}</h2>\n'
             f'      <table class="wtable"><thead><tr>{heads}</tr></thead>'
             f'<tbody>{body}</tbody></table>\n    </section>')
 
@@ -897,7 +898,7 @@ def render_wins_ranked(data: dict) -> str:
     if data.get("wins_confirmed"):
         out += _ranked_table(data["wins_confirmed"],
                              [("Account", "account"), ("Value", "value"),
-                              ("Strategic Note", "note")])
+                              ("Strategic Note", "note")], extra_class="page-wins")
     if data.get("pipeline_ranked"):
         out += _ranked_table(data["pipeline_ranked"],
                              [("Account", "account"), ("Value", "value"),
@@ -969,9 +970,8 @@ def render_html(data: dict, c: dict) -> str:
 {render_closing(data, c)}
 {render_engagement(data)}
 {render_leadership(data)}
-  <p class="note">{esc(precision)}</p>
-  <footer>Prepared by {esc(prepared)}. Auto-assembled by finserv_report_bot.py on {generated}.<br>
-  Revenue: internal revenue dashboard, Finance vertical. Discovery: prior-period reporting reconciled with current-month rep submissions. Wins/Deals: rep self-report. Newsletter: campaign platform export.</footer>
+  {f'<p class="note">{esc(precision)}</p>' if precision else ''}
+  {('<footer>Prepared by ' + esc(prepared) + '. Auto-assembled by finserv_report_bot.py on ' + generated + '.<br>Revenue: internal revenue dashboard, Finance vertical. Discovery: prior-period reporting reconciled with current-month rep submissions. Wins/Deals: rep self-report. Newsletter: campaign platform export.</footer>') if data.get('show_footer', True) else ''}
 </main>
 </body>
 </html>

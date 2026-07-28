@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T19:06:07+00:00",
+  "generated_at": "2026-07-28T19:24:44+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -456,7 +456,8 @@
     "vertical": "Global Finance",
     "prepared_by": "Global Finance Sales Reporting",
     "next_report_note": "",
-    "precision_note": "DRAFT: June 2026 revenue is billed finance-vertical actual ($4,001,039.89). 2025 monthly actuals are exact (internal dashboard). May 2026 remains the only rounded figure (~$3.59M, TIER 2). Discovery reflects rep submissions received so far \u2014 reporting is still open. June 2025 markup, wins/deals, and newsletter pending.",
+    "precision_note": "",
+    "show_footer": false,
     "leadership_note": {
       "intro": "June report (draft). The standing priorities don't change \u2014 they're obligations of each AM/AE/DBD on our team.",
       "standing_obligations": [
