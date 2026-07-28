@@ -204,8 +204,9 @@ class JuneDraftTest(unittest.TestCase):
         self.assertIn("Overall Markup", html)          # markup hero tile
         self.assertIn("Discovery Calls · By Person", html)  # per-AE section
         self.assertIn("Wayne Sparks", html)            # a reporting person (chip)
-        self.assertIn("Not yet reported", html)        # non-reporters listed compactly
-        self.assertIn("Pending", html)                 # collapsed wins/deals/newsletter
+        self.assertNotIn("Adele Broussard", html)      # non-reporters no longer listed by name
+        self.assertIn("Largest Confirmed Wins", html)  # ranked wins table
+        self.assertIn("Highest-Value Pipeline", html)  # ranked pipeline table
         self.assertNotIn("The bad.", html)             # empty leadership hidden
 
     def test_hero_and_banner(self):

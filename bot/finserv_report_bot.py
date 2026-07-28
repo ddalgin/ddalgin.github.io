@@ -509,6 +509,10 @@ STYLE = """
   .ae-chip.met .ct { color:var(--up); }
   .ae-chip .ac { color:var(--muted); font-size:.72rem; }
   .pending-names { color:var(--muted); font-size:.86rem; margin-top:.9rem; }
+  .wtable th, .wtable td { text-align:left; white-space:normal; vertical-align:top; }
+  .wtable td.rk { width:2.2rem; color:var(--muted); font-weight:700; }
+  .wtable td.val { font-weight:700; white-space:nowrap; }
+  .wtable td.note { color:var(--muted); font-size:.86rem; }
   .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.9rem; }
   .card { background:var(--band); border:1px solid var(--line); border-radius:10px;
     padding:.85rem .95rem; }
@@ -651,22 +655,17 @@ def render_discovery_reps(disc: dict) -> str:
                   f'<span class="ct">{r["calls"]}</span></div>{acct}</div>')
     chips_block = f'<div class="chips2">{chips}</div>' if chips else ""
 
-    pend_block = ""
-    if pending:
-        names = ", ".join(esc(r["name"]) for r in pending)
-        pend_block = (f'<p class="pending-names"><strong>Not yet reported ({len(pending)}):</strong> '
-                      f'{names}</p>')
-
     hit = sum(1 for r in reported if r.get("meets_floor"))
+    pend = len(pending)
+    pend_note = f" · {pend} not yet reported" if pend else ""
     summ = (f'<p class="note"><strong>{len(reported)} of {len(disc["reps"])} reported</strong> · '
             f'{disc.get("team_calls", 0)} calls · {hit} hit the {floor}-call floor '
-            f'(green). Reporting still open.</p>')
+            f'(green){pend_note}. Reporting still open.</p>')
     return f"""
     <section>
       <h2>Discovery Calls · By Person</h2>
       {chips_block}
       {summ}
-      {pend_block}
     </section>"""
 
 
@@ -872,15 +871,54 @@ def render_banner(c: dict) -> str:
     return ""
 
 
+def _ranked_table(block: dict, cols: list[tuple[str, str]]) -> str:
+    """Render a ranked account table. `cols` is [(header, key), ...]; the first
+    non-rank column is bolded as the account, a 'value' key is emphasized."""
+    rows = block.get("rows", [])
+    heads = "<th>Rank</th>" + "".join(f"<th>{esc(h)}</th>" for h, _ in cols)
+    body = ""
+    for i, r in enumerate(rows, 1):
+        cells = f'<td class="rk">{i}</td>'
+        for _, key in cols:
+            v = esc(r.get(key, ""))
+            if key == "account":
+                cells += f"<td><strong>{v}</strong></td>"
+            elif key == "value":
+                cells += f'<td class="val">{v}</td>'
+            elif key in ("note", "risk"):
+                cells += f'<td class="note">{v}</td>'
+            else:
+                cells += f"<td>{v}</td>"
+        body += f"<tr>{cells}</tr>"
+    return (f'<section>\n      <h2>{esc(block.get("title", ""))}</h2>\n'
+            f'      <table class="wtable"><thead><tr>{heads}</tr></thead>'
+            f'<tbody>{body}</tbody></table>\n    </section>')
+
+
+def render_wins_ranked(data: dict) -> str:
+    """The ranked Confirmed Wins + Highest-Value Pipeline tables."""
+    out = ""
+    if data.get("wins_confirmed"):
+        out += _ranked_table(data["wins_confirmed"],
+                             [("Account", "account"), ("Value", "value"),
+                              ("Strategic Note", "note")])
+    if data.get("pipeline_ranked"):
+        out += _ranked_table(data["pipeline_ranked"],
+                             [("Account", "account"), ("Value", "value"),
+                              ("Status", "status"), ("Risk Flag", "risk")])
+    return out
+
+
 def render_closing(data: dict, c: dict) -> str:
-    """Wins / Deals / Newsletter — each part shows fully when it has data and
+    """Wins / Pipeline / Newsletter — each part shows fully when it has data and
     collapses to a compact pending line when it doesn't, so a populated section
     (e.g. the newsletter) never drags empty ones along as blank columns."""
     nl = c["newsletter"]
-    has_wd = bool(data.get("wins")) or bool(data.get("deals"))
-    has_nl = nl.get("sent") or nl.get("open_rate") or nl.get("send_date")
     out = ""
-    if has_wd:
+    ranked = render_wins_ranked(data)
+    if ranked:
+        out += ranked
+    elif bool(data.get("wins")) or bool(data.get("deals")):
         out += render_pipeline(data, c["wins"], nl)
     else:
         out += """
@@ -1019,22 +1057,35 @@ def render_markdown(data: dict, c: dict) -> str:
                      f"{_md_cell(r.get('prior_ytd'), '—')} | {_md_cell(r.get('current'))} | "
                      f"{_md_cell(r['ytd'], '—')} | {pct(r['pct_to_goal'], 0)} |")
 
-    L += ["", "## New wins", ""]
-    if data.get("wins"):
-        for w in data["wins"]:
-            amt = money(w["amount"]) if isinstance(w.get("amount"), (int, float)) else w.get("amount", "")
-            L.append(f"- **{w['name']}** — {amt}")
-        if c["wins"]["total"]:
-            L.append(f"- _Total booked: {money(c['wins']['total'])}_")
+    conf, pipe = data.get("wins_confirmed"), data.get("pipeline_ranked")
+    if conf or pipe:
+        if conf:
+            L += ["", f"## {conf.get('title', 'Confirmed wins')}", "",
+                  "| # | Account | Value | Strategic Note |", "|--:|---|---|---|"]
+            for i, r in enumerate(conf.get("rows", []), 1):
+                L.append(f"| {i} | {r.get('account','')} | {r.get('value','')} | {r.get('note','')} |")
+        if pipe:
+            L += ["", f"## {pipe.get('title', 'Pipeline')}", "",
+                  "| # | Account | Value | Status | Risk Flag |", "|--:|---|---|---|---|"]
+            for i, r in enumerate(pipe.get("rows", []), 1):
+                L.append(f"| {i} | {r.get('account','')} | {r.get('value','')} | "
+                         f"{r.get('status','')} | {r.get('risk','')} |")
     else:
-        L.append("_Pending — to be updated._")
-
-    L += ["", "## Deals advanced", ""]
-    if data.get("deals"):
-        for d in data["deals"]:
-            L.append(f"- {d['name']} — {d.get('amount', '')}")
-    else:
-        L.append("_Pending — to be updated._")
+        L += ["", "## New wins", ""]
+        if data.get("wins"):
+            for w in data["wins"]:
+                amt = money(w["amount"]) if isinstance(w.get("amount"), (int, float)) else w.get("amount", "")
+                L.append(f"- **{w['name']}** — {amt}")
+            if c["wins"]["total"]:
+                L.append(f"- _Total booked: {money(c['wins']['total'])}_")
+        else:
+            L.append("_Pending — to be updated._")
+        L += ["", "## Deals advanced", ""]
+        if data.get("deals"):
+            for d in data["deals"]:
+                L.append(f"- {d['name']} — {d.get('amount', '')}")
+        else:
+            L.append("_Pending — to be updated._")
 
     nl = c["newsletter"]
     L += ["", "## Newsletter performance", ""]

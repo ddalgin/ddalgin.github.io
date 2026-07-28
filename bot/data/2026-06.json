@@ -90,6 +90,25 @@
 
   "wins": [],
   "deals": [],
+
+  "wins_confirmed": {
+    "title": "Largest Confirmed Wins (Closed Revenue)",
+    "rows": [
+      { "account": "Berkshire Hathaway", "value": "$10K closed + ~$40K pipeline", "note": "Bill 96 document translations; new team penetration = land-and-expand play" },
+      { "account": "Regions Bank", "value": "BPO Win (unquantified)", "note": "Logo win in regional banking; BPO = sticky, recurring revenue" },
+      { "account": "Stormfield Capital", "value": "$9K closed", "note": "Translation; smaller AUM but closed revenue" }
+    ]
+  },
+
+  "pipeline_ranked": {
+    "title": "Highest-Value Pipeline (Pending Close)",
+    "rows": [
+      { "account": "RBC AI Excellence Program", "value": "$100K", "status": "Proposal out for approval", "risk": "Approval cycle risk; large bank = slow procurement" },
+      { "account": "Shell FCU", "value": "Unquantified", "status": "Verbal on GLWeb + Compliance; in VDD", "risk": "VDD = final hurdle; high close probability" },
+      { "account": "Mauch Chunk Trust", "value": "Unquantified", "status": "Verbal yes; OPI pending", "risk": "Small institution but fast-moving; good velocity indicator" }
+    ]
+  },
+
   "newsletter": {
     "send_date": "June 17",
     "sent": 5761,

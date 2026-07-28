@@ -1,6 +1,6 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-28 18:52 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-28 18:59 UTC_
 
 ## At a glance
 
@@ -71,13 +71,21 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-28 18:52 UTC_
 | Disco - GlobalLink | 150 | 28 | 2 | 30 | 20% |
 | **Total Discovery Calls** | 750 | 178 | 36 | 214 | 29% |
 
-## New wins
+## Largest Confirmed Wins (Closed Revenue)
 
-_Pending — to be updated._
+| # | Account | Value | Strategic Note |
+|--:|---|---|---|
+| 1 | Berkshire Hathaway | $10K closed + ~$40K pipeline | Bill 96 document translations; new team penetration = land-and-expand play |
+| 2 | Regions Bank | BPO Win (unquantified) | Logo win in regional banking; BPO = sticky, recurring revenue |
+| 3 | Stormfield Capital | $9K closed | Translation; smaller AUM but closed revenue |
 
-## Deals advanced
+## Highest-Value Pipeline (Pending Close)
 
-_Pending — to be updated._
+| # | Account | Value | Status | Risk Flag |
+|--:|---|---|---|---|
+| 1 | RBC AI Excellence Program | $100K | Proposal out for approval | Approval cycle risk; large bank = slow procurement |
+| 2 | Shell FCU | Unquantified | Verbal on GLWeb + Compliance; in VDD | VDD = final hurdle; high close probability |
+| 3 | Mauch Chunk Trust | Unquantified | Verbal yes; OPI pending | Small institution but fast-moving; good velocity indicator |
 
 ## Newsletter performance
 
