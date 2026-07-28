@@ -1,6 +1,6 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-28 18:59 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-28 19:06 UTC_
 
 ## At a glance
 
@@ -11,7 +11,7 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-28 18:59 UTC_
 - Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).
 - Standing floor is 3 legit discovery calls per rep on their worst month — the categories above are the team's obligation, not a stretch target.
 - By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending — team total will rise.
-- Newsletter open rate hit 25.60%, ~1.1x the ~20–25% benchmark, up -11.3 pts from 36.9%; 4,632 total clicks is a record. Brand programming is compounding.
+- Newsletter open rate hit 25.60%, ~1.1x the ~20–25% benchmark; 4,632 total clicks is a record. Brand programming is compounding.
 
 ## Revenue summary
 

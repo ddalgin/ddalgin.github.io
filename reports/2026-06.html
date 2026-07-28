@@ -82,12 +82,12 @@
   .wtable td.rk { width:2.2rem; color:var(--muted); font-weight:700; }
   .wtable td.val { font-weight:700; white-space:nowrap; }
   .wtable td.note { color:var(--muted); font-size:.86rem; }
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.9rem; }
-  .card { background:var(--band); border:1px solid var(--line); border-radius:10px;
-    padding:.85rem .95rem; }
-  .card .k { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
-  .card .v { font-size:1.5rem; font-weight:700; margin-top:.15rem; line-height:1.1; }
-  .card .n { font-size:.76rem; color:var(--muted); margin-top:.2rem; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:.55rem; }
+  .card { background:var(--band); border:1px solid var(--line); border-radius:9px;
+    padding:.55rem .7rem; }
+  .card .k { font-size:.66rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  .card .v { font-size:1.2rem; font-weight:700; margin-top:.1rem; line-height:1.1; }
+  .card .n { font-size:.7rem; color:var(--muted); margin-top:.15rem; }
   .cols { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
   @media (max-width:640px) { .cols { grid-template-columns:1fr; } }
   .stack { list-style:none; margin:0; padding:0; }
@@ -116,7 +116,7 @@
   <header class="masthead">
     <p class="eyebrow">TransPerfect · Global Finance · Monthly Report</p>
     <h1>Global Finance Sales — June 2026<span class="draft-pill">DRAFT</span></h1>
-    <p class="sub">Draft — discovery reporting still open and June 2025 markup pending; revenue is final.</p>
+    
   </header>
 <div class="hero"><div class="tile good"><div class="k">Jun Revenue</div><div class="v">$4,001,040</div><div class="s up">+$437,370 · +12.3% YoY</div></div><div class="tile"><div class="k">2026 YTD</div><div class="v">~$23.49M</div><div class="s down">~-1.8% vs &#x27;25</div></div><div class="tile good"><div class="k">Overall Markup</div><div class="v">10.03x</div><div class="s ">vs last year — pending</div></div><div class="tile good"><div class="k">Newsletter Open</div><div class="v">25.6%</div><div class="s up">record clicks</div></div></div>
 <div class="banner"><span class="mark">▲</span><div><strong>Jun revenue up 12.3% YoY</strong> (+$437,370) — the first up-month since Jan, even as unit volume stays soft.</div></div>
@@ -253,8 +253,8 @@
         <td>29%<div class="meter"><span style="width:29%"></span></div></td>
       </tr></tbody>
       </table>
-      <p class="note">Straight-line pace at this point in the year: 50%.</p><p class="note">14 YTD discovery calls are counted in the team total but not yet split into a category above.</p>
-      <p class="note">Pending reporting — per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 214; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 35 vs the category rollup&#x27;s 36 — a couple of tracker cells don&#x27;t yet sum to the rep&#x27;s stated total; reconciliation pending as reporting closes.</p>
+      
+      
     </section>
 
     <section>
@@ -271,8 +271,8 @@
     </section>
     <section>
       <h2>Newsletter Performance</h2>
-      <div class="cards"><div class="card"><div class="k">Send date</div><div class="v">June 17</div></div><div class="card"><div class="k">Sent / Delivered</div><div class="v">5,761 / 5,761</div></div><div class="card"><div class="k">Opens</div><div class="v">1,464</div></div><div class="card"><div class="k">Open rate</div><div class="v">25.60%</div><div class="n">down 11.3 pts from 36.9%</div></div><div class="card"><div class="k">Clicks (total)</div><div class="v">4,632</div><div class="n">highest to date</div></div><div class="card"><div class="k">Click rate</div><div class="v">80.00%</div></div><div class="card"><div class="k">CTOR (unique)</div><div class="v">49%</div></div><div class="card"><div class="k">Opt-outs</div><div class="v">16</div></div></div>
-      <p class="note">Open rate 25.60% — above the ~20–25% benchmark, though down from May&#x27;s 36.87%. 4,632 clicks is a new high (up from 4,494 in May). Click rate 80%, CTOR 49%, 16 opt-outs.</p>
+      <div class="cards"><div class="card"><div class="k">Send date</div><div class="v">June 17</div></div><div class="card"><div class="k">Sent / Delivered</div><div class="v">5,761 / 5,761</div><div class="n">100% delivered</div></div><div class="card"><div class="k">Opens</div><div class="v">1,464</div></div><div class="card"><div class="k">Open rate</div><div class="v">25.60%</div></div><div class="card"><div class="k">Clicks (total)</div><div class="v">4,632</div><div class="n">highest to date</div></div><div class="card"><div class="k">Click rate</div><div class="v">80.00%</div></div><div class="card"><div class="k">CTOR (unique)</div><div class="v">49%</div></div><div class="card"><div class="k">Opt-outs</div><div class="v">16</div></div></div>
+      
     </section>
 
     <section>
@@ -292,7 +292,7 @@
       <p style="margin:.8rem 0 .2rem;"><strong>Upcoming events — <a href="https://experiences.transperfect.com/financenextseries/">FinanceNext Series</a>:</strong></p><div><span class="pill">New York</span><span class="pill">Toronto</span><span class="pill">London</span><span class="pill">SF</span></div>
     </section>
   <p class="note">DRAFT: June 2026 revenue is billed finance-vertical actual ($4,001,039.89). 2025 monthly actuals are exact (internal dashboard). May 2026 remains the only rounded figure (~$3.59M, TIER 2). Discovery reflects rep submissions received so far — reporting is still open. June 2025 markup, wins/deals, and newsletter pending.</p>
-  <footer>Prepared by Global Finance Sales Reporting. Auto-assembled by finserv_report_bot.py on 2026-07-28 18:59 UTC.<br>
+  <footer>Prepared by Global Finance Sales Reporting. Auto-assembled by finserv_report_bot.py on 2026-07-28 19:06 UTC.<br>
   Revenue: internal revenue dashboard, Finance vertical. Discovery: prior-period reporting reconciled with current-month rep submissions. Wins/Deals: rep self-report. Newsletter: campaign platform export.</footer>
 </main>
 </body>

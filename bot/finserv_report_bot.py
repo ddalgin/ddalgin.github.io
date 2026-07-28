@@ -513,12 +513,12 @@ STYLE = """
   .wtable td.rk { width:2.2rem; color:var(--muted); font-weight:700; }
   .wtable td.val { font-weight:700; white-space:nowrap; }
   .wtable td.note { color:var(--muted); font-size:.86rem; }
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.9rem; }
-  .card { background:var(--band); border:1px solid var(--line); border-radius:10px;
-    padding:.85rem .95rem; }
-  .card .k { font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
-  .card .v { font-size:1.5rem; font-weight:700; margin-top:.15rem; line-height:1.1; }
-  .card .n { font-size:.76rem; color:var(--muted); margin-top:.2rem; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:.55rem; }
+  .card { background:var(--band); border:1px solid var(--line); border-radius:9px;
+    padding:.55rem .7rem; }
+  .card .k { font-size:.66rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  .card .v { font-size:1.2rem; font-weight:700; margin-top:.1rem; line-height:1.1; }
+  .card .n { font-size:.7rem; color:var(--muted); margin-top:.15rem; }
   .cols { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
   @media (max-width:640px) { .cols { grid-template-columns:1fr; } }
   .stack { list-style:none; margin:0; padding:0; }
@@ -681,13 +681,7 @@ def render_discovery_table(disc: dict) -> str:
         body += '<tr class="spacer"><td colspan="6"></td></tr>'
         body += _disc_rows(disc["activities"], disc)
     note = f'<p class="note">{esc(disc["note"])}</p>' if disc.get("note") else ""
-    pace = disc.get("pace_pct")
-    pace_note = (f'<p class="note">Straight-line pace at this point in the year: '
-                 f'{pct(pace, 0)}.</p>') if pace is not None else ""
-    unc = disc["total"].get("uncategorized", 0)
-    if unc:
-        pace_note += (f'<p class="note">{unc} YTD discovery calls are counted in the '
-                      f'team total but not yet split into a category above.</p>')
+    pace_note = ""
     return f"""
     <section>
       <h2>Discovery Calls &amp; Activities</h2>
@@ -748,9 +742,11 @@ def render_newsletter(nl: dict) -> str:
     if nl.get("open_delta_pts"):
         d = nl["open_delta_pts"]
         open_note = f"{'up' if d >= 0 else 'down'} {abs(d):.1f} pts from {pct(nl.get('prior_open_rate'))}"
+    deliv = nl.get("delivery_rate")
+    deliv_note = f"{deliv:.0f}% delivered" if deliv is not None else ""
     cards = "".join([
         card("Send date", nl.get("send_date", "—")),
-        card("Sent / Delivered", f"{nl.get('sent', 0):,} / {nl.get('delivered', 0):,}"),
+        card("Sent / Delivered", f"{nl.get('sent', 0):,} / {nl.get('delivered', 0):,}", deliv_note),
         card("Opens", f"{nl.get('opens', 0):,}"),
         card("Open rate", pct(nl.get("open_rate"), 2), open_note),
         card("Clicks (total)", f"{nl.get('clicks_total', 0):,}",
@@ -963,7 +959,7 @@ def render_html(data: dict, c: dict) -> str:
   <header class="masthead">
     <p class="eyebrow">{esc(org)} · {esc(vertical)} · Monthly Report</p>
     <h1>{esc(title)} — {esc(label)}{draft_badge}</h1>
-    <p class="sub">{esc(nextnote)}</p>
+    {f'<p class="sub">{esc(nextnote)}</p>' if nextnote else ''}
   </header>
 {render_hero(data, c)}
 {render_banner(c)}

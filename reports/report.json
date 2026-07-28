@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T18:59:09+00:00",
+  "generated_at": "2026-07-28T19:06:07+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -14,7 +14,7 @@
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
     "By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending \u2014 team total will rise.",
-    "Newsletter open rate hit 25.60%, ~1.1x the ~20\u201325% benchmark, up -11.3 pts from 36.9%; 4,632 total clicks is a record. Brand programming is compounding."
+    "Newsletter open rate hit 25.60%, ~1.1x the ~20\u201325% benchmark; 4,632 total clicks is a record. Brand programming is compounding."
   ],
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
@@ -156,7 +156,7 @@
     "prior_label": "May '26 YTD",
     "current_label": "Jun '26",
     "ytd_label": "26 YTD",
-    "note": "Pending reporting \u2014 per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 214; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 35 vs the category rollup's 36 \u2014 a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
+    "note": "",
     "reps": [
       {
         "name": "Adele Broussard",
@@ -435,16 +435,13 @@
     "open_rate": 25.6,
     "open_rate_benchmark_low": 20,
     "open_rate_benchmark_high": 25,
-    "prior_open_rate": 36.87,
     "clicks_total": 4632,
-    "prior_clicks_total": 4494,
     "click_rate": 80,
     "ctor_unique": 49,
     "opt_outs": 16,
-    "note": "Open rate 25.60% \u2014 above the ~20\u201325% benchmark, though down from May's 36.87%. 4,632 clicks is a new high (up from 4,494 in May). Click rate 80%, CTOR 49%, 16 opt-outs.",
+    "note": "",
     "delivery_rate": 100.0,
-    "open_vs_benchmark_x": 1.1377777777777778,
-    "open_delta_pts": -11.269999999999996
+    "open_vs_benchmark_x": 1.1377777777777778
   },
   "source_data": {
     "period": {
@@ -458,7 +455,7 @@
     "org": "TransPerfect",
     "vertical": "Global Finance",
     "prepared_by": "Global Finance Sales Reporting",
-    "next_report_note": "Draft \u2014 discovery reporting still open and June 2025 markup pending; revenue is final.",
+    "next_report_note": "",
     "precision_note": "DRAFT: June 2026 revenue is billed finance-vertical actual ($4,001,039.89). 2025 monthly actuals are exact (internal dashboard). May 2026 remains the only rounded figure (~$3.59M, TIER 2). Discovery reflects rep submissions received so far \u2014 reporting is still open. June 2025 markup, wins/deals, and newsletter pending.",
     "leadership_note": {
       "intro": "June report (draft). The standing priorities don't change \u2014 they're obligations of each AM/AE/DBD on our team.",
@@ -529,7 +526,7 @@
       "prior_label": "May '26 YTD",
       "current_label": "Jun '26",
       "ytd_label": "26 YTD",
-      "note": "Pending reporting \u2014 per-AE counts reflect rep submissions received so far (10 of 28 AEs), each named with their disco-call count (calls only, not revenue). Category rollup uses the team tracker (26 YTD = 214; % to goal on the 750 annual target). Per-AE self-reported June totals sum to 35 vs the category rollup's 36 \u2014 a couple of tracker cells don't yet sum to the rep's stated total; reconciliation pending as reporting closes.",
+      "note": "",
       "reps": [
         {
           "name": "Adele Broussard",
@@ -742,13 +739,11 @@
       "open_rate": 25.6,
       "open_rate_benchmark_low": 20,
       "open_rate_benchmark_high": 25,
-      "prior_open_rate": 36.87,
       "clicks_total": 4632,
-      "prior_clicks_total": 4494,
       "click_rate": 80,
       "ctor_unique": 49,
       "opt_outs": 16,
-      "note": "Open rate 25.60% \u2014 above the ~20\u201325% benchmark, though down from May's 36.87%. 4,632 clicks is a new high (up from 4,494 in May). Click rate 80%, CTOR 49%, 16 opt-outs."
+      "note": ""
     },
     "engagement": [
       "31 Spring & Summer Kits delivered to clients",
