@@ -1,6 +1,6 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-28 18:47 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-28 18:51 UTC_
 
 ## At a glance
 
@@ -89,5 +89,6 @@ _Pending — to be updated._
 ## Brand & client engagement
 
 - 31 Spring & Summer Kits delivered to clients
+- 5 TransPerfect Financial blog posts published in June
 
 > DRAFT: June 2026 revenue is billed finance-vertical actual ($4,001,039.89). 2025 monthly actuals are exact (internal dashboard). May 2026 remains the only rounded figure (~$3.59M, TIER 2). Discovery reflects rep submissions received so far — reporting is still open. June 2025 markup, wins/deals, and newsletter pending.
