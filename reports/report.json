@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T18:50:08+00:00",
+  "generated_at": "2026-07-28T18:47:44+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -707,6 +707,9 @@
       "opt_outs": 16,
       "note": "Open rate 25.60% \u2014 above the ~20\u201325% benchmark, though down from May's 36.87%. 4,632 clicks is a new high (up from 4,494 in May). Click rate 80%, CTOR 49%, 16 opt-outs."
     },
+    "engagement": [
+      "31 Spring & Summer Kits delivered to clients"
+    ],
     "events_upcoming": {
       "series": "FinanceNext Series",
       "url": "https://experiences.transperfect.com/financenextseries/",

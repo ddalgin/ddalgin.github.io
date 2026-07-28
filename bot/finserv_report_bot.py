@@ -769,6 +769,19 @@ def render_newsletter(nl: dict) -> str:
     </section>"""
 
 
+def render_engagement(data: dict) -> str:
+    """Brand / client-touch highlights (e.g. client kits), one green callout each."""
+    items = data.get("engagement")
+    if not items:
+        return ""
+    blocks = "".join(f'<div class="callout good">{esc(x)}</div>' for x in items)
+    return f"""
+    <section>
+      <h2>Brand &amp; Client Engagement</h2>
+      {blocks}
+    </section>"""
+
+
 def render_leadership(data: dict) -> str:
     note = data.get("leadership_note")
     if not note:
@@ -920,6 +933,7 @@ def render_html(data: dict, c: dict) -> str:
 {render_discovery_table(c['discovery'])}
 {render_discovery_reps(c['discovery'])}
 {render_closing(data, c)}
+{render_engagement(data)}
 {render_leadership(data)}
   <p class="note">{esc(precision)}</p>
   <footer>Prepared by {esc(prepared)}. Auto-assembled by finserv_report_bot.py on {generated}.<br>
@@ -1031,6 +1045,9 @@ def render_markdown(data: dict, c: dict) -> str:
               f"- Opt-outs {nl.get('opt_outs', 0)}"]
     else:
         L.append("_Pending — campaign platform export to be added._")
+    if data.get("engagement"):
+        L += ["", "## Brand & client engagement", ""]
+        L += [f"- {x}" for x in data["engagement"]]
     if data.get("precision_note"):
         L += ["", f"> {data['precision_note']}"]
     return "\n".join(L) + "\n"
