@@ -1,6 +1,6 @@
 # DC Happy Hour — Ranked
 
-_Generated 2026-07-27 16:03 UTC · from 1001 G St NW (Metro Center) · all spots · by quality_
+_Generated 2026-07-28 17:30 UTC · from 1001 G St NW (Metro Center) · all spots · by quality_
 
 1. **[Duke's Grocery](https://www.dukesgrocery.com/)** — 29 min walk · Dupont Circle · ⭐4.4 · $$
    - 🏆 Best Burger (winner) · Best Happy Hour (winner)
@@ -120,52 +120,72 @@ _Generated 2026-07-27 16:03 UTC · from 1001 G St NW (Metro Center) · all spots
    - Casual multi-level beer hall a block from the office — easy, cheap, fun.
    - _beer, casual, cocktails_
 
-23. **[RPM Italian](https://www.rpmrestaurants.com/rpm-italian/dc/)** — 11 min walk · Mt. Vernon Triangle · ⭐4.3 · $$$
+23. **[Bar Charley](https://www.barcharley.com/)** — 41 min walk · Dupont / Kalorama · ⭐4.4 · $$
+   - Happy hour: Mon ALL NIGHT (from 5pm) · Tue–Fri 5–7pm 🌙 runs late — $5 beers, ~$11 cocktails, tiki on tap; Catalan fries, wings, pretzels
+   - Best all-night Monday happy hour in DC — festive, group- and birthday-friendly.
+   - _cocktails, tiki, casual, outdoor_
+
+24. **[RPM Italian](https://www.rpmrestaurants.com/rpm-italian/dc/)** — 11 min walk · Mt. Vernon Triangle · ⭐4.3 · $$$
    - Happy hour: Weekday bar happy hour — Aperitivo cocktails & bar snacks
    - Glam Italian with a lively bar scene; good aperitivo hour.
    - _italian, cocktails, wine_
 
-24. **[Franklin Hall](https://www.franklinhalldc.com/)** — 41 min walk · Shaw · ⭐4.1 · $$
+25. **[Franklin Hall](https://www.franklinhalldc.com/)** — 41 min walk · Shaw · ⭐4.1 · $$
    - 🏆 Best Sports Bar (runner-up)
    - Happy hour: Check listing — Huge beer hall with games, big screens, and a patio
    - Cavernous Shaw beer hall — a finalist in five categories.
    - _beer, sports, outdoor, casual_
 
-25. **[Eebee's Corner Bar](https://eebeesbar.com/)** — 31 min walk · Shaw · ⭐4.3 · $$
+26. **[Eebee's Corner Bar](https://eebeesbar.com/)** — 31 min walk · Shaw · ⭐4.3 · $$
    - 🏆 Best Burger (runner-up)
    - Happy hour: Check listing — Smash burgers and a lively neighborhood bar
    - Buzzy Shaw corner bar that DC can't stop talking about.
    - _burgers, cocktails, casual_
 
-26. **[McClellan's Retreat](https://www.mcclellansretreat.com/)** — 45 min walk · Dupont Circle · ⭐4.3 · $$$
+27. **[McClellan's Retreat](https://www.mcclellansretreat.com/)** — 45 min walk · Dupont Circle · ⭐4.3 · $$$
    - 🏆 Best Bar (runner-up)
    - Happy hour: Check listing — Civil-War-themed craft cocktail bar
    - Snug Dupont cocktail bar with a serious drinks program.
    - _cocktails_
 
-27. **[Round Robin Bar](https://washington.intercontinental.com/round-robin-bar/)** — 9 min walk · Downtown (Willard InterContinental) · ⭐4.4 · $$$$
+28. **[District Commons](https://www.districtcommonsdc.com/)** — 32 min walk · Foggy Bottom · ⭐4.0 · $$
+   - Happy hour: Late-night Mon–Fri 10pm–close (+ afternoon HH) 🌙 runs late — $5 signature drinks, rail drinks, select drafts, and wine
+   - Reverse happy hour from 10pm — the move when the night starts late.
+   - _cocktails, outdoor, casual_
+
+29. **[Round Robin Bar](https://washington.intercontinental.com/round-robin-bar/)** — 9 min walk · Downtown (Willard InterContinental) · ⭐4.4 · $$$$
    - Happy hour: no standing HH — Classic cocktails; no standing HH but a landmark bar
    - Storied circular mahogany bar inside the Willard — a proper old-DC cocktail.
    - _historic, cocktails_
 
-28. **[The Pug](https://bardc.com/bars/the-pug/)** — 56 min walk · H Street NE · ⭐4.3 · $
+30. **[The Pug](https://bardc.com/bars/the-pug/)** — 56 min walk · H Street NE · ⭐4.3 · $
    - 🏆 Best Dive Bar (runner-up)
    - Happy hour: no standing HH — Cash-friendly dive with strong pours
    - Tiny, iconic H Street dive — cash and character.
    - _dive, casual_
 
-29. **[Off the Record](https://www.hayadams.com/off-the-record)** — 15 min walk · Downtown (Hay-Adams) · ⭐4.4 · $$$$
+31. **[El Camino](https://www.elcaminodc.com/)** — 35 min walk · Bloomingdale · ⭐4.0 · $
+   - Happy hour: Late-night Mon–Fri 10:30pm–close (+ afternoon HH) 🌙 runs late — $5 margaritas, $3 Tecates, $5 rails/wine, $1 chips & salsa
+   - Festive Bloomingdale cantina with a cheap late-night reverse happy hour.
+   - _margaritas, mexican, casual, outdoor_
+
+32. **[Off the Record](https://www.hayadams.com/off-the-record)** — 15 min walk · Downtown (Hay-Adams) · ⭐4.4 · $$$$
    - Happy hour: no standing HH — Power-player cocktail lounge; caricature coasters
    - Below the Hay-Adams, across Lafayette Sq from the White House — quiet, classic, no HH.
    - _speakeasy, historic, cocktails_
 
-30. **[Wingo's](https://www.wingosdc.com/)** — 79 min walk · Glover Park · ⭐4.1 · $
+33. **[Wingo's](https://www.wingosdc.com/)** — 79 min walk · Glover Park · ⭐4.1 · $
    - 🏆 Best Wings (runner-up)
    - Happy hour: no standing HH — DC-institution wings and fries
    - Beloved counter-service wing joint near Georgetown.
    - _wings, casual_
 
-31. **[Quill](https://www.jeffersondc.com/dine/quill)** — 19 min walk · Downtown (Jefferson Hotel) · ⭐4.5 · $$$$
+34. **[Dino's Grotto](https://www.dinosgrotto.com/)** — 36 min walk · Shaw · ⭐4.3 · $$
+   - Happy hour: Sun & Mon ALL NIGHT · daily 5–7pm 🌙 runs late — $4 local taps, $6 house wine/prosecco/bellinis, $8 signature cocktails
+   - Cozy Shaw Italian with all-night Sunday & Monday happy hour — good for sitting and lingering.
+   - _italian, cocktails, wine, casual_
+
+35. **[Quill](https://www.jeffersondc.com/dine/quill)** — 19 min walk · Downtown (Jefferson Hotel) · ⭐4.5 · $$$$
    - Happy hour: no standing HH — Refined seasonal cocktails; live piano
    - Intimate, upscale hotel bar — top-tier cocktails for a quieter evening.
    - _cocktails, historic_

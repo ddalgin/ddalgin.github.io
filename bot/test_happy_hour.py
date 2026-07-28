@@ -134,6 +134,29 @@ class AwardTests(unittest.TestCase):
                 self.assertGreater(bot.award_points(s), 0, f"unrecognized: {a}")
 
 
+class RunsLateTests(unittest.TestCase):
+    def setUp(self):
+        self.origin = bot.ORIGINS["office"]
+
+    def test_runs_late_filter_only_late_spots(self):
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         runs_late_only=True)
+        self.assertTrue(spots)
+        self.assertTrue(all(s.runs_late for s in spots))
+
+    def test_bar_charley_is_a_late_spot(self):
+        names = [s.name for s in bot.rank(self.origin, "all", set(), False, None,
+                                          False, runs_late_only=True)]
+        self.assertIn("Bar Charley", names)
+
+    def test_late_spots_still_count_as_happy_hour(self):
+        # All-night / reverse HH spots carry a real window, so --happy-hour-only
+        # must include them.
+        hh_names = [s.name for s in bot.rank(self.origin, "all", set(), False,
+                                             None, True)]
+        self.assertIn("Bar Charley", hh_names)
+
+
 class HappyHourFlagTests(unittest.TestCase):
     def test_check_listing_is_not_a_standing_hh(self):
         s = bot.Spot(name="x", lat=0, lng=0, neighborhood="", category="bar",
@@ -162,6 +185,8 @@ class DataIntegrityTests(unittest.TestCase):
             self.assertTrue(spot.url.startswith("http"))
             self.assertIn(spot.category, {"rooftop", "bar", "restaurant"})
             self.assertIsInstance(spot.features, list)
+            self.assertIsInstance(spot.awards, list)
+            self.assertIsInstance(spot.runs_late, bool)
             self.assertTrue(0 <= spot.rating <= 5)
 
     def test_spot_names_unique(self):

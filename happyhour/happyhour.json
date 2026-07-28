@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T16:03:57+00:00",
+  "generated_at": "2026-07-28T17:30:50+00:00",
   "meta": {
     "origin": "office",
     "origin_label": "1001 G St NW (Metro Center)",
@@ -8,9 +8,10 @@
     "max_walk": null,
     "happy_hour_only": false,
     "awards_only": false,
+    "runs_late": false,
     "rank_by": "quality",
     "filter_label": "all spots \u00b7 by quality",
-    "count": 31
+    "count": 35
   },
   "spots": [
     {
@@ -34,6 +35,7 @@
         "Best Burger (winner)",
         "Best Happy Hour (winner)"
       ],
+      "runs_late": false,
       "dist_mi": 1.06,
       "walk_min": 29,
       "score": 22.8,
@@ -58,6 +60,7 @@
       "price": "$$$",
       "notes": "12 stories up with Washington Monument + skyline views; closest true rooftop happy hour to the office.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.25,
       "walk_min": 7,
       "score": 20.23,
@@ -85,6 +88,7 @@
         "Best Wings (winner)",
         "Best Sports Bar (winner)"
       ],
+      "runs_late": false,
       "dist_mi": 1.07,
       "walk_min": 29,
       "score": 19.9,
@@ -109,6 +113,7 @@
       "price": "$$$$",
       "notes": "Atop the Pendry with sweeping views of the Washington Channel and Wharf \u2014 worth the trip for a sunset.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 1.39,
       "walk_min": 38,
       "score": 16.3,
@@ -132,6 +137,7 @@
       "price": "$$$$",
       "notes": "The iconic one \u2014 direct White House + Washington Monument views. Best for impressing someone; pricier, no HH deal.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.37,
       "walk_min": 10,
       "score": 16.15,
@@ -156,6 +162,7 @@
       "price": "$$$",
       "notes": "Rooftop mixing a sportsbook with a cocktail lounge \u2014 good group / game-day hang.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.58,
       "walk_min": 16,
       "score": 16.0,
@@ -180,6 +187,7 @@
       "price": "$$$",
       "notes": "Canopy Wharf rooftop with wide water views; more relaxed than Moonraker next door.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 1.35,
       "walk_min": 36,
       "score": 15.9,
@@ -204,6 +212,7 @@
       "awards": [
         "Best Bar (winner)"
       ],
+      "runs_late": false,
       "dist_mi": 1.31,
       "walk_min": 35,
       "score": 14.8,
@@ -227,6 +236,7 @@
       "price": "$$$",
       "notes": "DC's oldest saloon, steps from the office \u2014 the move for discounted oysters and a classic bar.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.37,
       "walk_min": 10,
       "score": 14.75,
@@ -251,6 +261,7 @@
       "price": "$$$",
       "notes": "Jos\u00e9 Andr\u00e9s tapas mainstay; one of the best-value happy hours downtown.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.34,
       "walk_min": 9,
       "score": 14.68,
@@ -277,6 +288,7 @@
         "Best Irish Pub (runner-up)",
         "Best Bar Food (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 1.63,
       "walk_min": 44,
       "score": 14.4,
@@ -299,6 +311,7 @@
       "price": "$$$",
       "notes": "Sceney cocktail bar with a large open-air courtyard patio.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.27,
       "walk_min": 7,
       "score": 14.32,
@@ -324,6 +337,7 @@
       "awards": [
         "Best Happy Hour (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 1.39,
       "walk_min": 38,
       "score": 14.1,
@@ -347,6 +361,7 @@
       "price": "$$$",
       "notes": "Reliable margarita-and-guac happy hour near Capital One Arena.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.32,
       "walk_min": 9,
       "score": 13.88,
@@ -372,6 +387,7 @@
       "awards": [
         "Best Dive Bar (winner)"
       ],
+      "runs_late": false,
       "dist_mi": 2.5,
       "walk_min": 68,
       "score": 13.8,
@@ -396,6 +412,7 @@
       "awards": [
         "Best Irish Pub (winner)"
       ],
+      "runs_late": false,
       "dist_mi": 3.15,
       "walk_min": 85,
       "score": 13.8,
@@ -419,6 +436,7 @@
       "price": "$$",
       "notes": "Enormous craft-beer list and a big patio \u2014 solid for a group after work.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.21,
       "walk_min": 6,
       "score": 13.75,
@@ -442,6 +460,7 @@
       "price": "$$",
       "notes": "Big, dependable spot two blocks away with a live-music venue in the basement.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.3,
       "walk_min": 8,
       "score": 13.6,
@@ -464,6 +483,7 @@
       "price": "$$$",
       "notes": "Modern Southern kitchen; good deviled eggs / hush-puppies happy hour.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.15,
       "walk_min": 4,
       "score": 13.4,
@@ -489,6 +509,7 @@
       "awards": [
         "Best Bar Food (winner)"
       ],
+      "runs_late": false,
       "dist_mi": 1.09,
       "walk_min": 29,
       "score": 13.4,
@@ -511,6 +532,7 @@
       "price": "$$",
       "notes": "Narrow, moody cocktail bar right in the heart of Penn Quarter.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.12,
       "walk_min": 3,
       "score": 13.32,
@@ -534,9 +556,35 @@
       "price": "$",
       "notes": "Casual multi-level beer hall a block from the office \u2014 easy, cheap, fun.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.17,
       "walk_min": 5,
       "score": 12.88,
+      "matched": []
+    },
+    {
+      "name": "Bar Charley",
+      "lat": 38.9166,
+      "lng": -77.0417,
+      "neighborhood": "Dupont / Kalorama",
+      "category": "bar",
+      "url": "https://www.barcharley.com/",
+      "happy_hour": "Mon ALL NIGHT (from 5pm) \u00b7 Tue\u2013Fri 5\u20137pm",
+      "deals": "$5 beers, ~$11 cocktails, tiki on tap; Catalan fries, wings, pretzels",
+      "features": [
+        "cocktails",
+        "tiki",
+        "casual",
+        "outdoor"
+      ],
+      "rating": 4.4,
+      "price": "$$",
+      "notes": "Best all-night Monday happy hour in DC \u2014 festive, group- and birthday-friendly.",
+      "awards": [],
+      "runs_late": true,
+      "dist_mi": 1.51,
+      "walk_min": 41,
+      "score": 12.8,
       "matched": []
     },
     {
@@ -557,6 +605,7 @@
       "price": "$$$",
       "notes": "Glam Italian with a lively bar scene; good aperitivo hour.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.4,
       "walk_min": 11,
       "score": 12.72,
@@ -583,6 +632,7 @@
       "awards": [
         "Best Sports Bar (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 1.51,
       "walk_min": 41,
       "score": 12.7,
@@ -608,6 +658,7 @@
       "awards": [
         "Best Burger (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 1.16,
       "walk_min": 31,
       "score": 12.1,
@@ -631,9 +682,34 @@
       "awards": [
         "Best Bar (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 1.66,
       "walk_min": 45,
       "score": 12.1,
+      "matched": []
+    },
+    {
+      "name": "District Commons",
+      "lat": 38.901,
+      "lng": -77.048,
+      "neighborhood": "Foggy Bottom",
+      "category": "restaurant",
+      "url": "https://www.districtcommonsdc.com/",
+      "happy_hour": "Late-night Mon\u2013Fri 10pm\u2013close (+ afternoon HH)",
+      "deals": "$5 signature drinks, rail drinks, select drafts, and wine",
+      "features": [
+        "cocktails",
+        "outdoor",
+        "casual"
+      ],
+      "rating": 4.0,
+      "price": "$$",
+      "notes": "Reverse happy hour from 10pm \u2014 the move when the night starts late.",
+      "awards": [],
+      "runs_late": true,
+      "dist_mi": 1.18,
+      "walk_min": 32,
+      "score": 12.0,
       "matched": []
     },
     {
@@ -653,6 +729,7 @@
       "price": "$$$$",
       "notes": "Storied circular mahogany bar inside the Willard \u2014 a proper old-DC cocktail.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.34,
       "walk_min": 9,
       "score": 11.68,
@@ -677,9 +754,35 @@
       "awards": [
         "Best Dive Bar (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 2.08,
       "walk_min": 56,
       "score": 11.6,
+      "matched": []
+    },
+    {
+      "name": "El Camino",
+      "lat": 38.9127,
+      "lng": -77.0114,
+      "neighborhood": "Bloomingdale",
+      "category": "restaurant",
+      "url": "https://www.elcaminodc.com/",
+      "happy_hour": "Late-night Mon\u2013Fri 10:30pm\u2013close (+ afternoon HH)",
+      "deals": "$5 margaritas, $3 Tecates, $5 rails/wine, $1 chips & salsa",
+      "features": [
+        "margaritas",
+        "mexican",
+        "casual",
+        "outdoor"
+      ],
+      "rating": 4.0,
+      "price": "$",
+      "notes": "Festive Bloomingdale cantina with a cheap late-night reverse happy hour.",
+      "awards": [],
+      "runs_late": true,
+      "dist_mi": 1.28,
+      "walk_min": 35,
+      "score": 11.5,
       "matched": []
     },
     {
@@ -700,6 +803,7 @@
       "price": "$$$$",
       "notes": "Below the Hay-Adams, across Lafayette Sq from the White House \u2014 quiet, classic, no HH.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.56,
       "walk_min": 15,
       "score": 11.43,
@@ -724,9 +828,35 @@
       "awards": [
         "Best Wings (runner-up)"
       ],
+      "runs_late": false,
       "dist_mi": 2.93,
       "walk_min": 79,
       "score": 11.2,
+      "matched": []
+    },
+    {
+      "name": "Dino's Grotto",
+      "lat": 38.9175,
+      "lng": -77.0242,
+      "neighborhood": "Shaw",
+      "category": "restaurant",
+      "url": "https://www.dinosgrotto.com/",
+      "happy_hour": "Sun & Mon ALL NIGHT \u00b7 daily 5\u20137pm",
+      "deals": "$4 local taps, $6 house wine/prosecco/bellinis, $8 signature cocktails",
+      "features": [
+        "italian",
+        "cocktails",
+        "wine",
+        "casual"
+      ],
+      "rating": 4.3,
+      "price": "$$",
+      "notes": "Cozy Shaw Italian with all-night Sunday & Monday happy hour \u2014 good for sitting and lingering.",
+      "awards": [],
+      "runs_late": true,
+      "dist_mi": 1.33,
+      "walk_min": 36,
+      "score": 11.1,
       "matched": []
     },
     {
@@ -746,6 +876,7 @@
       "price": "$$$$",
       "notes": "Intimate, upscale hotel bar \u2014 top-tier cocktails for a quieter evening.",
       "awards": [],
+      "runs_late": false,
       "dist_mi": 0.72,
       "walk_min": 19,
       "score": 10.62,

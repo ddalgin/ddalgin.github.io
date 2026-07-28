@@ -22,6 +22,7 @@ the "closest good happy hour to the office" behavior).
 Usage:
   python bot/happy_hour_bot.py                       # city-wide, best by rating + awards
   python bot/happy_hour_bot.py --awards-only         # only "Best of DC" award venues
+  python bot/happy_hour_bot.py --runs-late           # all-night / late-night HH only
   python bot/happy_hour_bot.py --rank-by proximity   # closest good happy hours
   python bot/happy_hour_bot.py --category rooftop    # rooftops only
   python bot/happy_hour_bot.py --features view,outdoor --max-walk 12
@@ -447,6 +448,59 @@ SPOTS = [
         "notes": "Dupont's unpretentious neighborhood pub — Best Bar Food winner.",
         "awards": ["Best Bar Food (winner)"],
     },
+    # --- Late / all-night happy hours (great when you're not racing 7pm) ---
+    {
+        "name": "Bar Charley",
+        "lat": 38.9166, "lng": -77.0417,
+        "neighborhood": "Dupont / Kalorama",
+        "category": "bar",
+        "url": "https://www.barcharley.com/",
+        "happy_hour": "Mon ALL NIGHT (from 5pm) · Tue–Fri 5–7pm",
+        "deals": "$5 beers, ~$11 cocktails, tiki on tap; Catalan fries, wings, pretzels",
+        "features": ["cocktails", "tiki", "casual", "outdoor"],
+        "rating": 4.4, "price": "$$",
+        "notes": "Best all-night Monday happy hour in DC — festive, group- and birthday-friendly.",
+        "runs_late": True,
+    },
+    {
+        "name": "Dino's Grotto",
+        "lat": 38.9175, "lng": -77.0242,
+        "neighborhood": "Shaw",
+        "category": "restaurant",
+        "url": "https://www.dinosgrotto.com/",
+        "happy_hour": "Sun & Mon ALL NIGHT · daily 5–7pm",
+        "deals": "$4 local taps, $6 house wine/prosecco/bellinis, $8 signature cocktails",
+        "features": ["italian", "cocktails", "wine", "casual"],
+        "rating": 4.3, "price": "$$",
+        "notes": "Cozy Shaw Italian with all-night Sunday & Monday happy hour — good for sitting and lingering.",
+        "runs_late": True,
+    },
+    {
+        "name": "District Commons",
+        "lat": 38.9010, "lng": -77.0480,
+        "neighborhood": "Foggy Bottom",
+        "category": "restaurant",
+        "url": "https://www.districtcommonsdc.com/",
+        "happy_hour": "Late-night Mon–Fri 10pm–close (+ afternoon HH)",
+        "deals": "$5 signature drinks, rail drinks, select drafts, and wine",
+        "features": ["cocktails", "outdoor", "casual"],
+        "rating": 4.0, "price": "$$",
+        "notes": "Reverse happy hour from 10pm — the move when the night starts late.",
+        "runs_late": True,
+    },
+    {
+        "name": "El Camino",
+        "lat": 38.9127, "lng": -77.0114,
+        "neighborhood": "Bloomingdale",
+        "category": "restaurant",
+        "url": "https://www.elcaminodc.com/",
+        "happy_hour": "Late-night Mon–Fri 10:30pm–close (+ afternoon HH)",
+        "deals": "$5 margaritas, $3 Tecates, $5 rails/wine, $1 chips & salsa",
+        "features": ["margaritas", "mexican", "casual", "outdoor"],
+        "rating": 4.0, "price": "$",
+        "notes": "Festive Bloomingdale cantina with a cheap late-night reverse happy hour.",
+        "runs_late": True,
+    },
 ]
 
 # Desirability weight per feature, used to reward the things the user is
@@ -481,6 +535,7 @@ class Spot:
     price: str
     notes: str = ""
     awards: list[str] = field(default_factory=list)  # e.g. "Best Wings (winner)"
+    runs_late: bool = False  # all-night or late-night (reverse) happy hour
     # computed
     dist_mi: float = 0.0
     walk_min: int = 0
@@ -565,7 +620,7 @@ def score_spot(spot: Spot, wanted: set[str], rank_by: str = "quality") -> None:
 def rank(origin: tuple[float, float, str], category: str, wanted: set[str],
          require_features: bool, max_walk: int | None,
          happy_hour_only: bool, rank_by: str = "quality",
-         awards_only: bool = False) -> list[Spot]:
+         awards_only: bool = False, runs_late_only: bool = False) -> list[Spot]:
     o_lat, o_lng, _ = origin
     spots: list[Spot] = []
     for raw in SPOTS:
@@ -580,6 +635,8 @@ def rank(origin: tuple[float, float, str], category: str, wanted: set[str],
         if happy_hour_only and not spot.has_happy_hour:
             continue
         if awards_only and not spot.awards:
+            continue
+        if runs_late_only and not spot.runs_late:
             continue
         if require_features and wanted and not wanted.issubset(set(spot.features)):
             continue
@@ -625,7 +682,9 @@ def write_markdown(spots: list[Spot], out: Path, meta: dict) -> None:
         )
         if s.awards:
             lines.append(f"   - 🏆 {' · '.join(s.awards)}")
-        lines.append(f"   - Happy hour: {hh_label(s)}" + (f" — {s.deals}" if s.deals else ""))
+        late = " 🌙 runs late" if s.runs_late else ""
+        lines.append(f"   - Happy hour: {hh_label(s)}{late}"
+                     + (f" — {s.deals}" if s.deals else ""))
         if s.notes:
             lines.append(f"   - {s.notes}")
         lines.append(f"   - _{feats}_")
@@ -667,7 +726,7 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
             <span class="price">{esc(s.price)}</span>
           </div>
           {award_html}
-          <div class="hhline {hh_cls}">🍸 {esc(hh_label(s))}{(' — ' + esc(s.deals)) if s.deals else ''}</div>
+          <div class="hhline {hh_cls}">🍸 {esc(hh_label(s))}{' <span class="late">🌙 runs late</span>' if s.runs_late else ''}{(' — ' + esc(s.deals)) if s.deals else ''}</div>
           {f'<div class="notes">{esc(s.notes)}</div>' if s.notes else ''}
           <div class="tags">{feat_tags}</div>
         </div>
@@ -718,6 +777,9 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
   .hhline {{ font-size:.9rem; margin:.35rem 0 .3rem; }}
   .hhline.hh {{ color:var(--hh); font-weight:600; }}
   .hhline.nohh {{ color:var(--muted); }}
+  .late {{ display:inline-block; font-size:.7rem; font-weight:700; color:var(--accent);
+          border:1px solid var(--accent); border-radius:999px; padding:0 .4rem;
+          margin:0 .15rem; vertical-align:middle; }}
   .notes {{ font-size:.86rem; color:var(--ink); opacity:.85; margin:.2rem 0 .4rem; }}
   .tags {{ display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.35rem; }}
   .tag {{ font-size:.7rem; border:1px solid var(--line); border-radius:999px;
@@ -752,7 +814,7 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
 
 def build_filter_label(category: str, wanted: set[str], max_walk: int | None,
                        happy_hour_only: bool, awards_only: bool = False,
-                       rank_by: str = "quality") -> str:
+                       rank_by: str = "quality", runs_late: bool = False) -> str:
     parts = []
     parts.append("all spots" if category == "all" else f"{category}s")
     if wanted:
@@ -763,6 +825,8 @@ def build_filter_label(category: str, wanted: set[str], max_walk: int | None,
         parts.append("happy hour only")
     if awards_only:
         parts.append("award venues only")
+    if runs_late:
+        parts.append("runs late")
     parts.append("by " + ("walk time" if rank_by == "proximity" else "quality"))
     return " · ".join(parts)
 
@@ -786,6 +850,9 @@ def main(argv: list[str] | None = None) -> int:
                     help="only show spots with a standing happy hour")
     ap.add_argument("--awards-only", action="store_true",
                     help="only show @theblaguard 'Best of DC' award venues")
+    ap.add_argument("--runs-late", action="store_true",
+                    help="only show spots with an all-night or late-night "
+                         "(reverse) happy hour")
     ap.add_argument("--rank-by", default="quality",
                     choices=["quality", "proximity"],
                     help="quality = city-wide by rating/awards (default); "
@@ -801,7 +868,7 @@ def main(argv: list[str] | None = None) -> int:
 
     spots = rank(origin, args.category, wanted, args.require_features,
                  args.max_walk, args.happy_hour_only, args.rank_by,
-                 args.awards_only)
+                 args.awards_only, args.runs_late)
     if args.top is not None:
         spots = spots[: args.top]
 
@@ -815,10 +882,11 @@ def main(argv: list[str] | None = None) -> int:
         "max_walk": args.max_walk,
         "happy_hour_only": args.happy_hour_only,
         "awards_only": args.awards_only,
+        "runs_late": args.runs_late,
         "rank_by": args.rank_by,
         "filter_label": build_filter_label(args.category, wanted, args.max_walk,
                                             args.happy_hour_only, args.awards_only,
-                                            args.rank_by),
+                                            args.rank_by, args.runs_late),
         "count": len(spots),
     }
     write_json(spots, out, meta)

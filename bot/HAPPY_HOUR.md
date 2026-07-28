@@ -40,6 +40,7 @@ rooftop near Metro Center."_
 ```bash
 python bot/happy_hour_bot.py                          # city-wide, best by rating + awards
 python bot/happy_hour_bot.py --awards-only            # only "Best of DC" award venues
+python bot/happy_hour_bot.py --runs-late              # all-night / late-night (reverse) HH
 python bot/happy_hour_bot.py --rank-by proximity      # closest good happy hours to the office
 python bot/happy_hour_bot.py --category rooftop       # rooftops only
 python bot/happy_hour_bot.py --features view,outdoor  # prioritize views + patios
@@ -60,6 +61,7 @@ python bot/test_happy_hour.py                         # offline tests
 | `--max-walk` | Drop spots farther than N minutes on foot |
 | `--happy-hour-only` | Only spots with a standing happy hour |
 | `--awards-only` | Only spots that won a "Best of DC" award |
+| `--runs-late` | Only spots with an all-night or late-night (reverse) happy hour |
 | `--top` | Keep only the top N results |
 
 ## Schedule
