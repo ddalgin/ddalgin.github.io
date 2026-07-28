@@ -804,7 +804,7 @@ def render_leadership(data: dict) -> str:
         good_block = (f'<div class="callout good"><span class="h">The good.</span> {esc(good["headline"])}'
                       f'<div class="annot" style="font-style:normal;color:var(--ink);opacity:.85;">{esc(good.get("detail", ""))}</div></div>')
     return f"""
-    <section>
+    <section class="leadership">
       <h2>From Leadership</h2>
       <p class="lede">{esc(note.get('intro', ''))}</p>
       <p style="margin:.9rem 0 .2rem;"><strong>Standing obligations</strong></p>
