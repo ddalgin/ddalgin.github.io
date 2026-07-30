@@ -183,8 +183,8 @@ class JuneDraftTest(unittest.TestCase):
     def test_per_ae_reported_so_far(self):
         disc = self.c["discovery"]
         self.assertEqual(len(disc["reps"]), 28)        # every AE named
-        self.assertEqual(disc["reps_reported"], 10)    # submissions received so far
-        self.assertEqual(disc["team_calls"], 35)
+        self.assertEqual(disc["reps_reported"], 11)    # submissions received so far
+        self.assertEqual(disc["team_calls"], 38)
         below = {r["name"] for r in disc["reps_below_floor"]}
         self.assertEqual(below, {"Mariana Ordonana", "Noelle Zimmerman",
                                  "Sardar Muhammad", "Sue Christian"})

@@ -1,6 +1,6 @@
 # Financial Services — June 2026
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-30 17:40 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-30 17:49 UTC_
 
 ## At a glance
 
@@ -10,7 +10,7 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-30 17:40 UTC_
 - Discovery calls are at 214 of 750 (29% to goal) — behind the 50% straight-line pace for this point in the year. June 2026 added 36 calls.
 - Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).
 - Standing floor is 3 legit discovery calls per rep on their worst month — the categories above are the team's obligation, not a stretch target.
-- By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending — team total will rise.
+- By AE: 11 of 28 reps have reported 38 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 17 of 28 AEs still pending — team total will rise.
 - Newsletter open rate hit 25.60%, ~1.1x the ~20–25% benchmark; 4,632 total clicks is a record. Brand programming is compounding.
 
 ## Revenue summary
@@ -33,6 +33,7 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-30 17:40 UTC_
 |---|--:|---|:--|
 | Wayne Sparks | 10 | Sahouri Insurance, FNF-Agency, NAHREP NE CBOG | ✓ meets floor |
 | Dante Dalgin | 3 | WesBanco, Karadeniz Holdings, Fever | ✓ meets floor |
+| Jady Bailey | 3 | Movement Mortgage, Davies, Canandaigua | ✓ meets floor |
 | Samantha Weinstein | 3 | Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual | ✓ meets floor |
 | Steven Davis | 3 | Walmart, FACTS/Nelnet, PayPal | ✓ meets floor |
 | Sue Christian | 2 | Citizens, QRB | — |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T17:40:57+00:00",
+  "generated_at": "2026-07-30T17:49:13+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -13,7 +13,7 @@
     "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 50% straight-line pace for this point in the year. June 2026 added 36 calls.",
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
-    "By AE: 10 of 28 reps have reported 35 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 18 of 28 AEs still pending \u2014 team total will rise.",
+    "By AE: 11 of 28 reps have reported 38 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 17 of 28 AEs still pending \u2014 team total will rise.",
     "Newsletter open rate hit 25.60%, ~1.1x the ~20\u201325% benchmark; 4,632 total clicks is a record. Brand programming is compounding."
   ],
   "revenue": {
@@ -211,8 +211,9 @@
       },
       {
         "name": "Jady Bailey",
-        "calls": null,
-        "meets_floor": null
+        "calls": 3,
+        "accounts": "Movement Mortgage, Davies, Canandaigua",
+        "meets_floor": true
       },
       {
         "name": "Jarel Dickey",
@@ -393,8 +394,8 @@
         "pct_to_goal": 20.0
       }
     ],
-    "team_calls": 35,
-    "reps_reported": 10,
+    "team_calls": 38,
+    "reps_reported": 11,
     "reps_below_floor": [
       {
         "name": "Mariana Ordonana",
@@ -572,7 +573,8 @@
         },
         {
           "name": "Jady Bailey",
-          "calls": null
+          "calls": 3,
+          "accounts": "Movement Mortgage, Davies, Canandaigua"
         },
         {
           "name": "Jarel Dickey",
