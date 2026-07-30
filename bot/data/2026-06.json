@@ -1,6 +1,6 @@
 {
   "period": { "month": 6, "year": 2026, "label": "June 2026" },
-  "status": "DRAFT",
+  "status": "",
   "team": "Financial Services",
   "report_title": "Global Finance Sales",
   "org": "TransPerfect",
@@ -11,7 +11,7 @@
   "show_footer": false,
 
   "leadership_note": {
-    "intro": "June report (draft). The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
+    "intro": "June report. The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
     "standing_obligations": [
       "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
       "We MUST close deals. With the best people to do so."

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-30T16:43:51+00:00",
+  "generated_at": "2026-07-30T17:40:57+00:00",
   "period": {
     "month": 6,
     "year": 2026,
     "label": "June 2026"
   },
-  "status": "DRAFT",
+  "status": "",
   "analysis": [
     "Revenue is trailing last year: ~$23.49M YTD vs $23,918,914 in 2025 (~-$424,612, ~-1.8%). 2 of 6 months are up YoY.",
     "Jun landed +$437,370 (+12.3%) vs the prior year.",
@@ -449,7 +449,7 @@
       "year": 2026,
       "label": "June 2026"
     },
-    "status": "DRAFT",
+    "status": "",
     "team": "Financial Services",
     "report_title": "Global Finance Sales",
     "org": "TransPerfect",
@@ -459,7 +459,7 @@
     "precision_note": "",
     "show_footer": false,
     "leadership_note": {
-      "intro": "June report (draft). The standing priorities don't change \u2014 they're obligations of each AM/AE/DBD on our team.",
+      "intro": "June report. The standing priorities don't change \u2014 they're obligations of each AM/AE/DBD on our team.",
       "standing_obligations": [
         "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
         "We MUST close deals. With the best people to do so."
