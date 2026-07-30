@@ -1,0 +1,523 @@
+{
+  "generated_at": "2026-07-30T16:56:52+00:00",
+  "input": {
+    "_comment": "SAMPLE data \u2014 fake numbers, safe to commit publicly. Copy this to finance/data.json and replace with your real figures; that copy is gitignored.",
+    "owner": "Sample User",
+    "as_of": "2026-01-01",
+    "cash_accounts": [
+      {
+        "name": "Checking",
+        "amount": 2000,
+        "ringfenced": false,
+        "note": "Main account"
+      },
+      {
+        "name": "Savings",
+        "amount": 500,
+        "ringfenced": false,
+        "note": ""
+      },
+      {
+        "name": "High-yield savings",
+        "amount": 1000,
+        "ringfenced": true,
+        "note": "Ring-fenced \u2014 untouched by the payoff plan"
+      }
+    ],
+    "cards": [
+      {
+        "name": "Card A",
+        "balance": 1200,
+        "amount_due": 1000,
+        "due_date": "2026-01-20",
+        "apr": 22.9,
+        "note": "Largest balance."
+      },
+      {
+        "name": "Card B",
+        "balance": 300,
+        "amount_due": 0,
+        "due_date": "2026-02-05",
+        "apr": 19.9,
+        "note": "Post-statement spend."
+      },
+      {
+        "name": "Card C",
+        "balance": 150,
+        "amount_due": 60,
+        "due_date": "2026-01-10",
+        "apr": 26.9,
+        "note": "Smallest \u2014 clear it first."
+      }
+    ],
+    "investments": [
+      {
+        "name": "Roth IRA",
+        "amount": 3000,
+        "note": ""
+      },
+      {
+        "name": "Brokerage (taxable)",
+        "amount": 2000,
+        "note": ""
+      },
+      {
+        "name": "Employer plan",
+        "amount": 500,
+        "note": ""
+      }
+    ],
+    "income": {
+      "biweekly_paycheck": 1500,
+      "monthly_commission": 0,
+      "paychecks_per_month": 2,
+      "paychecks_per_year": 26
+    },
+    "outflows": {
+      "fixed": 1800,
+      "fixed_note": "Rent, subscriptions, card minimums.",
+      "variable": 800,
+      "variable_note": "Food, transport, fun. Replace with your real number."
+    },
+    "surplus_allocation": [
+      {
+        "phase": "Phase 1 \u2014 clear card balances",
+        "pct": 0.7,
+        "note": "Until all cards read $0 balance."
+      },
+      {
+        "phase": "Phase 2 \u2014 emergency fund",
+        "pct": 0.2,
+        "note": "Into savings until it hits the Tier 1 target."
+      },
+      {
+        "phase": "Phase 3 \u2014 goals + investing",
+        "pct": 0.1,
+        "note": "Scale up after Phases 1 and 2."
+      }
+    ],
+    "emergency_fund_tiers": [
+      {
+        "label": "Tier 1 \u2014 one month",
+        "months": 1
+      },
+      {
+        "label": "Tier 2 \u2014 three months",
+        "months": 3
+      },
+      {
+        "label": "Tier 3 \u2014 six months",
+        "months": 6
+      }
+    ],
+    "trip_fund": {
+      "target": 2000,
+      "saved": 0,
+      "note": "Set your real goal cost."
+    },
+    "retirement": {
+      "ira_limit_2026": 7500,
+      "plan_401k_limit_2026": 24500,
+      "contribution_per_pay": 100,
+      "match_per_pay": 25,
+      "match_rate": 0.25,
+      "note": "Match is 25\u00a2 per dollar."
+    },
+    "plan": {
+      "title": "Sample month \u2014 Pay-In-Full Calendar",
+      "goal": "Clear every statement balance by its due date, pay zero interest. Running balance excludes ring-fenced accounts.",
+      "entries": [
+        {
+          "date": "2026-01-01",
+          "action": "Starting balance",
+          "in": null,
+          "out": null,
+          "why": "Checking + savings, ring-fenced excluded."
+        },
+        {
+          "date": "2026-01-08",
+          "action": "Paycheck",
+          "in": 1500,
+          "out": null,
+          "why": "Biweekly."
+        },
+        {
+          "date": "2026-01-10",
+          "action": "Pay Card C IN FULL",
+          "in": null,
+          "out": 150,
+          "why": "Quick win."
+        },
+        {
+          "date": "2026-01-15",
+          "action": "Fixed expenses",
+          "in": null,
+          "out": 1800,
+          "why": "Rent, subs, minimums."
+        },
+        {
+          "date": "2026-01-20",
+          "action": "Pay Card A IN FULL",
+          "in": null,
+          "out": 1200,
+          "why": "Largest balance."
+        },
+        {
+          "date": "2026-01-22",
+          "action": "Paycheck",
+          "in": 1500,
+          "out": null,
+          "why": "Biweekly."
+        },
+        {
+          "date": "2026-01-31",
+          "action": "Variable spending (est.)",
+          "in": null,
+          "out": 800,
+          "why": "The one number you control."
+        }
+      ],
+      "remaining_after": [
+        {
+          "label": "Card debt remaining",
+          "amount": 300,
+          "note": "Card B only."
+        },
+        {
+          "label": "Interest paid",
+          "amount": 0,
+          "note": "The whole point."
+        }
+      ]
+    },
+    "monthly_log": [
+      {
+        "month": "Jan 2026",
+        "income": null,
+        "fixed": null,
+        "variable": null,
+        "card_paydown": null,
+        "saved": null,
+        "invested": null,
+        "net_worth": null
+      },
+      {
+        "month": "Feb 2026",
+        "income": null,
+        "fixed": null,
+        "variable": null,
+        "card_paydown": null,
+        "saved": null,
+        "invested": null,
+        "net_worth": null
+      },
+      {
+        "month": "Mar 2026",
+        "income": null,
+        "fixed": null,
+        "variable": null,
+        "card_paydown": null,
+        "saved": null,
+        "invested": null,
+        "net_worth": null
+      }
+    ]
+  },
+  "computed": {
+    "owner": "Sample User",
+    "as_of": "2026-01-01",
+    "net_worth": {
+      "cash_accounts": [
+        {
+          "name": "Checking",
+          "amount": 2000,
+          "ringfenced": false,
+          "note": "Main account"
+        },
+        {
+          "name": "Savings",
+          "amount": 500,
+          "ringfenced": false,
+          "note": ""
+        },
+        {
+          "name": "High-yield savings",
+          "amount": 1000,
+          "ringfenced": true,
+          "note": "Ring-fenced \u2014 untouched by the payoff plan"
+        }
+      ],
+      "total_cash": 3500.0,
+      "cards": [
+        {
+          "name": "Card A",
+          "balance": 1200,
+          "amount_due": 1000,
+          "due_date": "2026-01-20",
+          "apr": 22.9,
+          "note": "Largest balance."
+        },
+        {
+          "name": "Card B",
+          "balance": 300,
+          "amount_due": 0,
+          "due_date": "2026-02-05",
+          "apr": 19.9,
+          "note": "Post-statement spend."
+        },
+        {
+          "name": "Card C",
+          "balance": 150,
+          "amount_due": 60,
+          "due_date": "2026-01-10",
+          "apr": 26.9,
+          "note": "Smallest \u2014 clear it first."
+        }
+      ],
+      "total_card_debt": 1650.0,
+      "net_liquid_position": 1850.0,
+      "investments": [
+        {
+          "name": "Roth IRA",
+          "amount": 3000,
+          "note": ""
+        },
+        {
+          "name": "Brokerage (taxable)",
+          "amount": 2000,
+          "note": ""
+        },
+        {
+          "name": "Employer plan",
+          "amount": 500,
+          "note": ""
+        }
+      ],
+      "total_invested": 5500.0,
+      "total_net_worth": 7350.0
+    },
+    "cash_flow": {
+      "typical_income": 3000.0,
+      "three_paycheck_income": 4500.0,
+      "annualized_income": 39000.0,
+      "fixed": 1800.0,
+      "variable": 800.0,
+      "total_outflows": 2600.0,
+      "surplus": 400.0,
+      "surplus_pct": 0.1333,
+      "allocation": [
+        {
+          "phase": "Phase 1 \u2014 clear card balances",
+          "pct": 0.7,
+          "monthly": 280.0,
+          "note": "Until all cards read $0 balance."
+        },
+        {
+          "phase": "Phase 2 \u2014 emergency fund",
+          "pct": 0.2,
+          "monthly": 80.0,
+          "note": "Into savings until it hits the Tier 1 target."
+        },
+        {
+          "phase": "Phase 3 \u2014 goals + investing",
+          "pct": 0.1,
+          "monthly": 40.0,
+          "note": "Scale up after Phases 1 and 2."
+        }
+      ]
+    },
+    "debt": {
+      "total_balance": 1650.0,
+      "total_due": 1060.0,
+      "payoff_order": [
+        {
+          "name": "Card C",
+          "balance": 150.0,
+          "apr": 26.9,
+          "due_date": "2026-01-10"
+        },
+        {
+          "name": "Card B",
+          "balance": 300.0,
+          "apr": 19.9,
+          "due_date": "2026-02-05"
+        },
+        {
+          "name": "Card A",
+          "balance": 1200.0,
+          "apr": 22.9,
+          "due_date": "2026-01-20"
+        }
+      ],
+      "stress_test": {
+        "total_due": 1060.0,
+        "income": 3000.0,
+        "outflows": 2600.0,
+        "income_left_for_cards": 400.0,
+        "gap_from_cash": -660.0,
+        "cash_after": 2840.0
+      }
+    },
+    "plan": {
+      "title": "Sample month \u2014 Pay-In-Full Calendar",
+      "goal": "Clear every statement balance by its due date, pay zero interest. Running balance excludes ring-fenced accounts.",
+      "rows": [
+        {
+          "date": "2026-01-01",
+          "action": "Starting balance",
+          "in": null,
+          "out": null,
+          "balance": 2500.0,
+          "why": "Checking + savings, ring-fenced excluded."
+        },
+        {
+          "date": "2026-01-08",
+          "action": "Paycheck",
+          "in": 1500.0,
+          "out": null,
+          "balance": 4000.0,
+          "why": "Biweekly."
+        },
+        {
+          "date": "2026-01-10",
+          "action": "Pay Card C IN FULL",
+          "in": null,
+          "out": 150.0,
+          "balance": 3850.0,
+          "why": "Quick win."
+        },
+        {
+          "date": "2026-01-15",
+          "action": "Fixed expenses",
+          "in": null,
+          "out": 1800.0,
+          "balance": 2050.0,
+          "why": "Rent, subs, minimums."
+        },
+        {
+          "date": "2026-01-20",
+          "action": "Pay Card A IN FULL",
+          "in": null,
+          "out": 1200.0,
+          "balance": 850.0,
+          "why": "Largest balance."
+        },
+        {
+          "date": "2026-01-22",
+          "action": "Paycheck",
+          "in": 1500.0,
+          "out": null,
+          "balance": 2350.0,
+          "why": "Biweekly."
+        },
+        {
+          "date": "2026-01-31",
+          "action": "Variable spending (est.)",
+          "in": null,
+          "out": 800.0,
+          "balance": 1550.0,
+          "why": "The one number you control."
+        }
+      ],
+      "total_in": 3000.0,
+      "total_out": 3950.0,
+      "end_balance": 1550.0,
+      "ringfenced": 1000.0,
+      "total_cash_after": 2550.0,
+      "remaining_after": [
+        {
+          "label": "Card debt remaining",
+          "amount": 300,
+          "note": "Card B only."
+        },
+        {
+          "label": "Interest paid",
+          "amount": 0,
+          "note": "The whole point."
+        }
+      ]
+    },
+    "emergency_fund": [
+      {
+        "label": "Tier 1 \u2014 one month",
+        "months": 1.0,
+        "target": 2600.0,
+        "current": 1850.0,
+        "gap": 750.0
+      },
+      {
+        "label": "Tier 2 \u2014 three months",
+        "months": 3.0,
+        "target": 7800.0,
+        "current": 1850.0,
+        "gap": 5950.0
+      },
+      {
+        "label": "Tier 3 \u2014 six months",
+        "months": 6.0,
+        "target": 15600.0,
+        "current": 1850.0,
+        "gap": 13750.0
+      }
+    ],
+    "trip_fund": {
+      "target": 2000.0,
+      "saved": 0.0,
+      "monthly": 40.0,
+      "remaining": 2000.0,
+      "months_to_fund": 50,
+      "note": "Set your real goal cost."
+    },
+    "retirement": {
+      "ira_limit_2026": 7500.0,
+      "plan_401k_limit_2026": 24500.0,
+      "contribution_per_pay": 100.0,
+      "match_per_pay": 25.0,
+      "match_rate": 0.25,
+      "annual_match": 650.0,
+      "note": "Match is 25\u00a2 per dollar."
+    },
+    "monthly_log": {
+      "rows": [
+        {
+          "month": "Jan 2026",
+          "income": null,
+          "fixed": null,
+          "variable": null,
+          "card_paydown": null,
+          "saved": null,
+          "invested": null,
+          "net_worth": null
+        },
+        {
+          "month": "Feb 2026",
+          "income": null,
+          "fixed": null,
+          "variable": null,
+          "card_paydown": null,
+          "saved": null,
+          "invested": null,
+          "net_worth": null
+        },
+        {
+          "month": "Mar 2026",
+          "income": null,
+          "fixed": null,
+          "variable": null,
+          "card_paydown": null,
+          "saved": null,
+          "invested": null,
+          "net_worth": null
+        }
+      ],
+      "totals": {
+        "income": 0.0,
+        "fixed": 0.0,
+        "variable": 0.0,
+        "card_paydown": 0.0,
+        "saved": 0.0,
+        "invested": 0.0
+      }
+    }
+  }
+}

@@ -1,2 +1,7 @@
 __pycache__/
 *.pyc
+
+# Personal finance bot — keep real numbers OUT of this public repo.
+# Your real snapshot and the dashboard built from it are local-only.
+finance/data.json
+finance/private/

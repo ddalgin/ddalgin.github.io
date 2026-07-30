@@ -1,0 +1,77 @@
+{
+  "_comment": "SAMPLE data — fake numbers, safe to commit publicly. Copy this to finance/data.json and replace with your real figures; that copy is gitignored.",
+  "owner": "Sample User",
+  "as_of": "2026-01-01",
+  "cash_accounts": [
+    { "name": "Checking", "amount": 2000, "ringfenced": false, "note": "Main account" },
+    { "name": "Savings", "amount": 500, "ringfenced": false, "note": "" },
+    { "name": "High-yield savings", "amount": 1000, "ringfenced": true, "note": "Ring-fenced — untouched by the payoff plan" }
+  ],
+  "cards": [
+    { "name": "Card A", "balance": 1200, "amount_due": 1000, "due_date": "2026-01-20", "apr": 22.9, "note": "Largest balance." },
+    { "name": "Card B", "balance": 300, "amount_due": 0, "due_date": "2026-02-05", "apr": 19.9, "note": "Post-statement spend." },
+    { "name": "Card C", "balance": 150, "amount_due": 60, "due_date": "2026-01-10", "apr": 26.9, "note": "Smallest — clear it first." }
+  ],
+  "investments": [
+    { "name": "Roth IRA", "amount": 3000, "note": "" },
+    { "name": "Brokerage (taxable)", "amount": 2000, "note": "" },
+    { "name": "Employer plan", "amount": 500, "note": "" }
+  ],
+  "income": {
+    "biweekly_paycheck": 1500,
+    "monthly_commission": 0,
+    "paychecks_per_month": 2,
+    "paychecks_per_year": 26
+  },
+  "outflows": {
+    "fixed": 1800,
+    "fixed_note": "Rent, subscriptions, card minimums.",
+    "variable": 800,
+    "variable_note": "Food, transport, fun. Replace with your real number."
+  },
+  "surplus_allocation": [
+    { "phase": "Phase 1 — clear card balances", "pct": 0.70, "note": "Until all cards read $0 balance." },
+    { "phase": "Phase 2 — emergency fund", "pct": 0.20, "note": "Into savings until it hits the Tier 1 target." },
+    { "phase": "Phase 3 — goals + investing", "pct": 0.10, "note": "Scale up after Phases 1 and 2." }
+  ],
+  "emergency_fund_tiers": [
+    { "label": "Tier 1 — one month", "months": 1 },
+    { "label": "Tier 2 — three months", "months": 3 },
+    { "label": "Tier 3 — six months", "months": 6 }
+  ],
+  "trip_fund": {
+    "target": 2000,
+    "saved": 0,
+    "note": "Set your real goal cost."
+  },
+  "retirement": {
+    "ira_limit_2026": 7500,
+    "plan_401k_limit_2026": 24500,
+    "contribution_per_pay": 100,
+    "match_per_pay": 25,
+    "match_rate": 0.25,
+    "note": "Match is 25¢ per dollar."
+  },
+  "plan": {
+    "title": "Sample month — Pay-In-Full Calendar",
+    "goal": "Clear every statement balance by its due date, pay zero interest. Running balance excludes ring-fenced accounts.",
+    "entries": [
+      { "date": "2026-01-01", "action": "Starting balance", "in": null, "out": null, "why": "Checking + savings, ring-fenced excluded." },
+      { "date": "2026-01-08", "action": "Paycheck", "in": 1500, "out": null, "why": "Biweekly." },
+      { "date": "2026-01-10", "action": "Pay Card C IN FULL", "in": null, "out": 150, "why": "Quick win." },
+      { "date": "2026-01-15", "action": "Fixed expenses", "in": null, "out": 1800, "why": "Rent, subs, minimums." },
+      { "date": "2026-01-20", "action": "Pay Card A IN FULL", "in": null, "out": 1200, "why": "Largest balance." },
+      { "date": "2026-01-22", "action": "Paycheck", "in": 1500, "out": null, "why": "Biweekly." },
+      { "date": "2026-01-31", "action": "Variable spending (est.)", "in": null, "out": 800, "why": "The one number you control." }
+    ],
+    "remaining_after": [
+      { "label": "Card debt remaining", "amount": 300, "note": "Card B only." },
+      { "label": "Interest paid", "amount": 0, "note": "The whole point." }
+    ]
+  },
+  "monthly_log": [
+    { "month": "Jan 2026", "income": null, "fixed": null, "variable": null, "card_paydown": null, "saved": null, "invested": null, "net_worth": null },
+    { "month": "Feb 2026", "income": null, "fixed": null, "variable": null, "card_paydown": null, "saved": null, "invested": null, "net_worth": null },
+    { "month": "Mar 2026", "income": null, "fixed": null, "variable": null, "card_paydown": null, "saved": null, "invested": null, "net_worth": null }
+  ]
+}

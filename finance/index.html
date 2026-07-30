@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample User — Financial Dashboard</title>
+<style>
+  :root { --bg:#f5f6fb; --card:#fff; --ink:#1c1e26; --muted:#6b7280;
+           --accent:#4f46e5; --pos:#047857; --neg:#b91c1c; --line:#e5e7eb;
+           --chip:#eef2ff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1017; --card:#1a1c26; --ink:#e7e8ee; --muted:#9aa0ae;
+             --accent:#8b85f4; --pos:#34d399; --neg:#f87171; --line:#2a2d3a;
+             --chip:#20233a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;
+         background:var(--bg); color:var(--ink); padding:2rem 1rem 4rem; }
+  main { max-width:900px; margin:0 auto; }
+  h1 { font-size:1.7rem; margin:0 0 .2rem; }
+  .sub { color:var(--muted); font-size:.9rem; margin-bottom:1.5rem; }
+  .banner { background:var(--chip); border:1px solid var(--line); color:var(--ink);
+            border-radius:10px; padding:.7rem 1rem; font-size:.85rem; margin-bottom:1.5rem; }
+  .banner a { color:var(--accent); }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+          gap:1rem; margin-bottom:1.5rem; }
+  .kpi { background:var(--card); border:1px solid var(--line); border-radius:12px;
+         padding:1rem 1.1rem; }
+  .kpi .label { color:var(--muted); font-size:.78rem; text-transform:uppercase;
+                letter-spacing:.03em; }
+  .kpi .value { font-size:1.5rem; font-weight:700; margin-top:.2rem;
+                font-variant-numeric:tabular-nums; }
+  .kpi .value.pos { color:var(--pos); } .kpi .value.neg { color:var(--neg); }
+  .kpi .hint { color:var(--muted); font-size:.75rem; margin-top:.15rem; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px;
+            padding:1.1rem 1.25rem; margin-bottom:1.25rem; }
+  h2 { font-size:1.1rem; margin:.1rem 0 .9rem; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  td, th { text-align:left; padding:.4rem .3rem; border-top:1px solid var(--line);
+           vertical-align:top; }
+  tr:first-child td, tr:first-child th { border-top:none; }
+  .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .pos { color:var(--pos); } .neg { color:var(--neg); } .bal { font-weight:600; }
+  .note { color:var(--muted); font-size:.82rem; }
+  tr.subtotal td { font-weight:600; border-top:2px solid var(--line); }
+  tr.tot td { font-weight:700; border-top:2px solid var(--line); }
+  .why { color:var(--muted); font-size:.76rem; }
+  td.d { white-space:nowrap; color:var(--muted); }
+  ol.payoff { list-style:none; margin:0; padding:0; }
+  ol.payoff li { display:flex; align-items:center; gap:.6rem; padding:.45rem 0;
+                 border-top:1px solid var(--line); }
+  ol.payoff li:first-child { border-top:none; }
+  .rank { flex:0 0 1.6rem; height:1.6rem; border-radius:50%; background:var(--chip);
+          display:grid; place-items:center; font-size:.8rem; font-weight:700; }
+  .payoff .amt { margin-left:auto; font-weight:600; font-variant-numeric:tabular-nums; }
+  .payoff .meta, .meta { color:var(--muted); font-size:.8rem; }
+  .payoff .meta { flex-basis:100%; margin-left:2.2rem; }
+  .stress { margin-top:.8rem; padding-top:.8rem; border-top:1px solid var(--line);
+            font-size:.9rem; color:var(--muted); }
+  .tier { margin-bottom:.9rem; }
+  .tier-head { display:flex; justify-content:space-between; font-size:.9rem;
+               margin-bottom:.3rem; }
+  .bar { height:8px; background:var(--chip); border-radius:99px; overflow:hidden; }
+  .fill { height:100%; background:var(--accent); border-radius:99px; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+  @media (max-width:640px) { .cols { grid-template-columns:1fr; } }
+  footer { color:var(--muted); font-size:.8rem; margin-top:2rem; }
+  footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Sample User — Financial Dashboard</h1>
+  <div class="sub">Snapshot as of 2026-01-01 · updated 2026-07-30 16:56 UTC ·
+    <a href="finance.json">JSON</a> · <a href="latest.md">Markdown</a></div>
+  <div class="banner">Showing <strong>sample data</strong>. Your real dashboard is built locally from <code>finance/data.json</code> and is never pushed. See <a href="https://github.com/ddalgin/ddalgin.github.io/blob/main/bot/README.md">the README</a>.</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">Net worth</div>
+      <div class="value">$7,350</div>
+      <div class="hint">cash + investments − card debt</div></div>
+    <div class="kpi"><div class="label">Net liquid position</div>
+      <div class="value pos">$1,850</div>
+      <div class="hint">true cash cushion</div></div>
+    <div class="kpi"><div class="label">Invested</div>
+      <div class="value">$5,500</div>
+      <div class="hint">retirement + taxable</div></div>
+    <div class="kpi"><div class="label">Monthly surplus</div>
+      <div class="value pos">$400</div>
+      <div class="hint">13.3% of $3,000 income</div></div>
+  </div>
+
+  <div class="cols">
+    <section>
+      <h2>Net worth snapshot</h2>
+      <table>
+        <tr><td>Checking</td><td class="num">$2,000</td><td class="note">Main account</td></tr><tr><td>Savings</td><td class="num">$500</td><td class="note"></td></tr><tr><td>High-yield savings 🔒</td><td class="num">$1,000</td><td class="note">Ring-fenced — untouched by the payoff plan</td></tr>
+        <tr class="subtotal"><td>Total cash</td><td class="num">$3,500</td><td></td></tr>
+        <tr><td>Card A</td><td class="num neg">-$1,200</td><td class="note">Largest balance.</td></tr><tr><td>Card B</td><td class="num neg">-$300</td><td class="note">Post-statement spend.</td></tr><tr><td>Card C</td><td class="num neg">-$150</td><td class="note">Smallest — clear it first.</td></tr>
+        <tr class="subtotal"><td>Total card debt</td><td class="num neg">-$1,650</td><td></td></tr>
+        <tr class="subtotal"><td>Net liquid position</td><td class="num">$1,850</td><td class="note">cash − cards</td></tr>
+        <tr><td>Roth IRA</td><td class="num">$3,000</td><td class="note"></td></tr><tr><td>Brokerage (taxable)</td><td class="num">$2,000</td><td class="note"></td></tr><tr><td>Employer plan</td><td class="num">$500</td><td class="note"></td></tr>
+        <tr class="subtotal"><td>Total invested</td><td class="num">$5,500</td><td></td></tr>
+        <tr class="tot"><td>Total net worth</td><td class="num">$7,350</td><td></td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Debt — pay smallest first</h2>
+      <ol class="payoff"><li><span class="rank">1</span> <strong>Card C</strong> <span class="amt">$150</span><span class="meta">due Jan 10, 2026 · 26.9% APR</span></li><li><span class="rank">2</span> <strong>Card B</strong> <span class="amt">$300</span><span class="meta">due Feb 5, 2026 · 19.9% APR</span></li><li><span class="rank">3</span> <strong>Card A</strong> <span class="amt">$1,200</span><span class="meta">due Jan 20, 2026 · 22.9% APR</span></li></ol>
+      <div class="stress">Income leaves <strong>$400</strong> for cards after outflows. Gap of <strong class="neg">$660</strong> covered from cash → <strong>$2,840</strong> left.</div>
+    </section>
+  </div>
+
+  <section>
+    <h2>Sample month — Pay-In-Full Calendar</h2>
+    <div class="note" style="margin-bottom:.7rem">Clear every statement balance by its due date, pay zero interest. Running balance excludes ring-fenced accounts.</div>
+    <table>
+      <tr><th>Date</th><th>Action</th><th class="num">In</th><th class="num">Out</th><th class="num">Balance</th></tr>
+      <tr><td class="d">Jan 1, 2026</td><td>Starting balance<div class="why">Checking + savings, ring-fenced excluded.</div></td><td class="num pos"></td><td class="num neg"></td><td class="num bal">$2,500</td></tr><tr><td class="d">Jan 8, 2026</td><td>Paycheck<div class="why">Biweekly.</div></td><td class="num pos">$1,500</td><td class="num neg"></td><td class="num bal">$4,000</td></tr><tr><td class="d">Jan 10, 2026</td><td>Pay Card C IN FULL<div class="why">Quick win.</div></td><td class="num pos"></td><td class="num neg">$150</td><td class="num bal">$3,850</td></tr><tr><td class="d">Jan 15, 2026</td><td>Fixed expenses<div class="why">Rent, subs, minimums.</div></td><td class="num pos"></td><td class="num neg">$1,800</td><td class="num bal">$2,050</td></tr><tr><td class="d">Jan 20, 2026</td><td>Pay Card A IN FULL<div class="why">Largest balance.</div></td><td class="num pos"></td><td class="num neg">$1,200</td><td class="num bal">$850</td></tr><tr><td class="d">Jan 22, 2026</td><td>Paycheck<div class="why">Biweekly.</div></td><td class="num pos">$1,500</td><td class="num neg"></td><td class="num bal">$2,350</td></tr><tr><td class="d">Jan 31, 2026</td><td>Variable spending (est.)<div class="why">The one number you control.</div></td><td class="num pos"></td><td class="num neg">$800</td><td class="num bal">$1,550</td></tr><tr class="tot"><td></td><td>Totals</td><td class="num pos">$3,000</td><td class="num neg">$3,950</td><td class="num bal">$1,550</td></tr>
+    </table>
+    <div class="stress">End-of-month cash <strong>$2,550</strong>
+      (plan balance $1,550 + ring-fenced $1,000).</div>
+  </section>
+
+  <div class="cols">
+    <section>
+      <h2>Emergency fund</h2>
+      <div class="tier"><div class="tier-head"><span>Tier 1 — one month</span><span class="meta">$1,850 of $2,600</span></div><div class="bar"><div class="fill" style="width:71.2%"></div></div><div class="meta">Gap $750</div></div><div class="tier"><div class="tier-head"><span>Tier 2 — three months</span><span class="meta">$1,850 of $7,800</span></div><div class="bar"><div class="fill" style="width:23.7%"></div></div><div class="meta">Gap $5,950</div></div><div class="tier"><div class="tier-head"><span>Tier 3 — six months</span><span class="meta">$1,850 of $15,600</span></div><div class="bar"><div class="fill" style="width:11.9%"></div></div><div class="meta">Gap $13,750</div></div>
+    </section>
+
+    <section>
+      <h2>Goals</h2>
+      <table>
+        <tr><td>Trip fund</td><td class="num">$0 / $2,000</td></tr>
+        <tr><td>Monthly contribution</td><td class="num">$40.00</td></tr>
+        <tr><td>Months to fund</td><td class="num">50 months</td></tr>
+        <tr class="subtotal"><td>Employer match captured</td><td class="num pos">$650/yr</td></tr>
+        <tr><td class="note" colspan="2">Free money at 25¢ per dollar. 2026 IRA limit $7,500.</td></tr>
+      </table>
+    </section>
+  </div>
+
+  <section>
+    <h2>Surplus allocation — $400/mo</h2>
+    <table>
+      <tr><th>Phase</th><th class="num">Monthly</th><th class="num">Share</th><th>What it does</th></tr>
+      <tr><td>Phase 1 — clear card balances</td><td class="num">$280.00</td><td class="num">70%</td><td class="note">Until all cards read $0 balance.</td></tr><tr><td>Phase 2 — emergency fund</td><td class="num">$80.00</td><td class="num">20%</td><td class="note">Into savings until it hits the Tier 1 target.</td></tr><tr><td>Phase 3 — goals + investing</td><td class="num">$40.00</td><td class="num">10%</td><td class="note">Scale up after Phases 1 and 2.</td></tr>
+    </table>
+  </section>
+
+  <footer>Auto-generated by finance_bot.py from a JSON snapshot you control.
+    Not financial advice — figures are only as good as the numbers you feed it.</footer>
+</main>
+</body>
+</html>

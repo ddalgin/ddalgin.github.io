@@ -1,0 +1,47 @@
+name: Personal Finance Bot
+
+# Runs the arithmetic tests and rebuilds the PUBLIC sample dashboard
+# (finance/) from bot/finance_data.sample.json. It never sees real numbers:
+# finance/data.json and finance/private/ are gitignored and not in CI.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "bot/finance_bot.py"
+      - "bot/finance_data.sample.json"
+      - "bot/test_finance.py"
+      - ".github/workflows/finance-dashboard.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run finance tests
+        run: python test_finance.py
+        working-directory: bot
+
+      - name: Build sample dashboard
+        run: python bot/finance_bot.py --out-dir finance
+
+      - name: Commit and push demo
+        run: |
+          git config user.name "finance-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add finance/index.html finance/finance.json finance/latest.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update finance sample dashboard ($(date -u +%Y-%m-%d))"
+            git push
+          fi
