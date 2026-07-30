@@ -1,6 +1,6 @@
 # Financial Services — June 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-28 19:24 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-07-30 16:43 UTC_
 
 ## At a glance
 
@@ -27,38 +27,17 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-28 19:24 UTC_
 | Jun | $3,563,670 | $4,001,040 | +$437,370 | +12.3% | ~$23.49M | $23,918,914 |
 | **YTD** | **$23,918,914** | **~$23.49M** | **~-$424,612** | **~-1.8%** | | |
 
-## Discovery calls by AE
+## Discovery calls by person (named prospects only)
 
-| AE | Disco Calls | vs Floor |
-|---|--:|:--|
-| Adele Broussard | — | pending |
-| Andres Cui | — | pending |
-| Angus Ulyate | — | pending |
-| Anthony Madigan | 6 | ✓ meets floor |
-| Avery Sturtevant | — | pending |
-| Brianna Farrell | 6 | ✓ meets floor |
-| Clayton Eysel | — | pending |
-| Dante Dalgin | 3 | ✓ meets floor |
-| Isabel Atwood | — | pending |
-| Isabel Martel | — | pending |
-| Jady Bailey | — | pending |
-| Jarel Dickey | — | pending |
-| Jonathan Vion | — | pending |
-| Joseph Meineke | — | pending |
-| Justin Potts | — | pending |
-| Mariana Ordonana | 1 | below 3 |
-| Matthew Spitler | — | pending |
-| Noelle Zimmerman | 1 | below 3 |
-| Pam Potts | — | pending |
-| Rahul Fernandes | — | pending |
-| Salvatore Cerasoli | — | pending |
-| Samantha Weinstein | 3 | ✓ meets floor |
-| Sardar Muhammad | 0 | below 3 |
-| Steven Davis | 3 | ✓ meets floor |
-| Sue Christian | 2 | below 3 |
-| Thomas Emery | — | pending |
-| Michael DeFalco | — | pending |
-| Wayne Sparks | 10 | ✓ meets floor |
+| Person | Disco Calls | Prospects | vs Floor |
+|---|--:|---|:--|
+| Wayne Sparks | 10 | Sahouri Insurance, FNF-Agency, NAHREP NE CBOG | ✓ meets floor |
+| Dante Dalgin | 3 | WesBanco, Karadeniz Holdings, Fever | ✓ meets floor |
+| Samantha Weinstein | 3 | Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual | ✓ meets floor |
+| Steven Davis | 3 | Walmart, FACTS/Nelnet, PayPal | ✓ meets floor |
+| Sue Christian | 2 | Citizens, QRB | — |
+| Mariana Ordonana | 1 | Santander | — |
+| Noelle Zimmerman | 1 | Mauch Chunk Trust | — |
 
 ## Discovery calls & activities
 
@@ -75,9 +54,10 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-28 19:24 UTC_
 
 | # | Account | Value | Strategic Note |
 |--:|---|---|---|
-| 1 | Berkshire Hathaway | $10K closed + ~$40K pipeline | Bill 96 document translations; new team penetration = land-and-expand play |
-| 2 | Regions Bank | BPO Win (unquantified) | Logo win in regional banking; BPO = sticky, recurring revenue |
-| 3 | Stormfield Capital | $9K closed | Translation; smaller AUM but closed revenue |
+| 1 | United Wholesale Mortgage | $50K+ | TPC; Joe Meineke & Avery |
+| 2 | Berkshire Hathaway | $10K closed + ~$40K pipeline | Bill 96 document translations; new team penetration = land-and-expand play |
+| 3 | Regions Bank | BPO Win (unquantified) | Logo win in regional banking; BPO = sticky, recurring revenue |
+| 4 | Stormfield Capital | $9K closed | Translation; smaller AUM but closed revenue |
 
 ## Highest-Value Pipeline (Pending Close)
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T19:24:44+00:00",
+  "generated_at": "2026-07-30T16:43:51+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -692,6 +692,11 @@
     "wins_confirmed": {
       "title": "Largest Confirmed Wins (Closed Revenue)",
       "rows": [
+        {
+          "account": "United Wholesale Mortgage",
+          "value": "$50K+",
+          "note": "TPC; Joe Meineke & Avery"
+        },
         {
           "account": "Berkshire Hathaway",
           "value": "$10K closed + ~$40K pipeline",

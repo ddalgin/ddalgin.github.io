@@ -95,6 +95,7 @@
   "wins_confirmed": {
     "title": "Largest Confirmed Wins (Closed Revenue)",
     "rows": [
+      { "account": "United Wholesale Mortgage", "value": "$50K+", "note": "TPC; Joe Meineke & Avery" },
       { "account": "Berkshire Hathaway", "value": "$10K closed + ~$40K pipeline", "note": "Bill 96 document translations; new team penetration = land-and-expand play" },
       { "account": "Regions Bank", "value": "BPO Win (unquantified)", "note": "Logo win in regional banking; BPO = sticky, recurring revenue" },
       { "account": "Stormfield Capital", "value": "$9K closed", "note": "Translation; smaller AUM but closed revenue" }

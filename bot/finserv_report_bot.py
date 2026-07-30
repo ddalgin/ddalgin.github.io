@@ -643,24 +643,27 @@ def render_discovery_reps(disc: dict) -> str:
     if disc.get("reps") is None:
         return ""
     floor = disc.get("per_rep_monthly_floor")
-    reported = [r for r in disc["reps"] if r.get("calls") is not None]
-    pending = [r for r in disc["reps"] if r.get("calls") is None]
+    # Validation policy: only show discovery calls tied to a named prospect —
+    # calls without a validatable account are excluded entirely (no name, no
+    # number).
+    reported = [r for r in disc["reps"] if r.get("calls") and r.get("accounts")]
+    if not reported:
+        return ""
 
     chips = ""
     for r in sorted(reported, key=lambda x: -x["calls"]):
         met = "met" if r.get("meets_floor") else ""
-        acct = f'<span class="ac">{esc(r["accounts"])}</span>' if r.get("accounts") else ""
+        acct = f'<span class="ac">{esc(r["accounts"])}</span>'
         chips += (f'<div class="ae-chip {met}"><div class="top">'
                   f'<span class="nm">{esc(r["name"])}</span>'
                   f'<span class="ct">{r["calls"]}</span></div>{acct}</div>')
-    chips_block = f'<div class="chips2">{chips}</div>' if chips else ""
+    chips_block = f'<div class="chips2">{chips}</div>'
 
+    shown = sum(r["calls"] for r in reported)
     hit = sum(1 for r in reported if r.get("meets_floor"))
-    pend = len(pending)
-    pend_note = f" · {pend} not yet reported" if pend else ""
-    summ = (f'<p class="note"><strong>{len(reported)} of {len(disc["reps"])} reported</strong> · '
-            f'{disc.get("team_calls", 0)} calls · {hit} hit the {floor}-call floor '
-            f'(green){pend_note}. Reporting still open.</p>')
+    summ = (f'<p class="note"><strong>{len(reported)} reps</strong> · {shown} discovery calls '
+            f'with a named prospect · {hit} hit the {floor}-call floor (green). '
+            f'Calls without a named prospect are not shown.</p>')
     return f"""
     <section>
       <h2>Discovery Calls · By Person</h2>
@@ -1025,18 +1028,14 @@ def render_markdown(data: dict, c: dict) -> str:
              f"**{signed_money(rev['total_yoy_dollar'], ap)}** | "
              f"**{pct(rev['total_yoy_pct'], signed=True, approx=ap)}** | | |")
 
-    if disc.get("reps") is not None:
-        L += ["", "## Discovery calls by AE", "",
-              "| AE | Disco Calls | vs Floor |", "|---|--:|:--|"]
+    named = [r for r in (disc.get("reps") or []) if r.get("calls") and r.get("accounts")]
+    if named:
         floor = disc.get("per_rep_monthly_floor")
-        if disc["reps"]:
-            for r in disc["reps"]:
-                calls = r.get("calls")
-                status = ("pending" if calls is None
-                          else ("✓ meets floor" if r.get("meets_floor") else f"below {floor}"))
-                L.append(f"| {r['name']} | {_md_cell(calls, '—')} | {status} |")
-        else:
-            L.append(f"| _Awaiting per-AE submissions (floor {floor}/AE)_ | — | — |")
+        L += ["", "## Discovery calls by person (named prospects only)", "",
+              "| Person | Disco Calls | Prospects | vs Floor |", "|---|--:|---|:--|"]
+        for r in sorted(named, key=lambda x: -x["calls"]):
+            status = "✓ meets floor" if r.get("meets_floor") else "—"
+            L.append(f"| {r['name']} | {r['calls']} | {r.get('accounts','')} | {status} |")
 
     if disc.get("categories"):
         L += ["", "## Discovery calls & activities", "",
