@@ -220,6 +220,36 @@ class JuneDraftTest(unittest.TestCase):
         self.assertEqual(bot.markup_x(None), "TBD")
 
 
+class TrackerSectionsTest(unittest.TestCase):
+    """FS Gifting + CX Engagement render only when declared; June has neither."""
+
+    def setUp(self):
+        self.july = json.loads((Path(__file__).parent / "data" / "2026-07.json").read_text())
+        self.june = json.loads(JUNE.read_text())
+
+    def test_headers_present_in_july(self):
+        c = bot.compute(self.july)
+        html = bot.render_html(self.july, c)
+        self.assertIn("FS Gifting Program", html)
+        self.assertIn("CX Engagement Program", html)
+        self.assertIn("VIP event confirmations", html)   # seeded outcome row
+
+    def test_empty_states(self):
+        self.assertIn("to be tracked", bot.render_gifting(self.july).lower())
+        self.assertIn("Total Delivered", bot.render_gifting(self.july))
+
+    def test_absent_when_not_declared(self):
+        # June declares neither key -> both sections render nothing.
+        self.assertEqual(bot.render_gifting(self.june), "")
+        self.assertEqual(bot.render_cx_engagement(self.june), "")
+
+    def test_gifting_aggregates_by_ae(self):
+        data = {"gifting": {"by_ae": [{"name": "A", "delivered": 4},
+                                      {"name": "B", "delivered": 7}]}}
+        html = bot.render_gifting(data)
+        self.assertIn(">11<", html.replace(" ", ""))      # 4 + 7 aggregate
+
+
 class PerAEComputeTest(unittest.TestCase):
     def test_floor_flagging(self):
         disc = bot.compute_discovery({

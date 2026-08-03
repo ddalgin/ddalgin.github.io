@@ -1,0 +1,129 @@
+{
+  "period": { "month": 7, "year": 2026, "label": "July 2026" },
+  "status": "DRAFT",
+  "team": "Financial Services",
+  "report_title": "Global Finance Sales",
+  "org": "TransPerfect",
+  "vertical": "Global Finance",
+  "prepared_by": "Global Finance Sales Reporting",
+  "next_report_note": "",
+  "precision_note": "",
+  "show_footer": false,
+
+  "_template_note": "July scaffold — fill in the values as they land. Jan–Jun 2026 actuals carry forward; 2025 actuals are exact through July. New this month: FS Gifting Program and CX Engagement Program trackers (headers below).",
+
+  "leadership_note": {
+    "intro": "July report. The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
+    "standing_obligations": [
+      "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
+      "We MUST close deals. With the best people to do so."
+    ],
+    "the_bad": { "headline": "", "detail": "" },
+    "the_good": { "headline": "", "detail": "" },
+    "focus": [
+      "More discovery calls. Each of you should have 3 legit disco calls on your worst month.",
+      "Drive people to our upcoming 4 events — strategically situated in different locales and time frames to account for diverse audiences.",
+      "Share your wins and failures so we can learn."
+    ]
+  },
+
+  "revenue": {
+    "source": "internal revenue dashboard, Finance vertical",
+    "note": "",
+    "markup": {
+      "value_2026": null,
+      "value_2025": null,
+      "note": "Overall markup, Finance vertical. Fill July 2026 and July 2025 for the year-over-year comparison."
+    },
+    "months": [
+      { "month": "Jan", "actual_2025": 3749229.20, "actual_2026": 4159799 },
+      { "month": "Feb", "actual_2025": 3894493.67, "actual_2026": 3681822 },
+      { "month": "Mar", "actual_2025": 4712824.62, "actual_2026": 4147255 },
+      { "month": "Apr", "actual_2025": 3992118.26, "actual_2026": 3914386 },
+      { "month": "May", "actual_2025": 4006577.90, "actual_2026": 3590000, "estimate_2026": true, "note_2026": "~10x markup" },
+      { "month": "Jun", "actual_2025": 3563670.03, "actual_2026": 4001039.89, "note_2026": "10.03x markup" },
+      { "month": "Jul", "actual_2025": 4643426.50, "actual_2026": null }
+    ]
+  },
+
+  "discovery": {
+    "per_rep_monthly_floor": 3,
+    "prior_label": "Jun '26 YTD",
+    "current_label": "Jul '26",
+    "ytd_label": "26 YTD",
+    "note": "",
+    "reps": [
+      { "name": "Adele Broussard", "calls": null },
+      { "name": "Andres Cui", "calls": null },
+      { "name": "Angus Ulyate", "calls": null },
+      { "name": "Anthony Madigan", "calls": null },
+      { "name": "Avery Sturtevant", "calls": null },
+      { "name": "Brianna Farrell", "calls": null },
+      { "name": "Clayton Eysel", "calls": null },
+      { "name": "Dante Dalgin", "calls": null },
+      { "name": "Isabel Atwood", "calls": null },
+      { "name": "Isabel Martel", "calls": null },
+      { "name": "Jady Bailey", "calls": null },
+      { "name": "Jarel Dickey", "calls": null },
+      { "name": "Jonathan Vion", "calls": null },
+      { "name": "Joseph Meineke", "calls": null },
+      { "name": "Justin Potts", "calls": null },
+      { "name": "Mariana Ordonana", "calls": null },
+      { "name": "Matthew Spitler", "calls": null },
+      { "name": "Noelle Zimmerman", "calls": null },
+      { "name": "Pam Potts", "calls": null },
+      { "name": "Rahul Fernandes", "calls": null },
+      { "name": "Salvatore Cerasoli", "calls": null },
+      { "name": "Samantha Weinstein", "calls": null },
+      { "name": "Sardar Muhammad", "calls": null },
+      { "name": "Steven Davis", "calls": null },
+      { "name": "Sue Christian", "calls": null },
+      { "name": "Thomas Emery", "calls": null },
+      { "name": "Michael DeFalco", "calls": null },
+      { "name": "Wayne Sparks", "calls": null }
+    ],
+    "categories": [
+      { "name": "Disco - General",    "goal": 200, "prior_ytd": 108, "current": null },
+      { "name": "Disco - Digital",    "goal": 150, "prior_ytd": 31,  "current": null },
+      { "name": "Disco - Consulting", "goal": 100, "prior_ytd": 5,   "current": null },
+      { "name": "Disco - TPC/BPO",    "goal": 150, "prior_ytd": 26,  "current": null },
+      { "name": "Disco - GlobalLink", "goal": 150, "prior_ytd": 30,  "current": null }
+    ],
+    "total": { "goal": 750, "prior_ytd": 214, "current": null }
+  },
+
+  "wins_confirmed": {
+    "title": "Largest Confirmed Wins (Closed Revenue)",
+    "rows": []
+  },
+
+  "pipeline_ranked": {
+    "title": "Highest-Value Pipeline (Pending Close)",
+    "rows": []
+  },
+
+  "newsletter": {},
+
+  "engagement": [],
+
+  "gifting": {
+    "program": "FS Gifting Program",
+    "total_delivered": null,
+    "by_ae": []
+  },
+
+  "cx_engagement": {
+    "program": "CX Engagement Program",
+    "outcomes": [
+      { "outcome": "Event attendance", "count": null, "detail": "" },
+      { "outcome": "Referrals", "count": null, "detail": "" },
+      { "outcome": "VIP event confirmations", "count": null, "detail": "" }
+    ]
+  },
+
+  "events_upcoming": {
+    "series": "FinanceNext Series",
+    "url": "https://experiences.transperfect.com/financenextseries/",
+    "cities": ["New York", "Toronto", "London", "SF"]
+  }
+}

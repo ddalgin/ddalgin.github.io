@@ -73,6 +73,24 @@ The May file is seeded from the real May 2026 report; the `--data` file's
 - **Partial months**: a revenue month with only one year's actual (e.g. June
   2026 billed, June 2025 pending) still renders; YoY and the missing side's
   YTD show `—` instead of silently reading zero.
+- **Ranked wins/pipeline**: `wins_confirmed` / `pipeline_ranked`
+  (`{title, rows:[…]}`) render the two ranked account tables
+  (Account / Value / Strategic Note, and Account / Value / Status / Risk Flag).
+- **FS Gifting Program**: `gifting` (`{program, total_delivered, by_ae:[{name,
+  delivered}]}`) renders a total-delivered tile plus a by-AE table. Declared
+  but empty shows the header with a "to be tracked" placeholder.
+- **CX Engagement Program**: `cx_engagement` (`{program, outcomes:[{outcome,
+  count, detail}]}`) renders an outcomes table (event attendance, referrals,
+  VIP event confirmations, …).
+- **Brand & Client Engagement**: `engagement` (list of strings) renders green
+  callouts (client kits, blog posts, …).
+- **Page layout (PDF)**: sections tagged `page-wins` / `page-close` force page
+  breaks in the PDF export (see `pdf` step); `report_title` sets the masthead
+  title; `show_footer:false` and an empty `precision_note` drop the footer.
+
+The **July template** (`bot/data/2026-07.json`) is a ready-to-fill scaffold
+carrying the roster, prior-YTD baselines, and the FS Gifting / CX Engagement
+headers.
 
 ## Schedule
 

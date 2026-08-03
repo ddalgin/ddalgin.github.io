@@ -780,6 +780,62 @@ def render_engagement(data: dict) -> str:
     </section>"""
 
 
+def render_gifting(data: dict) -> str:
+    """FS Gifting Program tracker: total delivered (aggregate) + by AE.
+    Renders only when the `gifting` key is declared; empty-states its header."""
+    g = data.get("gifting")
+    if g is None:
+        return ""
+    title = g.get("program", "FS Gifting Program")
+    by_ae = g.get("by_ae") or []
+    total = g.get("total_delivered")
+    if total is None and any(x.get("delivered") is not None for x in by_ae):
+        total = sum(x.get("delivered") or 0 for x in by_ae)
+    total_str = f"{total:,}" if total is not None else "—"
+    if by_ae:
+        rows = "".join(
+            f'<tr><td>{esc(x.get("name", ""))}</td>'
+            f'<td class="val">{_cell(x.get("delivered"), "—")}</td></tr>'
+            for x in by_ae)
+        body = (f'<table class="wtable"><thead><tr><th>AE</th><th>Delivered</th></tr>'
+                f'</thead><tbody>{rows}</tbody></table>')
+    else:
+        body = '<p class="empty">Aggregate and by-AE delivery counts to be tracked here.</p>'
+    return f"""
+    <section>
+      <h2>{esc(title)}</h2>
+      <div class="cards"><div class="card"><div class="k">Total Delivered</div>
+        <div class="v">{total_str}</div></div></div>
+      {body}
+    </section>"""
+
+
+def render_cx_engagement(data: dict) -> str:
+    """CX Engagement Program tracker: outcomes (event attendance, referrals,
+    VIP confirmations, …). Renders only when the `cx_engagement` key is declared."""
+    cx = data.get("cx_engagement")
+    if cx is None:
+        return ""
+    title = cx.get("program", "CX Engagement Program")
+    outs = cx.get("outcomes") or []
+    if outs:
+        rows = "".join(
+            f'<tr><td>{esc(o.get("outcome", ""))}</td>'
+            f'<td class="val">{_cell(o.get("count"), "—")}</td>'
+            f'<td class="note">{esc(o.get("detail", ""))}</td></tr>'
+            for o in outs)
+        body = (f'<table class="wtable"><thead><tr><th>Outcome</th><th>Count</th>'
+                f'<th>Detail</th></tr></thead><tbody>{rows}</tbody></table>')
+    else:
+        body = ('<p class="empty">Outcomes to be tracked — event attendance, '
+                'referrals, VIP event confirmations, etc.</p>')
+    return f"""
+    <section>
+      <h2>{esc(title)}</h2>
+      {body}
+    </section>"""
+
+
 def render_leadership(data: dict) -> str:
     note = data.get("leadership_note")
     if not note:
@@ -859,9 +915,13 @@ def render_hero(data: dict, c: dict) -> str:
 def render_banner(c: dict) -> str:
     """One punchy good-news line, when there is one."""
     rev = c["revenue"]
-    last = next((m for m in reversed(rev["months"]) if m["reported"]), None)
+    last, idx = None, 0
+    for i in range(len(rev["months"]) - 1, -1, -1):
+        if rev["months"][i]["reported"]:
+            last, idx = rev["months"][i], i
+            break
     if last and (last["yoy_dollar"] or 0) > 0:
-        prior_ups = [m for m in rev["months"][:-1] if (m["yoy_dollar"] or 0) > 0]
+        prior_ups = [m for m in rev["months"][:idx] if (m["yoy_dollar"] or 0) > 0]
         since = f"first up-month since {prior_ups[-1]['month']}" if prior_ups else "first up-month of the year"
         return (f'<div class="banner"><span class="mark">▲</span><div>'
                 f'<strong>{last["month"]} revenue up {pct(last["yoy_pct"], 1, approx=last["est_26"])} '
@@ -972,6 +1032,8 @@ def render_html(data: dict, c: dict) -> str:
 {render_discovery_reps(c['discovery'])}
 {render_closing(data, c)}
 {render_engagement(data)}
+{render_gifting(data)}
+{render_cx_engagement(data)}
 {render_leadership(data)}
   {f'<p class="note">{esc(precision)}</p>' if precision else ''}
   {('<footer>Prepared by ' + esc(prepared) + '. Auto-assembled by finserv_report_bot.py on ' + generated + '.<br>Revenue: internal revenue dashboard, Finance vertical. Discovery: prior-period reporting reconciled with current-month rep submissions. Wins/Deals: rep self-report. Newsletter: campaign platform export.</footer>') if data.get('show_footer', True) else ''}

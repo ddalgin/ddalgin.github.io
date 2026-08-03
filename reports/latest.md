@@ -1,21 +1,17 @@
-# Financial Services — June 2026
+# Financial Services — July 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-07-30 17:49 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-08-03 18:27 UTC_
 
 ## At a glance
 
-- Revenue is trailing last year: ~$23.49M YTD vs $23,918,914 in 2025 (~-$424,612, ~-1.8%). 2 of 6 months are up YoY.
+- Revenue billed $23,494,302 through Jun 2026; full YoY comparison pending the matching 2025 actuals.
 - Jun landed +$437,370 (+12.3%) vs the prior year.
-- Overall markup is 10.03x; the June 2025 markup for the year-over-year comparison is pending.
-- Discovery calls are at 214 of 750 (29% to goal) — behind the 50% straight-line pace for this point in the year. June 2026 added 36 calls.
+- Discovery calls are at 214 of 750 (29% to goal) — behind the 58% straight-line pace for this point in the year.
 - Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).
 - Standing floor is 3 legit discovery calls per rep on their worst month — the categories above are the team's obligation, not a stretch target.
-- By AE: 11 of 28 reps have reported 38 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 17 of 28 AEs still pending — team total will rise.
-- Newsletter open rate hit 25.60%, ~1.1x the ~20–25% benchmark; 4,632 total clicks is a record. Brand programming is compounding.
+- Per-AE discovery is set up — awaiting each AE named with their disco-call count against the 3-call floor.
 
 ## Revenue summary
-
-**Overall markup — Jun '26:** 10.03x vs TBD last year.
 
 | Month | 2025 | 2026 | YoY $ | YoY % | 2026 YTD | 2025 YTD |
 |---|--:|--:|--:|--:|--:|--:|
@@ -25,57 +21,30 @@ _TransPerfect · Global Finance · auto-assembled 2026-07-30 17:49 UTC_
 | Apr | $3,992,118 | $3,914,386 | -$77,732 | -1.9% | $15,903,262 | $16,348,666 |
 | May* | $4,006,578 | ~$3.59M | ~-$416,578 | ~-10.4% | ~$19.49M | $20,355,244 |
 | Jun | $3,563,670 | $4,001,040 | +$437,370 | +12.3% | ~$23.49M | $23,918,914 |
-| **YTD** | **$23,918,914** | **~$23.49M** | **~-$424,612** | **~-1.8%** | | |
-
-## Discovery calls by person (named prospects only)
-
-| Person | Disco Calls | Prospects | vs Floor |
-|---|--:|---|:--|
-| Wayne Sparks | 10 | Sahouri Insurance, FNF-Agency, NAHREP NE CBOG | ✓ meets floor |
-| Dante Dalgin | 3 | WesBanco, Karadeniz Holdings, Fever | ✓ meets floor |
-| Jady Bailey | 3 | Movement Mortgage, Davies, Canandaigua | ✓ meets floor |
-| Samantha Weinstein | 3 | Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual | ✓ meets floor |
-| Steven Davis | 3 | Walmart, FACTS/Nelnet, PayPal | ✓ meets floor |
-| Sue Christian | 2 | Citizens, QRB | — |
-| Mariana Ordonana | 1 | Santander | — |
-| Noelle Zimmerman | 1 | Mauch Chunk Trust | — |
+| Jul | $4,643,426 | — | — | — | — | $28,562,340 |
+| **YTD** | **$28,562,340** | **—** | **—** | **—** | | |
 
 ## Discovery calls & activities
 
-| Category | Goal | May '26 YTD | Jun '26 | YTD | % to goal |
+| Category | Goal | Jun '26 YTD | Jul '26 | YTD | % to goal |
 |---|--:|--:|--:|--:|--:|
-| Disco - General | 200 | 79 | 29 | 108 | 54% |
-| Disco - Digital | 150 | 30 | 1 | 31 | 21% |
-| Disco - Consulting | 100 | 4 | 1 | 5 | 5% |
-| Disco - TPC/BPO | 150 | 23 | 3 | 26 | 17% |
-| Disco - GlobalLink | 150 | 28 | 2 | 30 | 20% |
-| **Total Discovery Calls** | 750 | 178 | 36 | 214 | 29% |
+| Disco - General | 200 | 108 | TBD | 108 | 54% |
+| Disco - Digital | 150 | 31 | TBD | 31 | 21% |
+| Disco - Consulting | 100 | 5 | TBD | 5 | 5% |
+| Disco - TPC/BPO | 150 | 26 | TBD | 26 | 17% |
+| Disco - GlobalLink | 150 | 30 | TBD | 30 | 20% |
+| **Total Discovery Calls** | 750 | 214 | TBD | 214 | 29% |
 
 ## Largest Confirmed Wins (Closed Revenue)
 
 | # | Account | Value | Strategic Note |
 |--:|---|---|---|
-| 1 | United Wholesale Mortgage | $50K+ | TPC; Joe Meineke & Avery |
-| 2 | Berkshire Hathaway | $10K closed + ~$40K pipeline | Bill 96 document translations; new team penetration = land-and-expand play |
-| 3 | Regions Bank | BPO Win (unquantified) | Logo win in regional banking; BPO = sticky, recurring revenue |
-| 4 | Stormfield Capital | $9K closed | Translation; smaller AUM but closed revenue |
 
 ## Highest-Value Pipeline (Pending Close)
 
 | # | Account | Value | Status | Risk Flag |
 |--:|---|---|---|---|
-| 1 | RBC AI Excellence Program | $100K | Proposal out for approval | Approval cycle risk; large bank = slow procurement |
-| 2 | Shell FCU | Unquantified | Verbal on GLWeb + Compliance; in VDD | VDD = final hurdle; high close probability |
-| 3 | Mauch Chunk Trust | Unquantified | Verbal yes; OPI pending | Small institution but fast-moving; good velocity indicator |
 
 ## Newsletter performance
 
-- Sent **June 17** · 5,761 sent / 5,761 delivered
-- Open rate **25.60%** · 1,464 opens
-- Clicks **4,632** · click rate 80.00% · CTOR 49%
-- Opt-outs 16
-
-## Brand & client engagement
-
-- 31 Spring & Summer Kits delivered to clients
-- 5 TransPerfect Financial blog posts published in June
+_Pending — campaign platform export to be added._
