@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-15T20:21:29+00:00",
+  "generated_at": "2026-08-03T19:55:02+00:00",
   "meta": {
     "max_price": 150.0,
-    "days": 120,
+    "days": 7,
     "min_score": 2
   },
   "sources": [
@@ -37,16 +37,16 @@
     {
       "source": "10times",
       "city": "Washington DC",
-      "ok": true,
-      "detail": "",
-      "found": 30
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 403: Forbidden",
+      "found": 0
     },
     {
       "source": "luma",
       "city": "Washington DC",
       "ok": true,
       "detail": "slug 'dc'",
-      "found": 28
+      "found": 31
     },
     {
       "source": "eventbrite",
@@ -79,23 +79,23 @@
     {
       "source": "10times",
       "city": "New York City",
-      "ok": true,
-      "detail": "",
-      "found": 30
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 403: Forbidden",
+      "found": 0
     },
     {
       "source": "garysguide",
       "city": "New York City",
       "ok": true,
       "detail": "",
-      "found": 106
+      "found": 89
     },
     {
       "source": "luma",
       "city": "New York City",
       "ok": true,
       "detail": "slug 'nyc'",
-      "found": 77
+      "found": 66
     },
     {
       "source": "eventbrite",
@@ -128,16 +128,16 @@
     {
       "source": "10times",
       "city": "Philadelphia",
-      "ok": true,
-      "detail": "",
-      "found": 30
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 403: Forbidden",
+      "found": 0
     },
     {
       "source": "luma",
       "city": "Philadelphia",
       "ok": true,
       "detail": "slug 'philadelphia'",
-      "found": 23
+      "found": 24
     },
     {
       "source": "eventbrite",
@@ -170,84 +170,23 @@
     {
       "source": "10times",
       "city": "Boston",
-      "ok": true,
-      "detail": "",
-      "found": 30
+      "ok": false,
+      "detail": "HTTPError: HTTP Error 403: Forbidden",
+      "found": 0
     },
     {
       "source": "luma",
       "city": "Boston",
       "ok": true,
       "detail": "slug 'boston'",
-      "found": 33
+      "found": 31
     }
   ],
   "events": [
     {
-      "title": "Money20/20 Summer Rooftop Happy Hour",
-      "url": "https://lu.ma/nnsc7ueg",
-      "start": "2026-07-15",
-      "city": "New York City",
-      "source": "luma",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 5,
-      "matched": [
-        "money20/20"
-      ]
-    },
-    {
-      "title": "The New Institutional Standard for Onchain Finance",
-      "url": "https://10times.com/e1gd-523s-d8ph-p-new-institutional-standard-onchain-finance",
-      "start": "2026-07-16",
-      "city": "Washington DC",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 4,
-      "matched": [
-        "finance",
-        "onchain"
-      ]
-    },
-    {
-      "title": "Annual Municipal Finance Conference",
-      "url": "https://10times.com/e1zp-44zp-24zr",
-      "start": "2026-07-21",
-      "city": "Washington DC",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 3,
-      "matched": [
-        "finance"
-      ]
-    },
-    {
-      "title": "AI-Native FinTech Happy Hour",
-      "url": "https://www.garysguide.com/events/w1e4tl7/AI-Native-FinTech-Happy-Hour",
-      "start": "2026-07-22",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 5,
-      "matched": [
-        "fintech"
-      ]
-    },
-    {
       "title": "Startup Founders, Investors & Talent Mixer",
-      "url": "https://www.garysguide.com/events/8vrefsf/Startup-Founders-Investors-Talent-Mixer",
-      "start": "2026-07-22",
+      "url": "https://www.garysguide.com/events/7s6oz58/Startup-Founders-Investors-Talent-Mixer",
+      "start": "2026-08-05",
       "city": "New York City",
       "source": "garysguide",
       "venue": "",
@@ -256,186 +195,6 @@
       "is_free": true,
       "score": 2,
       "matched": []
-    },
-    {
-      "title": "Finance, Economics, International Management, IT, Marketing, MIS, and Healthcare Management Research Conference",
-      "url": "https://10times.com/healthcare-management-research-conference",
-      "start": "2026-07-23",
-      "city": "Washington DC",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 3,
-      "matched": [
-        "finance"
-      ]
-    },
-    {
-      "title": "Setting The Standard - How AI Redefining Excellence Across Industries",
-      "url": "https://www.garysguide.com/events/r8tumxg/Setting-The-Standard-How-AI-Redefining-Excellence-Across-Industries",
-      "start": "2026-07-23",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 15.0,
-      "is_free": false,
-      "score": 2,
-      "matched": [
-        "defi"
-      ]
-    },
-    {
-      "title": "Fintech Run Club",
-      "url": "https://www.garysguide.com/events/wnubfa0/Fintech-Run-Club",
-      "start": "2026-07-28",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 4,
-      "matched": [
-        "fintech"
-      ]
-    },
-    {
-      "title": "Fintech Run Club ft. Rain and Monk + Coffee on JP Morgan",
-      "url": "https://lu.ma/003139e8",
-      "start": "2026-07-28",
-      "city": "New York City",
-      "source": "luma",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 4,
-      "matched": [
-        "fintech"
-      ]
-    },
-    {
-      "title": "NYC FDE x Private Equity Summer Soir\u00e9e",
-      "url": "https://lu.ma/ol4eu13j",
-      "start": "2026-07-28",
-      "city": "New York City",
-      "source": "luma",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 3,
-      "matched": [
-        "private equity"
-      ]
-    },
-    {
-      "title": "Leaders In Product - Fintech Insights",
-      "url": "https://www.garysguide.com/events/4apadtj/Leaders-In-Product-Fintech-Insights",
-      "start": "2026-07-29",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 45.0,
-      "is_free": false,
-      "score": 4,
-      "matched": [
-        "fintech"
-      ]
-    },
-    {
-      "title": "Alternative Investments Summer On The Hudson",
-      "url": "https://www.garysguide.com/events/oteemln/Alternative-Investments-Summer-On-The-Hudson",
-      "start": "2026-07-29",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 2,
-      "matched": [
-        "investment"
-      ]
-    },
-    {
-      "title": "The Capital Markets Summit",
-      "url": "https://10times.com/e1g5-759d-kshf-h-capital-markets-summit",
-      "start": "2026-08-04",
-      "city": "New York City",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 5,
-      "matched": [
-        "capital markets"
-      ]
-    },
-    {
-      "title": "Aicpa & Cima Future of Finance Summit",
-      "url": "https://10times.com/e13g-dpzp-x9d3-1-aicpa-cima-future-finance-summit",
-      "start": "2026-08-05",
-      "city": "Washington DC",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 3,
-      "matched": [
-        "finance"
-      ]
-    },
-    {
-      "title": "The Dollar Just Got An API - Stablecoin Use Cases For Business",
-      "url": "https://www.garysguide.com/events/5sv38nb/The-Dollar-Just-Got-An-API-Stablecoin-Use-Cases-For-Business",
-      "start": "2026-08-13",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 3,
-      "matched": [
-        "stablecoin"
-      ]
-    },
-    {
-      "title": "Finance and Electric Committee",
-      "url": "https://10times.com/e1gd-hx17-xh35-r-finance-electric-committee",
-      "start": "2026-08-13",
-      "city": "Philadelphia",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 2,
-      "matched": [
-        "finance"
-      ]
-    },
-    {
-      "title": "Insurance Conference",
-      "url": "https://10times.com/annual-insurance-conference",
-      "start": "2026-09-09",
-      "city": "New York City",
-      "source": "10times",
-      "venue": "",
-      "description": "",
-      "price_min": null,
-      "is_free": null,
-      "score": 3,
-      "matched": [
-        "insurance"
-      ]
     }
   ]
 }
