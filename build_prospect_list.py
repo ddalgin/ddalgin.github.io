@@ -279,11 +279,15 @@ COMPANY_COUNTRY = {
     "Deutsche Bank": "Germany", "N26": "Germany", "Trade Republic": "Germany",
 }
 
+from country_overrides import OVERRIDES
+
 HEADERS = [
     "First Name", "Last Name", "Job Title", "Company", "Phone", "Email", "Country",
     "State (US)", "Source", "Lead Status", "Privacy Policy Accepted", "Score",
     "Owner email address", "Lead Queue", "Main Marketing Language", "Lead Type 1",
     "Lead Sub Type", "Vertical", "Brand Preference",
+    # Helper columns (NOT part of the A-S CRM import - remove before importing if needed)
+    "Country Confidence", "Country Evidence",
 ]
 
 # Multi-word first names that should be kept together
@@ -317,29 +321,56 @@ for c, h in enumerate(HEADERS, start=1):
     cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
     cell.border = border
 
+verified_fill = PatternFill("solid", fgColor="E2EFDA")   # light green
+assumed_fill = PatternFill("solid", fgColor="FCE4D6")    # light orange
+
 r = 2
+missing_keys = []
+n_verified = 0
+n_assumed = 0
 for company, people in DATA:
-    country = COMPANY_COUNTRY.get(company, "")
+    hq_country = COMPANY_COUNTRY.get(company, "")
     for full, title, email in people:
         fn, ln = split_name(full)
+        key = f"{company}||{full}"
+        ov = OVERRIDES.get(key)
+        if ov is None:
+            missing_keys.append(key)
+            country, confidence, evidence = hq_country, "Assumed", "no override found (HQ default)"
+        else:
+            country, confidence, evidence = ov
+        if confidence == "Verified":
+            n_verified += 1
+        else:
+            n_assumed += 1
         row_vals = [fn, ln, title, company, "", email, country, "", "", "", "", "",
-                    "", "", "", "", "", "Financial Services", ""]
+                    "", "", "", "", "", "Financial Services", "", confidence, evidence]
         for c, v in enumerate(row_vals, start=1):
             cell = ws.cell(row=r, column=c, value=v)
             cell.font = cell_font
             cell.border = border
             cell.alignment = Alignment(vertical="center")
+        # shade the Country + Confidence cells by confidence level
+        conf_fill = verified_fill if confidence == "Verified" else assumed_fill
+        ws.cell(row=r, column=7).fill = conf_fill    # Country
+        ws.cell(row=r, column=20).fill = conf_fill   # Country Confidence
         r += 1
+
+if missing_keys:
+    print("WARNING: missing override keys:")
+    for k in missing_keys:
+        print("   ", k)
+print(f"Country confidence -> Verified: {n_verified}, Assumed: {n_assumed}")
 
 # Freeze header + autofilter
 ws.freeze_panes = "A2"
-ws.auto_filter.ref = f"A1:S{r-1}"
+ws.auto_filter.ref = f"A1:U{r-1}"
 
 # Column widths
 widths = {
     "A": 16, "B": 20, "C": 52, "D": 22, "E": 14, "F": 40, "G": 16, "H": 12,
     "I": 16, "J": 14, "K": 20, "L": 8, "M": 22, "N": 14, "O": 20, "P": 14,
-    "Q": 16, "R": 20, "S": 18,
+    "Q": 16, "R": 20, "S": 18, "T": 18, "U": 60,
 }
 for col, w in widths.items():
     ws.column_dimensions[col].width = w
@@ -358,8 +389,26 @@ notes = [
     ("  - Job Title", False),
     ("  - Company", False),
     ("  - Email", False),
-    ("  - Country  (pre-filled from each company's HQ country - please verify per contact)", False),
+    ("  - Country  (LinkedIn/web cross-reference - see Country Confidence)", False),
     ("  - Vertical  (set to 'Financial Services' for all rows)", False),
+    ("", False),
+    ("Country column - how it was determined:", True),
+    ("  Each contact's name + title + company was searched on the web to find their", False),
+    ("  matching LinkedIn profile, then the profile's location was used for Country.", False),
+    ("  Two helper columns (T and U, OUTSIDE the A-S import range) record this:", False),
+    ("    - Country Confidence:  'Verified' (green) = a matching profile showed a real", False),
+    ("      location signal (explicit city/country or a country-coded LinkedIn subdomain);", False),
+    ("      'Assumed' (orange) = no confident match, fell back to the company HQ country.", False),
+    ("    - Country Evidence:  the specific signal used for each row.", False),
+    ("  NOTE: remove columns T and U before importing if your CRM expects only A-S.", False),
+    ("  All countries fall within your 6: UK, France, Germany, Netherlands, Spain, Portugal", False),
+    ("  EXCEPTIONS found outside those 6 (please review - see orange/notes):", False),
+    ("    - Walter Rizzi & Nicola Cecchetto (BBVA) -> Italy (Milan)", False),
+    ("    - Martin Eizaga (BBVA) -> Italy (likely; BBVA Digital Banking Italy)", False),
+    ("    - Kuba Fast (Revolut) -> CEO of Revolut's Lithuania entity (Vilnius); ex-Chase UK,", False),
+    ("      physical base ambiguous UK/Lithuania - marked UK/Assumed, NEEDS REVIEW.", False),
+    ("  ~21 contacts (rest of N26 + all Trade Republic) could not be searched (hit the", False),
+    ("  session's 200-search limit); they use the Berlin/Germany HQ default (Assumed).", False),
     ("", False),
     ("Columns intentionally left blank for the marketing team to complete", True),
     ("(these depend on your CRM picklists / campaign setup):", False),
