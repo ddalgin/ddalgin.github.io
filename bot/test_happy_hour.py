@@ -157,6 +157,46 @@ class RunsLateTests(unittest.TestCase):
         self.assertIn("Bar Charley", hh_names)
 
 
+class DayOfWeekTests(unittest.TestCase):
+    def setUp(self):
+        self.origin = bot.ORIGINS["office"]
+
+    def test_normalize_day_variants(self):
+        self.assertEqual(bot.normalize_day("tue"), "tuesday")
+        self.assertEqual(bot.normalize_day("Tuesday"), "tuesday")
+        self.assertEqual(bot.normalize_day("MON"), "monday")
+        self.assertIsNone(bot.normalize_day(""))
+        self.assertIsNone(bot.normalize_day(None))
+
+    def test_normalize_day_rejects_garbage(self):
+        with self.assertRaises(ValueError):
+            bot.normalize_day("someday")
+
+    def test_day_boosts_and_annotates(self):
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         day="tuesday")
+        tres = next(s for s in spots if s.name == "Los Tres Amigos")
+        self.assertTrue(tres.active_day_special)
+        self.assertIn("taco", tres.active_day_special.lower())
+
+    def test_day_only_filters_to_that_day(self):
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         day="tuesday", day_only=True)
+        self.assertTrue(spots)
+        self.assertTrue(all("tuesday" in s.day_specials for s in spots))
+
+    def test_monday_all_night_shows_for_monday(self):
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         day="monday", day_only=True)
+        self.assertIn("Bar Charley", [s.name for s in spots])
+
+    def test_no_day_special_leaves_field_blank(self):
+        spots = bot.rank(self.origin, "all", set(), False, None, False,
+                         day="tuesday")
+        charley = next(s for s in spots if s.name == "Bar Charley")
+        self.assertEqual(charley.active_day_special, "")  # its special is Monday
+
+
 class HappyHourFlagTests(unittest.TestCase):
     def test_check_listing_is_not_a_standing_hh(self):
         s = bot.Spot(name="x", lat=0, lng=0, neighborhood="", category="bar",
@@ -187,6 +227,9 @@ class DataIntegrityTests(unittest.TestCase):
             self.assertIsInstance(spot.features, list)
             self.assertIsInstance(spot.awards, list)
             self.assertIsInstance(spot.runs_late, bool)
+            self.assertIsInstance(spot.day_specials, dict)
+            for k in spot.day_specials:
+                self.assertIn(k, bot.DAYS)  # keys must be valid day names
             self.assertTrue(0 <= spot.rating <= 5)
 
     def test_spot_names_unique(self):

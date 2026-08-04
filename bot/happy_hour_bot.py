@@ -23,6 +23,8 @@ Usage:
   python bot/happy_hour_bot.py                       # city-wide, best by rating + awards
   python bot/happy_hour_bot.py --awards-only         # only "Best of DC" award venues
   python bot/happy_hour_bot.py --runs-late           # all-night / late-night HH only
+  python bot/happy_hour_bot.py --day tuesday         # boost + show Tuesday specials
+  python bot/happy_hour_bot.py --day mon --day-only  # only Monday-special spots
   python bot/happy_hour_bot.py --rank-by proximity   # closest good happy hours
   python bot/happy_hour_bot.py --category rooftop    # rooftops only
   python bot/happy_hour_bot.py --features view,outdoor --max-walk 12
@@ -461,6 +463,7 @@ SPOTS = [
         "rating": 4.4, "price": "$$",
         "notes": "Best all-night Monday happy hour in DC — festive, group- and birthday-friendly.",
         "runs_late": True,
+        "day_specials": {"monday": "All-night happy hour (from 5pm)"},
     },
     {
         "name": "Dino's Grotto",
@@ -474,6 +477,10 @@ SPOTS = [
         "rating": 4.3, "price": "$$",
         "notes": "Cozy Shaw Italian with all-night Sunday & Monday happy hour — good for sitting and lingering.",
         "runs_late": True,
+        "day_specials": {
+            "sunday": "All-night happy hour (all day)",
+            "monday": "All-night happy hour",
+        },
     },
     {
         "name": "District Commons",
@@ -500,6 +507,19 @@ SPOTS = [
         "rating": 4.0, "price": "$",
         "notes": "Festive Bloomingdale cantina with a cheap late-night reverse happy hour.",
         "runs_late": True,
+    },
+    {
+        "name": "Los Tres Amigos",
+        "lat": 38.9276, "lng": -77.0385,
+        "neighborhood": "Mount Pleasant",
+        "category": "restaurant",
+        "url": "https://lostresamigosonline.com/specials/",
+        "happy_hour": "Mon–Fri 2–5pm",
+        "deals": "Half-off drinks & apps during HH",
+        "features": ["margaritas", "mexican", "casual"],
+        "rating": 3.9, "price": "$",
+        "notes": "Old-school Mexican spot — the go-to for a cheap Taco Tuesday.",
+        "day_specials": {"tuesday": "$1.99 tacos ALL DAY (ground beef or chicken)"},
     },
 ]
 
@@ -536,11 +556,15 @@ class Spot:
     notes: str = ""
     awards: list[str] = field(default_factory=list)  # e.g. "Best Wings (winner)"
     runs_late: bool = False  # all-night or late-night (reverse) happy hour
+    # Day-of-week specials, keyed by lowercase day name (monday..sunday), e.g.
+    # {"tuesday": "$1.99 tacos all day"}.
+    day_specials: dict = field(default_factory=dict)
     # computed
     dist_mi: float = 0.0
     walk_min: int = 0
     score: float = 0.0
     matched: list[str] = field(default_factory=list)
+    active_day_special: str = ""  # the special for the requested --day, if any
 
     @property
     def has_happy_hour(self) -> bool:
@@ -549,6 +573,20 @@ class Spot:
 
 
 # --------------------------------------------------------------- helpers ---
+
+DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday",
+        "saturday", "sunday"]
+
+
+def normalize_day(value: str | None) -> str | None:
+    """Map 'tue', 'Tues', 'TUESDAY' → 'tuesday'. None/'' → None."""
+    if not value:
+        return None
+    v = value.strip().lower()
+    for d in DAYS:
+        if d.startswith(v) or v.startswith(d[:3]):
+            return d
+    raise ValueError(f"unrecognized day: {value!r}")
 
 
 def haversine_mi(a_lat: float, a_lng: float, b_lat: float, b_lng: float) -> float:
@@ -580,12 +618,15 @@ def award_points(spot: Spot) -> float:
     return pts
 
 
-def score_spot(spot: Spot, wanted: set[str], rank_by: str = "quality") -> None:
+def score_spot(spot: Spot, wanted: set[str], rank_by: str = "quality",
+               day: str | None = None) -> None:
     """Fill in a composite score (walk_min/dist_mi are set beforehand).
 
     rank_by="quality"   — city-wide: rating + awards + features lead, with
                           proximity only a light tiebreak.
     rank_by="proximity" — walk time from the origin dominates.
+    day                 — lowercase day name; boosts spots with a special
+                          that day and records it on the spot for display.
     """
     # Rating contributes up to 10 points.
     rating_pts = spot.rating * 2.0
@@ -606,6 +647,14 @@ def score_spot(spot: Spot, wanted: set[str], rank_by: str = "quality") -> None:
     # "Best of DC" awards.
     award_pts = award_points(spot)
 
+    # Day-of-week special (e.g. Taco Tuesday, all-night Monday).
+    day_pts = 0.0
+    if day and day in spot.day_specials:
+        spot.active_day_special = spot.day_specials[day]
+        day_pts = 4.0
+    else:
+        spot.active_day_special = ""
+
     spot.matched = matched
     if rank_by == "proximity":
         proximity_component = proximity_pts
@@ -613,14 +662,15 @@ def score_spot(spot: Spot, wanted: set[str], rank_by: str = "quality") -> None:
         proximity_component = proximity_pts * 0.25
     spot.score = round(
         rating_pts + proximity_component + feature_pts + request_pts
-        + hh_pts + award_pts, 2
+        + hh_pts + award_pts + day_pts, 2
     )
 
 
 def rank(origin: tuple[float, float, str], category: str, wanted: set[str],
          require_features: bool, max_walk: int | None,
          happy_hour_only: bool, rank_by: str = "quality",
-         awards_only: bool = False, runs_late_only: bool = False) -> list[Spot]:
+         awards_only: bool = False, runs_late_only: bool = False,
+         day: str | None = None, day_only: bool = False) -> list[Spot]:
     o_lat, o_lng, _ = origin
     spots: list[Spot] = []
     for raw in SPOTS:
@@ -638,10 +688,12 @@ def rank(origin: tuple[float, float, str], category: str, wanted: set[str],
             continue
         if runs_late_only and not spot.runs_late:
             continue
+        if day_only and (not day or day not in spot.day_specials):
+            continue
         if require_features and wanted and not wanted.issubset(set(spot.features)):
             continue
 
-        score_spot(spot, wanted, rank_by)
+        score_spot(spot, wanted, rank_by, day)
         spots.append(spot)
 
     spots.sort(key=lambda s: (-s.score, s.walk_min))
@@ -682,6 +734,8 @@ def write_markdown(spots: list[Spot], out: Path, meta: dict) -> None:
         )
         if s.awards:
             lines.append(f"   - 🏆 {' · '.join(s.awards)}")
+        if s.active_day_special:
+            lines.append(f"   - 📅 {s.active_day_special}")
         late = " 🌙 runs late" if s.runs_late else ""
         lines.append(f"   - Happy hour: {hh_label(s)}{late}"
                      + (f" — {s.deals}" if s.deals else ""))
@@ -711,6 +765,9 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
             badges = " ".join(f"<span class='award'>🏆 {esc(a)}</span>"
                               for a in s.awards)
             award_html = f'<div class="awards">{badges}</div>'
+        day_html = ""
+        if s.active_day_special:
+            day_html = f'<div class="dayspecial">📅 {esc(s.active_day_special)}</div>'
         rows.append(f"""
       <li class="spot">
         <div class="rank">{i}</div>
@@ -726,6 +783,7 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
             <span class="price">{esc(s.price)}</span>
           </div>
           {award_html}
+          {day_html}
           <div class="hhline {hh_cls}">🍸 {esc(hh_label(s))}{' <span class="late">🌙 runs late</span>' if s.runs_late else ''}{(' — ' + esc(s.deals)) if s.deals else ''}</div>
           {f'<div class="notes">{esc(s.notes)}</div>' if s.notes else ''}
           <div class="tags">{feat_tags}</div>
@@ -774,6 +832,8 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
   .award {{ font-size:.72rem; font-weight:700; color:var(--hit);
            background:color-mix(in srgb, var(--hit) 12%, transparent);
            border:1px solid var(--hit); border-radius:999px; padding:.05rem .5rem; }}
+  .dayspecial {{ font-size:.86rem; font-weight:700; color:var(--hh);
+                margin:.1rem 0; }}
   .hhline {{ font-size:.9rem; margin:.35rem 0 .3rem; }}
   .hhline.hh {{ color:var(--hh); font-weight:600; }}
   .hhline.nohh {{ color:var(--muted); }}
@@ -814,7 +874,8 @@ def write_html(spots: list[Spot], out: Path, meta: dict) -> None:
 
 def build_filter_label(category: str, wanted: set[str], max_walk: int | None,
                        happy_hour_only: bool, awards_only: bool = False,
-                       rank_by: str = "quality", runs_late: bool = False) -> str:
+                       rank_by: str = "quality", runs_late: bool = False,
+                       day: str | None = None, day_only: bool = False) -> str:
     parts = []
     parts.append("all spots" if category == "all" else f"{category}s")
     if wanted:
@@ -827,6 +888,8 @@ def build_filter_label(category: str, wanted: set[str], max_walk: int | None,
         parts.append("award venues only")
     if runs_late:
         parts.append("runs late")
+    if day:
+        parts.append(f"{day.capitalize()} specials" + (" only" if day_only else ""))
     parts.append("by " + ("walk time" if rank_by == "proximity" else "quality"))
     return " · ".join(parts)
 
@@ -853,6 +916,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--runs-late", action="store_true",
                     help="only show spots with an all-night or late-night "
                          "(reverse) happy hour")
+    ap.add_argument("--day", default=None,
+                    help="day of week (e.g. tuesday) — boosts & shows spots "
+                         "with a special that day (Taco Tuesday, all-night Mon)")
+    ap.add_argument("--day-only", action="store_true",
+                    help="with --day, show ONLY spots that have a special "
+                         "that day")
     ap.add_argument("--rank-by", default="quality",
                     choices=["quality", "proximity"],
                     help="quality = city-wide by rating/awards (default); "
@@ -865,10 +934,11 @@ def main(argv: list[str] | None = None) -> int:
 
     origin = ORIGINS[args.origin]
     wanted = {f.strip().lower() for f in args.features.split(",") if f.strip()}
+    day = normalize_day(args.day)
 
     spots = rank(origin, args.category, wanted, args.require_features,
                  args.max_walk, args.happy_hour_only, args.rank_by,
-                 args.awards_only, args.runs_late)
+                 args.awards_only, args.runs_late, day, args.day_only)
     if args.top is not None:
         spots = spots[: args.top]
 
@@ -883,10 +953,12 @@ def main(argv: list[str] | None = None) -> int:
         "happy_hour_only": args.happy_hour_only,
         "awards_only": args.awards_only,
         "runs_late": args.runs_late,
+        "day": day,
         "rank_by": args.rank_by,
         "filter_label": build_filter_label(args.category, wanted, args.max_walk,
                                             args.happy_hour_only, args.awards_only,
-                                            args.rank_by, args.runs_late),
+                                            args.rank_by, args.runs_late, day,
+                                            args.day_only),
         "count": len(spots),
     }
     write_json(spots, out, meta)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T17:30:50+00:00",
+  "generated_at": "2026-08-04T16:14:36+00:00",
   "meta": {
     "origin": "office",
     "origin_label": "1001 G St NW (Metro Center)",
@@ -9,9 +9,10 @@
     "happy_hour_only": false,
     "awards_only": false,
     "runs_late": false,
+    "day": null,
     "rank_by": "quality",
     "filter_label": "all spots \u00b7 by quality",
-    "count": 35
+    "count": 36
   },
   "spots": [
     {
@@ -36,10 +37,12 @@
         "Best Happy Hour (winner)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.06,
       "walk_min": 29,
       "score": 22.8,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Crimson View",
@@ -61,10 +64,12 @@
       "notes": "12 stories up with Washington Monument + skyline views; closest true rooftop happy hour to the office.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.25,
       "walk_min": 7,
       "score": 20.23,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Union Pub",
@@ -89,10 +94,12 @@
         "Best Sports Bar (winner)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.07,
       "walk_min": 29,
       "score": 19.9,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Moonraker at Pendry",
@@ -114,10 +121,12 @@
       "notes": "Atop the Pendry with sweeping views of the Washington Channel and Wharf \u2014 worth the trip for a sunset.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.39,
       "walk_min": 38,
       "score": 16.3,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "VUE Rooftop",
@@ -138,10 +147,12 @@
       "notes": "The iconic one \u2014 direct White House + Washington Monument views. Best for impressing someone; pricier, no HH deal.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.37,
       "walk_min": 10,
       "score": 16.15,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Rooftop DC",
@@ -163,10 +174,12 @@
       "notes": "Rooftop mixing a sportsbook with a cocktail lounge \u2014 good group / game-day hang.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.58,
       "walk_min": 16,
       "score": 16.0,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Whiskey Charlie",
@@ -188,10 +201,12 @@
       "notes": "Canopy Wharf rooftop with wide water views; more relaxed than Moonraker next door.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.35,
       "walk_min": 36,
       "score": 15.9,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Alchemist DC",
@@ -213,10 +228,12 @@
         "Best Bar (winner)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.31,
       "walk_min": 35,
       "score": 14.8,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Old Ebbitt Grill",
@@ -237,10 +254,12 @@
       "notes": "DC's oldest saloon, steps from the office \u2014 the move for discounted oysters and a classic bar.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.37,
       "walk_min": 10,
       "score": 14.75,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Jaleo",
@@ -262,10 +281,12 @@
       "notes": "Jos\u00e9 Andr\u00e9s tapas mainstay; one of the best-value happy hours downtown.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.34,
       "walk_min": 9,
       "score": 14.68,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Blaguard",
@@ -289,10 +310,12 @@
         "Best Bar Food (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.63,
       "walk_min": 44,
       "score": 14.4,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Dirty Habit",
@@ -312,10 +335,12 @@
       "notes": "Sceney cocktail bar with a large open-air courtyard patio.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.27,
       "walk_min": 7,
       "score": 14.32,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Crush Dance Bar",
@@ -338,10 +363,12 @@
         "Best Happy Hour (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.39,
       "walk_min": 38,
       "score": 14.1,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Rosa Mexicano",
@@ -362,10 +389,12 @@
       "notes": "Reliable margarita-and-guac happy hour near Capital One Arena.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.32,
       "walk_min": 9,
       "score": 13.88,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Trusty's Full-Serve",
@@ -388,10 +417,12 @@
         "Best Dive Bar (winner)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 2.5,
       "walk_min": 68,
       "score": 13.8,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Harp DC",
@@ -413,10 +444,12 @@
         "Best Irish Pub (winner)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 3.15,
       "walk_min": 85,
       "score": 13.8,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "City Tap House DC",
@@ -437,10 +470,12 @@
       "notes": "Enormous craft-beer list and a big patio \u2014 solid for a group after work.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.21,
       "walk_min": 6,
       "score": 13.75,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Hamilton",
@@ -461,10 +496,12 @@
       "notes": "Big, dependable spot two blocks away with a live-music venue in the basement.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.3,
       "walk_min": 8,
       "score": 13.6,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Succotash Prime",
@@ -484,10 +521,12 @@
       "notes": "Modern Southern kitchen; good deviled eggs / hush-puppies happy hour.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.15,
       "walk_min": 4,
       "score": 13.4,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Commodore DC",
@@ -510,10 +549,12 @@
         "Best Bar Food (winner)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.09,
       "walk_min": 29,
       "score": 13.4,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Denson Liquor Bar",
@@ -533,10 +574,12 @@
       "notes": "Narrow, moody cocktail bar right in the heart of Penn Quarter.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.12,
       "walk_min": 3,
       "score": 13.32,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Astro Beer Hall",
@@ -557,10 +600,12 @@
       "notes": "Casual multi-level beer hall a block from the office \u2014 easy, cheap, fun.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.17,
       "walk_min": 5,
       "score": 12.88,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Bar Charley",
@@ -582,10 +627,14 @@
       "notes": "Best all-night Monday happy hour in DC \u2014 festive, group- and birthday-friendly.",
       "awards": [],
       "runs_late": true,
+      "day_specials": {
+        "monday": "All-night happy hour (from 5pm)"
+      },
       "dist_mi": 1.51,
       "walk_min": 41,
       "score": 12.8,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "RPM Italian",
@@ -606,10 +655,12 @@
       "notes": "Glam Italian with a lively bar scene; good aperitivo hour.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.4,
       "walk_min": 11,
       "score": 12.72,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Franklin Hall",
@@ -633,10 +684,12 @@
         "Best Sports Bar (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.51,
       "walk_min": 41,
       "score": 12.7,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Eebee's Corner Bar",
@@ -659,10 +712,12 @@
         "Best Burger (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.16,
       "walk_min": 31,
       "score": 12.1,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "McClellan's Retreat",
@@ -683,10 +738,12 @@
         "Best Bar (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 1.66,
       "walk_min": 45,
       "score": 12.1,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "District Commons",
@@ -707,10 +764,12 @@
       "notes": "Reverse happy hour from 10pm \u2014 the move when the night starts late.",
       "awards": [],
       "runs_late": true,
+      "day_specials": {},
       "dist_mi": 1.18,
       "walk_min": 32,
       "score": 12.0,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Round Robin Bar",
@@ -730,10 +789,12 @@
       "notes": "Storied circular mahogany bar inside the Willard \u2014 a proper old-DC cocktail.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.34,
       "walk_min": 9,
       "score": 11.68,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "The Pug",
@@ -755,10 +816,12 @@
         "Best Dive Bar (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 2.08,
       "walk_min": 56,
       "score": 11.6,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "El Camino",
@@ -780,10 +843,12 @@
       "notes": "Festive Bloomingdale cantina with a cheap late-night reverse happy hour.",
       "awards": [],
       "runs_late": true,
+      "day_specials": {},
       "dist_mi": 1.28,
       "walk_min": 35,
       "score": 11.5,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Off the Record",
@@ -804,10 +869,12 @@
       "notes": "Below the Hay-Adams, across Lafayette Sq from the White House \u2014 quiet, classic, no HH.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.56,
       "walk_min": 15,
       "score": 11.43,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Wingo's",
@@ -829,10 +896,12 @@
         "Best Wings (runner-up)"
       ],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 2.93,
       "walk_min": 79,
       "score": 11.2,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Dino's Grotto",
@@ -854,10 +923,15 @@
       "notes": "Cozy Shaw Italian with all-night Sunday & Monday happy hour \u2014 good for sitting and lingering.",
       "awards": [],
       "runs_late": true,
+      "day_specials": {
+        "sunday": "All-night happy hour (all day)",
+        "monday": "All-night happy hour"
+      },
       "dist_mi": 1.33,
       "walk_min": 36,
       "score": 11.1,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
     },
     {
       "name": "Quill",
@@ -877,10 +951,40 @@
       "notes": "Intimate, upscale hotel bar \u2014 top-tier cocktails for a quieter evening.",
       "awards": [],
       "runs_late": false,
+      "day_specials": {},
       "dist_mi": 0.72,
       "walk_min": 19,
       "score": 10.62,
-      "matched": []
+      "matched": [],
+      "active_day_special": ""
+    },
+    {
+      "name": "Los Tres Amigos",
+      "lat": 38.9276,
+      "lng": -77.0385,
+      "neighborhood": "Mount Pleasant",
+      "category": "restaurant",
+      "url": "https://lostresamigosonline.com/specials/",
+      "happy_hour": "Mon\u2013Fri 2\u20135pm",
+      "deals": "Half-off drinks & apps during HH",
+      "features": [
+        "margaritas",
+        "mexican",
+        "casual"
+      ],
+      "rating": 3.9,
+      "price": "$",
+      "notes": "Old-school Mexican spot \u2014 the go-to for a cheap Taco Tuesday.",
+      "awards": [],
+      "runs_late": false,
+      "day_specials": {
+        "tuesday": "$1.99 tacos ALL DAY (ground beef or chicken)"
+      },
+      "dist_mi": 2.13,
+      "walk_min": 58,
+      "score": 9.8,
+      "matched": [],
+      "active_day_special": ""
     }
   ]
 }

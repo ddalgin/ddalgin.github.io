@@ -41,6 +41,8 @@ rooftop near Metro Center."_
 python bot/happy_hour_bot.py                          # city-wide, best by rating + awards
 python bot/happy_hour_bot.py --awards-only            # only "Best of DC" award venues
 python bot/happy_hour_bot.py --runs-late              # all-night / late-night (reverse) HH
+python bot/happy_hour_bot.py --day tuesday            # boost + show Tuesday specials (Taco Tuesday…)
+python bot/happy_hour_bot.py --day monday --day-only  # only spots with a Monday special
 python bot/happy_hour_bot.py --rank-by proximity      # closest good happy hours to the office
 python bot/happy_hour_bot.py --category rooftop       # rooftops only
 python bot/happy_hour_bot.py --features view,outdoor  # prioritize views + patios
@@ -62,6 +64,8 @@ python bot/test_happy_hour.py                         # offline tests
 | `--happy-hour-only` | Only spots with a standing happy hour |
 | `--awards-only` | Only spots that won a "Best of DC" award |
 | `--runs-late` | Only spots with an all-night or late-night (reverse) happy hour |
+| `--day` | Day of week (e.g. `tuesday`) — boosts & shows spots with a special that day |
+| `--day-only` | With `--day`, show ONLY spots that have a special that day |
 | `--top` | Keep only the top N results |
 
 ## Schedule
@@ -77,8 +81,11 @@ Happy Hour Bot → Run workflow**, overriding origin / category / features.
 
 Add or edit entries in the `SPOTS` list in `happy_hour_bot.py` (name, lat/lng,
 neighborhood, category, url, happy-hour window, deals, features, rating,
-price, notes). Adjust `FEATURE_BONUS` to change how much rooftops/views/etc.
-weigh in the score. `python bot/test_happy_hour.py` guards the data shape and
+price, notes, `awards`, `runs_late`, and `day_specials`). `day_specials` is a
+map keyed by lowercase day name, e.g.
+`{"tuesday": "$1.99 tacos all day"}` — those surface via `--day tuesday`.
+Adjust `FEATURE_BONUS` to change how much rooftops/views/etc. weigh in the
+score. `python bot/test_happy_hour.py` guards the data shape and
 ranking logic.
 
 > Happy-hour times and deals change often — the bot links each venue's page;

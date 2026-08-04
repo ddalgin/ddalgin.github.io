@@ -1,6 +1,6 @@
 # DC Happy Hour — Ranked
 
-_Generated 2026-07-28 17:30 UTC · from 1001 G St NW (Metro Center) · all spots · by quality_
+_Generated 2026-08-04 16:14 UTC · from 1001 G St NW (Metro Center) · all spots · by quality_
 
 1. **[Duke's Grocery](https://www.dukesgrocery.com/)** — 29 min walk · Dupont Circle · ⭐4.4 · $$
    - 🏆 Best Burger (winner) · Best Happy Hour (winner)
@@ -189,6 +189,11 @@ _Generated 2026-07-28 17:30 UTC · from 1001 G St NW (Metro Center) · all spots
    - Happy hour: no standing HH — Refined seasonal cocktails; live piano
    - Intimate, upscale hotel bar — top-tier cocktails for a quieter evening.
    - _cocktails, historic_
+
+36. **[Los Tres Amigos](https://lostresamigosonline.com/specials/)** — 58 min walk · Mount Pleasant · ⭐3.9 · $
+   - Happy hour: Mon–Fri 2–5pm — Half-off drinks & apps during HH
+   - Old-school Mexican spot — the go-to for a cheap Taco Tuesday.
+   - _margaritas, mexican, casual_
 
 ---
 _Happy-hour times and deals change often — confirm on the venue page before you go._
