@@ -1,0 +1,28 @@
+{
+  "generated": "2026-08-04",
+  "angle": "multicultural-loyalty",
+  "slug": "2026-08-04-buying-loyalty-in-a-second-language-what-capital-one-s-mlb-b",
+  "title": "Buying Loyalty in a Second Language: What Capital One's MLB Bet Teaches Banks About Multicultural Trust",
+  "peg": {
+    "title": "Capital One's big bet on baseball and the credit card loyalty wars",
+    "url": "https://fortune.com/2026/07/25/capital-one-bet-mlb-baseball-think-can-help-win-credit-card-loyalty-wars/",
+    "source": "fortune.com",
+    "published": "2026-07-25"
+  },
+  "stats_used": [
+    "co_mlb_deal",
+    "co_asv_attendance",
+    "loyalty_wars",
+    "mlb_players_latino",
+    "mlb_fans_hispanic",
+    "latino_fans_power",
+    "fdic_unbanked",
+    "lep_population",
+    "tp_minority_banking",
+    "tp_monetize_multilingual",
+    "tp_ai_governance"
+  ],
+  "log": [
+    "offline: using fixture peg"
+  ]
+}
