@@ -96,7 +96,8 @@ class DraftTest(unittest.TestCase):
         slug, md = bot.build_draft(angle, bot.FIXTURE_PEG)
         self.assertTrue(slug.startswith(dt.date.today().isoformat()))
         self.assertIn("## Sources", md)
-        self.assertIn("DRAFT — human review required", md)
+        self.assertIn("DRAFT, human review required", md)
+        self.assertNotIn("—", md)  # house style: never use em dashes
         self.assertIn("111,616", md)          # verified stat surfaced
         self.assertIn("$125 million", md)
 

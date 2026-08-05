@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FinServ Blog Bot — a sourced first-draft generator for financial-services content.
+"""FinServ Blog Bot, a sourced first-draft generator for financial-services content.
 
 Companion to ``finserv_events_bot.py``. Where that bot finds events, this one
 drafts blog posts. Given a story *angle*, it:
@@ -10,7 +10,7 @@ drafts blog posts. Given a story *angle*, it:
   2. **Weaves in verified statistics** from a hand-curated ``STAT_LIBRARY`` in
      which *every* fact carries a primary/secondary source URL and an
      as-of date. The bot will not emit a statistic that is not in this
-     library — sourcing is a hard requirement, not an afterthought.
+     library, sourcing is a hard requirement, not an afterthought.
   3. **Assembles** a structured markdown draft in a financial-services voice:
      headline options, dek, intro tied to the live peg, body sections with
      inline footnote citations, a CTA, a numbered Sources list, and an
@@ -18,8 +18,8 @@ drafts blog posts. Given a story *angle*, it:
 
 It is deliberately a *first-draft* generator for a human editor to finish, not
 an auto-publisher: the prose is templated and the draft is stamped
-``DRAFT — human review required``. What it automates is the tedious,
-error-prone part — pulling a fresh peg and attaching correct, dated sources to
+``DRAFT, human review required``. What it automates is the tedious,
+error-prone part, pulling a fresh peg and attaching correct, dated sources to
 every claim.
 
 Python 3.11+, standard library only. Network access is best-effort; use
@@ -53,7 +53,7 @@ TODAY = dt.date.today()
 # Each entry is a fact the bot is allowed to state. Every one has a source URL
 # and an as_of date. `also` holds a corroborating source (claims used in a
 # draft were cross-checked against at least two independent outlets). If a fact
-# is not here, the bot cannot write it — that is the point.
+# is not here, the bot cannot write it, that is the point.
 # --------------------------------------------------------------------------- #
 @dataclasses.dataclass(frozen=True)
 class Stat:
@@ -123,8 +123,8 @@ STAT_LIBRARY: dict[str, Stat] = {
         ),
         Stat(
             "fdic_unbanked",
-            "9.5% of Hispanic households were unbanked in 2023 — more than double "
-            "the 4.2% national rate — and roughly one in five Hispanic households "
+            "9.5% of Hispanic households were unbanked in 2023, more than double "
+            "the 4.2% national rate, and roughly one in five Hispanic households "
             "were underbanked, versus 14.2% of households overall",
             "FDIC",
             "https://www.fdic.gov/household-survey",
@@ -133,8 +133,8 @@ STAT_LIBRARY: dict[str, Stat] = {
         ),
         Stat(
             "lep_population",
-            "about 25.6 million U.S. residents — roughly 8% of people aged five "
-            "and older — speak English less than “very well,” and Spanish "
+            "about 25.6 million U.S. residents, roughly 8% of people aged five "
+            "and older, speak English less than “very well,” and Spanish "
             "speakers are the largest such group at around 16 million",
             "U.S. Census Bureau",
             "https://www.census.gov/library/visualizations/interactive/people-that-speak-english-less-than-very-well.html",
@@ -170,7 +170,7 @@ STAT_LIBRARY: dict[str, Stat] = {
 
 CTA = (
     "*TransPerfect helps card issuers, retail banks, credit unions, and fintechs "
-    "deliver secure, compliant, in-language customer experiences at scale — from "
+    "deliver secure, compliant, in-language customer experiences at scale, from "
     "multilingual onboarding and apps to servicing and disclosures. "
     "[Explore our finance and banking language solutions »]"
     "(https://www.transperfect.com/industries/finance-and-banking)*"
@@ -201,7 +201,7 @@ ANGLES: dict[str, Angle] = {
         ),
         dek=(
             "How financial brands turn a sponsorship moment into a funded, "
-            "retained account — and why language is the conversion layer "
+            "retained account, and why language is the conversion layer "
             "most issuers aren't pricing."
         ),
         keywords=(
@@ -435,7 +435,7 @@ class Citations:
                 name, url = a.split("|", 1)
                 parts.append(f"See also: {name}. <{url}>")
             extra = " · " + " · ".join(parts)
-        note = f"{_cap_first(s.claim)} — {s.source} ({s.as_of}). <{s.url}>{extra}"
+        note = f"{_cap_first(s.claim)}, {s.source} ({s.as_of}). <{s.url}>{extra}"
         return self.cite(stat_id, note)
 
     def render(self) -> str:
@@ -454,7 +454,7 @@ def _slug(text: str) -> str:
 
 
 def _cap_first(text: str) -> str:
-    """Uppercase only the first character — preserves acronyms like MLB, U.S., AI."""
+    """Uppercase only the first character, preserves acronyms like MLB, U.S., AI."""
     return text[:1].upper() + text[1:] if text else text
 
 
@@ -462,14 +462,14 @@ def render_multicultural_loyalty(angle: Angle, peg: NewsItem, cites: Citations) 
     S = STAT_LIBRARY
     peg_cite = cites.cite(
         "peg",
-        f"{peg.title} — {peg.source}"
+        f"{peg.title}, {peg.source}"
         + (f", {peg.published.isoformat()}" if peg.published else "")
         + f". <{peg.url}>",
     )
     body = f"""\
 When Capital One signed a five-year deal reported at roughly **$125 million** to
-become Major League Baseball's official bank and credit card partner — and the
-presenting sponsor of the World Series — it wasn't buying ad inventory. It was
+become Major League Baseball's official bank and credit card partner, and the
+presenting sponsor of the World Series, it wasn't buying ad inventory. It was
 buying a feeling.{cites.cite_stat("co_mlb_deal")} In a market where a Visa is a
 Visa and rewards tables have converged to the decimal point, the product itself
 no longer differentiates. Loyalty does, and loyalty is increasingly purchased
@@ -479,7 +479,7 @@ The scale of that bet was on display this summer: Capital One's All-Star Village
 in Philadelphia drew a reported **111,616 visitors** over four days, the highest
 since 2022.{cites.cite_stat("co_asv_attendance")} That's a lot of people
 voluntarily spending an afternoon inside a bank's brand. But there's a quieter
-lesson most issuers are missing — one that decides whether that spend compounds
+lesson most issuers are missing, one that decides whether that spend compounds
 into revenue or evaporates the day after the game.
 
 **A sponsorship gets you the emotional moment. Localization is what converts it
@@ -490,7 +490,7 @@ into a customer.**
 Every issuer chasing the experience strategy is betting on the same funnel:
 passion drives attention, attention drives an application, an application drives
 a funded account, and a funded account drives a decade of interchange, deposits,
-and cross-sell. The sponsorship only pays off at the *end* of that funnel — and
+and cross-sell. The sponsorship only pays off at the *end* of that funnel, and
 most brands win the emotional moment in the stadium, then hand the prospect an
 onboarding flow, an app, and disclosures that all assume English is their most
 comfortable language. For a growing share of the exact fans these deals target,
@@ -506,7 +506,7 @@ seats. Consider that {S["mlb_players_latino"].claim}.\
 
 Now overlay where those consumers sit in the financial system:
 {S["fdic_unbanked"].claim}.{cites.cite_stat("fdic_unbanked")} These aren't people
-who already carry five cards — many are shopping for their first premium card or
+who already carry five cards, many are shopping for their first premium card or
 their first real banking relationship. The sponsorship isn't only reaching
 affluent travel-card holders; at its best it reaches a high-lifetime-value,
 under-served, under-contested growth segment.{cites.cite_stat("tp_minority_banking")}
@@ -519,28 +519,28 @@ and then hits an English-only application doesn't convert at the same rate. A
 cardholder who can't get servicing in their language doesn't stay at the same
 rate. Localization shows up in the metrics issuers already report:
 
-- **Activation** — in-language onboarding narrows the gap between "approved" and
+- **Activation**, in-language onboarding narrows the gap between "approved" and
   "funded and actively using the card."
-- **Retention** — in-language servicing and fraud alerts cut churn and
+- **Retention**, in-language servicing and fraud alerts cut churn and
   sock-drawer attrition.
-- **Compliance risk** — a mistranslated APR term or fraud notice is a regulatory
+- **Compliance risk**, a mistranslated APR term or fraud notice is a regulatory
   exposure, not a copy problem.
-- **Referral growth** — in tight-knit communities, a trusted relationship travels
+- **Referral growth**, in tight-knit communities, a trusted relationship travels
   by word of mouth.
 
-## Doing it at scale — responsibly
+## Doing it at scale, responsibly
 
 {_cap_first(S["tp_monetize_multilingual"].claim)}.\
 {cites.cite_stat("tp_monetize_multilingual")} The critical word is *responsibly*:
 a fluent-sounding but subtly wrong translation of a rate or a fraud alert is
-worse than none. {_cap_first(S["tp_ai_governance"].claim)} — automation where
+worse than none. {_cap_first(S["tp_ai_governance"].claim)}, automation where
 it's safe, human judgment where it's regulated.{cites.cite_stat("tp_ai_governance")}
 
 ## The takeaway for issuers
 
 When the product can't differentiate, buying loyalty through experience is the
 right instinct. But experience is the top of the funnel, not the bottom. The
-brands that win won't just have the biggest All-Star activation — they'll meet
+brands that win won't just have the biggest All-Star activation, they'll meet
 the fan they just won in the language they actually trust, all the way through
 funding and servicing. Passion gets you noticed. Language gets you kept.
 """
@@ -550,12 +550,12 @@ funding and servicing. Passion gets you noticed. Language gets you kept.
 def render_generic(angle: Angle, peg: NewsItem, cites: Citations) -> str:
     peg_cite = cites.cite(
         "peg",
-        f"{peg.title} — {peg.source}"
+        f"{peg.title}, {peg.source}"
         + (f", {peg.published.isoformat()}" if peg.published else "")
         + f". <{peg.url}>",
     )
     intro = (
-        f"A recent story — *{peg.title}* — is a useful way into a question "
+        f"A recent story, *{peg.title}*, is a useful way into a question "
         f"financial brands keep running up against.{peg_cite}\n\n"
     )
     paras = [intro, f"{angle.dek}\n"]
@@ -594,14 +594,14 @@ def build_draft(angle: Angle, peg: NewsItem) -> tuple[str, str]:
 
 *{angle.dek}*
 
-> **DRAFT — human review required.** Generated by finserv_blog_bot on \
+> **DRAFT, human review required.** Generated by finserv_blog_bot on \
 {TODAY.isoformat()} for the *{angle.key}* angle. Prose is templated; verify the \
 news peg, tighten the copy, and confirm every source before publishing.
 
 **Alternate headlines:**
 {alt_titles}
 
-**News peg:** [{peg.title}]({peg.url}) — {peg.source}\
+**News peg:** [{peg.title}]({peg.url}), {peg.source}\
 {f' ({peg.published.isoformat()})' if peg.published else ''}
 
 ---
@@ -670,7 +670,7 @@ def _render_index(slug: str, angle: Angle, peg: NewsItem) -> str:
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FinServ Blog Bot — latest draft</title>
+<title>FinServ Blog Bot, latest draft</title>
 <style>
   body {{ font-family: -apple-system, Segoe UI, Roboto, sans-serif;
          max-width: 46rem; margin: 2rem auto; padding: 0 1rem;
@@ -690,7 +690,7 @@ Latest run: <strong>{TODAY.isoformat()}</strong>.</p>
   <h2>{esc(angle.title_options[0])}</h2>
   <p>{esc(angle.dek)}</p>
   <p><strong>News peg:</strong>
-     <a href="{esc(peg.url)}">{esc(peg.title)}</a> &mdash; {esc(peg.source)}</p>
+     <a href="{esc(peg.url)}">{esc(peg.title)}</a> &middot; {esc(peg.source)}</p>
   <p>Read the draft: <a href="{esc(slug)}.md">{esc(slug)}.md</a>
      &middot; <a href="latest.md">latest.md</a>
      &middot; <a href="drafts.json">drafts.json</a></p>
@@ -734,7 +734,7 @@ def main(argv: list[str] | None = None) -> int:
         if peg is FIXTURE_PEG:
             log.append("no live peg matched; using fixture peg")
         else:
-            log.append(f"peg: {peg.source} — {peg.title}")
+            log.append(f"peg: {peg.source}, {peg.title}")
 
     slug, markdown = build_draft(angle, peg)
     write_outputs(args.out_dir, slug, markdown, angle, peg, log)
