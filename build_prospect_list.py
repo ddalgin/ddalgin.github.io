@@ -437,6 +437,9 @@ for i, (text, is_bold) in enumerate(notes, start=1):
         cell.font = reg_font
 nt.column_dimensions["A"].width = 80
 
-out = "/home/user/ddalgin.github.io/London_Finance_Prospect_List.xlsx"
-wb.save(out)
-print(f"Saved {out} with {r-2} contacts across {len(DATA)} companies")
+# Only write the file when run directly, so importing DATA/helpers from other
+# scripts doesn't overwrite the workbook as a side effect.
+if __name__ == "__main__":
+    out = "/home/user/ddalgin.github.io/London_Finance_Prospect_List.xlsx"
+    wb.save(out)
+    print(f"Saved {out} with {r-2} contacts across {len(DATA)} companies")
