@@ -41,8 +41,18 @@ for fn, ln, title, company, persona in rows:
     ctry, conf = country_lookup.get(f"{company}||{full}", ("", ""))
     data.append([fn, ln, title, company, seg, email, ctry, conf])
 
-# sort by segment number then company then last name
-data.sort(key=lambda r: (r[4], r[3], r[1]))
+# Keep the exact order of the user's external Excel. persona_rows.json is already
+# in that order (companies in list order), except Jennifer Scott was appended with
+# the new contacts - in the external sheet she sits inside NatWest after Tanvi Gokhali.
+def _find(pred):
+    for i, d in enumerate(data):
+        if pred(d):
+            return i
+    return None
+_ji = _find(lambda d: d[0] == "Jennifer" and d[3] == "NatWest Group")
+_jen = data.pop(_ji)
+_ti = _find(lambda d: d[0] == "Tanvi" and d[3] == "NatWest Group")
+data.insert(_ti + 1, _jen)
 
 FONT = "Arial"
 HEADERS = ["First Name", "Last Name", "Job Title", "Company", "Segment",
