@@ -1,18 +1,22 @@
 # FinServ Events Digest
 
-_Generated 2026-08-03 19:55 UTC · window: next 7 days · max ticket $150_
+_Generated 2026-08-11 19:29 UTC · window: next 75 days · max ticket $150_
 
 ## Washington DC (0)
 
 _No qualifying events found this run._
 
-## New York City (1)
+## New York City (5)
 
-- **2026-08-05** · [Startup Founders, Investors & Talent Mixer](https://www.garysguide.com/events/7s6oz58/Startup-Founders-Investors-Talent-Mixer) — FREE _(garysguide)_
+- **2026-08-11** · [NYC Fintech Coffee](https://www.garysguide.com/events/ojypdjc/NYC-Fintech-Coffee) — FREE _(garysguide)_
+- **2026-08-12** · [Fintech Founders Breakfast](https://www.garysguide.com/events/8vekmeo/Fintech-Founders-Breakfast) — FREE _(garysguide)_
+- **2026-08-12** · [Stripe Community - The Dollar Just Got An API - Stablecoin Use Cases For Business](https://www.garysguide.com/events/5sv38nb/Stripe-Community-The-Dollar-Just-Got-An-API-Stablecoin-Use-Cases-For-Business) — FREE _(garysguide)_
+- **2026-08-19** · [Startup Founders, Investors & Talent Mixer](https://www.garysguide.com/events/hx3amro/Startup-Founders-Investors-Talent-Mixer) — FREE _(garysguide)_
+- **2026-08-25** · [Fintech Run Club ft. Rain + Monk + JP Morgan](https://lu.ma/2ezybaln) — price unlisted _(luma)_
 
-## Philadelphia (0)
+## Philadelphia (1)
 
-_No qualifying events found this run._
+- **2026-08-27** · [Philly Fintech Meetup](https://lu.ma/c8t1pc0s) — price unlisted _(luma)_
 
 ## Boston (0)
 
