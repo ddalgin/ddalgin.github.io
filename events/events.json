@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T19:29:16+00:00",
+  "generated_at": "2026-08-12T22:03:35+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -32,6 +32,34 @@
       "city": "Washington DC",
       "ok": false,
       "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'lending': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'loan servicing': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'mortgage': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Washington DC",
+      "ok": false,
+      "detail": "'customer experience': HTTPError: HTTP Error 405: Not Allowed",
       "found": 0
     },
     {
@@ -77,6 +105,34 @@
       "found": 0
     },
     {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'lending': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'loan servicing': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'mortgage': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "New York City",
+      "ok": false,
+      "detail": "'customer experience': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
       "source": "10times",
       "city": "New York City",
       "ok": false,
@@ -95,7 +151,7 @@
       "city": "New York City",
       "ok": true,
       "detail": "slug 'nyc'",
-      "found": 84
+      "found": 81
     },
     {
       "source": "eventbrite",
@@ -123,6 +179,34 @@
       "city": "Philadelphia",
       "ok": false,
       "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'lending': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'loan servicing': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'mortgage': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Philadelphia",
+      "ok": false,
+      "detail": "'customer experience': HTTPError: HTTP Error 405: Not Allowed",
       "found": 0
     },
     {
@@ -137,7 +221,7 @@
       "city": "Philadelphia",
       "ok": true,
       "detail": "slug 'philadelphia'",
-      "found": 25
+      "found": 24
     },
     {
       "source": "eventbrite",
@@ -168,6 +252,34 @@
       "found": 0
     },
     {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'lending': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'loan servicing': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'mortgage': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
+      "source": "eventbrite",
+      "city": "Boston",
+      "ok": false,
+      "detail": "'customer experience': HTTPError: HTTP Error 405: Not Allowed",
+      "found": 0
+    },
+    {
       "source": "10times",
       "city": "Boston",
       "ok": false,
@@ -179,25 +291,10 @@
       "city": "Boston",
       "ok": true,
       "detail": "slug 'boston'",
-      "found": 24
+      "found": 26
     }
   ],
   "events": [
-    {
-      "title": "NYC Fintech Coffee",
-      "url": "https://www.garysguide.com/events/ojypdjc/NYC-Fintech-Coffee",
-      "start": "2026-08-11",
-      "city": "New York City",
-      "source": "garysguide",
-      "venue": "",
-      "description": "",
-      "price_min": 0.0,
-      "is_free": true,
-      "score": 4,
-      "matched": [
-        "fintech"
-      ]
-    },
     {
       "title": "Fintech Founders Breakfast",
       "url": "https://www.garysguide.com/events/8vekmeo/Fintech-Founders-Breakfast",
@@ -208,6 +305,7 @@
       "description": "",
       "price_min": 0.0,
       "is_free": true,
+      "is_virtual": false,
       "score": 4,
       "matched": [
         "fintech"
@@ -223,6 +321,7 @@
       "description": "",
       "price_min": 0.0,
       "is_free": true,
+      "is_virtual": false,
       "score": 3,
       "matched": [
         "stablecoin"
@@ -238,6 +337,7 @@
       "description": "",
       "price_min": 0.0,
       "is_free": true,
+      "is_virtual": false,
       "score": 2,
       "matched": []
     },
@@ -251,6 +351,7 @@
       "description": "",
       "price_min": null,
       "is_free": null,
+      "is_virtual": false,
       "score": 4,
       "matched": [
         "fintech"
@@ -266,6 +367,7 @@
       "description": "",
       "price_min": null,
       "is_free": null,
+      "is_virtual": false,
       "score": 4,
       "matched": [
         "fintech"

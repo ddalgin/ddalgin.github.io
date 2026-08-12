@@ -30,6 +30,9 @@
   .what a:hover { text-decoration:underline; }
   .meta { color:var(--muted); font-size:.82rem; margin-top:.15rem; }
   .src { margin-left:.5rem; font-style:italic; }
+  .fmt { font-weight:600; margin-right:.3rem; }
+  .fmt.inperson { color:var(--free); }
+  .fmt.virtual { color:var(--muted); }
   .tag { display:inline-block; margin-left:.4rem; padding:0 .4rem;
          border:1px solid var(--line); border-radius:999px; font-size:.72rem; }
   .price { flex:0 0 auto; font-size:.82rem; font-weight:700; }
@@ -44,7 +47,7 @@
 <main>
   <h1>Financial Services Events</h1>
   <div class="sub">DC · NYC · Philly · Boston — next 75 days,
-    tickets up to $150. Updated 2026-08-11 19:29 UTC.
+    tickets up to $150. Updated 2026-08-12 22:03 UTC.
     <a href="events.json">JSON</a> · <a href="latest.md">Markdown</a></div>
 
     <section>
@@ -52,22 +55,13 @@
       <ul><li class='empty'>No qualifying events found this run.</li></ul>
     </section>
     <section>
-      <h2>New York City <span class="count">5</span></h2>
+      <h2>New York City <span class="count">4</span></h2>
       <ul>
-        <li class="event">
-          <div class="when">2026-08-11</div>
-          <div class="what">
-            <a href="https://www.garysguide.com/events/ojypdjc/NYC-Fintech-Coffee" target="_blank" rel="noopener">NYC Fintech Coffee</a>
-            <div class="meta"><span class="src">via garysguide</span> <span class='tag'>fintech</span></div>
-          </div>
-          <div class="price free">FREE</div>
-        </li>
-
         <li class="event">
           <div class="when">2026-08-12</div>
           <div class="what">
             <a href="https://www.garysguide.com/events/8vekmeo/Fintech-Founders-Breakfast" target="_blank" rel="noopener">Fintech Founders Breakfast</a>
-            <div class="meta"><span class="src">via garysguide</span> <span class='tag'>fintech</span></div>
+            <div class="meta"><span class='fmt inperson'>📍 in-person</span> <span class="src">via garysguide</span> <span class='tag'>fintech</span></div>
           </div>
           <div class="price free">FREE</div>
         </li>
@@ -76,7 +70,7 @@
           <div class="when">2026-08-12</div>
           <div class="what">
             <a href="https://www.garysguide.com/events/5sv38nb/Stripe-Community-The-Dollar-Just-Got-An-API-Stablecoin-Use-Cases-For-Business" target="_blank" rel="noopener">Stripe Community - The Dollar Just Got An API - Stablecoin Use Cases For Business</a>
-            <div class="meta"><span class="src">via garysguide</span> <span class='tag'>stablecoin</span></div>
+            <div class="meta"><span class='fmt inperson'>📍 in-person</span> <span class="src">via garysguide</span> <span class='tag'>stablecoin</span></div>
           </div>
           <div class="price free">FREE</div>
         </li>
@@ -85,7 +79,7 @@
           <div class="when">2026-08-19</div>
           <div class="what">
             <a href="https://www.garysguide.com/events/hx3amro/Startup-Founders-Investors-Talent-Mixer" target="_blank" rel="noopener">Startup Founders, Investors &amp; Talent Mixer</a>
-            <div class="meta"><span class="src">via garysguide</span> </div>
+            <div class="meta"><span class='fmt inperson'>📍 in-person</span> <span class="src">via garysguide</span> </div>
           </div>
           <div class="price free">FREE</div>
         </li>
@@ -94,7 +88,7 @@
           <div class="when">2026-08-25</div>
           <div class="what">
             <a href="https://lu.ma/2ezybaln" target="_blank" rel="noopener">Fintech Run Club ft. Rain + Monk + JP Morgan</a>
-            <div class="meta"><span class="src">via luma</span> <span class='tag'>fintech</span></div>
+            <div class="meta"><span class='fmt inperson'>📍 in-person</span> <span class="src">via luma</span> <span class='tag'>fintech</span></div>
           </div>
           <div class="price unknown">price unlisted</div>
         </li></ul>
@@ -106,7 +100,7 @@
           <div class="when">2026-08-27</div>
           <div class="what">
             <a href="https://lu.ma/c8t1pc0s" target="_blank" rel="noopener">Philly Fintech Meetup</a>
-            <div class="meta"><span class="src">via luma</span> <span class='tag'>fintech</span></div>
+            <div class="meta"><span class='fmt inperson'>📍 in-person</span> <span class="src">via luma</span> <span class='tag'>fintech</span></div>
           </div>
           <div class="price unknown">price unlisted</div>
         </li></ul>
@@ -116,8 +110,8 @@
       <ul><li class='empty'>No qualifying events found this run.</li></ul>
     </section>
 
-    <details class="issues"><summary>20 source fetch issue(s) this run</summary>
-      <ul><li><code>eventbrite</code> / Washington DC: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Washington DC: HTTPError: HTTP Error 403: Forbidden</li><li><code>eventbrite</code> / New York City: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / New York City: HTTPError: HTTP Error 403: Forbidden</li><li><code>eventbrite</code> / Philadelphia: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Philadelphia: HTTPError: HTTP Error 403: Forbidden</li><li><code>eventbrite</code> / Boston: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Boston: HTTPError: HTTP Error 403: Forbidden</li></ul>
+    <details class="issues"><summary>36 source fetch issue(s) this run</summary>
+      <ul><li><code>eventbrite</code> / Washington DC: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;lending&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;loan servicing&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;mortgage&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Washington DC: &#x27;customer experience&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Washington DC: HTTPError: HTTP Error 403: Forbidden</li><li><code>eventbrite</code> / New York City: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;lending&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;loan servicing&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;mortgage&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / New York City: &#x27;customer experience&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / New York City: HTTPError: HTTP Error 403: Forbidden</li><li><code>eventbrite</code> / Philadelphia: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;lending&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;loan servicing&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;mortgage&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Philadelphia: &#x27;customer experience&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Philadelphia: HTTPError: HTTP Error 403: Forbidden</li><li><code>eventbrite</code> / Boston: &#x27;fintech&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;financial services&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;banking&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;capital markets&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;lending&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;loan servicing&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;mortgage&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>eventbrite</code> / Boston: &#x27;customer experience&#x27;: HTTPError: HTTP Error 405: Not Allowed</li><li><code>10times</code> / Boston: HTTPError: HTTP Error 403: Forbidden</li></ul>
     </details>
   <footer>Auto-generated by finserv_events_bot.py. Listings come from public
   sources (Eventbrite, 10times, Gary's Guide); always confirm details on the
