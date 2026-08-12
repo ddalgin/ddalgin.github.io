@@ -2,8 +2,8 @@ name: FinServ Events Bot
 
 on:
   schedule:
-    # Mondays and Thursdays at 12:00 UTC (~7/8am ET)
-    - cron: "0 12 * * 1,4"
+    # Every weekday at 11:00 UTC (~7am ET) — the morning scan
+    - cron: "0 11 * * 1-5"
   workflow_dispatch:
     inputs:
       max_price:

@@ -91,7 +91,7 @@ class ServerDataTest(unittest.TestCase):
 
 
 class EventbriteParseTest(unittest.TestCase):
-    def test_parses_and_skips_online(self):
+    def test_parses_and_tags_online(self):
         orig = bot.fetch
         bot.fetch = lambda url, timeout=25: EVENTBRITE_FIXTURE
         try:
@@ -99,10 +99,13 @@ class EventbriteParseTest(unittest.TestCase):
                 "New York City", {"eventbrite_slug": "ny--new-york"}, 75)
         finally:
             bot.fetch = orig
-        # one in-person event per search term (online one skipped)
+        # both events per term now (online tagged virtual, not skipped)
         per_term = len(events) / len(bot.SEARCH_TERMS)
-        self.assertEqual(per_term, 1)
-        ev = events[0]
+        self.assertEqual(per_term, 2)
+        online = next(e for e in events if "Online" in e.title)
+        self.assertTrue(online.is_virtual)
+        ev = next(e for e in events if e.title == "NYC Fintech Networking Mixer")
+        self.assertFalse(ev.is_virtual)
         self.assertEqual(ev.price_min, 25.0)
         self.assertEqual(ev.start, FUTURE)
         self.assertEqual(ev.venue, "The Yard")
@@ -189,7 +192,7 @@ LUMA_FIXTURE = json.dumps({
 
 
 class LumaTest(unittest.TestCase):
-    def test_parses_events_skips_online(self):
+    def test_parses_events_and_tags_online(self):
         orig = bot.fetch
         bot.fetch = lambda url, timeout=25: LUMA_FIXTURE
         try:
@@ -197,9 +200,12 @@ class LumaTest(unittest.TestCase):
                 "New York City", {"luma_slugs": ["nyc"]}, 75)
         finally:
             bot.fetch = orig
-        self.assertEqual(len(events), 2)  # online event skipped
+        self.assertEqual(len(events), 3)  # online event now included, tagged
+        online = next(e for e in events if "Webinar" in e.title)
+        self.assertTrue(online.is_virtual)
         mixer = next(e for e in events if "Mixer" in e.title)
         self.assertTrue(mixer.is_free)
+        self.assertFalse(mixer.is_virtual)
         self.assertEqual(mixer.start, FUTURE)
         hh = next(e for e in events if "Happy Hour" in e.title)
         self.assertEqual(hh.price_min, 15.0)
@@ -222,7 +228,7 @@ class LumaTest(unittest.TestCase):
                 "Washington DC", {"luma_slugs": ["bad", "dc"]}, 75)
         finally:
             bot.fetch = orig
-        self.assertEqual(len(events), 2)
+        self.assertEqual(len(events), 3)  # all events incl. online, tagged
         self.assertEqual(len(statuses), 2)  # one failure, one success
         self.assertTrue(statuses[1].ok)
 
@@ -255,6 +261,41 @@ class ScoringFilterTest(unittest.TestCase):
         kept = bot.filter_events(events, max_price=150, days=75, min_score=2)
         self.assertEqual(len(kept), 1)
         self.assertEqual(kept[0].title, "Fintech Banking Summit")
+
+
+class VirtualEventTest(unittest.TestCase):
+    def test_luma_flags_online_and_sorts_after_inperson(self):
+        payload = json.dumps({
+            "entries": [
+                {"event": {"name": "Virtual Lending Compliance Webinar",
+                           "url": "vwebinar", "start_at": f"{FUTURE}T18:00:00.000Z",
+                           "location_type": "online",
+                           "ticket_info": {"is_free": True}}},
+                {"event": {"name": "In-Person Loan Servicing Roundtable",
+                           "url": "iproundtable", "start_at": f"{FUTURE}T18:00:00.000Z",
+                           "location_type": "offline",
+                           "ticket_info": {"is_free": True}}},
+            ]
+        })
+        orig = bot.fetch
+        bot.fetch = lambda url, timeout=25: payload
+        try:
+            events, _ = bot.source_luma("New York City", {"luma_slugs": ["nyc"]}, 75)
+        finally:
+            bot.fetch = orig
+        virt = next(e for e in events if "Webinar" in e.title)
+        inp = next(e for e in events if "Roundtable" in e.title)
+        self.assertTrue(virt.is_virtual)
+        self.assertFalse(inp.is_virtual)
+        kept = bot.filter_events(events, max_price=150, days=75, min_score=2)
+        # in-person must rank before virtual on the same date
+        self.assertLess(kept.index(inp), kept.index(virt))
+
+    def test_text_infers_virtual(self):
+        e = bot.Event("Servicing Webinar", "https://x/e", FUTURE, "Boston",
+                      "test", description="loan servicing online event")
+        kept = bot.filter_events([e], max_price=150, days=75, min_score=2)
+        self.assertTrue(kept[0].is_virtual)
 
 
 class DateParseTest(unittest.TestCase):

@@ -62,7 +62,8 @@ CITIES = {
 
 # Search terms used against keyword-search sources (one request per term per
 # city on Eventbrite). Broad terms are fine; the relevance scorer prunes.
-SEARCH_TERMS = ["fintech", "financial services", "banking", "capital markets"]
+SEARCH_TERMS = ["fintech", "financial services", "banking", "capital markets",
+                "lending", "loan servicing", "mortgage", "customer experience"]
 
 # Relevance scoring over title + description. An event is kept when its
 # score meets --min-score. Positive terms indicate industry events where
@@ -121,6 +122,36 @@ KEYWORD_WEIGHTS = {
     "financial policy": 3,
     "housing finance": 2,
     "fintech week": 4,
+    # --- lenders / servicers / customer-experience focus (primary ICP) ---
+    "lender": 4,
+    "lenders": 4,
+    "non-bank": 4,
+    "nonbank": 4,
+    "loan servicing": 5,
+    "mortgage servicing": 5,
+    "servicer": 5,
+    "servicers": 5,
+    "servicing": 4,
+    "mortgage": 3,
+    "originat": 3,       # origination / originator
+    "borrower": 4,
+    "collections": 3,
+    "default servicing": 5,
+    "auto finance": 3,
+    "consumer lending": 4,
+    "commercial lending": 4,
+    "community bank": 3,
+    "customer experience": 5,
+    "client experience": 5,
+    "member experience": 5,
+    "customer engagement": 4,
+    "digital banking": 3,
+    "contact center": 4,
+    "call center": 3,
+    "customer service": 3,
+    "cx ": 3,
+    "onboarding": 3,
+    "loan officer": 3,
     "networking": 1,
     "summit": 1,
     "conference": 1,
@@ -174,6 +205,7 @@ class Event:
     description: str = ""
     price_min: float | None = None  # None = unknown
     is_free: bool | None = None
+    is_virtual: bool = False  # online/webinar vs in-person
     score: int = 0
     matched: list[str] = field(default_factory=list)
 
@@ -338,8 +370,6 @@ def source_eventbrite(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
                 data.get("search_data", {}).get("events", {}).get("results", [])
             )
             for ev in results:
-                if ev.get("is_online_event"):
-                    continue
                 tickets = ev.get("ticket_availability") or {}
                 min_price = tickets.get("minimum_ticket_price") or {}
                 venue = ev.get("primary_venue") or {}
@@ -354,6 +384,7 @@ def source_eventbrite(city: str, cfg: dict, days: int) -> tuple[list[Event], lis
                         description=clean_text(ev.get("summary", "")),
                         price_min=parse_price(min_price.get("major_value")),
                         is_free=tickets.get("is_free"),
+                        is_virtual=bool(ev.get("is_online_event")),
                     )
                 )
             statuses.append(SourceStatus("eventbrite", city, True,
@@ -388,6 +419,8 @@ def source_tentimes(city: str, cfg: dict, days: int) -> tuple[list[Event], list[
             if isinstance(loc, list):
                 loc = loc[0] if loc else {}
             price = parse_price(offers.get("price"))
+            mode = str(node.get("eventAttendanceMode", "")).lower()
+            is_virtual = "online" in mode and "offline" not in mode
             events.append(
                 Event(
                     title=clean_text(node.get("name", "")),
@@ -399,6 +432,7 @@ def source_tentimes(city: str, cfg: dict, days: int) -> tuple[list[Event], list[
                     description=clean_text(str(node.get("description", ""))),
                     price_min=price,
                     is_free=(price == 0) if price is not None else None,
+                    is_virtual=is_virtual,
                 )
             )
         statuses.append(SourceStatus("10times", city, True, "", len(nodes)))
@@ -492,8 +526,8 @@ def source_luma(city: str, cfg: dict, days: int) -> tuple[list[Event], list[Sour
                 page_events = data.get("events") or data.get("entries") or []
                 for node in page_events:
                     ev = node.get("event", node) if isinstance(node, dict) else {}
-                    if ev.get("location_type") not in (None, "offline"):
-                        continue  # skip online-only
+                    loc_type = ev.get("location_type")
+                    is_virtual = loc_type not in (None, "offline")
                     ticket = ev.get("ticket_info") or {}
                     price = None
                     is_free = ticket.get("is_free")
@@ -518,6 +552,7 @@ def source_luma(city: str, cfg: dict, days: int) -> tuple[list[Event], list[Sour
                                 or ev.get("description", "") or "")),
                             price_min=price,
                             is_free=is_free,
+                            is_virtual=is_virtual,
                         )
                     )
                     found_here += 1
@@ -559,6 +594,11 @@ def filter_events(events: list[Event], max_price: float, days: int,
     for ev in events:
         if not ev.title or not ev.url:
             continue
+        # infer virtual from title/description when the source didn't flag it
+        if not ev.is_virtual and re.search(
+                r"\b(virtual|webinar|online event|livestream|live stream)\b",
+                f"{ev.title} {ev.description}".lower()):
+            ev.is_virtual = True
         ev.score, ev.matched = score_event(ev.title, ev.description)
         if ev.score < min_score:
             continue
@@ -576,7 +616,8 @@ def filter_events(events: list[Event], max_price: float, days: int,
             continue
         seen.add(key)
         kept.append(ev)
-    kept.sort(key=lambda e: (e.start or "9999-99-99", -e.score))
+    # in-person always ranks above virtual; then by date, then relevance
+    kept.sort(key=lambda e: (e.is_virtual, e.start or "9999-99-99", -e.score))
     return kept
 
 # --------------------------------------------------------------- outputs ---
@@ -616,10 +657,12 @@ def write_markdown(events: list[Event], statuses: list[SourceStatus],
         lines.append("")
         if not city_events:
             lines.append("_No qualifying events found this run._")
+        # in-person first (already sorted), virtual grouped after
         for e in city_events:
             when = e.start or "date TBD"
             venue = f" @ {e.venue}" if e.venue else ""
-            lines.append(f"- **{when}** · [{e.title}]({e.url}) — "
+            fmt = "🖥️ VIRTUAL" if e.is_virtual else "📍 in-person"
+            lines.append(f"- **{when}** · {fmt} · [{e.title}]({e.url}) — "
                          f"{price_label(e)}{venue} _({e.source})_")
         lines.append("")
     failures = [s for s in statuses if not s.ok]
@@ -646,12 +689,14 @@ def write_html(events: list[Event], statuses: list[SourceStatus],
                 "paid" if e.price_min is not None else "unknown")
             tags = " ".join(f"<span class='tag'>{esc(t)}</span>"
                             for t in e.matched[:4] if not t.startswith("-"))
+            fmt = ("<span class='fmt virtual'>🖥️ virtual</span>" if e.is_virtual
+                   else "<span class='fmt inperson'>📍 in-person</span>")
             rows.append(f"""
         <li class="event">
           <div class="when">{esc(e.start or 'TBD')}</div>
           <div class="what">
             <a href="{esc(e.url)}" target="_blank" rel="noopener">{esc(e.title)}</a>
-            <div class="meta">{esc(e.venue)}<span class="src">via {esc(e.source)}</span> {tags}</div>
+            <div class="meta">{fmt} {esc(e.venue)}<span class="src">via {esc(e.source)}</span> {tags}</div>
           </div>
           <div class="price {badge_cls}">{esc(price_label(e))}</div>
         </li>""")
@@ -707,6 +752,9 @@ def write_html(events: list[Event], statuses: list[SourceStatus],
   .what a:hover {{ text-decoration:underline; }}
   .meta {{ color:var(--muted); font-size:.82rem; margin-top:.15rem; }}
   .src {{ margin-left:.5rem; font-style:italic; }}
+  .fmt {{ font-weight:600; margin-right:.3rem; }}
+  .fmt.inperson {{ color:var(--free); }}
+  .fmt.virtual {{ color:var(--muted); }}
   .tag {{ display:inline-block; margin-left:.4rem; padding:0 .4rem;
          border:1px solid var(--line); border-radius:999px; font-size:.72rem; }}
   .price {{ flex:0 0 auto; font-size:.82rem; font-weight:700; }}
