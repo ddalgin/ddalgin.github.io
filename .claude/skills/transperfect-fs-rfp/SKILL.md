@@ -43,6 +43,10 @@ Read the reference files as needed — don't dump them into every reply:
 - `references/fs-domain.md` — financial-services + localization domain knowledge (regulations,
   document types, US Spanish / crypto specifics, security expectations). Read when the RFP touches
   regulated content, data protection, or a specific FS sub-vertical.
+- `references/crypto-digital-assets.md` — crypto/digital-asset vertical intelligence: Bitcoin & market
+  context, Coinbase vs. Binance.US, and the US-Hispanic/Latino audience insight that should shape any
+  crypto-exchange localization pitch. Read this whenever the buyer is a crypto exchange, wallet, or
+  digital-asset firm (Binance.US, Coinbase, Kraken, etc.).
 
 ## Core operating principles
 
