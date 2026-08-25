@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-03T18:27:07+00:00",
+  "generated_at": "2026-08-25T14:34:40+00:00",
   "period": {
     "month": 7,
     "year": 2026,
@@ -7,8 +7,9 @@
   },
   "status": "DRAFT",
   "analysis": [
-    "Revenue billed $23,494,302 through Jun 2026; full YoY comparison pending the matching 2025 actuals.",
-    "Jun landed +$437,370 (+12.3%) vs the prior year.",
+    "Revenue is trailing last year: ~$27.50M YTD vs $28,562,340 in 2025 (~-$1.07M, ~-3.7%). 2 of 7 months are up YoY.",
+    "Jul landed -$641,165 (-13.8%) vs the prior year.",
+    "Overall markup is 9.62x; the Jul 2025 markup for the year-over-year comparison is pending.",
     "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 58% straight-line pace for this point in the year.",
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
@@ -18,9 +19,9 @@
     "source": "internal revenue dashboard, Finance vertical",
     "note": "",
     "markup": {
-      "value_2026": null,
+      "value_2026": 9.6211,
       "value_2025": null,
-      "note": "Overall markup, Finance vertical. Fill July 2026 and July 2025 for the year-over-year comparison.",
+      "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison.",
       "delta": null
     },
     "months": [
@@ -138,34 +139,35 @@
       {
         "month": "Jul",
         "actual_2025": 4643426.5,
-        "actual_2026": null,
+        "actual_2026": 4002261.27,
+        "note_2026": "9.62x markup",
         "estimate": false,
         "est_25": false,
         "est_26": false,
-        "reported": false,
-        "yoy_dollar": null,
-        "yoy_pct": null,
+        "reported": true,
+        "yoy_dollar": -641165.23,
+        "yoy_pct": -13.808019358118406,
         "ytd_2025": 28562340.18,
-        "ytd_2026": 23494301.89,
+        "ytd_2026": 27496563.16,
         "ytd_25_complete": true,
-        "ytd_26_complete": false,
+        "ytd_26_complete": true,
         "ytd_25_est": false,
         "ytd_26_est": true,
         "ytd_estimate": true
       }
     ],
     "ytd_2025": 28562340.18,
-    "ytd_2026": 23494301.89,
+    "ytd_2026": 27496563.16,
     "ytd_25_complete": true,
-    "ytd_26_complete": false,
+    "ytd_26_complete": true,
     "ytd_25_est": false,
     "ytd_26_est": true,
     "ytd_estimate": true,
-    "total_yoy_dollar": null,
-    "total_yoy_pct": null,
-    "months_reported": 6,
+    "total_yoy_dollar": -1065777.0199999996,
+    "total_yoy_pct": -3.7314065069019833,
+    "months_reported": 7,
     "months_up": 2,
-    "months_down": 4
+    "months_down": 5
   },
   "discovery": {
     "per_rep_monthly_floor": 3,
@@ -453,9 +455,9 @@
       "source": "internal revenue dashboard, Finance vertical",
       "note": "",
       "markup": {
-        "value_2026": null,
+        "value_2026": 9.6211,
         "value_2025": null,
-        "note": "Overall markup, Finance vertical. Fill July 2026 and July 2025 for the year-over-year comparison."
+        "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison."
       },
       "months": [
         {
@@ -494,7 +496,8 @@
         {
           "month": "Jul",
           "actual_2025": 4643426.5,
-          "actual_2026": null
+          "actual_2026": 4002261.27,
+          "note_2026": "9.62x markup"
         }
       ]
     },
@@ -657,12 +660,35 @@
       }
     },
     "wins_confirmed": {
-      "title": "Largest Confirmed Wins (Closed Revenue)",
+      "title": "Won Opps \u00b7 July (Net New Business)",
       "rows": []
     },
     "pipeline_ranked": {
       "title": "Highest-Value Pipeline (Pending Close)",
       "rows": []
+    },
+    "opportunities_logged": {
+      "title": "New Opportunities Logged \u00b7 July",
+      "count": null,
+      "items": [
+        {
+          "name": "Staffing \u2013 FRCA Language Lead"
+        },
+        {
+          "name": "AssuranceAmerica | Web Translation Opp"
+        },
+        {
+          "name": "OPI"
+        },
+        {
+          "name": "Wider Care \u2013 Patient Agreement for Translation"
+        },
+        {
+          "name": "Quote #547781 \u2013 Translation of Privacy Policy"
+        }
+      ],
+      "by_owner": [],
+      "note": "Names from the July opportunity export (partial view). By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
     },
     "newsletter": {},
     "engagement": [],

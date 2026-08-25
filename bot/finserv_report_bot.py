@@ -321,17 +321,18 @@ def build_analysis(data: dict, rev: dict, disc: dict,
 
     # --- Overall markup ----------------------------------------------------
     mk = rev.get("markup")
+    mo = last_26["month"] if last_26 else "the prior year"
     if mk and mk.get("value_2026") is not None:
         if mk.get("value_2025") is not None:
             d = mk["delta"]
             lines.append(
                 f"Overall markup is {markup_x(mk['value_2026'])} vs "
-                f"{markup_x(mk['value_2025'])} last June "
+                f"{markup_x(mk['value_2025'])} last {mo} "
                 f"({'+' if d >= 0 else ''}{d:.2f}x)."
             )
         else:
             lines.append(
-                f"Overall markup is {markup_x(mk['value_2026'])}; the June 2025 "
+                f"Overall markup is {markup_x(mk['value_2026'])}; the {mo} 2025 "
                 f"markup for the year-over-year comparison is pending."
             )
 
@@ -780,6 +781,50 @@ def render_engagement(data: dict) -> str:
     </section>"""
 
 
+def render_opportunities(data: dict) -> str:
+    """New Opportunities Logged (net-new pipeline): a count, the opportunity
+    names, and an optional by-owner ranking. Renders only when declared."""
+    o = data.get("opportunities_logged")
+    if o is None:
+        return ""
+    title = o.get("title", "New Opportunities Logged")
+    items = o.get("items") or []
+    by_owner = o.get("by_owner") or []
+    count = o.get("count")
+    if count is None and items:
+        count = len(items)
+    count_str = f"{count:,}" if count is not None else "—"
+
+    if items:
+        lis = "".join(
+            f'<li><span>{esc(it.get("name", ""))}</span>'
+            f'<span class="amt">{esc(it.get("owner", ""))}</span></li>'
+            for it in items)
+        names = f'<ul class="stack">{lis}</ul>'
+    else:
+        names = '<p class="empty">Opportunity names to be added.</p>'
+
+    owner_block = ""
+    if by_owner:
+        rows = "".join(
+            f'<tr><td>{esc(r.get("name", ""))}</td>'
+            f'<td class="val">{_cell(r.get("count"), "—")}</td></tr>'
+            for r in sorted(by_owner, key=lambda x: -(x.get("count") or 0)))
+        owner_block = (f'<h3 style="font-size:.85rem;margin:1rem 0 .5rem;">By owner</h3>'
+                       f'<table class="wtable"><thead><tr><th>Owner</th><th>Logged</th></tr>'
+                       f'</thead><tbody>{rows}</tbody></table>')
+    note = f'<p class="note">{esc(o["note"])}</p>' if o.get("note") else ""
+    return f"""
+    <section>
+      <h2>{esc(title)}</h2>
+      <div class="cards"><div class="card"><div class="k">Logged</div>
+        <div class="v">{count_str}</div></div></div>
+      {names}
+      {owner_block}
+      {note}
+    </section>"""
+
+
 def render_gifting(data: dict) -> str:
     """FS Gifting Program tracker: total delivered (aggregate) + by AE.
     Renders only when the `gifting` key is declared; empty-states its header."""
@@ -1031,6 +1076,7 @@ def render_html(data: dict, c: dict) -> str:
 {render_discovery_table(c['discovery'])}
 {render_discovery_reps(c['discovery'])}
 {render_closing(data, c)}
+{render_opportunities(data)}
 {render_engagement(data)}
 {render_gifting(data)}
 {render_cx_engagement(data)}

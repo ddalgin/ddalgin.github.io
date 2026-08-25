@@ -31,9 +31,9 @@
     "source": "internal revenue dashboard, Finance vertical",
     "note": "",
     "markup": {
-      "value_2026": null,
+      "value_2026": 9.6211,
       "value_2025": null,
-      "note": "Overall markup, Finance vertical. Fill July 2026 and July 2025 for the year-over-year comparison."
+      "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison."
     },
     "months": [
       { "month": "Jan", "actual_2025": 3749229.20, "actual_2026": 4159799 },
@@ -42,7 +42,7 @@
       { "month": "Apr", "actual_2025": 3992118.26, "actual_2026": 3914386 },
       { "month": "May", "actual_2025": 4006577.90, "actual_2026": 3590000, "estimate_2026": true, "note_2026": "~10x markup" },
       { "month": "Jun", "actual_2025": 3563670.03, "actual_2026": 4001039.89, "note_2026": "10.03x markup" },
-      { "month": "Jul", "actual_2025": 4643426.50, "actual_2026": null }
+      { "month": "Jul", "actual_2025": 4643426.50, "actual_2026": 4002261.27, "note_2026": "9.62x markup" }
     ]
   },
 
@@ -93,13 +93,27 @@
   },
 
   "wins_confirmed": {
-    "title": "Largest Confirmed Wins (Closed Revenue)",
+    "title": "Won Opps · July (Net New Business)",
     "rows": []
   },
 
   "pipeline_ranked": {
     "title": "Highest-Value Pipeline (Pending Close)",
     "rows": []
+  },
+
+  "opportunities_logged": {
+    "title": "New Opportunities Logged · July",
+    "count": null,
+    "items": [
+      { "name": "Staffing – FRCA Language Lead" },
+      { "name": "AssuranceAmerica | Web Translation Opp" },
+      { "name": "OPI" },
+      { "name": "Wider Care – Patient Agreement for Translation" },
+      { "name": "Quote #547781 – Translation of Privacy Policy" }
+    ],
+    "by_owner": [],
+    "note": "Names from the July opportunity export (partial view). By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
   },
 
   "newsletter": {},
