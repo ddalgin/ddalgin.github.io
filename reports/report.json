@@ -1,27 +1,28 @@
 {
-  "generated_at": "2026-08-25T18:21:03+00:00",
+  "generated_at": "2026-08-25T18:54:52+00:00",
   "period": {
-    "month": 7,
+    "month": 6,
     "year": 2026,
-    "label": "July 2026"
+    "label": "June 2026"
   },
-  "status": "DRAFT",
+  "status": "",
   "analysis": [
-    "Revenue is trailing last year: ~$27.50M YTD vs $28,562,340 in 2025 (~-$1.07M, ~-3.7%). 2 of 7 months are up YoY.",
-    "Jul landed -$641,165 (-13.8%) vs the prior year.",
-    "Overall markup is 9.62x; the Jul 2025 markup for the year-over-year comparison is pending.",
-    "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 58% straight-line pace for this point in the year.",
+    "Revenue is trailing last year: ~$23.49M YTD vs $23,918,914 in 2025 (~-$424,612, ~-1.8%). 2 of 6 months are up YoY.",
+    "Jun landed +$437,370 (+12.3%) vs the prior year.",
+    "Overall markup is 10.03x; the Jun 2025 markup for the year-over-year comparison is pending.",
+    "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 50% straight-line pace for this point in the year. June 2026 added 36 calls.",
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
-    "Per-AE discovery is set up \u2014 awaiting each AE named with their disco-call count against the 3-call floor."
+    "By AE: 11 of 28 reps have reported 38 discovery calls in June 2026 so far. 4 below the 3-call floor: Mariana Ordonana, Noelle Zimmerman, Sardar Muhammad, Sue Christian. 17 of 28 AEs still pending \u2014 team total will rise.",
+    "Newsletter open rate hit 25.60%, ~1.1x the ~20\u201325% benchmark; 4,632 total clicks is a record. Brand programming is compounding."
   ],
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
-    "note": "",
+    "note": "2025 monthly actuals exact from the internal dashboard (May 2025 = $4,006,577.90, restating the earlier ~$4.06M). June 2026 = $4,001,039.89 billed (10.03x markup), up +$437,370 (+12.3%) vs. June 2025. May 2026 remains rounded (~$3.59M) pending exact-cent reconciliation. June 2025 markup pending for the year-over-year markup comparison.",
     "markup": {
-      "value_2026": 9.6211,
+      "value_2026": 10.0327,
       "value_2025": null,
-      "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison.",
+      "note": "Overall markup, Finance vertical. June 2026 = 10.03x. June 2025 markup pending for the year-over-year comparison.",
       "delta": null
     },
     "months": [
@@ -135,44 +136,25 @@
         "ytd_25_est": false,
         "ytd_26_est": true,
         "ytd_estimate": true
-      },
-      {
-        "month": "Jul",
-        "actual_2025": 4643426.5,
-        "actual_2026": 4002261.27,
-        "note_2026": "9.62x markup",
-        "estimate": false,
-        "est_25": false,
-        "est_26": false,
-        "reported": true,
-        "yoy_dollar": -641165.23,
-        "yoy_pct": -13.808019358118406,
-        "ytd_2025": 28562340.18,
-        "ytd_2026": 27496563.16,
-        "ytd_25_complete": true,
-        "ytd_26_complete": true,
-        "ytd_25_est": false,
-        "ytd_26_est": true,
-        "ytd_estimate": true
       }
     ],
-    "ytd_2025": 28562340.18,
-    "ytd_2026": 27496563.16,
+    "ytd_2025": 23918913.68,
+    "ytd_2026": 23494301.89,
     "ytd_25_complete": true,
     "ytd_26_complete": true,
     "ytd_25_est": false,
     "ytd_26_est": true,
     "ytd_estimate": true,
-    "total_yoy_dollar": -1065777.0199999996,
-    "total_yoy_pct": -3.7314065069019833,
-    "months_reported": 7,
+    "total_yoy_dollar": -424611.7899999991,
+    "total_yoy_pct": -1.7752135221552383,
+    "months_reported": 6,
     "months_up": 2,
-    "months_down": 5
+    "months_down": 4
   },
   "discovery": {
     "per_rep_monthly_floor": 3,
-    "prior_label": "Jun '26 YTD",
-    "current_label": "Jul '26",
+    "prior_label": "May '26 YTD",
+    "current_label": "Jun '26",
     "ytd_label": "26 YTD",
     "note": "",
     "reps": [
@@ -193,8 +175,8 @@
       },
       {
         "name": "Anthony Madigan",
-        "calls": null,
-        "meets_floor": null
+        "calls": 6,
+        "meets_floor": true
       },
       {
         "name": "Avery Sturtevant",
@@ -203,8 +185,8 @@
       },
       {
         "name": "Brianna Farrell",
-        "calls": null,
-        "meets_floor": null
+        "calls": 6,
+        "meets_floor": true
       },
       {
         "name": "Clayton Eysel",
@@ -213,8 +195,9 @@
       },
       {
         "name": "Dante Dalgin",
-        "calls": null,
-        "meets_floor": null
+        "calls": 3,
+        "accounts": "WesBanco, Karadeniz Holdings, Fever",
+        "meets_floor": true
       },
       {
         "name": "Isabel Atwood",
@@ -228,8 +211,9 @@
       },
       {
         "name": "Jady Bailey",
-        "calls": null,
-        "meets_floor": null
+        "calls": 3,
+        "accounts": "Movement Mortgage, Davies, Canandaigua",
+        "meets_floor": true
       },
       {
         "name": "Jarel Dickey",
@@ -253,8 +237,9 @@
       },
       {
         "name": "Mariana Ordonana",
-        "calls": null,
-        "meets_floor": null
+        "calls": 1,
+        "accounts": "Santander",
+        "meets_floor": false
       },
       {
         "name": "Matthew Spitler",
@@ -263,8 +248,9 @@
       },
       {
         "name": "Noelle Zimmerman",
-        "calls": null,
-        "meets_floor": null
+        "calls": 1,
+        "accounts": "Mauch Chunk Trust",
+        "meets_floor": false
       },
       {
         "name": "Pam Potts",
@@ -283,23 +269,26 @@
       },
       {
         "name": "Samantha Weinstein",
-        "calls": null,
-        "meets_floor": null
+        "calls": 3,
+        "accounts": "Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual",
+        "meets_floor": true
       },
       {
         "name": "Sardar Muhammad",
-        "calls": null,
-        "meets_floor": null
+        "calls": 0,
+        "meets_floor": false
       },
       {
         "name": "Steven Davis",
-        "calls": null,
-        "meets_floor": null
+        "calls": 3,
+        "accounts": "Walmart, FACTS/Nelnet, PayPal",
+        "meets_floor": true
       },
       {
         "name": "Sue Christian",
-        "calls": null,
-        "meets_floor": null
+        "calls": 2,
+        "accounts": "Citizens, QRB",
+        "meets_floor": false
       },
       {
         "name": "Thomas Emery",
@@ -313,48 +302,49 @@
       },
       {
         "name": "Wayne Sparks",
-        "calls": null,
-        "meets_floor": null
+        "calls": 10,
+        "accounts": "Sahouri Insurance, FNF-Agency, NAHREP NE CBOG",
+        "meets_floor": true
       }
     ],
     "categories": [
       {
         "name": "Disco - General",
         "goal": 200,
-        "prior_ytd": 108,
-        "current": null,
+        "prior_ytd": 79,
+        "current": 29,
         "ytd": 108,
         "pct_to_goal": 54.0
       },
       {
         "name": "Disco - Digital",
         "goal": 150,
-        "prior_ytd": 31,
-        "current": null,
+        "prior_ytd": 30,
+        "current": 1,
         "ytd": 31,
         "pct_to_goal": 20.666666666666668
       },
       {
         "name": "Disco - Consulting",
         "goal": 100,
-        "prior_ytd": 5,
-        "current": null,
+        "prior_ytd": 4,
+        "current": 1,
         "ytd": 5,
         "pct_to_goal": 5.0
       },
       {
         "name": "Disco - TPC/BPO",
         "goal": 150,
-        "prior_ytd": 26,
-        "current": null,
+        "prior_ytd": 23,
+        "current": 3,
         "ytd": 26,
         "pct_to_goal": 17.333333333333336
       },
       {
         "name": "Disco - GlobalLink",
         "goal": 150,
-        "prior_ytd": 30,
-        "current": null,
+        "prior_ytd": 28,
+        "current": 2,
         "ytd": 30,
         "pct_to_goal": 20.0
       }
@@ -362,19 +352,19 @@
     "total": {
       "name": "Total Discovery Calls",
       "goal": 750,
-      "prior_ytd": 214,
-      "current": null,
+      "prior_ytd": 178,
+      "current": 36,
       "ytd": 214,
       "pct_to_goal": 28.53333333333333,
       "uncategorized": 14
     },
     "activities": [],
-    "pace_pct": 58.333333333333336,
+    "pace_pct": 50.0,
     "leader": {
       "name": "Disco - General",
       "goal": 200,
-      "prior_ytd": 108,
-      "current": null,
+      "prior_ytd": 79,
+      "current": 29,
       "ytd": 108,
       "pct_to_goal": 54.0
     },
@@ -382,31 +372,55 @@
       {
         "name": "Disco - Consulting",
         "goal": 100,
-        "prior_ytd": 5,
-        "current": null,
+        "prior_ytd": 4,
+        "current": 1,
         "ytd": 5,
         "pct_to_goal": 5.0
       },
       {
         "name": "Disco - TPC/BPO",
         "goal": 150,
-        "prior_ytd": 26,
-        "current": null,
+        "prior_ytd": 23,
+        "current": 3,
         "ytd": 26,
         "pct_to_goal": 17.333333333333336
       },
       {
         "name": "Disco - GlobalLink",
         "goal": 150,
-        "prior_ytd": 30,
-        "current": null,
+        "prior_ytd": 28,
+        "current": 2,
         "ytd": 30,
         "pct_to_goal": 20.0
       }
     ],
-    "team_calls": 0,
-    "reps_reported": 0,
-    "reps_below_floor": []
+    "team_calls": 38,
+    "reps_reported": 11,
+    "reps_below_floor": [
+      {
+        "name": "Mariana Ordonana",
+        "calls": 1,
+        "accounts": "Santander",
+        "meets_floor": false
+      },
+      {
+        "name": "Noelle Zimmerman",
+        "calls": 1,
+        "accounts": "Mauch Chunk Trust",
+        "meets_floor": false
+      },
+      {
+        "name": "Sardar Muhammad",
+        "calls": 0,
+        "meets_floor": false
+      },
+      {
+        "name": "Sue Christian",
+        "calls": 2,
+        "accounts": "Citizens, QRB",
+        "meets_floor": false
+      }
+    ]
   },
   "wins": {
     "items": [],
@@ -414,14 +428,29 @@
     "total": 0,
     "all_numeric": true
   },
-  "newsletter": {},
+  "newsletter": {
+    "send_date": "June 17",
+    "sent": 5761,
+    "delivered": 5761,
+    "opens": 1464,
+    "open_rate": 25.6,
+    "open_rate_benchmark_low": 20,
+    "open_rate_benchmark_high": 25,
+    "clicks_total": 4632,
+    "click_rate": 80,
+    "ctor_unique": 49,
+    "opt_outs": 16,
+    "note": "",
+    "delivery_rate": 100.0,
+    "open_vs_benchmark_x": 1.1377777777777778
+  },
   "source_data": {
     "period": {
-      "month": 7,
+      "month": 6,
       "year": 2026,
-      "label": "July 2026"
+      "label": "June 2026"
     },
-    "status": "DRAFT",
+    "status": "",
     "team": "Financial Services",
     "report_title": "Global Finance Sales",
     "org": "TransPerfect",
@@ -430,9 +459,8 @@
     "next_report_note": "",
     "precision_note": "",
     "show_footer": false,
-    "_template_note": "July scaffold \u2014 fill in the values as they land. Jan\u2013Jun 2026 actuals carry forward; 2025 actuals are exact through July. New this month: FS Gifting Program and CX Engagement Program trackers (headers below).",
     "leadership_note": {
-      "intro": "July report. The standing priorities don't change \u2014 they're obligations of each AM/AE/DBD on our team.",
+      "intro": "June report. The standing priorities don't change \u2014 they're obligations of each AM/AE/DBD on our team.",
       "standing_obligations": [
         "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
         "We MUST close deals. With the best people to do so."
@@ -453,11 +481,11 @@
     },
     "revenue": {
       "source": "internal revenue dashboard, Finance vertical",
-      "note": "",
+      "note": "2025 monthly actuals exact from the internal dashboard (May 2025 = $4,006,577.90, restating the earlier ~$4.06M). June 2026 = $4,001,039.89 billed (10.03x markup), up +$437,370 (+12.3%) vs. June 2025. May 2026 remains rounded (~$3.59M) pending exact-cent reconciliation. June 2025 markup pending for the year-over-year markup comparison.",
       "markup": {
-        "value_2026": 9.6211,
+        "value_2026": 10.0327,
         "value_2025": null,
-        "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison."
+        "note": "Overall markup, Finance vertical. June 2026 = 10.03x. June 2025 markup pending for the year-over-year comparison."
       },
       "months": [
         {
@@ -492,19 +520,13 @@
           "actual_2025": 3563670.03,
           "actual_2026": 4001039.89,
           "note_2026": "10.03x markup"
-        },
-        {
-          "month": "Jul",
-          "actual_2025": 4643426.5,
-          "actual_2026": 4002261.27,
-          "note_2026": "9.62x markup"
         }
       ]
     },
     "discovery": {
       "per_rep_monthly_floor": 3,
-      "prior_label": "Jun '26 YTD",
-      "current_label": "Jul '26",
+      "prior_label": "May '26 YTD",
+      "current_label": "Jun '26",
       "ytd_label": "26 YTD",
       "note": "",
       "reps": [
@@ -522,7 +544,7 @@
         },
         {
           "name": "Anthony Madigan",
-          "calls": null
+          "calls": 6
         },
         {
           "name": "Avery Sturtevant",
@@ -530,7 +552,7 @@
         },
         {
           "name": "Brianna Farrell",
-          "calls": null
+          "calls": 6
         },
         {
           "name": "Clayton Eysel",
@@ -538,7 +560,8 @@
         },
         {
           "name": "Dante Dalgin",
-          "calls": null
+          "calls": 3,
+          "accounts": "WesBanco, Karadeniz Holdings, Fever"
         },
         {
           "name": "Isabel Atwood",
@@ -550,7 +573,8 @@
         },
         {
           "name": "Jady Bailey",
-          "calls": null
+          "calls": 3,
+          "accounts": "Movement Mortgage, Davies, Canandaigua"
         },
         {
           "name": "Jarel Dickey",
@@ -570,7 +594,8 @@
         },
         {
           "name": "Mariana Ordonana",
-          "calls": null
+          "calls": 1,
+          "accounts": "Santander"
         },
         {
           "name": "Matthew Spitler",
@@ -578,7 +603,8 @@
         },
         {
           "name": "Noelle Zimmerman",
-          "calls": null
+          "calls": 1,
+          "accounts": "Mauch Chunk Trust"
         },
         {
           "name": "Pam Potts",
@@ -594,19 +620,22 @@
         },
         {
           "name": "Samantha Weinstein",
-          "calls": null
+          "calls": 3,
+          "accounts": "Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual"
         },
         {
           "name": "Sardar Muhammad",
-          "calls": null
+          "calls": 0
         },
         {
           "name": "Steven Davis",
-          "calls": null
+          "calls": 3,
+          "accounts": "Walmart, FACTS/Nelnet, PayPal"
         },
         {
           "name": "Sue Christian",
-          "calls": null
+          "calls": 2,
+          "accounts": "Citizens, QRB"
         },
         {
           "name": "Thomas Emery",
@@ -618,59 +647,72 @@
         },
         {
           "name": "Wayne Sparks",
-          "calls": null
+          "calls": 10,
+          "accounts": "Sahouri Insurance, FNF-Agency, NAHREP NE CBOG"
         }
       ],
       "categories": [
         {
           "name": "Disco - General",
           "goal": 200,
-          "prior_ytd": 108,
-          "current": null
+          "prior_ytd": 79,
+          "current": 29
         },
         {
           "name": "Disco - Digital",
           "goal": 150,
-          "prior_ytd": 31,
-          "current": null
+          "prior_ytd": 30,
+          "current": 1
         },
         {
           "name": "Disco - Consulting",
           "goal": 100,
-          "prior_ytd": 5,
-          "current": null
+          "prior_ytd": 4,
+          "current": 1
         },
         {
           "name": "Disco - TPC/BPO",
           "goal": 150,
-          "prior_ytd": 26,
-          "current": null
+          "prior_ytd": 23,
+          "current": 3
         },
         {
           "name": "Disco - GlobalLink",
           "goal": 150,
-          "prior_ytd": 30,
-          "current": null
+          "prior_ytd": 28,
+          "current": 2
         }
       ],
       "total": {
         "goal": 750,
-        "prior_ytd": 214,
-        "current": null
+        "prior_ytd": 178,
+        "current": 36
       }
     },
+    "wins": [],
+    "deals": [],
     "wins_confirmed": {
-      "title": "Won Opps \u00b7 July (Net New Business)",
+      "title": "Largest Confirmed Wins (Closed Revenue)",
       "rows": [
         {
-          "account": "UBS",
-          "value": "$200K tech (3 yr) + ~$200K/yr services",
-          "note": "GL Enterprise contract signed \u2014 net-new; land-and-expand, services scale from here"
+          "account": "United Wholesale Mortgage",
+          "value": "$50K+",
+          "note": "TPC; Joe Meineke & Avery"
         },
         {
-          "account": "LendingUSA",
-          "value": "$10,000",
-          "note": "TPC contract signed"
+          "account": "Berkshire Hathaway",
+          "value": "$10K closed + ~$40K pipeline",
+          "note": "Bill 96 document translations; new team penetration = land-and-expand play"
+        },
+        {
+          "account": "Regions Bank",
+          "value": "BPO Win (unquantified)",
+          "note": "Logo win in regional banking; BPO = sticky, recurring revenue"
+        },
+        {
+          "account": "Stormfield Capital",
+          "value": "$9K closed",
+          "note": "Translation; smaller AUM but closed revenue"
         }
       ]
     },
@@ -678,109 +720,43 @@
       "title": "Highest-Value Pipeline (Pending Close)",
       "rows": [
         {
-          "account": "Bread Financial",
-          "value": "$258,470.88",
-          "status": "BPO \u2014 disco across 3 separate LOBs (Vion running)",
-          "risk": "Multi-LOB, early stage; large upside if it lands"
+          "account": "RBC AI Excellence Program",
+          "value": "$100K",
+          "status": "Proposal out for approval",
+          "risk": "Approval cycle risk; large bank = slow procurement"
         },
         {
-          "account": "Landmark CU",
+          "account": "Shell FCU",
           "value": "Unquantified",
-          "status": "TPC disco; BPO also pitched",
-          "risk": "Early disco"
+          "status": "Verbal on GLWeb + Compliance; in VDD",
+          "risk": "VDD = final hurdle; high close probability"
         },
         {
-          "account": "Sauce",
+          "account": "Mauch Chunk Trust",
           "value": "Unquantified",
-          "status": "Disco \u2014 VP Customer Support (Josh Boock), post-CCW",
-          "risk": "Early disco"
+          "status": "Verbal yes; OPI pending",
+          "risk": "Small institution but fast-moving; good velocity indicator"
         }
       ]
     },
-    "opportunities_logged": {
-      "title": "New Opportunities Logged \u00b7 July",
-      "count": null,
-      "items": [
-        {
-          "name": "Staffing \u2013 FRCA Language Lead"
-        },
-        {
-          "name": "AssuranceAmerica | Web Translation Opp"
-        },
-        {
-          "name": "OPI"
-        },
-        {
-          "name": "Wider Care \u2013 Patient Agreement for Translation"
-        },
-        {
-          "name": "Quote #547781 \u2013 Translation of Privacy Policy"
-        }
-      ],
-      "by_owner": [],
-      "note": "Names from the July opportunity export (partial view). By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
+    "newsletter": {
+      "send_date": "June 17",
+      "sent": 5761,
+      "delivered": 5761,
+      "opens": 1464,
+      "open_rate": 25.6,
+      "open_rate_benchmark_low": 20,
+      "open_rate_benchmark_high": 25,
+      "clicks_total": 4632,
+      "click_rate": 80,
+      "ctor_unique": 49,
+      "opt_outs": 16,
+      "note": ""
     },
-    "newsletter": {},
-    "engagement": [],
-    "gifting": {
-      "program": "FS Gifting Program",
-      "total_delivered": 54,
-      "by_ae": [
-        {
-          "name": "Isabella McDevitt",
-          "delivered": 16
-        },
-        {
-          "name": "Jady Bailey",
-          "delivered": 15
-        },
-        {
-          "name": "Avery Sturtevant",
-          "delivered": 13
-        },
-        {
-          "name": "Sue Christian",
-          "delivered": 7
-        },
-        {
-          "name": "Angus Ulyate",
-          "delivered": 6
-        },
-        {
-          "name": "Jonathan Vion",
-          "delivered": 3
-        },
-        {
-          "name": "Mariana Ordonana",
-          "delivered": 2
-        },
-        {
-          "name": "Matthew Spitler",
-          "delivered": 1
-        }
-      ],
-      "note": "YTD (Jan\u2013Jul): 54 gifts/kits delivered. Shared sends are credited to each AE, so the by-AE column sums above the delivered total. Includes a 15-recipient Summer Kit batch (Isabella McDevitt)."
-    },
-    "cx_engagement": {
-      "program": "CX Engagement Program",
-      "outcomes": [
-        {
-          "outcome": "Event attendance",
-          "count": null,
-          "detail": ""
-        },
-        {
-          "outcome": "Referrals",
-          "count": null,
-          "detail": ""
-        },
-        {
-          "outcome": "VIP event confirmations",
-          "count": null,
-          "detail": ""
-        }
-      ]
-    },
+    "engagement": [
+      "31 Spring & Summer Kits delivered to clients",
+      "5 TransPerfect Financial blog posts published in June"
+    ],
     "events_upcoming": {
       "series": "FinanceNext Series",
       "url": "https://experiences.transperfect.com/financenextseries/",

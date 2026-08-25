@@ -945,9 +945,14 @@ def render_hero(data: dict, c: dict) -> str:
                            sub, direction(tot)))
     mk = rev.get("markup")
     if mk and mk.get("value_2026") is not None:
-        sub = (f"vs {markup_x(mk['value_2025'])} last {last['month'] if last else 'year'}"
-               if mk.get("value_2025") is not None else "vs last year — pending")
-        tiles.append(_tile("Overall Markup", markup_x(mk["value_2026"]), sub, "", good=True))
+        if mk.get("value_2025") is not None:
+            d = mk["delta"]
+            sub = f"vs {markup_x(mk['value_2025'])} '25 · {'+' if d >= 0 else ''}{d:.2f}x"
+            tiles.append(_tile("Overall Markup", markup_x(mk["value_2026"]), sub,
+                               "up" if d >= 0 else "down", good=d >= 0))
+        else:
+            tiles.append(_tile("Overall Markup", markup_x(mk["value_2026"]),
+                               "vs last year — pending", "", good=True))
     if wins.get("total"):
         tiles.append(_tile("New Wins", money(wins["total"]),
                            f"{wins['count']} closed", "up", good=True))
@@ -972,6 +977,14 @@ def render_banner(c: dict) -> str:
                 f'<strong>{last["month"]} revenue up {pct(last["yoy_pct"], 1, approx=last["est_26"])} '
                 f'YoY</strong> ({signed_money(last["yoy_dollar"], last["est_26"])}) — the {since}, '
                 f'even as unit volume stays soft.</div></div>')
+    # No up-month? Lead with profitability if markup improved YoY.
+    mk = rev.get("markup")
+    if mk and mk.get("delta") is not None and mk["delta"] > 0:
+        mo = last["month"] if last else "last year"
+        return (f'<div class="banner"><span class="mark">▲</span><div>'
+                f'<strong>More profitable YoY — markup {markup_x(mk["value_2026"])} vs '
+                f'{markup_x(mk["value_2025"])} last {mo}</strong> (+{mk["delta"]:.2f}x), '
+                f'even as revenue softened.</div></div>')
     return ""
 
 

@@ -32,8 +32,8 @@
     "note": "",
     "markup": {
       "value_2026": 9.6211,
-      "value_2025": null,
-      "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison."
+      "value_2025": 7.3418,
+      "note": "Overall markup, Finance vertical. July 2026 = 9.62x vs July 2025 = 7.34x — more profitable YoY (+2.28x) even as revenue softened."
     },
     "months": [
       { "month": "Jan", "actual_2025": 3749229.20, "actual_2026": 4159799 },

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T18:21:03+00:00",
+  "generated_at": "2026-08-25T18:54:52+00:00",
   "period": {
     "month": 7,
     "year": 2026,
@@ -9,7 +9,7 @@
   "analysis": [
     "Revenue is trailing last year: ~$27.50M YTD vs $28,562,340 in 2025 (~-$1.07M, ~-3.7%). 2 of 7 months are up YoY.",
     "Jul landed -$641,165 (-13.8%) vs the prior year.",
-    "Overall markup is 9.62x; the Jul 2025 markup for the year-over-year comparison is pending.",
+    "Overall markup is 9.62x vs 7.34x last Jul (+2.28x).",
     "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 58% straight-line pace for this point in the year.",
     "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
@@ -20,9 +20,9 @@
     "note": "",
     "markup": {
       "value_2026": 9.6211,
-      "value_2025": null,
-      "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison.",
-      "delta": null
+      "value_2025": 7.3418,
+      "note": "Overall markup, Finance vertical. July 2026 = 9.62x vs July 2025 = 7.34x \u2014 more profitable YoY (+2.28x) even as revenue softened.",
+      "delta": 2.2793
     },
     "months": [
       {
@@ -456,8 +456,8 @@
       "note": "",
       "markup": {
         "value_2026": 9.6211,
-        "value_2025": null,
-        "note": "Overall markup, Finance vertical. July 2026 = 9.62x. July 2025 markup pending for the year-over-year comparison."
+        "value_2025": 7.3418,
+        "note": "Overall markup, Finance vertical. July 2026 = 9.62x vs July 2025 = 7.34x \u2014 more profitable YoY (+2.28x) even as revenue softened."
       },
       "months": [
         {
