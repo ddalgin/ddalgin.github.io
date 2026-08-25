@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T14:34:40+00:00",
+  "generated_at": "2026-08-25T18:21:03+00:00",
   "period": {
     "month": 7,
     "year": 2026,
@@ -661,11 +661,41 @@
     },
     "wins_confirmed": {
       "title": "Won Opps \u00b7 July (Net New Business)",
-      "rows": []
+      "rows": [
+        {
+          "account": "UBS",
+          "value": "$200K tech (3 yr) + ~$200K/yr services",
+          "note": "GL Enterprise contract signed \u2014 net-new; land-and-expand, services scale from here"
+        },
+        {
+          "account": "LendingUSA",
+          "value": "$10,000",
+          "note": "TPC contract signed"
+        }
+      ]
     },
     "pipeline_ranked": {
       "title": "Highest-Value Pipeline (Pending Close)",
-      "rows": []
+      "rows": [
+        {
+          "account": "Bread Financial",
+          "value": "$258,470.88",
+          "status": "BPO \u2014 disco across 3 separate LOBs (Vion running)",
+          "risk": "Multi-LOB, early stage; large upside if it lands"
+        },
+        {
+          "account": "Landmark CU",
+          "value": "Unquantified",
+          "status": "TPC disco; BPO also pitched",
+          "risk": "Early disco"
+        },
+        {
+          "account": "Sauce",
+          "value": "Unquantified",
+          "status": "Disco \u2014 VP Customer Support (Josh Boock), post-CCW",
+          "risk": "Early disco"
+        }
+      ]
     },
     "opportunities_logged": {
       "title": "New Opportunities Logged \u00b7 July",
@@ -694,8 +724,42 @@
     "engagement": [],
     "gifting": {
       "program": "FS Gifting Program",
-      "total_delivered": null,
-      "by_ae": []
+      "total_delivered": 54,
+      "by_ae": [
+        {
+          "name": "Isabella McDevitt",
+          "delivered": 16
+        },
+        {
+          "name": "Jady Bailey",
+          "delivered": 15
+        },
+        {
+          "name": "Avery Sturtevant",
+          "delivered": 13
+        },
+        {
+          "name": "Sue Christian",
+          "delivered": 7
+        },
+        {
+          "name": "Angus Ulyate",
+          "delivered": 6
+        },
+        {
+          "name": "Jonathan Vion",
+          "delivered": 3
+        },
+        {
+          "name": "Mariana Ordonana",
+          "delivered": 2
+        },
+        {
+          "name": "Matthew Spitler",
+          "delivered": 1
+        }
+      ],
+      "note": "YTD (Jan\u2013Jul): 54 gifts/kits delivered. Shared sends are credited to each AE, so the by-AE column sums above the delivered total. Includes a 15-recipient Summer Kit batch (Isabella McDevitt)."
     },
     "cx_engagement": {
       "program": "CX Engagement Program",

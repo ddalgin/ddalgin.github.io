@@ -234,9 +234,16 @@ class TrackerSectionsTest(unittest.TestCase):
         self.assertIn("CX Engagement Program", html)
         self.assertIn("VIP event confirmations", html)   # seeded outcome row
 
-    def test_empty_states(self):
-        self.assertIn("to be tracked", bot.render_gifting(self.july).lower())
-        self.assertIn("Total Delivered", bot.render_gifting(self.july))
+    def test_empty_state_when_declared_empty(self):
+        empty = {"gifting": {"program": "FS Gifting Program", "by_ae": []}}
+        self.assertIn("to be tracked", bot.render_gifting(empty).lower())
+        self.assertIn("Total Delivered", bot.render_gifting(empty))
+
+    def test_july_gifting_populated(self):
+        html = bot.render_gifting(self.july)
+        self.assertIn("Total Delivered", html)
+        self.assertIn("Isabella McDevitt", html)         # top of the ranking
+        self.assertIn(">54<", html.replace(" ", ""))     # YTD total delivered
 
     def test_absent_when_not_declared(self):
         # June declares neither key -> both sections render nothing.
