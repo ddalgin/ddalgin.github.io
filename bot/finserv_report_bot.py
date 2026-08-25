@@ -752,16 +752,20 @@ def render_newsletter(nl: dict) -> str:
         deliv_note = f"{deliv:.0f}% delivered" if deliv is not None else ""
     else:
         sd_val, deliv_note = f"{nl.get('sent', 0):,}", ""
-    cards = "".join([
-        card("Send date", nl.get("send_date", "—")),
+    parts = []
+    if nl.get("send_date"):
+        parts.append(card("Send date", nl["send_date"]))
+    parts += [
         card("Sent / Delivered", sd_val, deliv_note),
         card("Opens", f"{nl.get('opens', 0):,}"),
         card("Open rate", pct(nl.get("open_rate"), 2), open_note),
         card("Clicks (total)", f"{nl.get('clicks_total', 0):,}", nl.get("clicks_note", "")),
         card("Click rate", pct(nl.get("click_rate"), 2)),
         card("CTOR (unique)", pct(nl.get("ctor_unique"), 0)),
-        card("Opt-outs", f"{nl['opt_outs']:,}" if nl.get("opt_outs") is not None else "—"),
-    ])
+    ]
+    if nl.get("opt_outs") is not None:
+        parts.append(card("Opt-outs", f"{nl['opt_outs']:,}"))
+    cards = "".join(parts)
     note = f'<p class="note">{esc(nl["note"])}</p>' if nl.get("note") else ""
     return f"""
     <section class="page-close">
