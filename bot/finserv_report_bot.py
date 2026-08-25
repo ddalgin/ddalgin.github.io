@@ -747,17 +747,20 @@ def render_newsletter(nl: dict) -> str:
         d = nl["open_delta_pts"]
         open_note = f"{'up' if d >= 0 else 'down'} {abs(d):.1f} pts from {pct(nl.get('prior_open_rate'))}"
     deliv = nl.get("delivery_rate")
-    deliv_note = f"{deliv:.0f}% delivered" if deliv is not None else ""
+    if nl.get("delivered") is not None:
+        sd_val = f"{nl.get('sent', 0):,} / {nl['delivered']:,}"
+        deliv_note = f"{deliv:.0f}% delivered" if deliv is not None else ""
+    else:
+        sd_val, deliv_note = f"{nl.get('sent', 0):,}", ""
     cards = "".join([
         card("Send date", nl.get("send_date", "—")),
-        card("Sent / Delivered", f"{nl.get('sent', 0):,} / {nl.get('delivered', 0):,}", deliv_note),
+        card("Sent / Delivered", sd_val, deliv_note),
         card("Opens", f"{nl.get('opens', 0):,}"),
         card("Open rate", pct(nl.get("open_rate"), 2), open_note),
-        card("Clicks (total)", f"{nl.get('clicks_total', 0):,}",
-             "highest to date" if nl.get("clicks_total") else ""),
+        card("Clicks (total)", f"{nl.get('clicks_total', 0):,}", nl.get("clicks_note", "")),
         card("Click rate", pct(nl.get("click_rate"), 2)),
         card("CTOR (unique)", pct(nl.get("ctor_unique"), 0)),
-        card("Opt-outs", f"{nl.get('opt_outs', 0):,}"),
+        card("Opt-outs", f"{nl['opt_outs']:,}" if nl.get("opt_outs") is not None else "—"),
     ])
     note = f'<p class="note">{esc(nl["note"])}</p>' if nl.get("note") else ""
     return f"""
@@ -958,7 +961,7 @@ def render_hero(data: dict, c: dict) -> str:
                            f"{wins['count']} closed", "up", good=True))
     if nl.get("open_rate") is not None:
         tiles.append(_tile("Newsletter Open", pct(nl["open_rate"], 1),
-                           "record clicks" if nl.get("clicks_total") else "", "up", good=True))
+                           esc(nl.get("open_note", "")), "up", good=True))
     return f'<div class="hero">{"".join(tiles)}</div>' if tiles else ""
 
 

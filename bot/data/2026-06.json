@@ -1,5 +1,9 @@
 {
-  "period": { "month": 6, "year": 2026, "label": "June 2026" },
+  "period": {
+    "month": 6,
+    "year": 2026,
+    "label": "June 2026"
+  },
   "status": "",
   "team": "Financial Services",
   "report_title": "Global Finance Sales",
@@ -9,22 +13,26 @@
   "next_report_note": "",
   "precision_note": "",
   "show_footer": false,
-
   "leadership_note": {
     "intro": "June report. The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
     "standing_obligations": [
       "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
       "We MUST close deals. With the best people to do so."
     ],
-    "the_bad": { "headline": "", "detail": "" },
-    "the_good": { "headline": "", "detail": "" },
+    "the_bad": {
+      "headline": "",
+      "detail": ""
+    },
+    "the_good": {
+      "headline": "",
+      "detail": ""
+    },
     "focus": [
       "More discovery calls. Each of you should have 3 legit disco calls on your worst month.",
       "Drive people to our upcoming 4 events — strategically situated in different locales and time frames to account for diverse audiences.",
       "Share your wins and failures so we can learn."
     ]
   },
-
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
     "note": "2025 monthly actuals exact from the internal dashboard (May 2025 = $4,006,577.90, restating the earlier ~$4.06M). June 2026 = $4,001,039.89 billed (10.03x markup), up +$437,370 (+12.3%) vs. June 2025. May 2026 remains rounded (~$3.59M) pending exact-cent reconciliation. June 2025 markup pending for the year-over-year markup comparison.",
@@ -34,15 +42,41 @@
       "note": "Overall markup, Finance vertical. June 2026 = 10.03x. June 2025 markup pending for the year-over-year comparison."
     },
     "months": [
-      { "month": "Jan", "actual_2025": 3749229.20, "actual_2026": 4159799 },
-      { "month": "Feb", "actual_2025": 3894493.67, "actual_2026": 3681822 },
-      { "month": "Mar", "actual_2025": 4712824.62, "actual_2026": 4147255 },
-      { "month": "Apr", "actual_2025": 3992118.26, "actual_2026": 3914386 },
-      { "month": "May", "actual_2025": 4006577.90, "actual_2026": 3590000, "estimate_2026": true, "note_2026": "~10x markup" },
-      { "month": "Jun", "actual_2025": 3563670.03, "actual_2026": 4001039.89, "note_2026": "10.03x markup" }
+      {
+        "month": "Jan",
+        "actual_2025": 3749229.2,
+        "actual_2026": 4159799
+      },
+      {
+        "month": "Feb",
+        "actual_2025": 3894493.67,
+        "actual_2026": 3681822
+      },
+      {
+        "month": "Mar",
+        "actual_2025": 4712824.62,
+        "actual_2026": 4147255
+      },
+      {
+        "month": "Apr",
+        "actual_2025": 3992118.26,
+        "actual_2026": 3914386
+      },
+      {
+        "month": "May",
+        "actual_2025": 4006577.9,
+        "actual_2026": 3590000,
+        "estimate_2026": true,
+        "note_2026": "~10x markup"
+      },
+      {
+        "month": "Jun",
+        "actual_2025": 3563670.03,
+        "actual_2026": 4001039.89,
+        "note_2026": "10.03x markup"
+      }
     ]
   },
-
   "discovery": {
     "per_rep_monthly_floor": 3,
     "prior_label": "May '26 YTD",
@@ -50,90 +84,242 @@
     "ytd_label": "26 YTD",
     "note": "",
     "reps": [
-      { "name": "Adele Broussard", "calls": null },
-      { "name": "Andres Cui", "calls": null },
-      { "name": "Angus Ulyate", "calls": null },
-      { "name": "Anthony Madigan", "calls": 6 },
-      { "name": "Avery Sturtevant", "calls": null },
-      { "name": "Brianna Farrell", "calls": 6 },
-      { "name": "Clayton Eysel", "calls": null },
-      { "name": "Dante Dalgin", "calls": 3, "accounts": "WesBanco, Karadeniz Holdings, Fever" },
-      { "name": "Isabel Atwood", "calls": null },
-      { "name": "Isabel Martel", "calls": null },
-      { "name": "Jady Bailey", "calls": 3, "accounts": "Movement Mortgage, Davies, Canandaigua" },
-      { "name": "Jarel Dickey", "calls": null },
-      { "name": "Jonathan Vion", "calls": null },
-      { "name": "Joseph Meineke", "calls": null },
-      { "name": "Justin Potts", "calls": null },
-      { "name": "Mariana Ordonana", "calls": 1, "accounts": "Santander" },
-      { "name": "Matthew Spitler", "calls": null },
-      { "name": "Noelle Zimmerman", "calls": 1, "accounts": "Mauch Chunk Trust" },
-      { "name": "Pam Potts", "calls": null },
-      { "name": "Rahul Fernandes", "calls": null },
-      { "name": "Salvatore Cerasoli", "calls": null },
-      { "name": "Samantha Weinstein", "calls": 3, "accounts": "Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual" },
-      { "name": "Sardar Muhammad", "calls": 0 },
-      { "name": "Steven Davis", "calls": 3, "accounts": "Walmart, FACTS/Nelnet, PayPal" },
-      { "name": "Sue Christian", "calls": 2, "accounts": "Citizens, QRB" },
-      { "name": "Thomas Emery", "calls": null },
-      { "name": "Michael DeFalco", "calls": null },
-      { "name": "Wayne Sparks", "calls": 10, "accounts": "Sahouri Insurance, FNF-Agency, NAHREP NE CBOG" }
+      {
+        "name": "Adele Broussard",
+        "calls": null
+      },
+      {
+        "name": "Andres Cui",
+        "calls": null
+      },
+      {
+        "name": "Angus Ulyate",
+        "calls": null
+      },
+      {
+        "name": "Anthony Madigan",
+        "calls": 6
+      },
+      {
+        "name": "Avery Sturtevant",
+        "calls": null
+      },
+      {
+        "name": "Brianna Farrell",
+        "calls": 6
+      },
+      {
+        "name": "Clayton Eysel",
+        "calls": null
+      },
+      {
+        "name": "Dante Dalgin",
+        "calls": 3,
+        "accounts": "WesBanco, Karadeniz Holdings, Fever"
+      },
+      {
+        "name": "Isabel Atwood",
+        "calls": null
+      },
+      {
+        "name": "Isabel Martel",
+        "calls": null
+      },
+      {
+        "name": "Jady Bailey",
+        "calls": 3,
+        "accounts": "Movement Mortgage, Davies, Canandaigua"
+      },
+      {
+        "name": "Jarel Dickey",
+        "calls": null
+      },
+      {
+        "name": "Jonathan Vion",
+        "calls": null
+      },
+      {
+        "name": "Joseph Meineke",
+        "calls": null
+      },
+      {
+        "name": "Justin Potts",
+        "calls": null
+      },
+      {
+        "name": "Mariana Ordonana",
+        "calls": 1,
+        "accounts": "Santander"
+      },
+      {
+        "name": "Matthew Spitler",
+        "calls": null
+      },
+      {
+        "name": "Noelle Zimmerman",
+        "calls": 1,
+        "accounts": "Mauch Chunk Trust"
+      },
+      {
+        "name": "Pam Potts",
+        "calls": null
+      },
+      {
+        "name": "Rahul Fernandes",
+        "calls": null
+      },
+      {
+        "name": "Salvatore Cerasoli",
+        "calls": null
+      },
+      {
+        "name": "Samantha Weinstein",
+        "calls": 3,
+        "accounts": "Members 1st FCU, Mauch Chunk Trust, PA Lumbermen's Mutual"
+      },
+      {
+        "name": "Sardar Muhammad",
+        "calls": 0
+      },
+      {
+        "name": "Steven Davis",
+        "calls": 3,
+        "accounts": "Walmart, FACTS/Nelnet, PayPal"
+      },
+      {
+        "name": "Sue Christian",
+        "calls": 2,
+        "accounts": "Citizens, QRB"
+      },
+      {
+        "name": "Thomas Emery",
+        "calls": null
+      },
+      {
+        "name": "Michael DeFalco",
+        "calls": null
+      },
+      {
+        "name": "Wayne Sparks",
+        "calls": 10,
+        "accounts": "Sahouri Insurance, FNF-Agency, NAHREP NE CBOG"
+      }
     ],
     "categories": [
-      { "name": "Disco - General",         "goal": 200, "prior_ytd": 79, "current": 29 },
-      { "name": "Disco - Digital",         "goal": 150, "prior_ytd": 30, "current": 1 },
-      { "name": "Disco - Consulting",      "goal": 100, "prior_ytd": 4,  "current": 1 },
-      { "name": "Disco - TPC/BPO",         "goal": 150, "prior_ytd": 23, "current": 3 },
-      { "name": "Disco - GlobalLink",      "goal": 150, "prior_ytd": 28, "current": 2 }
+      {
+        "name": "Disco - General",
+        "goal": 200,
+        "prior_ytd": 79,
+        "current": 29
+      },
+      {
+        "name": "Disco - Digital",
+        "goal": 150,
+        "prior_ytd": 30,
+        "current": 1
+      },
+      {
+        "name": "Disco - Consulting",
+        "goal": 100,
+        "prior_ytd": 4,
+        "current": 1
+      },
+      {
+        "name": "Disco - TPC/BPO",
+        "goal": 150,
+        "prior_ytd": 23,
+        "current": 3
+      },
+      {
+        "name": "Disco - GlobalLink",
+        "goal": 150,
+        "prior_ytd": 28,
+        "current": 2
+      }
     ],
-    "total": { "goal": 750, "prior_ytd": 178, "current": 36 }
+    "total": {
+      "goal": 750,
+      "prior_ytd": 178,
+      "current": 36
+    }
   },
-
   "wins": [],
   "deals": [],
-
   "wins_confirmed": {
     "title": "Largest Confirmed Wins (Closed Revenue)",
     "rows": [
-      { "account": "United Wholesale Mortgage", "value": "$50K+", "note": "TPC; Joe Meineke & Avery" },
-      { "account": "Berkshire Hathaway", "value": "$10K closed + ~$40K pipeline", "note": "Bill 96 document translations; new team penetration = land-and-expand play" },
-      { "account": "Regions Bank", "value": "BPO Win (unquantified)", "note": "Logo win in regional banking; BPO = sticky, recurring revenue" },
-      { "account": "Stormfield Capital", "value": "$9K closed", "note": "Translation; smaller AUM but closed revenue" }
+      {
+        "account": "United Wholesale Mortgage",
+        "value": "$50K+",
+        "note": "TPC; Joe Meineke & Avery"
+      },
+      {
+        "account": "Berkshire Hathaway",
+        "value": "$10K closed + ~$40K pipeline",
+        "note": "Bill 96 document translations; new team penetration = land-and-expand play"
+      },
+      {
+        "account": "Regions Bank",
+        "value": "BPO Win (unquantified)",
+        "note": "Logo win in regional banking; BPO = sticky, recurring revenue"
+      },
+      {
+        "account": "Stormfield Capital",
+        "value": "$9K closed",
+        "note": "Translation; smaller AUM but closed revenue"
+      }
     ]
   },
-
   "pipeline_ranked": {
     "title": "Highest-Value Pipeline (Pending Close)",
     "rows": [
-      { "account": "RBC AI Excellence Program", "value": "$100K", "status": "Proposal out for approval", "risk": "Approval cycle risk; large bank = slow procurement" },
-      { "account": "Shell FCU", "value": "Unquantified", "status": "Verbal on GLWeb + Compliance; in VDD", "risk": "VDD = final hurdle; high close probability" },
-      { "account": "Mauch Chunk Trust", "value": "Unquantified", "status": "Verbal yes; OPI pending", "risk": "Small institution but fast-moving; good velocity indicator" }
+      {
+        "account": "RBC AI Excellence Program",
+        "value": "$100K",
+        "status": "Proposal out for approval",
+        "risk": "Approval cycle risk; large bank = slow procurement"
+      },
+      {
+        "account": "Shell FCU",
+        "value": "Unquantified",
+        "status": "Verbal on GLWeb + Compliance; in VDD",
+        "risk": "VDD = final hurdle; high close probability"
+      },
+      {
+        "account": "Mauch Chunk Trust",
+        "value": "Unquantified",
+        "status": "Verbal yes; OPI pending",
+        "risk": "Small institution but fast-moving; good velocity indicator"
+      }
     ]
   },
-
   "newsletter": {
     "send_date": "June 17",
     "sent": 5761,
     "delivered": 5761,
     "opens": 1464,
-    "open_rate": 25.60,
+    "open_rate": 25.6,
     "open_rate_benchmark_low": 20,
     "open_rate_benchmark_high": 25,
     "clicks_total": 4632,
     "click_rate": 80,
     "ctor_unique": 49,
     "opt_outs": 16,
-    "note": ""
+    "note": "",
+    "clicks_note": "highest to date"
   },
-
   "engagement": [
     "31 Spring & Summer Kits delivered to clients",
     "5 TransPerfect Financial blog posts published in June"
   ],
-
   "events_upcoming": {
     "series": "FinanceNext Series",
     "url": "https://experiences.transperfect.com/financenextseries/",
-    "cities": ["New York", "Toronto", "London", "SF"]
+    "cities": [
+      "New York",
+      "Toronto",
+      "London",
+      "SF"
+    ]
   }
 }

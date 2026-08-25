@@ -123,7 +123,15 @@
     "note": "Names from the July opportunity export (partial view). By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
   },
 
-  "newsletter": {},
+  "newsletter": {
+    "sent": 6005,
+    "opens": 1897,
+    "open_rate": 31.59,
+    "open_note": "vs 25.6% in Jun",
+    "clicks_total": 848,
+    "click_rate": 14.12,
+    "ctor_unique": 44.70
+  },
 
   "engagement": [],
 

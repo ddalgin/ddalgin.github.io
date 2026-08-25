@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T18:54:52+00:00",
+  "generated_at": "2026-08-25T19:14:20+00:00",
   "period": {
     "month": 6,
     "year": 2026,
@@ -441,6 +441,7 @@
     "ctor_unique": 49,
     "opt_outs": 16,
     "note": "",
+    "clicks_note": "highest to date",
     "delivery_rate": 100.0,
     "open_vs_benchmark_x": 1.1377777777777778
   },
@@ -751,7 +752,8 @@
       "click_rate": 80,
       "ctor_unique": 49,
       "opt_outs": 16,
-      "note": ""
+      "note": "",
+      "clicks_note": "highest to date"
     },
     "engagement": [
       "31 Spring & Summer Kits delivered to clients",
