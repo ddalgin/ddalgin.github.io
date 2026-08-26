@@ -1,0 +1,59 @@
+name: Apollo Feeder Bot
+
+on:
+  schedule:
+    # Mondays and Thursdays at 13:00 UTC (~8/9am ET), after the events bot.
+    - cron: "0 13 * * 1,4"
+  workflow_dispatch:
+    inputs:
+      pages:
+        description: "Pages to pull per search (25 results/page)"
+        required: false
+        default: "2"
+      min_price:
+        description: "Minimum account revenue in USD"
+        required: false
+        default: "500000000"
+      create_list:
+        description: "Apollo list name to push contacts into (blank = export only)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run parser tests
+        run: python test_apollo_feeder.py
+        working-directory: bot
+
+      - name: Build Apollo feed
+        env:
+          APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
+        run: >
+          python bot/apollo_feeder_bot.py
+          --out-dir apollo
+          --pages ${{ github.event.inputs.pages || '2' }}
+          --min-revenue ${{ github.event.inputs.min_price || '500000000' }}
+          ${{ github.event.inputs.create_list && format('--create-list "{0}"', github.event.inputs.create_list) || '' }}
+
+      - name: Commit and push results
+        run: |
+          git config user.name "apollo-feeder-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add apollo/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update Apollo feed ($(date -u +%Y-%m-%d))"
+            git push
+          fi

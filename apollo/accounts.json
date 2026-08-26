@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-08-26T01:44:40+00:00",
+  "meta": {
+    "pages": 2,
+    "min_revenue": 500000000,
+    "hubs": [
+      "New York, US",
+      "London, United Kingdom",
+      "Hong Kong",
+      "Singapore",
+      "Zurich, Switzerland",
+      "Frankfurt, Germany",
+      "Tokyo, Japan",
+      "Toronto, Canada",
+      "Paris, France",
+      "Dubai, United Arab Emirates",
+      "Chicago, US",
+      "Boston, US",
+      "San Francisco, US",
+      "Sydney, Australia",
+      "Amsterdam, Netherlands"
+    ],
+    "keywords": [
+      "financial services",
+      "investment banking",
+      "asset management",
+      "private equity",
+      "hedge fund",
+      "venture capital",
+      "wealth management",
+      "capital markets",
+      "banking",
+      "insurance",
+      "reinsurance",
+      "sovereign wealth fund",
+      "pension fund",
+      "brokerage",
+      "fintech"
+    ]
+  },
+  "sources": [
+    {
+      "source": "apollo-api",
+      "ok": false,
+      "detail": "APOLLO_API_KEY not set - skipped account/people search",
+      "found": 0
+    }
+  ],
+  "accounts": []
+}
