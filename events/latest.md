@@ -1,6 +1,6 @@
 # FinServ Events Digest
 
-_Generated 2026-08-24 12:42 UTC · window: next 75 days · max ticket $150_
+_Generated 2026-08-27 21:42 UTC · window: next 75 days · max ticket $150_
 
 ## Washington DC (0)
 
