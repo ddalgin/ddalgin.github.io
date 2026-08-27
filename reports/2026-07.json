@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T16:04:12+00:00",
+  "generated_at": "2026-08-27T16:11:43+00:00",
   "period": {
     "month": 7,
     "year": 2026,
@@ -10,8 +10,8 @@
     "Revenue is trailing last year: ~$27.50M YTD vs $28,562,340 in 2025 (~-$1.07M, ~-3.7%). 2 of 7 months are up YoY.",
     "Jul landed -$641,165 (-13.8%) vs the prior year.",
     "Overall markup is 9.62x vs 7.34x last Jul (+2.28x).",
-    "Discovery calls are at 250 of 750 (33% to goal) \u2014 behind the 58% straight-line pace for this point in the year. July 2026 added 30 calls.",
-    "Furthest from goal: Consulting (7%), Digital (22%), TPC/BPO (24%).",
+    "Discovery calls are at 249 of 750 (33% to goal) \u2014 behind the 58% straight-line pace for this point in the year. July 2026 added 29 calls.",
+    "Furthest from goal: Consulting (7%), Digital (22%), TPC/BPO (23%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
     "Per-AE discovery is set up \u2014 awaiting each AE named with their disco-call count against the 3-call floor.",
     "Newsletter open rate hit 31.59%; 848 total clicks is a record. Brand programming is compounding."
@@ -347,9 +347,9 @@
         "name": "Disco - TPC/BPO",
         "goal": 150,
         "prior_ytd": 28,
-        "current": 8,
-        "ytd": 36,
-        "pct_to_goal": 24.0
+        "current": 7,
+        "ytd": 35,
+        "pct_to_goal": 23.333333333333332
       },
       {
         "name": "Disco - GlobalLink",
@@ -364,9 +364,9 @@
       "name": "Total Discovery Calls",
       "goal": 750,
       "prior_ytd": 220,
-      "current": 30,
-      "ytd": 250,
-      "pct_to_goal": 33.33333333333333,
+      "current": 29,
+      "ytd": 249,
+      "pct_to_goal": 33.2,
       "uncategorized": 10
     },
     "activities": [],
@@ -400,9 +400,9 @@
         "name": "Disco - TPC/BPO",
         "goal": 150,
         "prior_ytd": 28,
-        "current": 8,
-        "ytd": 36,
-        "pct_to_goal": 24.0
+        "current": 7,
+        "ytd": 35,
+        "pct_to_goal": 23.333333333333332
       }
     ],
     "team_calls": 0,
@@ -653,7 +653,7 @@
           "name": "Disco - TPC/BPO",
           "goal": 150,
           "prior_ytd": 28,
-          "current": 8
+          "current": 7
         },
         {
           "name": "Disco - GlobalLink",
@@ -665,7 +665,7 @@
       "total": {
         "goal": 750,
         "prior_ytd": 220,
-        "current": 30
+        "current": 29
       }
     },
     "wins_confirmed": {

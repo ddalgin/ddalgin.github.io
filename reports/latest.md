@@ -1,14 +1,14 @@
 # Financial Services — July 2026 [DRAFT]
 
-_TransPerfect · Global Finance · auto-assembled 2026-08-27 16:04 UTC_
+_TransPerfect · Global Finance · auto-assembled 2026-08-27 16:11 UTC_
 
 ## At a glance
 
 - Revenue is trailing last year: ~$27.50M YTD vs $28,562,340 in 2025 (~-$1.07M, ~-3.7%). 2 of 7 months are up YoY.
 - Jul landed -$641,165 (-13.8%) vs the prior year.
 - Overall markup is 9.62x vs 7.34x last Jul (+2.28x).
-- Discovery calls are at 250 of 750 (33% to goal) — behind the 58% straight-line pace for this point in the year. July 2026 added 30 calls.
-- Furthest from goal: Consulting (7%), Digital (22%), TPC/BPO (24%).
+- Discovery calls are at 249 of 750 (33% to goal) — behind the 58% straight-line pace for this point in the year. July 2026 added 29 calls.
+- Furthest from goal: Consulting (7%), Digital (22%), TPC/BPO (23%).
 - Standing floor is 3 legit discovery calls per rep on their worst month — the categories above are the team's obligation, not a stretch target.
 - Per-AE discovery is set up — awaiting each AE named with their disco-call count against the 3-call floor.
 - Newsletter open rate hit 31.59%; 848 total clicks is a record. Brand programming is compounding.
@@ -35,9 +35,9 @@ _TransPerfect · Global Finance · auto-assembled 2026-08-27 16:04 UTC_
 | Disco - General | 200 | 110 | 15 | 125 | 62% |
 | Disco - Digital | 150 | 31 | 2 | 33 | 22% |
 | Disco - Consulting | 100 | 5 | 2 | 7 | 7% |
-| Disco - TPC/BPO | 150 | 28 | 8 | 36 | 24% |
+| Disco - TPC/BPO | 150 | 28 | 7 | 35 | 23% |
 | Disco - GlobalLink | 150 | 36 | 3 | 39 | 26% |
-| **Total Discovery Calls** | 750 | 220 | 30 | 250 | 33% |
+| **Total Discovery Calls** | 750 | 220 | 29 | 249 | 33% |
 
 ## Won Opps · July (Net New Business)
 

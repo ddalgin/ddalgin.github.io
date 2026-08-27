@@ -227,7 +227,7 @@
         "name": "Disco - TPC/BPO",
         "goal": 150,
         "prior_ytd": 28,
-        "current": 8
+        "current": 7
       },
       {
         "name": "Disco - GlobalLink",
@@ -239,7 +239,7 @@
     "total": {
       "goal": 750,
       "prior_ytd": 220,
-      "current": 30
+      "current": 29
     }
   },
   "wins_confirmed": {
