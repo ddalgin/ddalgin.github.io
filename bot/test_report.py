@@ -190,13 +190,13 @@ class JuneDraftTest(unittest.TestCase):
                                  "Sardar Muhammad", "Sue Christian"})
 
     def test_discovery_total_override(self):
-        # Tracked total (215) wins over the category sum (201); the 14-call
-        # gap is surfaced as uncategorized rather than silently dropped.
+        # Tracked total wins over the category sum; the gap is surfaced as
+        # uncategorized rather than silently dropped.
         disc = self.c["discovery"]
-        self.assertEqual(disc["total"]["ytd"], 214)
-        self.assertEqual(disc["total"]["current"], 36)
-        self.assertAlmostEqual(disc["total"]["pct_to_goal"], 214 / 750 * 100, places=2)
-        self.assertEqual(disc["total"]["uncategorized"], 14)
+        self.assertEqual(disc["total"]["ytd"], 220)
+        self.assertEqual(disc["total"]["current"], 42)
+        self.assertAlmostEqual(disc["total"]["pct_to_goal"], 220 / 750 * 100, places=2)
+        self.assertEqual(disc["total"]["uncategorized"], 10)
 
     def test_draft_renders(self):
         html = bot.render_html(self.data, self.c)

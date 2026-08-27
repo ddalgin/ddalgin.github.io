@@ -1,5 +1,9 @@
 {
-  "period": { "month": 7, "year": 2026, "label": "July 2026" },
+  "period": {
+    "month": 7,
+    "year": 2026,
+    "label": "July 2026"
+  },
   "status": "DRAFT",
   "team": "Financial Services",
   "report_title": "Global Finance Sales",
@@ -9,24 +13,27 @@
   "next_report_note": "",
   "precision_note": "",
   "show_footer": false,
-
   "_template_note": "July scaffold — fill in the values as they land. Jan–Jun 2026 actuals carry forward; 2025 actuals are exact through July. New this month: FS Gifting Program and CX Engagement Program trackers (headers below).",
-
   "leadership_note": {
     "intro": "July report. The standing priorities don't change — they're obligations of each AM/AE/DBD on our team.",
     "standing_obligations": [
       "We MUST originate discovery calls. Each of us. Without discovery, we don't learn, customers don't learn, and we can't present solutions.",
       "We MUST close deals. With the best people to do so."
     ],
-    "the_bad": { "headline": "", "detail": "" },
-    "the_good": { "headline": "", "detail": "" },
+    "the_bad": {
+      "headline": "",
+      "detail": ""
+    },
+    "the_good": {
+      "headline": "",
+      "detail": ""
+    },
     "focus": [
       "More discovery calls. Each of you should have 3 legit disco calls on your worst month.",
       "Drive people to our upcoming 4 events — strategically situated in different locales and time frames to account for diverse audiences.",
       "Share your wins and failures so we can learn."
     ]
   },
-
   "revenue": {
     "source": "internal revenue dashboard, Finance vertical",
     "note": "",
@@ -36,16 +43,47 @@
       "note": "Overall markup, Finance vertical. July 2026 = 9.62x vs July 2025 = 7.34x — more profitable YoY (+2.28x) even as revenue softened."
     },
     "months": [
-      { "month": "Jan", "actual_2025": 3749229.20, "actual_2026": 4159799 },
-      { "month": "Feb", "actual_2025": 3894493.67, "actual_2026": 3681822 },
-      { "month": "Mar", "actual_2025": 4712824.62, "actual_2026": 4147255 },
-      { "month": "Apr", "actual_2025": 3992118.26, "actual_2026": 3914386 },
-      { "month": "May", "actual_2025": 4006577.90, "actual_2026": 3590000, "estimate_2026": true, "note_2026": "~10x markup" },
-      { "month": "Jun", "actual_2025": 3563670.03, "actual_2026": 4001039.89, "note_2026": "10.03x markup" },
-      { "month": "Jul", "actual_2025": 4643426.50, "actual_2026": 4002261.27, "note_2026": "9.62x markup" }
+      {
+        "month": "Jan",
+        "actual_2025": 3749229.2,
+        "actual_2026": 4159799
+      },
+      {
+        "month": "Feb",
+        "actual_2025": 3894493.67,
+        "actual_2026": 3681822
+      },
+      {
+        "month": "Mar",
+        "actual_2025": 4712824.62,
+        "actual_2026": 4147255
+      },
+      {
+        "month": "Apr",
+        "actual_2025": 3992118.26,
+        "actual_2026": 3914386
+      },
+      {
+        "month": "May",
+        "actual_2025": 4006577.9,
+        "actual_2026": 3590000,
+        "estimate_2026": true,
+        "note_2026": "~10x markup"
+      },
+      {
+        "month": "Jun",
+        "actual_2025": 3563670.03,
+        "actual_2026": 4001039.89,
+        "note_2026": "10.03x markup"
+      },
+      {
+        "month": "Jul",
+        "actual_2025": 4643426.5,
+        "actual_2026": 4002261.27,
+        "note_2026": "9.62x markup"
+      }
     ]
   },
-
   "discovery": {
     "per_rep_monthly_floor": 3,
     "prior_label": "Jun '26 YTD",
@@ -53,76 +91,252 @@
     "ytd_label": "26 YTD",
     "note": "",
     "reps": [
-      { "name": "Adele Broussard", "calls": null },
-      { "name": "Andres Cui", "calls": null },
-      { "name": "Angus Ulyate", "calls": null },
-      { "name": "Anthony Madigan", "calls": null },
-      { "name": "Avery Sturtevant", "calls": null },
-      { "name": "Brianna Farrell", "calls": null },
-      { "name": "Clayton Eysel", "calls": null },
-      { "name": "Dante Dalgin", "calls": null },
-      { "name": "Isabel Atwood", "calls": null },
-      { "name": "Isabel Martel", "calls": null },
-      { "name": "Jady Bailey", "calls": null },
-      { "name": "Jarel Dickey", "calls": null },
-      { "name": "Jonathan Vion", "calls": null },
-      { "name": "Joseph Meineke", "calls": null },
-      { "name": "Justin Potts", "calls": null },
-      { "name": "Mariana Ordonana", "calls": null },
-      { "name": "Matthew Spitler", "calls": null },
-      { "name": "Noelle Zimmerman", "calls": null },
-      { "name": "Pam Potts", "calls": null },
-      { "name": "Rahul Fernandes", "calls": null },
-      { "name": "Salvatore Cerasoli", "calls": null },
-      { "name": "Samantha Weinstein", "calls": null },
-      { "name": "Sardar Muhammad", "calls": null },
-      { "name": "Steven Davis", "calls": null },
-      { "name": "Sue Christian", "calls": null },
-      { "name": "Thomas Emery", "calls": null },
-      { "name": "Michael DeFalco", "calls": null },
-      { "name": "Wayne Sparks", "calls": null }
+      {
+        "name": "Adele Broussard",
+        "calls": null
+      },
+      {
+        "name": "Andres Cui",
+        "calls": null
+      },
+      {
+        "name": "Angus Ulyate",
+        "calls": null
+      },
+      {
+        "name": "Anthony Madigan",
+        "calls": null
+      },
+      {
+        "name": "Avery Sturtevant",
+        "calls": null
+      },
+      {
+        "name": "Brianna Farrell",
+        "calls": null
+      },
+      {
+        "name": "Clayton Eysel",
+        "calls": null
+      },
+      {
+        "name": "Dante Dalgin",
+        "calls": null
+      },
+      {
+        "name": "Isabel Atwood",
+        "calls": null
+      },
+      {
+        "name": "Isabel Martel",
+        "calls": null
+      },
+      {
+        "name": "Jady Bailey",
+        "calls": null
+      },
+      {
+        "name": "Jarel Dickey",
+        "calls": null
+      },
+      {
+        "name": "Jonathan Vion",
+        "calls": null
+      },
+      {
+        "name": "Joseph Meineke",
+        "calls": null
+      },
+      {
+        "name": "Justin Potts",
+        "calls": null
+      },
+      {
+        "name": "Mariana Ordonana",
+        "calls": null
+      },
+      {
+        "name": "Matthew Spitler",
+        "calls": null
+      },
+      {
+        "name": "Noelle Zimmerman",
+        "calls": null
+      },
+      {
+        "name": "Pam Potts",
+        "calls": null
+      },
+      {
+        "name": "Rahul Fernandes",
+        "calls": null
+      },
+      {
+        "name": "Salvatore Cerasoli",
+        "calls": null
+      },
+      {
+        "name": "Samantha Weinstein",
+        "calls": null
+      },
+      {
+        "name": "Sardar Muhammad",
+        "calls": null
+      },
+      {
+        "name": "Steven Davis",
+        "calls": null
+      },
+      {
+        "name": "Sue Christian",
+        "calls": null
+      },
+      {
+        "name": "Thomas Emery",
+        "calls": null
+      },
+      {
+        "name": "Michael DeFalco",
+        "calls": null
+      },
+      {
+        "name": "Wayne Sparks",
+        "calls": null
+      }
     ],
     "categories": [
-      { "name": "Disco - General",    "goal": 200, "prior_ytd": 108, "current": null },
-      { "name": "Disco - Digital",    "goal": 150, "prior_ytd": 31,  "current": null },
-      { "name": "Disco - Consulting", "goal": 100, "prior_ytd": 5,   "current": null },
-      { "name": "Disco - TPC/BPO",    "goal": 150, "prior_ytd": 26,  "current": null },
-      { "name": "Disco - GlobalLink", "goal": 150, "prior_ytd": 30,  "current": null }
+      {
+        "name": "Disco - General",
+        "goal": 200,
+        "prior_ytd": 110,
+        "current": 15
+      },
+      {
+        "name": "Disco - Digital",
+        "goal": 150,
+        "prior_ytd": 31,
+        "current": 2
+      },
+      {
+        "name": "Disco - Consulting",
+        "goal": 100,
+        "prior_ytd": 5,
+        "current": 2
+      },
+      {
+        "name": "Disco - TPC/BPO",
+        "goal": 150,
+        "prior_ytd": 28,
+        "current": 8
+      },
+      {
+        "name": "Disco - GlobalLink",
+        "goal": 150,
+        "prior_ytd": 36,
+        "current": 3
+      }
     ],
-    "total": { "goal": 750, "prior_ytd": 214, "current": null }
+    "total": {
+      "goal": 750,
+      "prior_ytd": 220,
+      "current": 30
+    }
   },
-
   "wins_confirmed": {
     "title": "Won Opps · July (Net New Business)",
     "rows": [
-      { "account": "UBS", "value": "$200K tech (3 yr) + ~$200K/yr services", "note": "GL Enterprise contract signed — net-new; land-and-expand, services scale from here" },
-      { "account": "LendingUSA", "value": "$10,000", "note": "TPC contract signed" }
+      {
+        "account": "UBS",
+        "value": "$200K tech (3 yr) + ~$200K/yr services",
+        "note": "GL Enterprise contract signed — net-new; land-and-expand, services scale from here"
+      },
+      {
+        "account": "LendingUSA",
+        "value": "$10,000",
+        "note": "TPC contract signed"
+      }
     ]
   },
-
   "pipeline_ranked": {
     "title": "Highest-Value Pipeline (Pending Close)",
     "rows": [
-      { "account": "Bread Financial", "value": "$258,470.88", "status": "BPO — disco across 3 separate LOBs (Vion running)", "risk": "Multi-LOB, early stage; large upside if it lands" },
-      { "account": "Landmark CU", "value": "Unquantified", "status": "TPC disco; BPO also pitched", "risk": "Early disco" },
-      { "account": "Sauce", "value": "Unquantified", "status": "Disco — VP Customer Support (Josh Boock), post-CCW", "risk": "Early disco" }
+      {
+        "account": "Bread Financial",
+        "value": "$258,470.88",
+        "status": "BPO — disco across 3 separate LOBs (Vion running)",
+        "risk": "Multi-LOB, early stage; large upside if it lands"
+      },
+      {
+        "account": "Program Consulting",
+        "value": "$175K",
+        "status": "12-month contract",
+        "risk": "Consulting team; terms in progress"
+      },
+      {
+        "account": "RBC AI",
+        "value": "$100K",
+        "status": "Proposal discussion",
+        "risk": "Large bank; slow procurement"
+      },
+      {
+        "account": "RBC – Staffing FRCA Language Lead",
+        "value": "Min $86K/yr",
+        "status": "Proposal out (Consulting team)",
+        "risk": "Approval cycle"
+      },
+      {
+        "account": "Landmark CU",
+        "value": "Unquantified",
+        "status": "TPC disco; BPO also pitched",
+        "risk": "Early disco"
+      },
+      {
+        "account": "Sauce",
+        "value": "Unquantified",
+        "status": "Disco — VP Customer Support (Josh Boock), post-CCW",
+        "risk": "Early disco"
+      }
     ]
   },
-
   "opportunities_logged": {
     "title": "New Opportunities Logged · July",
     "count": null,
     "items": [
-      { "name": "Staffing – FRCA Language Lead" },
-      { "name": "AssuranceAmerica | Web Translation Opp" },
-      { "name": "OPI" },
-      { "name": "Wider Care – Patient Agreement for Translation" },
-      { "name": "Quote #547781 – Translation of Privacy Policy" }
+      {
+        "name": "Staffing – FRCA Language Lead"
+      },
+      {
+        "name": "AssuranceAmerica | Web Translation Opp"
+      },
+      {
+        "name": "OPI"
+      },
+      {
+        "name": "Wider Care – Patient Agreement for Translation"
+      },
+      {
+        "name": "Quote #547781 – Translation of Privacy Policy"
+      },
+      {
+        "name": "121 Mining (Hyve Group)",
+        "owner": "Mariana"
+      },
+      {
+        "name": "Moniepoint — discovery call"
+      },
+      {
+        "name": "Federated Hermes — discovery call"
+      },
+      {
+        "name": "TouchNet — third GL Web demo"
+      },
+      {
+        "name": "Visa — follow-up disco (lunch scheduled)"
+      }
     ],
     "by_owner": [],
-    "note": "Names from the July opportunity export (partial view). By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
+    "note": "Net-new opportunities and discovery activity logged in July. By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
   },
-
   "newsletter": {
     "sent": 6005,
     "opens": 1897,
@@ -130,39 +344,79 @@
     "open_note": "vs 25.6% in Jun",
     "clicks_total": 848,
     "click_rate": 14.12,
-    "ctor_unique": 44.70
+    "ctor_unique": 44.7
   },
-
-  "engagement": [],
-
+  "engagement": [
+    "Blockchain conference — networking drinks with Coinbase, Wealthsimple & others",
+    "Tetra Digital — client drinks"
+  ],
   "gifting": {
     "program": "FS Gifting Program",
     "total_delivered": 54,
     "by_ae": [
-      { "name": "Isabella McDevitt", "delivered": 16 },
-      { "name": "Jady Bailey", "delivered": 15 },
-      { "name": "Avery Sturtevant", "delivered": 13 },
-      { "name": "Sue Christian", "delivered": 7 },
-      { "name": "Angus Ulyate", "delivered": 6 },
-      { "name": "Jonathan Vion", "delivered": 3 },
-      { "name": "Mariana Ordonana", "delivered": 2 },
-      { "name": "Matthew Spitler", "delivered": 1 }
+      {
+        "name": "Isabella McDevitt",
+        "delivered": 16
+      },
+      {
+        "name": "Jady Bailey",
+        "delivered": 15
+      },
+      {
+        "name": "Avery Sturtevant",
+        "delivered": 13
+      },
+      {
+        "name": "Sue Christian",
+        "delivered": 7
+      },
+      {
+        "name": "Angus Ulyate",
+        "delivered": 6
+      },
+      {
+        "name": "Jonathan Vion",
+        "delivered": 3
+      },
+      {
+        "name": "Mariana Ordonana",
+        "delivered": 2
+      },
+      {
+        "name": "Matthew Spitler",
+        "delivered": 1
+      }
     ],
     "note": "YTD (Jan–Jul): 54 gifts/kits delivered. Shared sends are credited to each AE, so the by-AE column sums above the delivered total. Includes a 15-recipient Summer Kit batch (Isabella McDevitt)."
   },
-
   "cx_engagement": {
     "program": "CX Engagement Program",
     "outcomes": [
-      { "outcome": "Event attendance", "count": null, "detail": "" },
-      { "outcome": "Referrals", "count": null, "detail": "" },
-      { "outcome": "VIP event confirmations", "count": null, "detail": "" }
+      {
+        "outcome": "Event attendance",
+        "count": null,
+        "detail": ""
+      },
+      {
+        "outcome": "Referrals",
+        "count": null,
+        "detail": ""
+      },
+      {
+        "outcome": "VIP event confirmations",
+        "count": null,
+        "detail": ""
+      }
     ]
   },
-
   "events_upcoming": {
     "series": "FinanceNext Series",
     "url": "https://experiences.transperfect.com/financenextseries/",
-    "cities": ["New York", "Toronto", "London", "SF"]
+    "cities": [
+      "New York",
+      "Toronto",
+      "London",
+      "SF"
+    ]
   }
 }

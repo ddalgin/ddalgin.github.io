@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T19:16:04+00:00",
+  "generated_at": "2026-08-27T16:04:12+00:00",
   "period": {
     "month": 7,
     "year": 2026,
@@ -10,8 +10,8 @@
     "Revenue is trailing last year: ~$27.50M YTD vs $28,562,340 in 2025 (~-$1.07M, ~-3.7%). 2 of 7 months are up YoY.",
     "Jul landed -$641,165 (-13.8%) vs the prior year.",
     "Overall markup is 9.62x vs 7.34x last Jul (+2.28x).",
-    "Discovery calls are at 214 of 750 (29% to goal) \u2014 behind the 58% straight-line pace for this point in the year.",
-    "Furthest from goal: Consulting (5%), TPC/BPO (17%), GlobalLink (20%).",
+    "Discovery calls are at 250 of 750 (33% to goal) \u2014 behind the 58% straight-line pace for this point in the year. July 2026 added 30 calls.",
+    "Furthest from goal: Consulting (7%), Digital (22%), TPC/BPO (24%).",
     "Standing floor is 3 legit discovery calls per rep on their worst month \u2014 the categories above are the team's obligation, not a stretch target.",
     "Per-AE discovery is set up \u2014 awaiting each AE named with their disco-call count against the 3-call floor.",
     "Newsletter open rate hit 31.59%; 848 total clicks is a record. Brand programming is compounding."
@@ -322,87 +322,87 @@
       {
         "name": "Disco - General",
         "goal": 200,
-        "prior_ytd": 108,
-        "current": null,
-        "ytd": 108,
-        "pct_to_goal": 54.0
+        "prior_ytd": 110,
+        "current": 15,
+        "ytd": 125,
+        "pct_to_goal": 62.5
       },
       {
         "name": "Disco - Digital",
         "goal": 150,
         "prior_ytd": 31,
-        "current": null,
-        "ytd": 31,
-        "pct_to_goal": 20.666666666666668
+        "current": 2,
+        "ytd": 33,
+        "pct_to_goal": 22.0
       },
       {
         "name": "Disco - Consulting",
         "goal": 100,
         "prior_ytd": 5,
-        "current": null,
-        "ytd": 5,
-        "pct_to_goal": 5.0
+        "current": 2,
+        "ytd": 7,
+        "pct_to_goal": 7.000000000000001
       },
       {
         "name": "Disco - TPC/BPO",
         "goal": 150,
-        "prior_ytd": 26,
-        "current": null,
-        "ytd": 26,
-        "pct_to_goal": 17.333333333333336
+        "prior_ytd": 28,
+        "current": 8,
+        "ytd": 36,
+        "pct_to_goal": 24.0
       },
       {
         "name": "Disco - GlobalLink",
         "goal": 150,
-        "prior_ytd": 30,
-        "current": null,
-        "ytd": 30,
-        "pct_to_goal": 20.0
+        "prior_ytd": 36,
+        "current": 3,
+        "ytd": 39,
+        "pct_to_goal": 26.0
       }
     ],
     "total": {
       "name": "Total Discovery Calls",
       "goal": 750,
-      "prior_ytd": 214,
-      "current": null,
-      "ytd": 214,
-      "pct_to_goal": 28.53333333333333,
-      "uncategorized": 14
+      "prior_ytd": 220,
+      "current": 30,
+      "ytd": 250,
+      "pct_to_goal": 33.33333333333333,
+      "uncategorized": 10
     },
     "activities": [],
     "pace_pct": 58.333333333333336,
     "leader": {
       "name": "Disco - General",
       "goal": 200,
-      "prior_ytd": 108,
-      "current": null,
-      "ytd": 108,
-      "pct_to_goal": 54.0
+      "prior_ytd": 110,
+      "current": 15,
+      "ytd": 125,
+      "pct_to_goal": 62.5
     },
     "laggards": [
       {
         "name": "Disco - Consulting",
         "goal": 100,
         "prior_ytd": 5,
-        "current": null,
-        "ytd": 5,
-        "pct_to_goal": 5.0
+        "current": 2,
+        "ytd": 7,
+        "pct_to_goal": 7.000000000000001
+      },
+      {
+        "name": "Disco - Digital",
+        "goal": 150,
+        "prior_ytd": 31,
+        "current": 2,
+        "ytd": 33,
+        "pct_to_goal": 22.0
       },
       {
         "name": "Disco - TPC/BPO",
         "goal": 150,
-        "prior_ytd": 26,
-        "current": null,
-        "ytd": 26,
-        "pct_to_goal": 17.333333333333336
-      },
-      {
-        "name": "Disco - GlobalLink",
-        "goal": 150,
-        "prior_ytd": 30,
-        "current": null,
-        "ytd": 30,
-        "pct_to_goal": 20.0
+        "prior_ytd": 28,
+        "current": 8,
+        "ytd": 36,
+        "pct_to_goal": 24.0
       }
     ],
     "team_calls": 0,
@@ -634,38 +634,38 @@
         {
           "name": "Disco - General",
           "goal": 200,
-          "prior_ytd": 108,
-          "current": null
+          "prior_ytd": 110,
+          "current": 15
         },
         {
           "name": "Disco - Digital",
           "goal": 150,
           "prior_ytd": 31,
-          "current": null
+          "current": 2
         },
         {
           "name": "Disco - Consulting",
           "goal": 100,
           "prior_ytd": 5,
-          "current": null
+          "current": 2
         },
         {
           "name": "Disco - TPC/BPO",
           "goal": 150,
-          "prior_ytd": 26,
-          "current": null
+          "prior_ytd": 28,
+          "current": 8
         },
         {
           "name": "Disco - GlobalLink",
           "goal": 150,
-          "prior_ytd": 30,
-          "current": null
+          "prior_ytd": 36,
+          "current": 3
         }
       ],
       "total": {
         "goal": 750,
-        "prior_ytd": 214,
-        "current": null
+        "prior_ytd": 220,
+        "current": 30
       }
     },
     "wins_confirmed": {
@@ -691,6 +691,24 @@
           "value": "$258,470.88",
           "status": "BPO \u2014 disco across 3 separate LOBs (Vion running)",
           "risk": "Multi-LOB, early stage; large upside if it lands"
+        },
+        {
+          "account": "Program Consulting",
+          "value": "$175K",
+          "status": "12-month contract",
+          "risk": "Consulting team; terms in progress"
+        },
+        {
+          "account": "RBC AI",
+          "value": "$100K",
+          "status": "Proposal discussion",
+          "risk": "Large bank; slow procurement"
+        },
+        {
+          "account": "RBC \u2013 Staffing FRCA Language Lead",
+          "value": "Min $86K/yr",
+          "status": "Proposal out (Consulting team)",
+          "risk": "Approval cycle"
         },
         {
           "account": "Landmark CU",
@@ -724,10 +742,26 @@
         },
         {
           "name": "Quote #547781 \u2013 Translation of Privacy Policy"
+        },
+        {
+          "name": "121 Mining (Hyve Group)",
+          "owner": "Mariana"
+        },
+        {
+          "name": "Moniepoint \u2014 discovery call"
+        },
+        {
+          "name": "Federated Hermes \u2014 discovery call"
+        },
+        {
+          "name": "TouchNet \u2014 third GL Web demo"
+        },
+        {
+          "name": "Visa \u2014 follow-up disco (lunch scheduled)"
         }
       ],
       "by_owner": [],
-      "note": "Names from the July opportunity export (partial view). By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
+      "note": "Net-new opportunities and discovery activity logged in July. By-owner ranking (Joseph Meineke and Justin Potts leading) pending exact counts."
     },
     "newsletter": {
       "sent": 6005,
@@ -738,7 +772,10 @@
       "click_rate": 14.12,
       "ctor_unique": 44.7
     },
-    "engagement": [],
+    "engagement": [
+      "Blockchain conference \u2014 networking drinks with Coinbase, Wealthsimple & others",
+      "Tetra Digital \u2014 client drinks"
+    ],
     "gifting": {
       "program": "FS Gifting Program",
       "total_delivered": 54,

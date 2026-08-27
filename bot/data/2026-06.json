@@ -210,7 +210,7 @@
         "name": "Disco - General",
         "goal": 200,
         "prior_ytd": 79,
-        "current": 29
+        "current": 31
       },
       {
         "name": "Disco - Digital",
@@ -227,20 +227,20 @@
       {
         "name": "Disco - TPC/BPO",
         "goal": 150,
-        "prior_ytd": 23,
-        "current": 3
+        "prior_ytd": 24,
+        "current": 4
       },
       {
         "name": "Disco - GlobalLink",
         "goal": 150,
-        "prior_ytd": 28,
-        "current": 2
+        "prior_ytd": 31,
+        "current": 5
       }
     ],
     "total": {
       "goal": 750,
       "prior_ytd": 178,
-      "current": 36
+      "current": 42
     }
   },
   "wins": [],
