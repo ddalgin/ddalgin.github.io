@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T18:43:50+00:00",
+  "generated_at": "2026-09-03T15:44:48+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -81,7 +81,7 @@
       "city": "New York City",
       "ok": true,
       "detail": "",
-      "found": 0
+      "found": 1
     },
     {
       "source": "eventbrite",
