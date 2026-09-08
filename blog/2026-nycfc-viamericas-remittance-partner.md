@@ -1,12 +1,14 @@
-# New York City FC Names Viamericas Its Official Money Transfer and Remittance Partner
+# From Sponsor to Customer: Viamericas, Revolut, and Fintech's New Sports Playbook
 
-*A remittance brand buys its way onto the kit, and closer to the fast-rising communities that send money home and buy homes here.*
+*A remittance brand landing on NYCFC's kit is the latest sign of a broader shift: fintechs are turning sports sponsorships into customer-acquisition engines, and the sharpest are aiming straight at multicultural, cross-border communities.*
 
 *Draft for the TransPerfect Financial Services blog · 2026-09-08*
 
 ---
 
-New York City FC has named **Viamericas** its Official International Money Transfer and Remittance Partner, the club [announced on August 11, 2026](https://finance.yahoo.com/markets/currencies/articles/york-city-fc-announce-viamericas-150400467.html). The deal gives Viamericas a prominent, first-of-its-kind spot: its brand becomes the [first-ever sponsor on the back of NYCFC's First Team training kit](https://www.oursportscentral.com/services/releases/new-york-city-fc-announce-viamericas-as-official-international-money-transfer--remittance-partner/n-6399766), reinforced by in-stadium branding on matchdays. Both sides framed the tie-up around a shared connection to diverse, global communities, a natural fit for a remittance brand and a club whose fan base mirrors one of the world's most international cities.
+Fintechs have figured out that the fastest route to a customer's trust often runs through their team. Across 2026, banks, money-transfer firms, and challenger apps have poured into sports sponsorships, not as passive billboards but as acquisition channels aimed squarely at the audiences they most want to win. The latest and most on-point example: New York City FC has named **Viamericas** its Official International Money Transfer and Remittance Partner, the club [announced on August 11, 2026](https://finance.yahoo.com/markets/currencies/articles/york-city-fc-announce-viamericas-150400467.html). Viamericas becomes the [first-ever sponsor on the back of NYCFC's First Team training kit](https://www.oursportscentral.com/services/releases/new-york-city-fc-announce-viamericas-as-official-international-money-transfer--remittance-partner/n-6399766), with in-stadium branding on matchdays, a natural fit for a remittance brand and a club whose fan base mirrors one of the world's most international cities.
+
+One deal, but also a signal. From Revolut fusing Formula 1 and Serie A into a single fan moment to remittance rivals racing onto MLS pitches, sport is fast becoming the front door to a financial relationship. Here is what the Viamericas deal says, and how it fits the wider shift.
 
 **About Viamericas.** Viamericas is one of the largest licensed U.S. money transfer companies, serving families across [95 countries through more than 300,000 payout locations](https://corporate.viamericas.com/viamericas-raises-113-million-to-expand-global-remittance-network-serving-95-countries/), with direct deposits to over 2,700 banks and 107 mobile wallets spanning Latin America, Africa, and the Caribbean.
 
