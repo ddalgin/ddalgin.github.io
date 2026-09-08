@@ -2,7 +2,7 @@
 
 *A remittance brand buys its way onto the kit, and closer to the fast-rising communities that send money home and buy homes here.*
 
-*Draft for the TransPerfect Financial Services blog · 2026-08-11*
+*Draft for the TransPerfect Financial Services blog · 2026-09-08*
 
 ---
 
@@ -11,6 +11,16 @@ New York City FC has named **Viamericas** its Official International Money Trans
 **About Viamericas.** Viamericas is one of the largest licensed U.S. money transfer companies, serving families across [95 countries through more than 300,000 payout locations](https://corporate.viamericas.com/viamericas-raises-113-million-to-expand-global-remittance-network-serving-95-countries/), with direct deposits to over 2,700 banks and 107 mobile wallets spanning Latin America, Africa, and the Caribbean.
 
 **The expansion play.** The NYCFC sponsorship lands amid an aggressive growth push. In September 2025, Viamericas [raised $113.6 million](https://www.fintechfutures.com/venture-capital-funding/viamericas-raises-113-6m), led by Old National Bank with Bank of Oklahoma Financial, Axos Bank, and US Bank, to expand its global network and digital payments platform. A visible MLS sponsorship is a logical next move: it buys brand trust with exactly the multicultural, cross-border audience that drives remittance volume.
+
+## Fintech's sports land grab is getting smarter
+
+Viamericas is not moving in isolation. Fintech has spent the past few years turning sport into a core acquisition channel, and in 2026 the strategy is maturing from scattered logo placements into something far more deliberate.
+
+The most eye-catching example came this fall from Revolut. Having become the [title partner of the new Audi F1 team](https://www.formula1.com/en/latest/article/audi-f1-team-announce-title-partner-for-debut-2026-season.l7hjsMWxNbpPJKrAe9yGE) and, over the summer, a sponsor of Serie A's Como 1907, Revolut parked the Audi Revolut F1 show car [on Como's pitch](https://mediakey.it/news/revolut-porta-la-show-car-dellaudi-revolut-f1-team-in-lombardia/), fusing Formula 1 and Italian football into a single activation people actually stop to photograph. It is a small stunt with a big idea behind it: a fintech getting more out of its sports portfolio, which also spans Manchester City and rugby's Stade Toulousain, by making the partnerships work together rather than stand alone.
+
+Underneath the spectacle runs a quieter, more targeted current, and it is the one Viamericas is riding: money-movement brands going precisely where their customers already are. In 2026, [Ria became the official remittance partner of Mexico's national teams](https://ir.euronetworldwide.com/news-releases/news-release-details/ria-money-transfer-expands-global-soccer-presence-and-announces), and [Intermex became the LA Galaxy's official international remittance partner](https://investors.intermexonline.com/news-releases/news-release-details/intermex-named-founding-partner-dignity-health-sports-park-and), noting that nearly 70% of California's MLS viewership is Latino. The 2026 FIFA World Cup on North American soil, with its vast multicultural audience, is the accelerant behind much of it.
+
+The lesson cuts both ways. Portfolio players like Revolut win by connecting partnerships; precision players like Viamericas win by matching one well-chosen partnership to the exact community they serve. Both are the same underlying move: treating sport as the front door to a customer relationship, not a billboard.
 
 ## The bigger picture: remittance is just the entry point
 
@@ -30,6 +40,9 @@ That is the real prize behind a remittance sponsorship. A customer who first tru
 
 - New York City FC Announce Viamericas as Official International Money Transfer & Remittance Partner (Aug 11, 2026): [Yahoo Finance](https://finance.yahoo.com/markets/currencies/articles/york-city-fc-announce-viamericas-150400467.html) · [OurSports Central](https://www.oursportscentral.com/services/releases/new-york-city-fc-announce-viamericas-as-official-international-money-transfer--remittance-partner/n-6399766) · [BusinessWire release](https://www.businesswire.com/news/home/20260811551287/en/New-York-City-FC-Announce-Viamericas-as-Official-International-Money-Transfer-Remittance-Partner)
 - Viamericas Raises $113.6M to Expand Global Remittance Network Serving 95 Countries (Sep 2025): [Viamericas](https://corporate.viamericas.com/viamericas-raises-113-million-to-expand-global-remittance-network-serving-95-countries/) · [FinTech Futures](https://www.fintechfutures.com/venture-capital-funding/viamericas-raises-113-6m)
+- Revolut, Audi F1 title partnership and the Como 1907 show-car activation: [Formula 1](https://www.formula1.com/en/latest/article/audi-f1-team-announce-title-partner-for-debut-2026-season.l7hjsMWxNbpPJKrAe9yGE) · [Media Key](https://mediakey.it/news/revolut-porta-la-show-car-dellaudi-revolut-f1-team-in-lombardia/)
+- Ria Money Transfer, official remittance partner of Mexico's national teams (2026): [Euronet](https://ir.euronetworldwide.com/news-releases/news-release-details/ria-money-transfer-expands-global-soccer-presence-and-announces)
+- Intermex, Official International Remittance Partner of the LA Galaxy (~70% Latino MLS viewership in California): [Intermex](https://investors.intermexonline.com/news-releases/news-release-details/intermex-named-founding-partner-dignity-health-sports-park-and)
 - NAHREP, 2025 State of Hispanic Homeownership Report (record 10.2M Hispanic homeowners): [Report](https://nahrep.org/shhr/) · [Press release](https://nahrep.org/press-releases/2026/03/23/us-census-bureau-hispanics-reach-10-2-million-homeowners/)
 - AREAA, State of Asia America Report (AAPI homeownership surge): [AREAA](https://www.areaa.org/resource-page) · [NAR coverage](https://www.nar.realtor/magazine/real-estate-news/report-remarkable-surge-in-aapi-homeownership)
 - Related: [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) (TransPerfect)
