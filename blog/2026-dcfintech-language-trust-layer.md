@@ -133,4 +133,4 @@ The recurring pattern in digital finance is that language is deferred, treated a
 
 ---
 
-*Related TransPerfect writing on this theme: [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) and [One Name, Six Spellings: The Multilingual Blind Spot in KYC and Sanctions Screening](https://www.transperfect.com/blog/multilingual-kyc-sanctions-screening) (swap for live URLs).*
+*Related TransPerfect writing on this theme: [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) and [One Name, Six Spellings: The Multilingual Blind Spot in KYC and Sanctions Screening](https://www.transperfect.com/blog/one-name-six-spellings-blind-spot-kyc-and-sanctions-screening) (Buying Loyalty URL is a placeholder).*

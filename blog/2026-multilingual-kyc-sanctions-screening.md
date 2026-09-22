@@ -30,7 +30,7 @@ The fix isn't a better black-box algorithm. It's getting the language layer righ
 
 Regulators have also made clear that this is the firm's job, not the vendor's: after its 2026 review, the FCA expects institutions to demonstrate with evidence that their screening is tested, tuned, and effective against name variations, not just exact matches. Leading US and European financial institutions already lean on this capability to keep onboarding clean and reduce MLRO review load as they expand. The name on the shirt should be the same name your screening sees, in every language.
 
-**Related reading:** [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) and [NYCFC Names Viamericas Its Remittance Partner](https://www.transperfect.com/blog/nycfc-viamericas-remittance-partner) *(swap for live URLs)*, our ongoing look at where sports, multicultural finance, and language meet.
+**Related reading:** [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) and [From Sponsor to Customer: Fintech's New Sports Playbook](https://www.transperfect.com/blog/sponsor-customer-viamericas-revolut-and-fintechs-new-sports-playbook) *(Buying Loyalty URL is a placeholder)*, our ongoing look at where sports, multicultural finance, and language meet.
 
 ---
 
@@ -48,4 +48,4 @@ Regulators have also made clear that this is the firm's job, not the vendor's: a
 - Largest AML/sanctions fines (TD Bank ~$3.09B 2024; Standard Chartered $1.1B 2019; BNP Paribas ~$9B 2014): [NameScan](https://namescan.io/insights/the-5-largest-aml-penalties-in-2024/) · [Enzuzo](https://www.enzuzo.com/blog/biggest-aml-fines)
 - EU Anti-Money Laundering Authority (AMLA) and single rulebook / perpetual KYC: [Moody's](https://www.moodys.com/web/en/us/kyc/resources/insights/a-review-of-amla-and-amlr-2026.html) · [PwC](https://www.pwc.ie/services/audit-assurance/insights/eu-new-anti-money-laundering-authority.html)
 - European Gaming and Betting Association (AML in regulated betting): [EGBA](https://www.egba.eu/)
-- Related TransPerfect posts: [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) · [NYCFC x Viamericas](https://www.transperfect.com/blog/nycfc-viamericas-remittance-partner)
+- Related TransPerfect posts: [Buying Loyalty in a Second Language](https://www.transperfect.com/blog/buying-loyalty-in-a-second-language) · [NYCFC x Viamericas](https://www.transperfect.com/blog/sponsor-customer-viamericas-revolut-and-fintechs-new-sports-playbook)
