@@ -1,0 +1,57 @@
+name: Happy Hour Bot
+
+on:
+  schedule:
+    # Fridays at 15:00 UTC (~10/11am ET) — fresh in time for the weekend
+    - cron: "0 15 * * 5"
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: "Starting point (office, metro_center, white_house, chinatown, the_wharf, union_station)"
+        required: false
+        default: "office"
+      category:
+        description: "Filter (all, rooftop, bar, restaurant)"
+        required: false
+        default: "all"
+      features:
+        description: "Prioritize features, comma-separated (e.g. rooftop,view,outdoor)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: python test_happy_hour.py
+        working-directory: bot
+
+      - name: Rank happy-hour spots
+        run: >
+          python bot/happy_hour_bot.py
+          --out-dir happyhour
+          --origin ${{ github.event.inputs.origin || 'office' }}
+          --category ${{ github.event.inputs.category || 'all' }}
+          --features "${{ github.event.inputs.features || '' }}"
+
+      - name: Commit and push results
+        run: |
+          git config user.name "happy-hour-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add happyhour/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update DC happy hour rankings ($(date -u +%Y-%m-%d))"
+            git push
+          fi
