@@ -10,9 +10,15 @@ On September 24, 2026, Santander announced it is [partnering with the Miami Dolp
 
 But look closer and this is not the usual land grab. It is a beachhead in the single most strategic US market a Latin-America-rooted bank could pick.
 
+## Why the NFL, and why the Dolphins
+
+The sport is not incidental to the strategy. Latinos are the [fastest-growing fan base in the NFL](https://www.npr.org/2024/12/21/g-s1-38443/latinos-growing-fanbase-nfl), and [Hispanic viewership and Spanish-language broadcasts have been climbing fast](https://www.directv.com/insider/directv-for-business/hispanic-sports/) across the league. The Dolphins in particular are courting exactly the countries where Santander is a household name, opening the 2026 season with [international watch parties in Brazil, Spain, Mexico, and Argentina](https://www.miamidolphins.com/news/miami-dolphins-wrap-season-kickoff-week-with-international-watch-parties). The team's own international map and the bank's footprint line up almost perfectly.
+
 ## Why South Florida is the prize
 
 Miami is not just a large metro. It is the gateway to Latin America, and the demographics make the point. [Roughly 70% of Miami-Dade County is Hispanic](https://www.beaconcouncil.com/global-first-market/), more than 1.8 million residents, and about two-thirds of the population speaks Spanish at home. The mix is not monolithic: Cubans, Venezuelans, Colombians, and a large Brazilian community give the market both Spanish and Portuguese speakers, along with the cross-border capital, remittances, and private wealth that flow through the city in both directions. For a bank, South Florida is where US retail, Latin American private banking, and international money movement all converge in one zip code.
+
+Two forces amplify the opportunity. First, the money is moving south. Miami has become "Wall Street South," with [Citadel relocating its headquarters and firms like Blackstone and Goldman Sachs expanding their footprint](https://www.investmentnews.com/opinion/wall-street-south-beckons-financial-services-firms/247578), drawn in part by Florida's lack of a state income, capital-gains, or estate tax. Much of that capital lands in Brickell, the very financial district where Santander is building its 1401 tower. Second, the customer base is not only large but rising fast: the [US Latino economy reached roughly $4 trillion in 2025](https://latinodonorcollaborative.org/reports/the-2025-official-ldc-u-s-latino-gdp-report-part-one/), which would rank as the world's fifth-largest economy on its own, with purchasing power near $4.1 trillion and growth outpacing the rest of the country.
 
 That is why the deal is not really about a videoboard. It is about owning the front door to a market that is, functionally, the capital of Latin America inside the United States.
 
@@ -43,3 +49,7 @@ The catch is the same as always. Reach and even familiarity get you noticed; the
 - Santander Celebrates Groundbreaking of 1401 Brickell in Miami and Continued U.S. Growth: [Santander US](https://www.santanderus.com/news_press_article/santander-celebrates-groundbreaking-of-1401-brickell-in-miami-and-continued-u-s-growth/)
 - Openbank launches in Mexico (Feb 2025): [Santander](https://www.santander.com/en/press-room/press-releases/2025/02/openbank-launches-in-mexico)
 - Miami as a global-first market and gateway to Latin America (~70% Hispanic): [Miami-Dade Beacon Council](https://www.beaconcouncil.com/global-first-market/) · [Demographics of Miami](https://en.wikipedia.org/wiki/Demographics_of_Miami)
+- Latinos as the NFL's fastest-growing fan base; rising Hispanic and Spanish-language viewership: [NPR](https://www.npr.org/2024/12/21/g-s1-38443/latinos-growing-fanbase-nfl) · [DIRECTV](https://www.directv.com/insider/directv-for-business/hispanic-sports/)
+- Miami Dolphins 2026 international watch parties (Brazil, Spain, Mexico, Argentina): [Miami Dolphins](https://www.miamidolphins.com/news/miami-dolphins-wrap-season-kickoff-week-with-international-watch-parties)
+- "Wall Street South" finance migration to Miami (Citadel, Blackstone, Goldman; no state income tax): [InvestmentNews](https://www.investmentnews.com/opinion/wall-street-south-beckons-financial-services-firms/247578)
+- 2025 Official LDC U.S. Latino GDP Report (~$4T GDP; ~$4.1T purchasing power): [Latino Donor Collaborative](https://latinodonorcollaborative.org/reports/the-2025-official-ldc-u-s-latino-gdp-report-part-one/)
