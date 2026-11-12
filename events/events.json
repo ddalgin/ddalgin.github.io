@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T21:54:24+00:00",
+  "generated_at": "2026-11-12T19:31:14+00:00",
   "meta": {
     "max_price": 150.0,
     "days": 75,
@@ -9,30 +9,30 @@
     {
       "source": "eventbrite",
       "city": "Washington DC",
-      "ok": false,
-      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'fintech'",
+      "found": 18
     },
     {
       "source": "eventbrite",
       "city": "Washington DC",
-      "ok": false,
-      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'financial services'",
+      "found": 19
     },
     {
       "source": "eventbrite",
       "city": "Washington DC",
-      "ok": false,
-      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'banking'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "Washington DC",
-      "ok": false,
-      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'capital markets'",
+      "found": 20
     },
     {
       "source": "10times",
@@ -44,30 +44,30 @@
     {
       "source": "eventbrite",
       "city": "New York City",
-      "ok": false,
-      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'fintech'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "New York City",
-      "ok": false,
-      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'financial services'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "New York City",
-      "ok": false,
-      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'banking'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "New York City",
-      "ok": false,
-      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'capital markets'",
+      "found": 20
     },
     {
       "source": "10times",
@@ -86,30 +86,30 @@
     {
       "source": "eventbrite",
       "city": "Philadelphia",
-      "ok": false,
-      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'fintech'",
+      "found": 19
     },
     {
       "source": "eventbrite",
       "city": "Philadelphia",
-      "ok": false,
-      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'financial services'",
+      "found": 18
     },
     {
       "source": "eventbrite",
       "city": "Philadelphia",
-      "ok": false,
-      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'banking'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "Philadelphia",
-      "ok": false,
-      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'capital markets'",
+      "found": 17
     },
     {
       "source": "10times",
@@ -121,30 +121,30 @@
     {
       "source": "eventbrite",
       "city": "Boston",
-      "ok": false,
-      "detail": "'fintech': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'fintech'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "Boston",
-      "ok": false,
-      "detail": "'financial services': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'financial services'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "Boston",
-      "ok": false,
-      "detail": "'banking': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'banking'",
+      "found": 20
     },
     {
       "source": "eventbrite",
       "city": "Boston",
-      "ok": false,
-      "detail": "'capital markets': HTTPError: HTTP Error 405: Not Allowed",
-      "found": 0
+      "ok": true,
+      "detail": "'capital markets'",
+      "found": 20
     },
     {
       "source": "10times",
@@ -154,5 +154,792 @@
       "found": 0
     }
   ],
-  "events": []
+  "events": [
+    {
+      "title": "Quantum Business Forum 2026",
+      "url": "https://www.eventbrite.com/e/quantum-business-forum-2026-tickets-2001421238802",
+      "start": "2026-11-12",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Washington University of Science and Technology (WUST)",
+      "description": "Small Businesses Discovering New Markets, Partnerships & Opportunities in the Quantum Economy In the DMV Area.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "quant"
+      ]
+    },
+    {
+      "title": "AI TECH Startup Pitch & Investor Networking I Boston",
+      "url": "https://www.eventbrite.com/e/ai-tech-startup-pitch-investor-networking-i-boston-tickets-2003687804160",
+      "start": "2026-11-12",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Chemist Cocktail Bar",
+      "description": "A curated room for AI and Tech founders, investors, and professionals.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "From the Beltway to Baltimore: Investing Across Maryland with MCIC",
+      "url": "https://www.eventbrite.com/e/from-the-beltway-to-baltimore-investing-across-maryland-with-mcic-tickets-2002146763867",
+      "start": "2026-11-13",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Joe's Movement Emporium",
+      "description": "Join us in person for the Maryland Community Investment Corporation's second annual summit!",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
+      "title": "Digital Assets Forum New York",
+      "url": "https://www.eventbrite.es/e/digital-assets-forum-new-york-tickets-1997149187983",
+      "start": "2026-11-13",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Convene 360 Madison",
+      "description": "DAF New York: closed-door, institutional gathering on digital assets. Use code [EB15] for 15% off general and VIP tickets.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "digital assets"
+      ]
+    },
+    {
+      "title": "2026 MIT Sloan Stock Pitch Competition",
+      "url": "https://www.eventbrite.com/e/2026-mit-sloan-stock-pitch-competition-tickets-2001009332780",
+      "start": "2026-11-13",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "MIT Sloan School of Management",
+      "description": "The event is entirely student-led and organized by the school's Investment Management Club.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
+      "title": "Smart Woman Securities Women in Finance Conference",
+      "url": "https://www.eventbrite.com/e/smart-woman-securities-women-in-finance-conference-tickets-2002362242369",
+      "start": "2026-11-14",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Boylston Hall",
+      "description": "A full-day Harvard conference connecting students with leading finance professionals through career insights, networking, and recruiting.",
+      "price_min": null,
+      "is_free": null,
+      "score": 4,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "2026 Investment Conference @HBS",
+      "url": "https://www.eventbrite.com/e/2026-investment-conference-hbs-tickets-2002158360553",
+      "start": "2026-11-15",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Klarman Hall",
+      "description": "The Investment Club, a student club at Harvard Business School, will host its annual Investment Conference on Sunday, November 15, 2026",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
+      "title": "Nexgen Banking Summit USA 2026 (5th Edition)",
+      "url": "https://www.eventbrite.co.uk/e/nexgen-banking-summit-usa-2026-5th-edition-tickets-1991200083050",
+      "start": "2026-11-17",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Hotel Indigo Williamsburg - Brooklyn by IHG",
+      "description": "NexGen Banking Summit USA 2026, Explore GenAI, cybersecurity & digital transformation with Tier 1 bank leaders.",
+      "price_min": null,
+      "is_free": null,
+      "score": 4,
+      "matched": [
+        "banking"
+      ]
+    },
+    {
+      "title": "Women in Insurance Tech Conference",
+      "url": "https://www.eventbrite.co.uk/e/women-in-insurance-tech-conference-tickets-1999406856731",
+      "start": "2026-11-17",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "DoubleTree Suites by Hilton Hotel Boston - Cambridge",
+      "description": "We are celebrating the insurance industry's foremost women of influence and leadership at the Women in Insurance Tech Conference.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "insurance"
+      ]
+    },
+    {
+      "title": "NYC Future Tech: Startups & Digital Innovation Networking Mixer",
+      "url": "https://www.eventbrite.com/e/nyc-future-tech-startups-digital-innovation-networking-mixer-tickets-2004076447603",
+      "start": "2026-11-17",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "832 8th Ave",
+      "description": "Where bold ideas, emerging technologies and ambitious people come together.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "CVC Presents: 2026 NYC Venture Community Monthly Networking Happy Hours",
+      "url": "https://www.eventbrite.com/e/cvc-presents-2026-nyc-venture-community-monthly-networking-happy-hours-tickets-1996507733375",
+      "start": "2026-11-17",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "The Penny Farthing",
+      "description": "Join CVC-NY for in-person networking happy hours on the 3rd Tuesday of each month in 2026! Eventbrite Registration Each Month Required.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "NYC Tech Startups, Investors, Experts Networking & Pitch Event",
+      "url": "https://www.eventbrite.com/e/nyc-tech-startups-investors-experts-networking-pitch-event-tickets-2003197358223",
+      "start": "2026-11-17",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "The Three Monkeys",
+      "description": "Connect with tech startups, investors, and industry experts for an evening of rapid-fire pitches, conversations and opportunities.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Startup Tech & AI Networking in Boston",
+      "url": "https://www.eventbrite.com/e/startup-tech-ai-networking-in-boston-tickets-1999725175832",
+      "start": "2026-11-17",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Bar Moxy",
+      "description": "Dive into tech with other professionals! Network and build strong relationships with investors, tech experts, and entrepreneurs in Boston.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "AI & Tech Networking Event in Boston by Ascent Valley",
+      "url": "https://www.eventbrite.com/e/ai-tech-networking-event-in-boston-by-ascent-valley-tickets-1999725206925",
+      "start": "2026-11-17",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Bar Moxy",
+      "description": "Dive into tech with other professionals! Network and build strong relationships with investors, tech experts, and entrepreneurs in Boston",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Finance Networking Event in NYC",
+      "url": "https://www.eventbrite.com/e/finance-networking-event-in-nyc-tickets-1996481872023",
+      "start": "2026-11-18",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Tap Haus 33",
+      "description": "A fun networking event for those in the finance industry looking to expand their connections.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Accounting & Finance Networking Event NYC",
+      "url": "https://www.eventbrite.com/e/accounting-finance-networking-event-nyc-tickets-2003869301022",
+      "start": "2026-11-18",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "The Cloud One Lounge New York-Downtown",
+      "description": "Connect with fellow professionals in NYC to network, share ideas, and collaborate on business opportunities!",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Finance Networking Event in Philadelphia",
+      "url": "https://www.eventbrite.com/e/finance-networking-event-in-philadelphia-tickets-2003033323591",
+      "start": "2026-11-18",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "Craft Hall",
+      "description": "A fun networking event for those in the finance industry looking to expand their connections.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "State of the Credit Union Industry",
+      "url": "https://www.eventbrite.com/e/state-of-the-credit-union-industry-tickets-2002522384358",
+      "start": "2026-11-18",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "The Desmond Hotel Malvern",
+      "description": "To help attendees better understand the current operating environment and help credit unions build their 2027 budget and strategic plan",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "credit union"
+      ]
+    },
+    {
+      "title": "Insurance Transformation Summit 2026",
+      "url": "https://www.eventbrite.co.uk/e/insurance-transformation-summit-2026-tickets-1999407188724",
+      "start": "2026-11-18",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "DoubleTree Suites by Hilton Hotel Boston - Cambridge",
+      "description": "Innovate. Transform. Lead. Driving the Future of Insurance Through Technology & Transformation",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "insurance"
+      ]
+    },
+    {
+      "title": "Certified DeFi Associate | Washington DC",
+      "url": "https://www.eventbrite.com/e/certified-defi-associate-washington-dc-tickets-1968874558806",
+      "start": "2026-11-18",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Washington DC",
+      "description": "2-hours live online training to get you started on DeFi (Decentralized Finance)",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Certified DeFi Associate | New York City",
+      "url": "https://www.eventbrite.com/e/certified-defi-associate-new-york-city-tickets-1968877254870",
+      "start": "2026-11-18",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "New York",
+      "description": "2-hours live online training to get you started on DeFi (Decentralized Finance)",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Investor Connect: Pitch & Networking I Manhattan, New York",
+      "url": "https://www.eventbrite.com/e/investor-connect-pitch-networking-i-manhattan-new-york-tickets-2003310090408",
+      "start": "2026-11-18",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Tap Haus 33",
+      "description": "Evening designed specifically for investors, scouts, enture-ready founders and Tech enthusiasts in New York",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Content, Context, and Cash Flow with Dr. Christina Afia",
+      "url": "https://www.eventbrite.com/e/content-context-and-cash-flow-with-dr-christina-afia-tickets-2004250089972",
+      "start": "2026-11-18",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "932 Market St",
+      "description": "Content, Context, and Cash Flow is a networking mixer and learning series going behind the scenes with high-impact creators.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Certified DeFi Associate | Boston",
+      "url": "https://www.eventbrite.com/e/certified-defi-associate-boston-tickets-2003383257252",
+      "start": "2026-11-18",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Boston",
+      "description": "2-hours live online training to get you started on DeFi (Decentralized Finance)",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "INVEST SMART CARIBBEAN 2026-The Caribbean Investment Bridge",
+      "url": "https://www.eventbrite.com/e/invest-smart-caribbean-2026-the-caribbean-investment-bridge-tickets-2004566912597",
+      "start": "2026-11-19",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Washington, DC",
+      "description": "An in-person forum connecting Caribbean diaspora investors, financial institutions and partners to strengthen investment and regional resili",
+      "price_min": null,
+      "is_free": null,
+      "score": 4,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
+      "title": "Washington AI, Tech & Finance Networking Event",
+      "url": "https://www.eventbrite.ca/e/washington-ai-tech-finance-networking-event-tickets-2004621730559",
+      "start": "2026-11-19",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Rewind Diner",
+      "description": "Join us at the Washington AI,, Tech & Finance Networking Event to connect with professionals and entrepreneurs in the industry!",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Family Office Mixer & Panel: $30B in AUM Attending",
+      "url": "https://www.eventbrite.com/e/family-office-mixer-panel-30b-in-aum-attending-tickets-2004498709600",
+      "start": "2026-11-19",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Fushimi Times Square",
+      "description": "Meet family offices, investors and founders. $37B in self-reported capital was in the room last time. Networking and a panel at Fushimi.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": []
+    },
+    {
+      "title": "Business Planning Roundtable-Finish Strong - Start Smarter.",
+      "url": "https://www.eventbrite.com/e/business-planning-roundtable-finish-strong-start-smarter-tickets-2003082134586",
+      "start": "2026-11-19",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Valley Bank",
+      "description": "Grow your business with Valley Bank, CPAs, SBA & SBDC! Explore lending, cash flow & free business support. Connect today Plan for tomorrow.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "lending"
+      ]
+    },
+    {
+      "title": "Boston Tech & Finance Networking Event",
+      "url": "https://www.eventbrite.ca/e/boston-tech-finance-networking-event-tickets-2000306152549",
+      "start": "2026-11-20",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Bar Moxy",
+      "description": "Meet Established Professionals In Tech & Finance!",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Free Financial Workshop",
+      "url": "https://www.eventbrite.com/e/free-financial-workshop-tickets-2003320009075",
+      "start": "2026-11-21",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Oxon Hill",
+      "description": "Join us in person for a free, friendly workshop to learn money basics and feel more confident with your finances.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Exclusive Business Networking & Social Mixer at Midtown",
+      "url": "https://www.eventbrite.com/e/exclusive-business-networking-social-mixer-at-midtown-tickets-1986233314311",
+      "start": "2026-11-21",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "VERSA",
+      "description": "Connect with startup founders, corporate innovators, investors, creatives, and cultural influencers in a stylish, welcoming atmosphere.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": []
+    },
+    {
+      "title": "AI Finance Operations Salon",
+      "url": "https://www.eventbrite.com/e/ai-finance-operations-salon-tickets-2004414667227",
+      "start": "2026-11-23",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "The Lofts at Prince",
+      "description": "Explore where AI may support financial operations - and where human review, controls and accountability still matter.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "NYC Real Estate & Construction Pitch & Networking Event",
+      "url": "https://www.eventbrite.com/e/nyc-real-estate-construction-pitch-networking-event-tickets-2003544598829",
+      "start": "2026-11-24",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Fl\u00fbte Champagne Bar",
+      "description": "Join property developers, investors & industry players for rapid-fire pitches & networking focused on real estate opportunities.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Lunch & Learn | Explore a Career in Financial Services",
+      "url": "https://www.eventbrite.com/e/lunch-learn-explore-a-career-in-financial-services-tickets-2002568627673",
+      "start": "2026-11-28",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "150 Grossman Dr suite 205",
+      "description": "Curious about a career in financial services? Join us for lunch, explore career opportunities, and discover how to get started!",
+      "price_min": null,
+      "is_free": null,
+      "score": 5,
+      "matched": [
+        "financial services"
+      ]
+    },
+    {
+      "title": "Washington DC Real Estate Bus Tour & Power Networking Brunch",
+      "url": "https://www.eventbrite.com/e/washington-dc-real-estate-bus-tour-power-networking-brunch-tickets-1985342457735",
+      "start": "2026-11-28",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "2461 Eisenhower Ave",
+      "description": "Tour DC investment properties, network with serious investors, and find your next deal\u2014all in one powerful bus tour experience.",
+      "price_min": null,
+      "is_free": null,
+      "score": 4,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
+      "title": "NYC Startup Founders, Innovators & Investors Networking Night",
+      "url": "https://www.eventbrite.com/e/nyc-startup-founders-innovators-investors-networking-night-tickets-2003768043157",
+      "start": "2026-11-30",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "The Three Monkeys",
+      "description": "Connect with ambitious startup founders, entrepreneurs, innovators, investors and business professionals!",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Boston Institutional Digital Assets Forum 2026",
+      "url": "https://www.eventbrite.com/e/boston-institutional-digital-assets-forum-2026-tickets-1993355129853",
+      "start": "2026-12-01",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Federal Reserve Plaza",
+      "description": "Boston Institutional Digital Asset Forum, where institutions and industry experts discuss digital asset adoption, regulation and innovation.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "digital assets"
+      ]
+    },
+    {
+      "title": "Affinity Group Lending (Small Business Funding Opportunity) Info Session",
+      "url": "https://www.eventbrite.com/e/affinity-group-lending-small-business-funding-opportunity-info-session-tickets-1977556993201",
+      "start": "2026-12-03",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "1301 N 2nd St",
+      "description": "Looking to get started with a new small business? Join our information session to learn about finding funding, building credit, and more!",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "lending"
+      ]
+    },
+    {
+      "title": "Delaware Fraud Working Group Half Day Fraud Prevention Summit",
+      "url": "https://www.eventbrite.com/e/delaware-fraud-working-group-half-day-fraud-prevention-summit-tickets-2004405770617",
+      "start": "2026-12-03",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "Delaware Technical Community College - Orlando J. George Jr. Campus - Wilmington",
+      "description": "DFWG Summit unites banks, law enforcement, and government for a high\u2011impact day of learning, expert insights, and networking to fight fraud.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Philadelphia AI Tech & Finance Networking Event",
+      "url": "https://www.eventbrite.ca/e/philadelphia-ai-tech-finance-networking-event-tickets-2004012460215",
+      "start": "2026-12-04",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "Tapster Philadelphia",
+      "description": "Meet Established Professionals In Tech & Finance!",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Investment day event with Doug Gerlach",
+      "url": "https://www.eventbrite.com/e/investment-day-event-with-doug-gerlach-tickets-1996316572608",
+      "start": "2026-12-05",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "The Community Center at Giant",
+      "description": "Join us in person for the Investment Day with Doug Gerlach\u2014get tips and chat about smart moves!",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "investment"
+      ]
+    },
+    {
+      "title": "Networking Mixer | Private Equity | Venture Capital | Law | Fintech",
+      "url": "https://www.eventbrite.com/e/networking-mixer-private-equity-venture-capital-law-fintech-tickets-2003651718226",
+      "start": "2026-12-07",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Fushimi Times Square",
+      "description": "Join us for a fun Fall Networking Mixer in Midtown Manhattan -- a great opportunity to expand your community and raise capital.",
+      "price_min": null,
+      "is_free": null,
+      "score": 11,
+      "matched": [
+        "fintech",
+        "private equity",
+        "venture capital"
+      ]
+    },
+    {
+      "title": "2026 Wall Street Quant Awards & Ai Summit @ LSEG HQ",
+      "url": "https://www.eventbrite.com/e/2026-wall-street-quant-awards-ai-summit-lseg-hq-tickets-1998514397361",
+      "start": "2026-12-10",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "26 Liberty St",
+      "description": "Join us in 2026 for the Wall Street Quant Awards & AI Conference\u2014where finance meets cutting-edge AI live!",
+      "price_min": null,
+      "is_free": null,
+      "score": 8,
+      "matched": [
+        "finance",
+        "wall street",
+        "quant"
+      ]
+    },
+    {
+      "title": "Washington DC AI Tech & Finance Networking Event",
+      "url": "https://www.eventbrite.ca/e/washington-dc-ai-tech-finance-networking-event-tickets-2004374586344",
+      "start": "2026-12-11",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Roofers Union",
+      "description": "Meet Established Professionals In Tech & Finance!",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Finance and Business Networking | Multi-Industry Event - FiDi",
+      "url": "https://www.eventbrite.com/e/finance-and-business-networking-multi-industry-event-fidi-tickets-1996427040019",
+      "start": "2026-12-16",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Tap Haus 33",
+      "description": "Strive welcomes you to 'Finance and Business Networking', an event for tenured and newcomers at Tap Haus! Event is 21+. Limited Tickets.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Finance and Business Networking | Elevating Your Potential - DC",
+      "url": "https://www.eventbrite.com/e/finance-and-business-networking-elevating-your-potential-dc-tickets-2001891017924",
+      "start": "2026-12-23",
+      "city": "Washington DC",
+      "source": "eventbrite",
+      "venue": "Mr. Smith's of Georgetown",
+      "description": "Strive welcomes you to 'Finance and Business Networking', an event for tenured and newcomers at Mr. Smith's! Event is 21+. Limited Tickets.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Finance and Business Networking | Elevating Your Potential - Philadelphia",
+      "url": "https://www.eventbrite.com/e/finance-and-business-networking-elevating-your-potential-philadelphia-tickets-2001900986741",
+      "start": "2026-12-23",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "Devil's Alley Bar & Grill",
+      "description": "Strive welcomes you to 'Finance and Business Networking', an event for tenured and newcomers at Devil's Alley! Limited Tickets.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "Blockchain & Business Networking | Elevating Your Potential - Philadelphia",
+      "url": "https://www.eventbrite.com/e/blockchain-business-networking-elevating-your-potential-philadelphia-tickets-2001900993762",
+      "start": "2026-12-23",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "Devil's Alley Bar & Grill",
+      "description": "Strive welcomes you to 'Blockchain and Business Networking', an event for tenured and newcomers at Devil's Alley! Limited Tickets.",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Haiti Tech Summit 10th Annual Edition (UNGA Week)",
+      "url": "https://www.eventbrite.com/e/haiti-tech-summit-10th-annual-edition-unga-week-tickets-1985988046709",
+      "start": "2026-12-29",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "New York",
+      "description": "Deemed the \u201cDavos of the Caribbean\u201dHaiti Tech Summit brings together thousands of entrepreneurs, investors, pioneers, and creatives together",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": []
+    },
+    {
+      "title": "Finance and Business Networking | Elevating Your Potential - Boston",
+      "url": "https://www.eventbrite.com/e/finance-and-business-networking-elevating-your-potential-boston-tickets-2002454485270",
+      "start": "2026-12-30",
+      "city": "Boston",
+      "source": "eventbrite",
+      "venue": "Chemist Cocktail Bar",
+      "description": "Strive welcomes you to 'Finance and Business Networking', an event for tenured and newcomers at Chemist! Event is 21+. Limited Tickets.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "finance"
+      ]
+    },
+    {
+      "title": "THE REAL ESTATE LENDING & CAPITAL WORKSHOP",
+      "url": "https://www.eventbrite.com/e/the-real-estate-lending-capital-workshop-tickets-2002231446154",
+      "start": "2027-01-09",
+      "city": "Philadelphia",
+      "source": "eventbrite",
+      "venue": "Keller Williams Realty",
+      "description": "Join us in person to master real estate lending and capital tricks, boost your investing game!",
+      "price_min": null,
+      "is_free": null,
+      "score": 2,
+      "matched": [
+        "lending"
+      ]
+    },
+    {
+      "title": "Tech Startup Networking Brooklyn - Series A / Venture Capital Networking Event",
+      "url": "https://www.eventbrite.co.uk/e/tech-startup-networking-brooklyn-series-a-venture-capital-networking-event-tickets-2001176972194",
+      "start": "2027-01-12",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Black Forest Brooklyn - Smith Street",
+      "description": "Tech Startup Networking Brooklyn - Series A / Venture Capital Scale up Networking Event",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "venture capital"
+      ]
+    },
+    {
+      "title": "Queens Banking Breakfast 2027",
+      "url": "https://www.eventbrite.com/e/queens-banking-breakfast-2027-tickets-2003966683295",
+      "start": "2027-01-13",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Terrace On The Park",
+      "description": "Join leaders from banking, business, and the community to discuss the state of banking and capital access in the World's Borough.",
+      "price_min": null,
+      "is_free": null,
+      "score": 3,
+      "matched": [
+        "banking"
+      ]
+    },
+    {
+      "title": "New York Trading, Finance And Banking - Professional Networking Affair",
+      "url": "https://www.eventbrite.com/e/new-york-trading-finance-and-banking-professional-networking-affair-tickets-2003420025226",
+      "start": "2027-01-18",
+      "city": "New York City",
+      "source": "eventbrite",
+      "venue": "Dawson 39 Restaurant & Bar",
+      "description": "New York Trading, Finance & Banking - Professional Networking Affair",
+      "price_min": null,
+      "is_free": null,
+      "score": 8,
+      "matched": [
+        "banking",
+        "trading",
+        "finance"
+      ]
+    }
+  ]
 }
