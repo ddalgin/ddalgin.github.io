@@ -6,7 +6,7 @@
 
 ---
 
-It was a bad week for the machines. A nearly day-long [Microsoft 365 outage](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495) hit services across dozens of countries, an FAA failure grounded flights, and on November 16 online banking buckled at [Chase, Bank of America, and Wells Fargo](https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/), with Zelle payments stalling behind them. The striking part: this one was not even a cyberattack. Chase attributed it to an [internal software bug](https://www.aljazeera.com/news/2026/11/17/us-bank-outage-what-caused-chase-problems-and-zelle-payment-delays) that cascaded to other institutions through shared payment rails.
+It was a bad week for the machines. A nearly day-long [Microsoft 365 outage](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495) hit services across dozens of countries, an FAA failure grounded flights, and on November 16 online banking buckled at [Chase, Bank of America, and Wells Fargo](https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/), with Zelle payments stalling behind them. The striking part: this one was not even a cyberattack. Chase attributed it to an [internal software bug](https://www.cnn.com/2026/11/16/business/bank-outage-chase-us-bank-bank-of-america) that cascaded to other institutions through shared payment rails.
 
 The commentary has been entirely about infrastructure: cloud concentration, redundancy, systemic fragility, an "everything-is-broken" era. All fair. All crowded. And all of it misses the part of an outage the customer actually lives through.
 
@@ -32,6 +32,6 @@ The institutions that come through an outage with their reputation intact are no
 
 ## Sources
 
-- US bank outage: what caused the Chase problems and Zelle payment delays (internal software bug, not a cyberattack; cascaded via shared rails), Al Jazeera, Nov 17, 2026: [Al Jazeera](https://www.aljazeera.com/news/2026/11/17/us-bank-outage-what-caused-chase-problems-and-zelle-payment-delays)
+- What caused the Chase bank outage (software bug in on-premise systems, not a cyberattack; delays reached other banks only via Chase transactions), CNN, Nov 16, 2026: [CNN](https://www.cnn.com/2026/11/16/business/bank-outage-chase-us-bank-bank-of-america)
 - Widespread service outages at major US banks (Chase, Bank of America, Wells Fargo), CBS News: [CBS News](https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/)
 - Major banks go down amid a week of Microsoft and FAA outages, Newsweek: [Newsweek](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495)

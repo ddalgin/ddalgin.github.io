@@ -6,7 +6,7 @@
 
 ---
 
-The institutions that safeguard the world's assets and data have never been more exposed. On October 29, 2026, attackers drained [about $6.3 billion from Binance in roughly twenty minutes](https://www.aljazeera.com/news/2026/10/30/binance-says-6-3bn-stolen-in-biggest-crypto-heist-in-history-what-we-know), the largest crypto theft on record, and within days the [FBI attributed it to TraderTraitor](https://www.nbcnews.com/business/business-news/fbi-says-north-korea-was-6-billion-binance-crypto-hack-rcna606758), a state-sponsored North Korean unit tied to the Lazarus Group. The way in was not an exotic cryptographic break. It was [an engineer's laptop](https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html).
+The institutions that safeguard the world's assets and data have never been more exposed. On October 29, 2026, attackers drained [about $6.3 billion from Binance in roughly twenty minutes](https://www.cnn.com/2026/10/30/tech/binance-crypto-heist-hnk-intl), the largest crypto theft on record, and within days the [FBI attributed it to TraderTraitor](https://www.nbcnews.com/business/business-news/fbi-says-north-korea-was-6-billion-binance-crypto-hack-rcna606758), a state-sponsored North Korean unit tied to the Lazarus Group. The way in was not an exotic cryptographic break. It was [an engineer's laptop](https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html).
 
 ## When the attacker is a nation-state
 
@@ -34,7 +34,7 @@ Custodians will not stop being targets, and the obligations of scale will not ge
 
 ## Sources
 
-- The $6.3 billion Binance heist (Oct 29, 2026; largest crypto theft on record; entry via an engineer's laptop): [Al Jazeera](https://www.aljazeera.com/news/2026/10/30/binance-says-6-3bn-stolen-in-biggest-crypto-heist-in-history-what-we-know) · [CNBC](https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html)
+- The $6.3 billion Binance heist (Oct 29, 2026; largest crypto theft on record; entry via an engineer's laptop): [CNN](https://www.cnn.com/2026/10/30/tech/binance-crypto-heist-hnk-intl) · [CNBC](https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html)
 - FBI attributes the Binance hack to North Korea's state-sponsored TraderTraitor unit: [NBC News](https://www.nbcnews.com/business/business-news/fbi-says-north-korea-was-6-billion-binance-crypto-hack-rcna606758)
 - North Korea's TraderTraitor/Lazarus Group has stolen ~$12.8 billion since 2017 (TRM Labs): [TRM Labs](https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history)
 - SEC four-business-day cybersecurity disclosure requirement: [IncidentCost (Financial Services)](https://incidentcost.com/industries/financial-services)
