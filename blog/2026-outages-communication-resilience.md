@@ -1,37 +1,30 @@
-# Uptime Is Table Stakes: The Outage Risk No One Is Pricing Is Communication
+# Clarity Is the New Uptime
 
-*A week of outages put the banks back in the headlines, and the debate is all about infrastructure. The part nobody is talking about: when the systems go down, customers experience the communication, not the code, and for millions of them it never arrives in a language they understand.*
+*A month of unrelated outages was a reminder that downtime is a shared condition of modern infrastructure, not a mark against any one institution. The more interesting question is what an outage actually tests, and the answer is increasingly about communication, not just uptime.*
 
 *Draft for the TransPerfect Financial Services blog · 2026-11-17*
 
 ---
 
-It was a bad week for the machines. A nearly day-long [Microsoft 365 outage](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495) hit services across dozens of countries, an FAA failure grounded flights, and on November 16 online banking buckled at [Chase, Bank of America, and Wells Fargo](https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/), with Zelle payments stalling behind them. The striking part: this one was not even a cyberattack. Chase attributed it to an [internal software bug](https://www.cnn.com/2026/11/16/business/bank-outage-chase-us-bank-bank-of-america) that cascaded to other institutions through shared payment rails.
+This month delivered a run of outages with almost nothing in common but their timing: a major cloud-productivity platform, an aviation system, and a payments disruption that touched [several large banks](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495). They shared no root cause, and at least one traced to an [ordinary software bug rather than a cyberattack](https://www.cnn.com/2026/11/16/business/bank-outage-chase-us-bank-bank-of-america). That is the real lesson. In an economy this interconnected, downtime is not a sign of a weak or careless institution. It is a condition of modern infrastructure, and even the most sophisticated, well-run organizations go dark from time to time. Most, as this month showed, recover quickly.
 
-The commentary has been entirely about infrastructure: cloud concentration, redundancy, systemic fragility, an "everything-is-broken" era. All fair. All crowded. And all of it misses the part of an outage the customer actually lives through.
+So if outages are effectively inevitable, the useful question is not how to never have one. It is what an outage actually tests.
 
-## Customers experience the communication, not the code
+Here is the part that tends to get overlooked. When everything is working, an institution's product is its technology: the app, the rails, the instant transfer. When something breaks, all of that is, by definition, unavailable, and the only product the institution can still deliver is communication, telling people what is happening, what to do, and when it will be back. An outage quietly flips the value proposition from engineering to language.
 
-When systems go down, no one sees your architecture. They see whether you can tell them what is happening and help them through it. The outage people remember, and punish, is the one that came with silence. Within minutes of a failure, the calls and app sessions spike all at once, and what meets them is usually a status page, an IVR tree, and an agent script, most of it vague, and most of it in English only.
+And communication is hardest at the exact moment it matters most. Volume spikes instantly, uncertainty runs high, and the audience is the entire customer base at once, which for any large institution today means many languages, not one. Technical resilience has matured into a well-funded discipline of failover, redundancy, and recovery. The communication layer of resilience, clear and calm and in every customer's language, across channels, at surge volume, is the part that is still mostly improvised.
 
-For the tens of millions of customers who do not bank in English, that makes an outage a double blackout. The service is down, and the one thing that could reduce the panic, a clear explanation of what is happening and what to do, never arrives in a language they can use. The trust damage and the churn that follow an outage are driven by that communication vacuum far more than by the downtime itself.
+That is the quiet frontier. Operational-resilience thinking has rightly moved from "if" to "when," but it still tends to stop at system recovery. The institutions thinking furthest ahead are extending it one step more, into the human experience of the disruption, planning how they will keep customers informed and understood when the screens go blank. It is less about preventing the next outage, which no one can promise, than about making sure that when one comes, no one is left in the dark twice: once by the system, and once by the silence.
 
-## Resilience has to reach past the server
-
-Banks build failover for data centers and almost none for communication. Yet the communication layer is where an outage becomes a brand event. Real resilience means status updates, alerts, and a contact center that keep working, scale to the surge, and reach every customer in the language they bank in, even when the thing that failed was a shared network rather than your own system. That is not an IT problem. It is increasingly a regulatory one, since operational-resilience and fair-treatment regimes judge an outage by the customer harm it causes, and a silent, English-only outage maximizes exactly that.
-
-The institutions that come through an outage with their reputation intact are not the ones that never go down. Everyone goes down. They are the ones that can still talk to all of their customers while it happens. Uptime is table stakes. Being understood when the lights flicker is the harder, and more valuable, kind of resilience.
+Everyone goes down. What a customer remembers afterward is rarely the length of the downtime. It is whether, in those few minutes, someone told them what was happening, clearly, and in a language they understood. As resilience matures, that may turn out to be the most human part of it.
 
 ---
 
-*TransPerfect helps financial institutions keep communicating when it counts, with multilingual contact-center and interpretation surge support, in-language alerts and status communications, and customer notifications at scale, for both planned work and the days nothing goes to plan. [Explore our finance and banking solutions »](https://www.transperfect.com/industries/finance-and-banking)*
-
-**Related reading:** [Under Attack and Understaffed: Resourcing the Bank's Highest-Stakes Work](https://www.transperfect.com/blog/under-attack-and-understaffed) and [Repriced Before the Robots Arrived: AI and the New Economics of CX](https://www.transperfect.com/blog/repriced-before-the-robots-arrived) *(both URLs are placeholders, swap for live)*.
+*TransPerfect spends a lot of its time on that last mile of resilience: helping financial institutions keep communication clear and multilingual when it counts. [More on our finance and banking work »](https://www.transperfect.com/industries/finance-and-banking)*
 
 ---
 
 ## Sources
 
-- What caused the Chase bank outage (software bug in on-premise systems, not a cyberattack; delays reached other banks only via Chase transactions), CNN, Nov 16, 2026: [CNN](https://www.cnn.com/2026/11/16/business/bank-outage-chase-us-bank-bank-of-america)
-- Widespread service outages at major US banks (Chase, Bank of America, Wells Fargo), CBS News: [CBS News](https://www.cbsnews.com/news/banks-online-service-outages-jpmorgan-chase-bank-of-america-wells-fargo/)
-- Major banks go down amid a week of Microsoft and FAA outages, Newsweek: [Newsweek](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495)
+- A month of unrelated outages across major cloud, aviation, and banking systems, Newsweek: [Newsweek](https://www.newsweek.com/major-banks-down-america-everything-broken-microsoft-faa-outages-12723495)
+- A major bank outage this month was traced to a software bug, not a cyberattack, CNN: [CNN](https://www.cnn.com/2026/11/16/business/bank-outage-chase-us-bank-bank-of-america)
